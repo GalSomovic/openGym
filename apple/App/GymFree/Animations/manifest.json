@@ -1,0 +1,42 @@
+{
+ "0662": {
+  "name": "push-up",
+  "period": 2.4
+ },
+ "gf-plank": {
+  "name": "plank",
+  "period": 3.2
+ },
+ "0630": {
+  "name": "mountain climber",
+  "period": 1.1
+ },
+ "gf-squat": {
+  "name": "bodyweight squat",
+  "period": 2.6
+ },
+ "3470": {
+  "name": "forward lunge",
+  "period": 3.2
+ },
+ "0652": {
+  "name": "pull-up",
+  "period": 2.8
+ },
+ "1326": {
+  "name": "chin-up",
+  "period": 2.8
+ },
+ "0251": {
+  "name": "chest dip",
+  "period": 2.6
+ },
+ "3013": {
+  "name": "glute bridge",
+  "period": 2.6
+ },
+ "0274": {
+  "name": "crunch",
+  "period": 2.2
+ }
+}

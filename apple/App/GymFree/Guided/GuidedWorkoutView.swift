@@ -80,7 +80,7 @@ private struct StepPanel: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 14) {
-                ExerciseAnimation(exerciseId: step.exerciseId)
+                ExerciseAnimation(exerciseId: step.exerciseId, toggle: true)
                     .frame(maxWidth: 360, maxHeight: demoSize)
                     .clipShape(.rect(cornerRadius: 22))
                     .padding(.top, 4)

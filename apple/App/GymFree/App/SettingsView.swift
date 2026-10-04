@@ -5,6 +5,7 @@ struct SettingsView: View {
     @AppStorage(WorkoutSession.Pref.voice) private var voice = true
     @AppStorage(WorkoutSession.Pref.restAlarm) private var restAlarm = false
     @AppStorage(WorkoutSession.Pref.guidedDefault) private var guidedDefault = false
+    @AppStorage(AnimationStyle.defaultKey) private var animStyle = AnimationStyle.gymfree.rawValue
     @Environment(WorkoutSession.self) private var session
     @Environment(GymStore.self) private var store
 
@@ -25,6 +26,16 @@ struct SettingsView: View {
                             Label("Equipment", systemImage: "dumbbell")
                         }
                     }
+                }
+                Section {
+                    Picker(selection: $animStyle) {
+                        Text("GymFree").tag(AnimationStyle.gymfree.rawValue)
+                        Text("Classic").tag(AnimationStyle.classic.rawValue)
+                    } label: {
+                        Label("Exercise animations", systemImage: "figure.run")
+                    }
+                } footer: {
+                    Text("GymFree draws its own smooth animations for calisthenics exercises; Classic shows the ExerciseDB animation. Switch any single exercise with the toggle on its demo.")
                 }
                 Section {
                     Toggle(isOn: $guidedDefault) { Label("Start workouts in guided mode", systemImage: "figure.strengthtraining.traditional") }

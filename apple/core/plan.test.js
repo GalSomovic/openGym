@@ -117,3 +117,13 @@ describe('library', () => {
     expect(L.detail('0032').st.length).toBeGreaterThan(0)
   })
 })
+
+describe('GymFree extras', () => {
+  it('are in the catalogue and can be planned', () => {
+    expect(L.detail('gf-squat')).toMatchObject({ n: 'bodyweight squat', eq: 'body weight' })
+    expect(L.browse({ q: 'plank' }).ids).toContain('gf-plank')
+    const r = P.addRoutine('Calisthenics')
+    P.addRoutineExercise(r, 'gf-squat')
+    expect(st().routines[0].ex[0].id).toBe('gf-squat')
+  })
+})

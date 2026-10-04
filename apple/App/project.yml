@@ -16,19 +16,28 @@ settings:
 packages:
   OpenGymCore:
     path: ../OpenGymCore
+  Lottie:
+    url: https://github.com/airbnb/lottie-spm
+    from: 4.5.2
 targets:
   GymFree:
     type: application
     platform: iOS
     sources:
       - path: GymFree
+        excludes: [Animations]
       - path: Shared
+      # GymFree's own exercise animations (apple/anim/build.py), committed.
+      - path: GymFree/Animations
+        type: folder
+        buildPhase: resources
       # The ExerciseDB animations: fetched by ../core/fetch-media.sh, never committed.
       - path: ../Media/ExerciseGIFs
         type: folder
         buildPhase: resources
     dependencies:
       - package: OpenGymCore
+      - package: Lottie
       - target: GymFreeWidgets
     preBuildScripts:
       - name: Check exercise media

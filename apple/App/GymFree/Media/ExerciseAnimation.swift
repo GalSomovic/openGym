@@ -1,4 +1,5 @@
 import ImageIO
+import Lottie
 import SwiftUI
 import UIKit
 
@@ -57,29 +58,71 @@ final class GIFStore: @unchecked Sendable {
     }
 }
 
-/// An exercise's demo. Plays on its own unless Reduce Motion is on; then it shows the first
-/// frame and plays on a tap.
+/// Which demo an exercise shows: GymFree's own animation where one exists, or the classic
+/// ExerciseDB GIF. A global choice in Settings, overridden per exercise by the toggle on the demo.
+enum AnimationStyle: String {
+    case gymfree, classic
+
+    static let defaultKey = "gf.animStyle"
+    static let overridesKey = "gf.animOverrides"
+
+    static func has(_ id: String) -> Bool {
+        Bundle.main.url(forResource: id, withExtension: "json", subdirectory: "Animations") != nil
+    }
+
+    static func resolved(for id: String) -> AnimationStyle {
+        let hasOwn = has(id), hasGIF = ExerciseMedia.url(id) != nil
+        if !hasOwn { return .classic }
+        if !hasGIF { return .gymfree }
+        let overrides = UserDefaults.standard.dictionary(forKey: overridesKey) as? [String: String] ?? [:]
+        let pick = overrides[id] ?? UserDefaults.standard.string(forKey: defaultKey) ?? AnimationStyle.gymfree.rawValue
+        return AnimationStyle(rawValue: pick) ?? .gymfree
+    }
+
+    static func set(_ style: AnimationStyle, for id: String) {
+        var overrides = UserDefaults.standard.dictionary(forKey: overridesKey) as? [String: String] ?? [:]
+        overrides[id] = style.rawValue
+        UserDefaults.standard.set(overrides, forKey: overridesKey)
+    }
+}
+
+/// The dark stage GymFree's figures are drawn for, in light and dark mode alike.
+let animationStage = Color(red: 0.106, green: 0.122, blue: 0.141)
+
+/// An exercise's demo. Plays on its own unless Reduce Motion is on; then it holds still and
+/// plays on a tap. `toggle` shows the GymFree / Classic switch when both exist.
 struct ExerciseAnimation: View {
     let exerciseId: String
     var animated = true
+    var toggle = false
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var still: UIImage?
     @State private var loop: UIImage?
     @State private var playRequested = false
+    @State private var style: AnimationStyle = .classic
 
     private var playing: Bool { animated && (!reduceMotion || playRequested) }
+    private var both: Bool { AnimationStyle.has(exerciseId) && ExerciseMedia.url(exerciseId) != nil }
 
     var body: some View {
         ZStack {
-            Color.white
-            if playing, let loop {
-                AnimatedImageView(image: loop)
-            } else if let still {
-                Image(uiImage: still).resizable().scaledToFit()
-            } else if ExerciseMedia.url(exerciseId) == nil {
-                Image(systemName: "figure.strengthtraining.traditional")
-                    .font(.system(size: 28))
-                    .foregroundStyle(.secondary)
+            if style == .gymfree {
+                animationStage
+                LottieView(animation: .named(exerciseId, bundle: .main, subdirectory: "Animations"))
+                    .playbackMode(playing ? .playing(.fromProgress(0, toProgress: 1, loopMode: .loop)) : .paused(at: .progress(0)))
+                    .resizable()
+                    .scaledToFit()
+            } else {
+                Color.white
+                if playing, let loop {
+                    AnimatedImageView(image: loop)
+                } else if let still {
+                    Image(uiImage: still).resizable().scaledToFit()
+                } else if ExerciseMedia.url(exerciseId) == nil {
+                    Image(systemName: "figure.strengthtraining.traditional")
+                        .font(.system(size: 28))
+                        .foregroundStyle(.secondary)
+                }
             }
             if animated, reduceMotion, !playRequested {
                 Image(systemName: "play.circle.fill")
@@ -90,14 +133,47 @@ struct ExerciseAnimation: View {
         }
         .aspectRatio(1, contentMode: .fit)
         .contentShape(Rectangle())
+        .overlay(alignment: .bottomLeading) {
+            if toggle && both { styleToggle.padding(8) }
+        }
         .onTapGesture { if animated, reduceMotion { playRequested.toggle() } }
         .task(id: exerciseId) {
+            style = AnimationStyle.resolved(for: exerciseId)
+            guard style == .classic else { return }
             still = await GIFStore.shared.still(exerciseId)
             if animated { loop = await GIFStore.shared.loop(exerciseId) }
         }
-        .accessibilityElement()
+        .accessibilityElement(children: .contain)
         .accessibilityLabel(Text("Exercise demonstration"))
-        .accessibilityAddTraits(.isImage)
+    }
+
+    private var styleToggle: some View {
+        HStack(spacing: 0) {
+            ForEach([AnimationStyle.gymfree, .classic], id: \.self) { s in
+                Button {
+                    AnimationStyle.set(s, for: exerciseId)
+                    withAnimation(.snappy) { style = s }
+                    if s == .classic, loop == nil {
+                        Task {
+                            still = await GIFStore.shared.still(exerciseId)
+                            if animated { loop = await GIFStore.shared.loop(exerciseId) }
+                        }
+                    }
+                } label: {
+                    Text(s == .gymfree ? "GymFree" : "Classic")
+                        .font(.caption2.weight(.semibold))
+                        .padding(.horizontal, 9).padding(.vertical, 5)
+                        .foregroundStyle(style == s ? Color.black : Color.white)
+                        .background(style == s ? Color.accentColor : Color.clear, in: .capsule)
+                }
+                .buttonStyle(.plain)
+                .accessibilityAddTraits(style == s ? .isSelected : [])
+            }
+        }
+        .padding(2)
+        .background(.black.opacity(0.55), in: .capsule)
+        .accessibilityElement(children: .contain)
+        .accessibilityLabel(Text("Animation style"))
     }
 }
 

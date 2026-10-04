@@ -12,7 +12,7 @@ struct ExerciseDetailView: View {
     var body: some View {
         List {
             Section {
-                ExerciseAnimation(exerciseId: exerciseId)
+                ExerciseAnimation(exerciseId: exerciseId, toggle: true)
                     .frame(maxWidth: 420)
                     .frame(maxWidth: .infinity)
                     .clipShape(.rect(cornerRadius: 18))
@@ -20,7 +20,9 @@ struct ExerciseDetailView: View {
                     .listRowBackground(Color.clear)
             } footer: {
                 if ExerciseMedia.url(exerciseId) != nil {
-                    Text(ExerciseMedia.credit).font(.caption2).frame(maxWidth: .infinity)
+                    Text(AnimationStyle.has(exerciseId)
+                         ? "\(String(localized: "GymFree animation")) · \(ExerciseMedia.credit)"
+                         : ExerciseMedia.credit).font(.caption2).frame(maxWidth: .infinity)
                 }
             }
             if let detail {

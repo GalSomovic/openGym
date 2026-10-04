@@ -27,7 +27,7 @@ struct ExerciseBlockView: View {
     private func content(_ a: ActiveSession, _ e: SessionEntry, _ view: EntryView) -> some View {
         VStack(alignment: .leading, spacing: 10) {
             if showDemo && !demoHidden {
-                ExerciseAnimation(exerciseId: e.id)
+                ExerciseAnimation(exerciseId: e.id, toggle: true)
                     .frame(maxWidth: compact ? 180 : 300, maxHeight: compact ? 180 : 260)
                     .frame(maxWidth: .infinity)
                     .clipShape(.rect(cornerRadius: 16))
