@@ -92,4 +92,64 @@ export const EXTRAS = [
       'Lower your legs under control without swinging.',
     ],
   },
+  {
+    id: 'gf-jumping-jack', n: 'jumping jack', bp: 'cardio', eq: 'body weight', tg: 'cardiovascular system', mg: 'calves',
+    sm: ['calves', 'shoulders', 'hip flexors', 'glutes'],
+    st: [
+      'Stand tall with your feet together and your arms by your sides.',
+      'Jump your feet out wider than your shoulders while swinging your arms out and up overhead.',
+      'Jump back to the start, feet together and arms down.',
+      'Keep a steady rhythm and land softly on the balls of your feet.',
+    ],
+  },
+  {
+    id: 'gf-high-knees', n: 'high knees', bp: 'cardio', eq: 'body weight', tg: 'cardiovascular system', mg: 'hip flexors',
+    sm: ['hip flexors', 'quads', 'calves', 'core'],
+    st: [
+      'Stand tall with your feet hip-width apart.',
+      'Run on the spot, driving each knee up to hip height.',
+      'Pump your arms in time with your legs and stay on the balls of your feet.',
+      'Keep your chest up and your core tight for the set time.',
+    ],
+  },
+  {
+    id: 'gf-pike-push-up', n: 'pike push-up', bp: 'shoulders', eq: 'body weight', tg: 'delts', mg: 'triceps',
+    sm: ['triceps', 'upper chest', 'traps', 'core'],
+    st: [
+      'Start in a push-up position, then walk your feet in and lift your hips high so your body forms an upside-down V.',
+      'Keep your legs as straight as you can and your head between your arms.',
+      'Bend your elbows to lower the top of your head toward the floor, a little ahead of your hands.',
+      'Press back up to straight arms. Keep the hips high throughout.',
+    ],
+  },
+  {
+    id: 'gf-lying-leg-raise', n: 'lying leg raise', bp: 'waist', eq: 'body weight', tg: 'abs', mg: 'hip flexors',
+    sm: ['hip flexors', 'lower abs', 'obliques'],
+    st: [
+      'Lie on your back with your legs straight and your hands by your sides or under your hips.',
+      'Press your lower back into the floor and lift your straight legs until they point at the ceiling.',
+      'Lower them slowly until they hover just above the floor, without arching your back.',
+      'Repeat for the set number of reps.',
+    ],
+  },
+  {
+    id: 'gf-hollow-hold', n: 'hollow body hold', bp: 'waist', eq: 'body weight', tg: 'abs', mg: 'hip flexors',
+    sm: ['hip flexors', 'obliques', 'lower abs'],
+    st: [
+      'Lie on your back with your arms straight overhead and your legs together.',
+      'Press your lower back into the floor and lift your shoulders, arms and legs a few inches off it.',
+      'Your body forms a shallow curve like a banana; keep the lower back down the whole time.',
+      'Hold for the set time, breathing steadily.',
+    ],
+  },
+  {
+    id: 'gf-bird-dog', n: 'bird dog', bp: 'waist', eq: 'body weight', tg: 'abs', mg: 'lower back',
+    sm: ['lower back', 'glutes', 'shoulders'],
+    st: [
+      'Kneel on all fours, hands under your shoulders and knees under your hips.',
+      'Brace your core and reach one arm forward while extending the opposite leg straight back.',
+      'Hold for a moment with your back flat and your hips level.',
+      'Return to all fours and switch sides.',
+    ],
+  },
 ]

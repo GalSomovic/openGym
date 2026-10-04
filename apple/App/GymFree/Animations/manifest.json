@@ -514,5 +514,253 @@
  "0672": {
   "name": "reverse dip",
   "period": 2.4
+ },
+ "0001": {
+  "name": "3/4 sit-up",
+  "period": 2.4
+ },
+ "3204": {
+  "name": "arms overhead full sit-up (male)",
+  "period": 2.4
+ },
+ "3202": {
+  "name": "half sit-up (male)",
+  "period": 2.4
+ },
+ "3201": {
+  "name": "quarter sit-up",
+  "period": 2.4
+ },
+ "3203": {
+  "name": "prisoner half sit-up (male)",
+  "period": 2.4
+ },
+ "3679": {
+  "name": "sit-up with arms on chest",
+  "period": 2.4
+ },
+ "0735": {
+  "name": "sit-up v. 2",
+  "period": 2.4
+ },
+ "0456": {
+  "name": "flexion leg sit up (bent knee)",
+  "period": 2.4
+ },
+ "0457": {
+  "name": "flexion leg sit up (straight arm)",
+  "period": 2.4
+ },
+ "0508": {
+  "name": "janda sit-up",
+  "period": 2.4
+ },
+ "3016": {
+  "name": "curl-up",
+  "period": 2.4
+ },
+ "0267": {
+  "name": "crunch (hands overhead)",
+  "period": 2.4
+ },
+ "3640": {
+  "name": "knee touch crunch",
+  "period": 2.4
+ },
+ "2429": {
+  "name": "frog crunch",
+  "period": 2.4
+ },
+ "0469": {
+  "name": "groin crunch",
+  "period": 2.4
+ },
+ "0634": {
+  "name": "negative crunch",
+  "period": 3.2
+ },
+ "0282": {
+  "name": "decline sit-up",
+  "period": 2.6
+ },
+ "0277": {
+  "name": "decline crunch",
+  "period": 2.4
+ },
+ "0495": {
+  "name": "incline twisting sit-up",
+  "period": 2.8
+ },
+ "0262": {
+  "name": "cross body crunch",
+  "period": 2.6
+ },
+ "0443": {
+  "name": "elbow-to-knee",
+  "period": 2.4
+ },
+ "2312": {
+  "name": "lying elbow to knee",
+  "period": 2.4
+ },
+ "0871": {
+  "name": "tuck crunch",
+  "period": 2.4
+ },
+ "0003": {
+  "name": "air bike",
+  "period": 1.6
+ },
+ "gf-bicycle-crunch": {
+  "name": "bicycle crunch",
+  "period": 1.6
+ },
+ "0006": {
+  "name": "alternate heel touchers",
+  "period": 1.8
+ },
+ "0276": {
+  "name": "dead bug",
+  "period": 3.2
+ },
+ "gf-bird-dog": {
+  "name": "bird dog",
+  "period": 3.2
+ },
+ "0459": {
+  "name": "flutter kicks",
+  "period": 1.2
+ },
+ "0620": {
+  "name": "lying leg raise flat bench",
+  "period": 2.6
+ },
+ "0865": {
+  "name": "lying leg-hip raise",
+  "period": 2.8
+ },
+ "0491": {
+  "name": "incline leg hip raise (leg straight)",
+  "period": 2.8
+ },
+ "2802": {
+  "name": "twisted leg raise",
+  "period": 2.6
+ },
+ "2801": {
+  "name": "twisted leg raise (female)",
+  "period": 2.6
+ },
+ "gf-lying-leg-raise": {
+  "name": "lying leg raise",
+  "period": 2.6
+ },
+ "0872": {
+  "name": "reverse crunch",
+  "period": 2.4
+ },
+ "0484": {
+  "name": "hip raise (bent knee)",
+  "period": 2.4
+ },
+ "3420": {
+  "name": "v-sit on floor",
+  "period": 3.0
+ },
+ "gf-v-up": {
+  "name": "v-up",
+  "period": 2.4
+ },
+ "0507": {
+  "name": "jackknife sit-up",
+  "period": 2.4
+ },
+ "3231": {
+  "name": "two toe touch (male)",
+  "period": 2.4
+ },
+ "0260": {
+  "name": "cocoons",
+  "period": 2.6
+ },
+ "gf-hollow-hold": {
+  "name": "hollow body hold",
+  "period": 3.0
+ },
+ "0687": {
+  "name": "russian twist",
+  "period": 1.8
+ },
+ "0500": {
+  "name": "isometric wipers",
+  "period": 2.4
+ },
+ "0689": {
+  "name": "seated leg raise",
+  "period": 2.2
+ },
+ "0555": {
+  "name": "kick out sit",
+  "period": 1.8
+ },
+ "0570": {
+  "name": "leg pull in flat bench",
+  "period": 1.8
+ },
+ "1468": {
+  "name": "crab twist toe touch",
+  "period": 2.4
+ },
+ "3663": {
+  "name": "reverse plank with leg lift",
+  "period": 3.0
+ },
+ "0464": {
+  "name": "front plank with twist",
+  "period": 2.4
+ },
+ "3665": {
+  "name": "power point plank",
+  "period": 2.6
+ },
+ "3239": {
+  "name": "kneeling plank tap shoulder (male)",
+  "period": 2.4
+ },
+ "2466": {
+  "name": "bridge - mountain climber (cross body)",
+  "period": 1.4
+ },
+ "0807": {
+  "name": "suspended reverse crunch",
+  "period": 2.4
+ },
+ "0805": {
+  "name": "suspended abdominal fallout",
+  "period": 3.0
+ },
+ "1418": {
+  "name": "hug keens to chest",
+  "period": 3.0
+ },
+ "gf-side-plank": {
+  "name": "side plank",
+  "period": 3.0
+ },
+ "1774": {
+  "name": "side bridge hip abduction",
+  "period": 2.6
+ },
+ "1775": {
+  "name": "side plank hip adduction",
+  "period": 2.6
+ },
+ "0705": {
+  "name": "side bridge v. 2",
+  "period": 2.4
+ },
+ "3544": {
+  "name": "bodyweight incline side plank",
+  "period": 3.0
  }
 }

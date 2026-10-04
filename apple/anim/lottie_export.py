@@ -183,6 +183,14 @@ def build(name: str, poses: list[Pose], period: float, active: set[str], props: 
         else:
             foot_shape = lambda c: group([rect(s(0.04), s(L['heel']) * 0.45, s(L['foot']) + s(0.03), s(L['heel']) * 1.5 + s(0.012),
                                                s(0.02))], c, "foot")
+        if view == "front":
+            # Hips across the torso: hang the legs off the torso so a body lying on its side
+            # keeps its hips stacked.
+            return limb_chain("leg" + side, side, None, torso_abs, [0, s(lat(side, FRONT_HIP))],
+                              [("thigh", lambda p: lim(p).a1, L['thigh'], lambda c: capsule(s(L['thigh']), s(T['thigh']), c, "thigh", s(TE['thigh']))),
+                               ("shin", lambda p: lim(p).a2, L['shin'], lambda c: capsule(s(L['shin']), s(T['shin']), c, "shin", s(TE['shin']))),
+                               ("foot", lambda p: lim(p).a3, L['foot'], foot_shape)],
+                              None, key)
         return limb_chain("leg" + side, side, None, [0.0] * len(poses),
                           [s(lat(side, FRONT_HIP)), 0],
                           [("thigh", lambda p: lim(p).a1, L['thigh'], lambda c: capsule(s(L['thigh']), s(T['thigh']), c, "thigh", s(TE['thigh']))),
@@ -215,7 +223,7 @@ def build(name: str, poses: list[Pose], period: float, active: set[str], props: 
 
     # Arm chains hang off the torso: fix their first parent now that the torso exists.
     for lay in layers:
-        if lay["nm"] in ("armf_upper", "armn_upper"):
+        if lay["nm"] in ("armf_upper", "armn_upper") or (view == "front" and lay["nm"] in ("legf_thigh", "legn_thigh")):
             lay["parent"] = torso_ind
     # Far arm was added before the torso; Lottie allows any order for parenting.
 

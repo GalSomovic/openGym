@@ -5,7 +5,6 @@ struct SettingsView: View {
     @AppStorage(WorkoutSession.Pref.voice) private var voice = true
     @AppStorage(WorkoutSession.Pref.restAlarm) private var restAlarm = false
     @AppStorage(WorkoutSession.Pref.guidedDefault) private var guidedDefault = false
-    @AppStorage(AnimationStyle.defaultKey) private var animStyle = AnimationStyle.gymfree.rawValue
     @Environment(WorkoutSession.self) private var session
     @Environment(GymStore.self) private var store
 
@@ -26,16 +25,6 @@ struct SettingsView: View {
                             Label("Equipment", systemImage: "dumbbell")
                         }
                     }
-                }
-                Section {
-                    Picker(selection: $animStyle) {
-                        Text("GymFree").tag(AnimationStyle.gymfree.rawValue)
-                        Text("Classic").tag(AnimationStyle.classic.rawValue)
-                    } label: {
-                        Label("Exercise animations", systemImage: "figure.run")
-                    }
-                } footer: {
-                    Text("GymFree draws its own smooth animations for calisthenics exercises; Classic shows the ExerciseDB animation. Switch any single exercise with the toggle on its demo.")
                 }
                 Section {
                     Toggle(isOn: $guidedDefault) { Label("Start workouts in guided mode", systemImage: "figure.strengthtraining.traditional") }
@@ -93,13 +82,39 @@ struct AboutView: View {
                 Link(destination: URL(string: "https://github.com/melihcolpan/MuscleMap")!) {
                     Label("MuscleMap by Melih Colpan (MIT)", systemImage: "figure.stand")
                 }
+                NavigationLink { MediaCreditsView() } label: {
+                    Label("Exercise media credits", systemImage: "photo.on.rectangle")
+                }
             } header: {
                 Text("Thanks to")
             } footer: {
-                Text("Exercise animations © AscendAPI (ExerciseDB), used under its free non-commercial licence.")
+                Text("Exercise animations © AscendAPI (ExerciseDB), used under its free non-commercial licence. Videos and illustrations from wger, Wikimedia Commons and Feeel are used under their open licences (mostly CC BY-SA 4.0; US Army clips are public domain).")
             }
         }
         .navigationTitle("About")
+        .navigationBarTitleDisplayMode(.inline)
+    }
+}
+
+
+/// Author and licence of every free video and illustration in the app (CC BY-SA requires it).
+struct MediaCreditsView: View {
+    var body: some View {
+        List {
+            ForEach(Dictionary(grouping: MediaLibrary.credits, by: \.source).sorted { $0.key < $1.key }, id: \.key) { source, items in
+                Section(source) {
+                    ForEach(items) { c in
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(c.credit).font(.footnote)
+                            if let link = c.link {
+                                Link(link.absoluteString, destination: link).font(.caption2).lineLimit(1)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .navigationTitle("Media credits")
         .navigationBarTitleDisplayMode(.inline)
     }
 }

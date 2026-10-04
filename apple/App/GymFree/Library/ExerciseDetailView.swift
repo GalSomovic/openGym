@@ -19,11 +19,8 @@ struct ExerciseDetailView: View {
                     .listRowInsets(EdgeInsets())
                     .listRowBackground(Color.clear)
             } footer: {
-                if ExerciseMedia.url(exerciseId) != nil {
-                    Text(AnimationStyle.has(exerciseId)
-                         ? "\(String(localized: "GymFree animation")) · \(ExerciseMedia.credit)"
-                         : ExerciseMedia.credit).font(.caption2).frame(maxWidth: .infinity)
-                }
+                Text("Use the arrows to switch between the versions available for this exercise.")
+                    .font(.caption2).frame(maxWidth: .infinity)
             }
             if let detail {
                 Section {

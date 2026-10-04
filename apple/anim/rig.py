@@ -113,7 +113,8 @@ class Pose:
     def hip_joint(self, side='n') -> Vec:
         if self.view != "front":
             return self.hip
-        return add(self.hip, (FRONT_HIP if side == 'n' else -FRONT_HIP, 0))
+        # Either side of the spine, across the torso (level when standing).
+        return add(self.hip, v(self.torso - 90 if side == 'n' else self.torso + 90, FRONT_HIP))
 
     def elbow(self, side='n') -> Vec:
         arm = self.arm_n if side == 'n' else self.arm_f

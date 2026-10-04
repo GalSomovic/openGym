@@ -1,0 +1,292 @@
+12	Seated Hip Adduction		0598:lever seated hip adduction[leverage machine]=0.75	0168:cable hip adduction[cable]=0.50	0597:lever seated hip abduction[leverage machine]=0.40
+31	Axe Hold	Dumbbell	0001:3/4 sit-up[body weight]=0.00	0002:45° side bend[body weight]=0.00	0003:air bike[body weight]=0.00
+41	Barbell Ab Rollout	Barbell	0103:barbell standing ab rollerout[barbell]=0.40	0031:barbell curl[barbell]=0.25	0032:barbell deadlift[barbell]=0.25
+46	Barbell Lunges Standing	Barbell	0054:barbell lunge[barbell]=0.67	1410:barbell lateral lunge[barbell]=0.50	0078:barbell rear lunge[barbell]=0.50
+50	Barbell Triceps Extension	Barbell	0061:barbell lying triceps extension[barbell]=0.75	0637:olympic barbell triceps extension[olympic barbell]=0.75	0056:barbell lying close-grip triceps extension[barbell]=0.60
+51	Barbell Wrist Curl	Barbell/Bench	0126:barbell wrist curl[barbell]=2.00	0125:barbell wrist curl v. 2[barbell]=1.00	0079:barbell revers wrist curl v. 2[barbell]=0.75
+73	Bench Press	Barbell/Bench	1254:band bench press[band]=0.67	0025:barbell bench press[barbell]=0.67	0151:cable bench press[cable]=0.67
+75	Benchpress Dumbbells	Bench/Dumbbell	1201:dumbbell burpee[dumbbell]=0.33	0295:dumbbell clean[dumbbell]=0.33	0300:dumbbell deadlift[dumbbell]=0.33
+76	Bench Press Narrow Grip	Barbell/Bench	0352:dumbbell neutral grip bench press[dumbbell]=0.50	1308:smith wide grip bench press[smith machine]=0.50	1719:barbell incline close grip bench press[barbell]=0.43
+79	Bent High Pulls	Dumbbell	0096:barbell side bent v. 2[barbell]=0.20	1664:dumbbell high curl[dumbbell]=0.20	0524:kettlebell bent press[kettlebell]=0.20
+81	Bent Over Dumbbell Rows (Single Arm)	Bench/Dumbbell	0293:dumbbell bent over row[dumbbell]=0.67	0064:barbell one arm bent over row[barbell]=0.50	0189:cable one arm bent over row[cable]=0.50
+82	Bent-over Lateral Raises	Bench/Dumbbell	0178:cable lateral raise[cable]=0.50	0334:dumbbell lateral raise[dumbbell]=0.50	3237:landmine lateral raise[barbell]=0.50
+83	Bent Over Rowing	Barbell	0027:barbell bent over row[barbell]=0.40	0293:dumbbell bent over row[dumbbell]=0.40	0574:lever bent over row[barbell]=0.40
+84	Bent Over Rowing Reverse	Barbell	0118:barbell reverse grip bent over row[barbell]=0.43	1361:smith reverse grip bent over row[smith machine]=0.43	1344:ez bar reverse grip bent over row[ez barbell]=0.38
+91	Biceps Curls With Barbell	Barbell	0023:barbell alternate biceps curl[barbell]=0.75	0031:barbell curl[barbell]=0.67	2407:barbell biceps curl (with arm blaster)[barbell]=0.60
+92	Biceps Curls With Dumbbell	Dumbbell	0294:dumbbell biceps curl[dumbbell]=1.00	0285:dumbbell alternate biceps curl[dumbbell]=0.75	1654:dumbbell biceps curl reverse[dumbbell]=0.75
+94	Biceps Curls With SZ-bar	SZ-Bar	0294:dumbbell biceps curl[dumbbell]=0.50	0968:band alternating biceps curl[band]=0.40	0023:barbell alternate biceps curl[barbell]=0.40
+95	Biceps Curl With Cable	Cable machine	0868:cable curl[cable]=0.67	1631:cable concentration curl[cable]=0.50	1632:cable drag curl[cable]=0.50
+129	Chest Press		0577:lever chest press[leverage machine]=0.67	0576:lever chest press[leverage machine]=0.67	2144:cable seated chest press[cable]=0.50
+135	Butterfly		1494:butterfly yoga pose[body weight]=0.33	0001:3/4 sit-up[body weight]=0.00	0002:45° side bend[body weight]=0.00
+146	Calf Press Using Leg Press Machine		1391:sled calf press on leg press[sled machine]=0.50	1385:lever seated squat calf raise on leg press machine[leverage machine]=0.44	1392:sled one leg calf press on leg press[sled machine]=0.43
+152	Chin Up	Pull-up bar	1326:chin-up[body weight]=2.00	1431:assisted standing chin-up[leverage machine]=0.33	1327:close grip chin-up[body weight]=0.33
+158	Close-grip Lat Pull Down		0259:close-grip push-up[body weight]=0.20	0776:snatch pull[barbell]=0.20	0974:band close-grip pulldown[band]=0.17
+161	Cross-Bench Dumbbell Pullovers	Dumbbell	1201:dumbbell burpee[dumbbell]=0.25	0295:dumbbell clean[dumbbell]=0.25	0300:dumbbell deadlift[dumbbell]=0.25
+167	Crunches	Gym mat	0274:crunch floor[body weight]=0.50	0277:decline crunch[body weight]=0.50	2429:frog crunch[body weight]=0.50
+171	Incline Crunches	Incline bench	0274:crunch floor[body weight]=0.33	0277:decline crunch[body weight]=0.33	2429:frog crunch[body weight]=0.33
+184	Deadlifts	Barbell	0001:3/4 sit-up[body weight]=0.00	0002:45° side bend[body weight]=0.00	0003:air bike[body weight]=0.00
+185	Decline Bench Press Barbell	Barbell/Bench	0033:barbell decline bench press[barbell]=1.00	0025:barbell bench press[barbell]=0.75	1256:barbell reverse grip decline bench press[barbell]=0.67
+194	Dips	none (bodyweight exercise)	0251:chest dip[body weight]=0.50	3287:elbow dips[body weight]=0.50	3289:impossible dips[body weight]=0.50
+197	Dips Between Two Benches	Bench	0813:triceps dip (between benches)[body weight]=0.60	0251:chest dip[body weight]=0.20	3287:elbow dips[body weight]=0.20
+203	Dumbbell Goblet Squat	Dumbbell	1760:dumbbell goblet squat[dumbbell]=2.00	0413:dumbbell squat[dumbbell]=0.67	0291:dumbbell bench squat[dumbbell]=0.50
+205	Dumbbell Lunges Standing	Dumbbell	0336:dumbbell lunge[dumbbell]=0.67	0381:dumbbell rear lunge[dumbbell]=0.50	0420:dumbbell standing kickback[dumbbell]=0.50
+206	Dumbbell Lunges Walking	Dumbbell	0336:dumbbell lunge[dumbbell]=0.67	1460:walking lunge[body weight]=0.67	0381:dumbbell rear lunge[dumbbell]=0.50
+211	Dumbbell Triceps Extension	Dumbbell	0306:dumbbell decline triceps extension[dumbbell]=0.75	0330:dumbbell incline triceps extension[dumbbell]=0.75	0351:dumbbell lying triceps extension[dumbbell]=0.75
+222	Facepull	Cable machine	0001:3/4 sit-up[body weight]=0.00	0002:45° side bend[body weight]=0.00	0003:air bike[body weight]=0.00
+237	Fly With Cable	Cable machine	0158:cable decline fly[cable]=0.67	0171:cable incline fly[cable]=0.67	0179:cable low fly[cable]=0.67
+238	Fly With Dumbbells	Dumbbell	0308:dumbbell fly[dumbbell]=1.00	0302:dumbbell decline fly[dumbbell]=0.67	0319:dumbbell incline fly[dumbbell]=0.67
+245	Skullcrusher Dumbbells	Bench/Dumbbell	1201:dumbbell burpee[dumbbell]=0.33	0295:dumbbell clean[dumbbell]=0.33	0300:dumbbell deadlift[dumbbell]=0.33
+246	Skullcrusher SZ-bar	Bench/SZ-Bar	1721:barbell reverse grip skullcrusher[barbell]=0.20	2406:cable reverse grip triceps pushdown (sz-bar) (with arm blaster)[cable]=0.11	0001:3/4 sit-up[body weight]=0.00
+256	Front Raises	Barbell/Dumbbell	0978:band front raise[band]=0.67	0041:barbell front raise[barbell]=0.67	0162:cable front raise[cable]=0.67
+257	Front Squats	Barbell	0042:barbell front squat[barbell]=0.67	0533:kettlebell front squat[kettlebell]=0.67	0024:barbell bench front squat[barbell]=0.50
+265	Glute Bridge		1409:barbell glute bridge[barbell]=0.67	3561:glute bridge march[body weight]=0.67	3013:low glute bridge on floor[body weight]=0.50
+272	Hammer Curls	Dumbbell	0313:dumbbell hammer curl[dumbbell]=0.67	0312:dumbbell hammer curl v. 2[dumbbell]=0.67	0165:cable hammer curl (with rope)[cable]=0.50
+275	Hammercurls on Cable	Cable machine	0868:cable curl[cable]=0.33	0157:cable deadlift[cable]=0.33	0860:cable kickback[cable]=0.33
+279	Hand Grip		1327:close grip chin-up[body weight]=0.25	0627:mixed grip chin-up[body weight]=0.25	0651:pull up (neutral grip)[body weight]=0.25
+282	Handstand Pushup	none (bodyweight exercise)	0471:handstand push-up[body weight]=2.00	3302:handstand[body weight]=0.50	0662:push-up[body weight]=0.50
+285	High Knee Jumps		3636:high knee against wall[body weight]=0.40	3220:astride jumps (male)[body weight]=0.25	3219:scissor jumps (male)[body weight]=0.25
+294	Hip Thrust	Barbell/Bench	1408:band hip lift[band]=0.25	0130:bench hip extension[body weight]=0.25	0168:cable hip adduction[cable]=0.25
+297	Hollow Hold	Gym mat	0001:3/4 sit-up[body weight]=0.00	0002:45° side bend[body weight]=0.00	0003:air bike[body weight]=0.00
+301	Hyperextensions		0001:3/4 sit-up[body weight]=0.00	0002:45° side bend[body weight]=0.00	0003:air bike[body weight]=0.00
+320	Jumping Jacks		0001:3/4 sit-up[body weight]=0.00	0002:45° side bend[body weight]=0.00	0003:air bike[body weight]=0.00
+323	Cable Cross-over	Cable machine	0155:cable cross-over variation[cable]=0.67	0153:cable cross-over lateral pulldown[cable]=0.50	0154:cable cross-over revers fly[cable]=0.50
+341	Squats on Multipress		1004:band squat[band]=0.33	3769:curtsey squat[body weight]=0.33	0413:dumbbell squat[dumbbell]=0.33
+348	Lateral Raises	Dumbbell	0178:cable lateral raise[cable]=0.67	0334:dumbbell lateral raise[dumbbell]=0.67	3237:landmine lateral raise[barbell]=0.67
+349	Lateral Rows on Cable, One Armed	Cable machine	0191:cable one arm lateral bent-over[cable]=0.43	0192:cable one arm lateral raise[cable]=0.43	0189:cable one arm bent over row[cable]=0.38
+364	Leg Curl		1770:biceps leg concentration curl[body weight]=0.50	0582:lever kneeling leg curl[leverage machine]=0.50	0586:lever lying leg curl[leverage machine]=0.50
+365	Leg Curls (laying)		1770:biceps leg concentration curl[body weight]=0.40	0582:lever kneeling leg curl[leverage machine]=0.40	0586:lever lying leg curl[leverage machine]=0.40
+366	Leg Curls (sitting)		1770:biceps leg concentration curl[body weight]=0.40	0582:lever kneeling leg curl[leverage machine]=0.40	0586:lever lying leg curl[leverage machine]=0.40
+367	Leg Curls (standing)		0795:standing single leg curl[body weight]=0.75	0853:weighted standing curl[weighted]=0.50	2414:barbell standing concentration curl[barbell]=0.40
+369	Leg Extension		0585:lever leg extension[leverage machine]=0.67	3007:resistance band leg extension[resistance band]=0.50	0057:barbell lying extension[barbell]=0.25
+371	Leg Press		0760:smith leg press[smith machine]=0.67	2287:lever alternate leg press[leverage machine]=0.50	0739:sled 45° leg press[sled machine]=0.50
+373	Leg Presses (narrow)		0760:smith leg press[smith machine]=0.50	2287:lever alternate leg press[leverage machine]=0.40	0739:sled 45° leg press[sled machine]=0.40
+374	Leg Presses (wide)		0740:sled 45° leg wide press[sled machine]=0.60	0760:smith leg press[smith machine]=0.50	0122:barbell wide bench press[barbell]=0.40
+375	Leg Press on Hackenschmidt Machine		0760:smith leg press[smith machine]=0.40	2287:lever alternate leg press[leverage machine]=0.33	1385:lever seated squat calf raise on leg press machine[leverage machine]=0.33
+377	Leg Raises, Lying	Gym mat	1002:band lying straight leg raise[band]=0.60	0620:lying leg raise flat bench[body weight]=0.60	0013:assisted lying leg raise with throw down[assisted]=0.50
+394	Long-Pulley (low Row)	Cable machine	0180:cable low seated row[cable]=0.40	0988:band one arm standing low row[band]=0.29	0499:inverted row[body weight]=0.25
+418	Military Press mit SZ-Bar	SZ-Bar	0587:lever military press[leverage machine]=0.40	0774:smith standing military press[smith machine]=0.33	1457:barbell standing wide military press[barbell]=0.29
+427	Negative Crunches		0634:negative crunch[body weight]=2.00	0274:crunch floor[body weight]=0.33	0277:decline crunch[body weight]=0.33
+454	Pike Push Ups	none (bodyweight exercise)	1296:exercise ball pike push up[stability ball]=0.50	0662:push-up[body weight]=0.50	3294:archer push up[body weight]=0.33
+456	Pistol Squat		0544:kettlebell pistol squat[kettlebell]=0.67	1759:single leg squat (pistol) male[body weight]=0.50	1004:band squat[band]=0.33
+458	Plank	none (bodyweight exercise)	gf-plank:plank[body weight]=2.00	0464:front plank with twist[body weight]=0.33	3665:power point plank[body weight]=0.33
+465	Preacher Curls	SZ-Bar	0070:barbell preacher curl[barbell]=0.67	0195:cable preacher curl[cable]=0.67	0372:dumbbell preacher curl[dumbbell]=0.67
+475	Pull-ups	Pull-up bar	0652:pull-up[body weight]=2.00	3293:archer pull up[body weight]=0.50	0017:assisted pull-up[leverage machine]=0.50
+477	Pull Ups on Machine		0652:pull-up[body weight]=0.50	3293:archer pull up[body weight]=0.33	0017:assisted pull-up[leverage machine]=0.33
+478	Push Press		1700:dumbbell push press[dumbbell]=0.67	0528:kettlebell double push press[kettlebell]=0.50	0540:kettlebell one arm push press[kettlebell]=0.40
+484	Rack Deadlift		0032:barbell deadlift[barbell]=0.33	0157:cable deadlift[cable]=0.33	0300:dumbbell deadlift[dumbbell]=0.33
+487	Rear Delt Raises	Dumbbell	0075:barbell rear delt raise[barbell]=0.75	2292:dumbbell rear delt raise[dumbbell]=0.75	2470:dumbbell lying on floor rear delt raise[dumbbell]=0.50
+507	Romanian Deadlift	Barbell	0085:barbell romanian deadlift[barbell]=0.67	1459:dumbbell romanian deadlift[dumbbell]=0.67	0032:barbell deadlift[barbell]=0.33
+512	Rowing seated, narrow grip		0588:lever narrow grip seated row[leverage machine]=0.50	0571:lever alternating narrow grip seated row[leverage machine]=0.43	0253:chin-ups (narrow parallel grip)[body weight]=0.33
+513	Rowing, T-bar		1349:lever reverse t-bar row[leverage machine]=0.20	1351:lever t-bar reverse grip row[leverage machine]=0.17	0001:3/4 sit-up[body weight]=0.00
+537	Incline Bench Press - Dumbbell	Dumbbell/Incline bench	0314:dumbbell incline bench press[dumbbell]=0.80	0289:dumbbell bench press[dumbbell]=0.60	1623:dumbbell palms in incline bench press[dumbbell]=0.57
+538	Incline Bench Press - Barbell	Barbell/Incline bench	0047:barbell incline bench press[barbell]=0.80	0025:barbell bench press[barbell]=0.60	1719:barbell incline close grip bench press[barbell]=0.57
+539	Incline Bench Press - MP		0047:barbell incline bench press[barbell]=0.50	0169:cable incline bench press[cable]=0.50	0314:dumbbell incline bench press[dumbbell]=0.50
+543	Shoulder Press, on Machine		0997:band shoulder press[band]=0.50	0219:cable shoulder press[cable]=0.50	0603:lever shoulder press[leverage machine]=0.50
+566	Shoulder Press, Barbell	Barbell	0997:band shoulder press[band]=0.50	0025:barbell bench press[barbell]=0.50	0028:barbell clean and press[barbell]=0.50
+567	Shoulder Press, Dumbbells	Dumbbell	0405:dumbbell seated shoulder press[dumbbell]=0.75	0361:dumbbell one arm shoulder press[dumbbell]=0.60	0360:dumbbell one arm shoulder press v. 2[dumbbell]=0.60
+570	Shoulder Shrug	none (bodyweight exercise)	1018:band shrug[band]=0.33	0095:barbell shrug[barbell]=0.33	0220:cable shrug[cable]=0.33
+571	Shrugs, Barbells	Barbell	0001:3/4 sit-up[body weight]=0.00	0002:45° side bend[body weight]=0.00	0003:air bike[body weight]=0.00
+572	Shrugs, Dumbbells	Dumbbell	1201:dumbbell burpee[dumbbell]=0.33	0295:dumbbell clean[dumbbell]=0.33	0300:dumbbell deadlift[dumbbell]=0.33
+575	Shrugs on Multipress		0001:3/4 sit-up[body weight]=0.00	0002:45° side bend[body weight]=0.00	0003:air bike[body weight]=0.00
+576	Side Crunch	Gym mat	0223:cable side crunch[cable]=0.67	0691:seated side crunch (wall)[body weight]=0.50	0221:cable side bend crunch (bosu ball)[cable]=0.33
+584	Single-arm Preacher Curl	Dumbbell	0070:barbell preacher curl[barbell]=0.50	0195:cable preacher curl[cable]=0.50	0372:dumbbell preacher curl[dumbbell]=0.50
+590	Sitting Calf Raises		0284:donkey calf raise[body weight]=0.50	1383:hack calf raise[sled machine]=0.50	1370:barbell floor calf raise[barbell]=0.40
+622	Standing Calf Raises		1372:barbell standing calf raise[barbell]=0.75	1373:bodyweight standing calf raise[body weight]=0.75	1375:cable standing calf raise[cable]=0.75
+630	Sumo Deadlift		0117:barbell sumo deadlift[barbell]=0.67	0032:barbell deadlift[barbell]=0.33	0157:cable deadlift[cable]=0.33
+655	Tricep Dumbbell Kickback	Dumbbell	0333:dumbbell kickback[dumbbell]=0.67	1739:dumbbell standing alternating tricep kickback[dumbbell]=0.60	1742:dumbbell tricep kickback with stork stance[dumbbell]=0.60
+659	Triceps Extensions on Cable	Cable machine	0149:cable alternate triceps extension[cable]=0.40	0173:cable incline triceps extension[cable]=0.40	0176:cable kneeling triceps extension[cable]=0.40
+691	Upright Row, on Multi Press		0120:barbell upright row[barbell]=0.40	0119:barbell upright row v. 2[barbell]=0.40	0246:cable upright row[cable]=0.40
+693	Upright Row, SZ-bar	SZ-Bar	0120:barbell upright row[barbell]=0.50	0119:barbell upright row v. 2[barbell]=0.50	0246:cable upright row[cable]=0.50
+694	Upright Row w/ Dumbbells	Dumbbell	0437:dumbbell upright row[dumbbell]=0.75	0363:dumbbell one arm upright row[dumbbell]=0.50	1765:dumbbell upright row (back pov)[dumbbell]=0.50
+802	Barbell Lunges Walking	Barbell	0054:barbell lunge[barbell]=0.67	1460:walking lunge[body weight]=0.67	1410:barbell lateral lunge[barbell]=0.50
+803	One Arm Triceps Extensions on Cable	Cable machine	0231:cable standing one arm triceps extension[cable]=0.57	0190:cable one arm curl[cable]=0.50	3563:cable one arm pulldown[cable]=0.50
+804	Sloper hanging	none (bodyweight exercise)	0473:hanging pike[body weight]=0.33	0472:hanging leg raise[body weight]=0.25	0011:assisted hanging knee raise[assisted]=0.20
+805	Tricep Pushdown on Cable	Cable machine	0201:cable pushdown[cable]=0.67	1723:cable one arm tricep pushdown[cable]=0.60	0172:cable incline pushdown[cable]=0.50
+822	Cable Rear Delt Fly	Cable machine	0202:cable rear delt row (stirrups)[cable]=0.50	0203:cable rear delt row (with rope)[cable]=0.50	3697:cable kneeling rear delt row (with rope) (male)[cable]=0.43
+828	Incline Bench Reverse Fly	Dumbbell/Incline bench	1257:barbell reverse grip incline bench press[barbell]=0.43	1317:barbell reverse grip incline bench row[barbell]=0.43	0993:band reverse fly[band]=0.40
+909	Reverse Nordic Curl		0080:barbell reverse curl[barbell]=0.50	0206:cable reverse curl[cable]=0.50	0994:band reverse wrist curl[band]=0.40
+912	Straight Bar Cable Curls	Cable machine	0868:cable curl[cable]=0.50	1631:cable concentration curl[cable]=0.40	1632:cable drag curl[cable]=0.40
+915	Bus Drivers		0001:3/4 sit-up[body weight]=0.00	0002:45° side bend[body weight]=0.00	0003:air bike[body weight]=0.00
+916	Smith Press	Incline bench	0748:smith bench press[smith machine]=0.67	0760:smith leg press[smith machine]=0.67	0764:smith reverse-grip press[smith machine]=0.67
+925	Smith Machine Slight Incline Press		0757:smith incline bench press[smith machine]=0.50	0758:smith incline reverse-grip press[smith machine]=0.50	1752:smith machine incline tricep extension[smith machine]=0.43
+926	Machine chest fly		1301:machine inner chest press[leverage machine]=0.40	1262:cable one arm decline chest fly[cable]=0.29	0251:chest dip[body weight]=0.25
+927	Suspended crossess	none (bodyweight exercise)	0806:suspended push-up[body weight]=0.33	0808:suspended row[body weight]=0.33	0805:suspended abdominal fallout[body weight]=0.25
+957	Quadriped Arm and Leg Raise	none (bodyweight exercise)	0472:hanging leg raise[body weight]=0.40	0689:seated leg raise[body weight]=0.40	2802:twisted leg raise[body weight]=0.40
+958	Biceps with TRX	none (bodyweight exercise)	0140:biceps pull-up[body weight]=0.33	0139:biceps narrow pull-ups[body weight]=0.25	0294:dumbbell biceps curl[dumbbell]=0.25
+959	TRX Rows	none (bodyweight exercise)	0499:inverted row[body weight]=0.33	0497:inverted row v. 2[body weight]=0.33	0808:suspended row[body weight]=0.33
+960	Kettlebell Swing	Kettlebell	0549:kettlebell swing[kettlebell]=2.00	0550:kettlebell thruster[kettlebell]=0.33	0554:kettlebell windmill[kettlebell]=0.33
+975	one-handed kettlebell curls	Kettlebell	0031:barbell curl[barbell]=0.25	0868:cable curl[cable]=0.25	0455:finger curls[barbell]=0.25
+976	Medicine ball booklet crunch	none (bodyweight exercise)	0271:crunch (on stability ball)[stability ball]=0.40	0663:push-up medicine ball[medicine ball]=0.40	1302:medicine ball chest pass[medicine ball]=0.33
+977	Box squat	none (bodyweight exercise)	1004:band squat[band]=0.33	3769:curtsey squat[body weight]=0.33	0413:dumbbell squat[dumbbell]=0.33
+978	Knee Raises	Pull-up bar	0011:assisted hanging knee raise[assisted]=0.50	1761:hanging oblique knee raise[body weight]=0.50	0484:hip raise (bent knee)[body weight]=0.50
+979	Leg raises pull up bar	Pull-up bar	0472:hanging leg raise[body weight]=0.40	0689:seated leg raise[body weight]=0.40	2802:twisted leg raise[body weight]=0.40
+981	Step-ups	Bench	0001:3/4 sit-up[body weight]=0.00	0002:45° side bend[body weight]=0.00	0003:air bike[body weight]=0.00
+983	High knees	none (bodyweight exercise)	3655:walking high knees lunge[body weight]=0.50	0102:barbell squat (on knees)[barbell]=0.25	2398:close-grip push-up (on knees)[body weight]=0.25
+984	Lunges	none (bodyweight exercise)	0054:barbell lunge[barbell]=0.50	0336:dumbbell lunge[dumbbell]=0.50	3470:forward lunge (male)[body weight]=0.50
+988	Bulgarian split squats left	none (bodyweight exercise)	gf-bulgarian-split-squat:bulgarian split squat[body weight]=0.75	2368:split squats[body weight]=0.50	2810:barbell split squat v. 2[barbell]=0.40
+990	Kneeling kickbacks	none (bodyweight exercise)	3211:kneeling push-up (male)[body weight]=0.33	0175:cable kneeling crunch[cable]=0.25	1420:kneeling jump squat[barbell]=0.25
+999	Reverse lunges	none (bodyweight exercise)	gf-reverse-lunge:reverse lunge[body weight]=2.00	0054:barbell lunge[barbell]=0.33	0336:dumbbell lunge[dumbbell]=0.33
+1000	Floor dips	none (bodyweight exercise)	1399:bench dip on floor[body weight]=0.67	0815:triceps dips floor[body weight]=0.67	0251:chest dip[body weight]=0.33
+1002	Child's pose	none (bodyweight exercise)	1494:butterfly yoga pose[body weight]=0.20	1582:reclining big toe pose with rope[rope]=0.14	1587:seated wide angle pose sequence[body weight]=0.14
+1003	Kettlebell deadlifts	Kettlebell	0549:kettlebell swing[kettlebell]=0.33	0550:kettlebell thruster[kettlebell]=0.33	0554:kettlebell windmill[kettlebell]=0.33
+1007	Head turns	none (bodyweight exercise)	1259:behind head chest stretch[assisted]=0.20	1720:barbell lying back of the head tricep extension[barbell]=0.14	0086:barbell seated behind head military press[barbell]=0.14
+1012	Alternating bicep curls	Dumbbell	0575:lever bicep curl[leverage machine]=0.50	1650:dumbbell alternating seated bicep curl on exercise ball[dumbbell]=0.43	0968:band alternating biceps curl[band]=0.40
+1018	Head tilts	none (bodyweight exercise)	1259:behind head chest stretch[assisted]=0.20	1720:barbell lying back of the head tricep extension[barbell]=0.14	0086:barbell seated behind head military press[barbell]=0.14
+1022	Single Arm Plank to Row	Kettlebell	0725:single arm push-up[body weight]=0.33	0541:kettlebell one arm row[kettlebell]=0.29	1345:kettlebell two arm row[kettlebell]=0.29
+1080	Hindu Pushups		3217:modified hindu push-up (male)[body weight]=0.67	0662:push-up[body weight]=0.50	3294:archer push up[body weight]=0.33
+1084	Dumbbell Floor Press	Dumbbell	2137:dumbbell arnold press[dumbbell]=0.50	0287:dumbbell arnold press v. 2[dumbbell]=0.50	0289:dumbbell bench press[dumbbell]=0.50
+1086	Close-grip Press-ups	none (bodyweight exercise)	0259:close-grip push-up[body weight]=2.00	0975:band close-grip push-up[band]=0.67	2398:close-grip push-up (on knees)[body weight]=0.67
+1087	Dumbbell Hang Power Cleans	Dumbbell	1201:dumbbell burpee[dumbbell]=0.20	0295:dumbbell clean[dumbbell]=0.20	0300:dumbbell deadlift[dumbbell]=0.20
+1088	Dumbbell sumo deadlift	Dumbbell	0300:dumbbell deadlift[dumbbell]=0.67	0117:barbell sumo deadlift[barbell]=0.50	1459:dumbbell romanian deadlift[dumbbell]=0.50
+1089	Medicine ball twist	Swiss Ball	0663:push-up medicine ball[medicine ball]=0.50	1302:medicine ball chest pass[medicine ball]=0.40	1354:medicine ball overhead slam[medicine ball]=0.40
+1091	Plank Shoulder Taps	Gym mat	3239:kneeling plank tap shoulder (male)[body weight]=0.40	gf-plank:plank[body weight]=0.33	3699:shoulder tap[body weight]=0.25
+1098	Seated rear delt rise	Dumbbell	0075:barbell rear delt raise[barbell]=0.33	0076:barbell rear delt row[barbell]=0.33	2292:dumbbell rear delt raise[dumbbell]=0.33
+1100	Wall balls	Swiss Ball	0659:push-up (wall)[body weight]=0.33	0658:push-up (wall) v. 2[body weight]=0.33	gf-wall-sit:wall sit[body weight]=0.33
+1105	Seated Knee Tuck	none (bodyweight exercise)	0871:tuck crunch[body weight]=0.25	1011:band seated twist[band]=0.20	0094:barbell seated twist[barbell]=0.20
+1109	Cable Concentration Curl	Cable machine	1631:cable concentration curl[cable]=2.00	0868:cable curl[cable]=0.67	0976:band concentration curl[band]=0.50
+1112	Push-Ups | Decline	Bench/Incline bench	0279:decline push-up[body weight]=1.00	0662:push-up[body weight]=0.50	3294:archer push up[body weight]=0.33
+1117	Seated Cable Row	Cable machine	0861:cable seated row[cable]=1.00	0180:cable low seated row[cable]=0.75	1323:cable rope seated row[cable]=0.75
+1119	Remo maquina agarre estrecho		0001:3/4 sit-up[body weight]=0.00	0002:45° side bend[body weight]=0.00	0003:air bike[body weight]=0.00
+1120	Remo maquina agarre estrecho supino		0001:3/4 sit-up[body weight]=0.00	0002:45° side bend[body weight]=0.00	0003:air bike[body weight]=0.00
+1127	Close-grip supinated lat pulldown	Cable machine	0974:band close-grip pulldown[band]=0.40	0197:cable pulldown (pro lat bar)[cable]=0.29	0673:reverse grip machine lat pulldown[leverage machine]=0.29
+1131	Cable glute extension	Cable machine	0149:cable alternate triceps extension[cable]=0.40	0152:cable concentration extension (on knee)[cable]=0.40	0173:cable incline triceps extension[cable]=0.40
+1136	Neutral-grip chest pulldown	Cable machine	0198:cable pulldown[cable]=0.25	0251:chest dip[body weight]=0.25	0007:alternate lateral pulldown[cable]=0.20
+1137	High-pulley pullover	Cable machine	0073:barbell pullover[barbell]=0.33	0375:dumbbell pullover[dumbbell]=0.33	2285:lever pullover[leverage machine]=0.33
+1138	Incline bench pulldown	Cable machine	0047:barbell incline bench press[barbell]=0.40	0169:cable incline bench press[cable]=0.40	1318:cable incline bench row[cable]=0.40
+1141	Arabesque	none (bodyweight exercise)	0001:3/4 sit-up[body weight]=0.00	0002:45° side bend[body weight]=0.00	0003:air bike[body weight]=0.00
+1143	Back extensión		3297:back lever[body weight]=0.25	3672:back and forth step[body weight]=0.20	1405:back pec stretch[body weight]=0.20
+1185	Triceps Pushdown	Cable machine	0241:cable triceps pushdown (v-bar)[cable]=0.50	0201:cable pushdown[cable]=0.33	2405:cable triceps pushdown (v-bar) (with arm blaster)[cable]=0.33
+1186	One Arm Bent Row	Cable machine	0064:barbell one arm bent over row[barbell]=0.67	0189:cable one arm bent over row[cable]=0.67	0589:lever one arm bent over row[barbell]=0.67
+1188	Side bend	Dumbbell	0002:45° side bend[body weight]=0.67	0222:cable side bend[cable]=0.67	0407:dumbbell side bend[dumbbell]=0.67
+1192	Alternating Biceps Curls With Dumbbell	Dumbbell	0294:dumbbell biceps curl[dumbbell]=0.75	0968:band alternating biceps curl[band]=0.60	0285:dumbbell alternate biceps curl[dumbbell]=0.60
+1193	Russian Twist	Dumbbell/Gym mat/Swiss Ball	0687:russian twist[body weight]=2.00	0846:weighted russian twist[weighted]=0.67	2371:weighted russian twist v. 2[weighted]=0.67
+1194	Pallof Press	Cable machine	0979:band horizontal pallof press[band]=0.50	1015:band vertical pallof press[band]=0.50	3291:stalder press[body weight]=0.33
+1198	Inverted Rows	none (bodyweight exercise)	0499:inverted row[body weight]=2.00	0497:inverted row v. 2[body weight]=1.00	2298:inverted row on bench[body weight]=0.67
+1217	Finger Pushup	none (bodyweight exercise)	0662:push-up[body weight]=0.50	3294:archer push up[body weight]=0.33	1273:clap push up[body weight]=0.33
+1223	Claps over the head	none (bodyweight exercise)	0107:barbell standing front raise over head[barbell]=0.29	0027:barbell bent over row[barbell]=0.17	1259:behind head chest stretch[assisted]=0.17
+1225	Dumbbell wide bicep curls	Dumbbell	1658:dumbbell lunge with bicep curl[dumbbell]=0.60	1662:dumbbell lying wide curl[dumbbell]=0.60	1677:dumbbell seated bicep curl[dumbbell]=0.60
+1226	Dumbbell bicep curl to press	Dumbbell	1658:dumbbell lunge with bicep curl[dumbbell]=0.50	1677:dumbbell seated bicep curl[dumbbell]=0.50	3547:dumbbell seated biceps curl to shoulder press[dumbbell]=0.50
+1227	Dumbbell rear delt row	Dumbbell	1328:dumbbell lying rear delt row[dumbbell]=0.80	0377:dumbbell rear delt row_shoulder[dumbbell]=0.80	0076:barbell rear delt row[barbell]=0.60
+1230	Triceps stretch left	none (bodyweight exercise)	0817:triceps stretch[body weight]=0.67	0643:overhead triceps stretch[body weight]=0.50	1745:exercise ball seated triceps stretch[stability ball]=0.33
+1231	Triceps stretch right	none (bodyweight exercise)	0817:triceps stretch[body weight]=0.67	0643:overhead triceps stretch[body weight]=0.50	1745:exercise ball seated triceps stretch[stability ball]=0.33
+1232	Standing biceps stretch left	none (bodyweight exercise)	0794:standing lateral stretch[body weight]=0.40	0416:dumbbell standing biceps curl[dumbbell]=0.33	1398:standing calves calf stretch[body weight]=0.33
+1233	Standing biceps stretch right	none (bodyweight exercise)	0794:standing lateral stretch[body weight]=0.40	0416:dumbbell standing biceps curl[dumbbell]=0.33	1398:standing calves calf stretch[body weight]=0.33
+1239	Standing Calf Stretch	none (bodyweight exercise)	1398:standing calves calf stretch[body weight]=0.75	1599:standing hamstring and calf stretch with strap[rope]=0.60	1378:calf stretch with rope[rope]=0.50
+1243	Double Leg Calf Raise	none (bodyweight exercise)	0999:band single leg calf raise[band]=0.50	0108:barbell standing leg calf raise[barbell]=0.50	0409:dumbbell single leg calf raise[dumbbell]=0.50
+1274	Sitting Calf Stretch (Dorsiflexion)	none (bodyweight exercise)	1378:calf stretch with rope[rope]=0.40	1390:seated calf stretch (male)[body weight]=0.40	1398:standing calves calf stretch[body weight]=0.33
+1275	Plantarflexion Stretch with Band	Resistance band	1018:band shrug[band]=0.25	1004:band squat[band]=0.25	1008:band step-up[band]=0.25
+1283	Incline Chest-Supported Dumbbell Row	Bench/Dumbbell	0327:dumbbell incline row[dumbbell]=0.75	0049:barbell incline row[barbell]=0.40	0316:dumbbell incline breeding[dumbbell]=0.40
+1285	Talons fesses	none (bodyweight exercise)	0001:3/4 sit-up[body weight]=0.00	0002:45° side bend[body weight]=0.00	0003:air bike[body weight]=0.00
+1290	Reverse Grip Barbell Curls	Barbell	0110:barbell standing reverse grip curl[barbell]=0.80	0451:ez barbell reverse grip curl[ez barbell]=0.80	0080:barbell reverse curl[barbell]=0.75
+1296	Low-Cable Cross-Over - NB	Cable machine	0155:cable cross-over variation[cable]=0.17	0153:cable cross-over lateral pulldown[cable]=0.14	0154:cable cross-over revers fly[cable]=0.14
+1298	High-Cable Cross Tricep Extention - NB	Cable machine	2466:bridge - mountain climber (cross body)[body weight]=0.20	0262:cross body crunch[body weight]=0.13	2331:cycle cross trainer[leverage machine]=0.13
+1307	Front Plank	none (bodyweight exercise)	0464:front plank with twist[body weight]=0.67	2135:weighted front plank[weighted]=0.67	gf-plank:plank[body weight]=0.50
+1325	Lateral Push Off	none (bodyweight exercise)	0007:alternate lateral pulldown[cable]=0.20	0992:band push sit-up[band]=0.20	1410:barbell lateral lunge[barbell]=0.20
+1333	Forearm Curls (underhand grip)	Dumbbell	1630:cable close grip curl[cable]=0.33	0106:barbell standing close grip curl[barbell]=0.29	0110:barbell standing reverse grip curl[barbell]=0.29
+1336	Triceps Overhead (Dumbbell)	Dumbbell	0643:overhead triceps stretch[body weight]=0.50	0306:dumbbell decline triceps extension[dumbbell]=0.40	0330:dumbbell incline triceps extension[dumbbell]=0.40
+1338	Shoulder Raise (Dumbbell)	Dumbbell	0328:dumbbell incline shoulder raise[dumbbell]=0.75	0376:dumbbell raise[dumbbell]=0.67	0310:dumbbell front raise[dumbbell]=0.50
+1348	Lower Back Extensions		1352:lower back curl[body weight]=0.50	0690:seated lower back stretch[body weight]=0.40	1341:exercise ball lower back stretch (pyramid)[stability ball]=0.29
+1353	Dumbbell Hex Press	Dumbbell	2137:dumbbell arnold press[dumbbell]=0.50	0287:dumbbell arnold press v. 2[dumbbell]=0.50	0289:dumbbell bench press[dumbbell]=0.50
+1363	Blackroll		0001:3/4 sit-up[body weight]=0.00	0002:45° side bend[body weight]=0.00	0003:air bike[body weight]=0.00
+1377	Torso Twist	none (bodyweight exercise)	0243:cable twist[cable]=0.33	1688:lunge with twist[body weight]=0.33	0687:russian twist[body weight]=0.33
+1378	Cable Lateral Raises (Single Arm)	Cable machine	0192:cable one arm lateral raise[cable]=0.67	0178:cable lateral raise[cable]=0.60	0666:raise single arm push-up[body weight]=0.50
+1387	Hamstring Kicks	none (bodyweight exercise)	0459:flutter kicks[body weight]=0.33	1511:hamstring stretch[body weight]=0.33	3433:swimmer kicks v. 2 (male)[body weight]=0.33
+1392	Good Morning	none (bodyweight exercise)	0044:barbell good morning[barbell]=0.67	0090:barbell seated good morning[barbell]=0.50	3759:lever seated good morning[leverage machine]=0.50
+1448	Seated W Curl	Bench/Dumbbell	1641:cable seated curl[cable]=0.50	0391:dumbbell seated curl[dumbbell]=0.50	1643:cable seated overhead curl[cable]=0.40
+1452	Knee to Chest Stretch	none (bodyweight exercise)	0257:circles knee stretch[body weight]=0.40	1167:dynamic chest stretch (male)[body weight]=0.40	1259:behind head chest stretch[assisted]=0.33
+1479	Sit Up Elbow Thrust	none (bodyweight exercise)	0735:sit-up v. 2[body weight]=0.33	1758:assisted sit-up[assisted]=0.25	0282:decline sit-up[body weight]=0.25
+1519	Overhead Triceps Extension	SZ-Bar	0092:barbell seated overhead triceps extension[barbell]=0.60	0109:barbell standing overhead triceps extension[barbell]=0.60	0194:cable overhead triceps extension (rope attachment)[cable]=0.50
+1521	Pendular hack		0046:barbell hack squat[barbell]=0.25	1383:hack calf raise[sled machine]=0.25	0743:sled hack squat[sled machine]=0.25
+1551	Push-Up	none (bodyweight exercise)	0662:push-up[body weight]=2.00	3294:archer push up[body weight]=0.50	1273:clap push up[body weight]=0.50
+1554	Clap Push-UP	none (bodyweight exercise)	1273:clap push up[body weight]=2.00	0662:push-up[body weight]=0.50	3294:archer push up[body weight]=0.33
+1556	Devil’s Press	Dumbbell	3291:stalder press[body weight]=0.25	0816:triceps press[body weight]=0.25	1254:band bench press[band]=0.20
+1567	Alternating dumbbell hammer curl	Dumbbell	0313:dumbbell hammer curl[dumbbell]=0.75	0312:dumbbell hammer curl v. 2[dumbbell]=0.75	0320:dumbbell incline hammer curl[dumbbell]=0.60
+1572	Bird Dog	none (bodyweight exercise)	1366:upward facing dog[body weight]=0.25	0001:3/4 sit-up[body weight]=0.00	0002:45° side bend[body weight]=0.00
+1573	Ab wheel	none (bodyweight exercise)	0857:wheel rollerout[wheel roller]=0.33	3637:wheel run[body weight]=0.33	0796:standing wheel rollerout[wheel roller]=0.25
+1581	Trap press	Barbell/Bench/Dumbbell	3291:stalder press[body weight]=0.33	0816:triceps press[body weight]=0.33	1254:band bench press[band]=0.25
+1582	Side-laying interior rotation	Barbell/Bench/Dumbbell	0386:dumbbell rotation reverse fly[dumbbell]=0.17	0984:band lying hip internal rotation[band]=0.14	0996:band seated hip internal rotation[band]=0.14
+1593	Smith Machine Split Squat	Barbell	0768:smith single leg split squat[smith machine]=0.50	0770:smith squat[smith machine]=0.50	2368:split squats[body weight]=0.50
+1604	Sliding Lateral Lunge	Barbell	1410:barbell lateral lunge[barbell]=0.50	0054:barbell lunge[barbell]=0.25	0336:dumbbell lunge[dumbbell]=0.25
+1612	kettlebell sumo deadlift	Kettlebell	0117:barbell sumo deadlift[barbell]=0.50	0548:kettlebell sumo high pull[kettlebell]=0.40	0032:barbell deadlift[barbell]=0.25
+1613	rubber band glute kickback	Resistance band	1018:band shrug[band]=0.20	1004:band squat[band]=0.20	1008:band step-up[band]=0.20
+1615	Treadmill Cardio	none (bodyweight exercise)	3666:walking on incline treadmill[leverage machine]=0.25	0001:3/4 sit-up[body weight]=0.00	0002:45° side bend[body weight]=0.00
+1616	Dumbbell donkey kick	Dumbbell	1201:dumbbell burpee[dumbbell]=0.25	0295:dumbbell clean[dumbbell]=0.25	0300:dumbbell deadlift[dumbbell]=0.25
+1618	Stationary bike cardio	none (bodyweight exercise)	0798:stationary bike walk[leverage machine]=0.50	2138:stationary bike run v. 3[stationary bike]=0.40	0003:air bike[body weight]=0.25
+1620	Seated Dumbbell Calf Raise	Dumbbell	1379:dumbbell seated calf raise[dumbbell]=1.00	0400:dumbbell seated one leg calf raise[dumbbell]=0.67	0088:barbell seated calf raise[barbell]=0.60
+1621	Unilateral Cable row	Bench/Cable machine	0861:cable seated row[cable]=0.50	1324:cable upper row[cable]=0.50	0246:cable upright row[cable]=0.50
+1634	Rope Pullover/row	Cable machine/Incline bench	1323:cable rope seated row[cable]=0.40	0203:cable rear delt row (with rope)[cable]=0.33	1320:cable rope crossover seated row[cable]=0.33
+1635	Modified pulldown	Cable machine/Incline bench	0198:cable pulldown[cable]=0.33	0007:alternate lateral pulldown[cable]=0.25	0974:band close-grip pulldown[band]=0.25
+1637	Single arm row	Cable machine/Incline bench	0725:single arm push-up[body weight]=0.50	0541:kettlebell one arm row[kettlebell]=0.40	1345:kettlebell two arm row[kettlebell]=0.40
+1638	Barbell Clean and press	Dumbbell	0028:barbell clean and press[barbell]=2.00	0025:barbell bench press[barbell]=0.50	1751:barbell pin presses[barbell]=0.50
+1639	Dumbbell Bent Over Face Pull	Dumbbell	0293:dumbbell bent over row[dumbbell]=0.50	1329:dumbbell palm rotational bent over row[dumbbell]=0.38	1730:dumbbell seated bent over alternate kickback[dumbbell]=0.38
+1640	Dumbbell Front Squat	Dumbbell	0413:dumbbell squat[dumbbell]=0.67	0042:barbell front squat[barbell]=0.50	0291:dumbbell bench squat[dumbbell]=0.50
+1641	Kettlebell One Legged Deadlift	Dumbbell/Kettlebell	0538:kettlebell one arm jerk[kettlebell]=0.33	0541:kettlebell one arm row[kettlebell]=0.33	0542:kettlebell one arm snatch[kettlebell]=0.33
+1642	Dumbbell Hip Thrust	Dumbbell	1294:dumbbell pullover hip extension on exercise ball[dumbbell]=0.29	1201:dumbbell burpee[dumbbell]=0.25	0295:dumbbell clean[dumbbell]=0.25
+1648	Weighted Crunch	Dumbbell	0832:weighted crunch[weighted]=2.00	0840:weighted overhead crunch (on stability ball)[weighted]=0.40	0274:crunch floor[body weight]=0.33
+1650	Dumbbell Side Bend	Dumbbell	0407:dumbbell side bend[dumbbell]=2.00	0002:45° side bend[body weight]=0.50	0222:cable side bend[cable]=0.50
+1651	Dumbbell Rear Lunge	Dumbbell	0381:dumbbell rear lunge[dumbbell]=2.00	0336:dumbbell lunge[dumbbell]=0.67	0078:barbell rear lunge[barbell]=0.50
+1652	Dumbbell Romanian Deadlift	Dumbbell	1459:dumbbell romanian deadlift[dumbbell]=2.00	0300:dumbbell deadlift[dumbbell]=0.67	0085:barbell romanian deadlift[barbell]=0.50
+1653	Dumbbell Side Squat		0413:dumbbell squat[dumbbell]=0.67	0291:dumbbell bench squat[dumbbell]=0.50	1760:dumbbell goblet squat[dumbbell]=0.50
+1654	Machine Lateral Raise	Gym mat	0178:cable lateral raise[cable]=0.50	0334:dumbbell lateral raise[dumbbell]=0.50	3237:landmine lateral raise[barbell]=0.50
+1706	Bulgarian Squat with Dumbbells	Dumbbell	0413:dumbbell squat[dumbbell]=0.67	0291:dumbbell bench squat[dumbbell]=0.50	1760:dumbbell goblet squat[dumbbell]=0.50
+1725	Seated Row (Machine)		0861:cable seated row[cable]=0.50	1350:lever seated row[leverage machine]=0.50	0180:cable low seated row[cable]=0.40
+1726	Straight-Arm Pulldown (Cable)	Cable machine	0198:cable pulldown[cable]=0.67	0205:cable rear pulldown[cable]=0.50	0245:cable underhand pulldown[cable]=0.50
+1732	Face pulls with yellow/green band	Resistance band	1018:band shrug[band]=0.17	1004:band squat[band]=0.17	1008:band step-up[band]=0.17
+1733	Isometric Squat to Failure	none (bodyweight exercise)	1685:squat to overhead reach[body weight]=0.33	1686:squat to overhead reach with twist[body weight]=0.29	1004:band squat[band]=0.20
+1734	Single-Leg Lunge with Kettlebell:	Kettlebell	0536:kettlebell lunge pass through[kettlebell]=0.40	0054:barbell lunge[barbell]=0.25	0336:dumbbell lunge[dumbbell]=0.25
+1735	Single-leg side glute press	Incline bench	0286:dumbbell alternate side press[dumbbell]=0.33	1463:sled 45° leg press (side pov)[sled machine]=0.25	0539:kettlebell one arm military press to the side[kettlebell]=0.22
+1736	Single-Leg Deadlift with Dumbbell	Dumbbell	0300:dumbbell deadlift[dumbbell]=0.67	1459:dumbbell romanian deadlift[dumbbell]=0.50	1757:dumbbell single leg deadlift[dumbbell]=0.40
+1738	Neutral-grip pull-ups or TRX rows	Pull-up bar	0652:pull-up[body weight]=0.20	3293:archer pull up[body weight]=0.17	0017:assisted pull-up[leverage machine]=0.17
+1744	Machine Side Lateral Raises		0178:cable lateral raise[cable]=0.40	0334:dumbbell lateral raise[dumbbell]=0.40	3237:landmine lateral raise[barbell]=0.40
+1745	Cable Front Raise with a small bar	Cable machine	0162:cable front raise[cable]=0.60	0164:cable front shoulder raise[cable]=0.50	0978:band front raise[band]=0.33
+1747	Smith machine squat		0770:smith squat[smith machine]=0.67	0750:smith chair squat[smith machine]=0.50	3281:smith full squat[smith machine]=0.50
+1748	Machine Hip Abduction		0710:side hip abduction[body weight]=0.50	0597:lever seated hip abduction[leverage machine]=0.40	1774:side bridge hip abduction[body weight]=0.40
+1801	Barbell Full Squat	Barbell	0043:barbell full squat[barbell]=2.00	1545:barbell full zercher squat[barbell]=0.75	1461:barbell full squat (back pov)[barbell]=0.60
+1804	ankle dorsiflexion rocks	none (bodyweight exercise)	1368:ankle circles[body weight]=0.25	0001:3/4 sit-up[body weight]=0.00	0002:45° side bend[body weight]=0.00
+1830	Barbell Step Back Lunge	Barbell	0054:barbell lunge[barbell]=0.50	2798:barbell squat jump step rear lunge[barbell]=0.43	3672:back and forth step[body weight]=0.40
+1831	Hammerstrength Decline Chest Press		1300:lever decline chest press[leverage machine]=0.60	1287:dumbbell one arm decline chest press[dumbbell]=0.43	1261:cable decline press[cable]=0.40
+1835	External Rotation Stretch	Barbell	0235:cable standing shoulder external rotation[cable]=0.33	0863:dumbbell lying external shoulder rotation[dumbbell]=0.33	0864:dumbbell upright shoulder external rotation[dumbbell]=0.33
+1854	Calves foam roller	none (bodyweight exercise)	1397:standing calves[body weight]=0.25	2208:roller back stretch[roller]=0.20	2204:roller body saw[roller]=0.20
+1855	Hamstring Foam roller	none (bodyweight exercise)	1511:hamstring stretch[body weight]=0.25	0016:assisted prone hamstring[assisted]=0.20	2208:roller back stretch[roller]=0.20
+1856	Foam Roller Anterior tibialis	none (bodyweight exercise)	1389:posterior tibialis stretch[rope]=0.17	2208:roller back stretch[roller]=0.17	2204:roller body saw[roller]=0.17
+1857	Foam Roller Iliotibial band	none (bodyweight exercise)	1018:band shrug[band]=0.20	1004:band squat[band]=0.20	1008:band step-up[band]=0.20
+1858	Foam Roller quadriceps	none (bodyweight exercise)	2208:roller back stretch[roller]=0.20	2204:roller body saw[roller]=0.20	2202:roller hip stretch[roller]=0.20
+1859	Foam Roller Gluteus	none (bodyweight exercise)	2208:roller back stretch[roller]=0.20	2204:roller body saw[roller]=0.20	2202:roller hip stretch[roller]=0.20
+1860	Foam Roller Adductors	none (bodyweight exercise)	2208:roller back stretch[roller]=0.20	2204:roller body saw[roller]=0.20	2202:roller hip stretch[roller]=0.20
+1861	Side stretch	none (bodyweight exercise)	1403:neck side stretch[body weight]=0.67	0613:lying (side) quads stretch[body weight]=0.50	2207:roller side lat stretch[roller]=0.50
+1862	Hip Circles		1368:ankle circles[body weight]=0.33	1428:wrist circles[body weight]=0.33	1408:band hip lift[band]=0.25
+1863	Hip Crossover		1408:band hip lift[band]=0.25	0130:bench hip extension[body weight]=0.25	0168:cable hip adduction[cable]=0.25
+1864	Ankle Roll		1368:ankle circles[body weight]=0.33	0001:3/4 sit-up[body weight]=0.00	0002:45° side bend[body weight]=0.00
+1865	Banded Ankle Mobility		1368:ankle circles[body weight]=0.25	0001:3/4 sit-up[body weight]=0.00	0002:45° side bend[body weight]=0.00
+1867	Hip Flexor Stretch	none (bodyweight exercise)	1559:exercise ball hip flexor stretch[stability ball]=0.60	1564:intermediate hip flexor and quad stretch[rope]=0.60	2202:roller hip stretch[roller]=0.50
+1868	Lunge with Twist Stretch	none (bodyweight exercise)	1688:lunge with twist[body weight]=0.67	3642:weighted stretch lunge[weighted]=0.50	0054:barbell lunge[barbell]=0.25
+1869	Lying Figure Four Stretch	none (bodyweight exercise)	1708:assisted lying calves stretch[assisted]=0.33	1709:assisted lying glutes stretch[assisted]=0.33	0613:lying (side) quads stretch[body weight]=0.33
+1870	Lying Hamstring Stretch with Band	Resistance band	1511:hamstring stretch[body weight]=0.50	1708:assisted lying calves stretch[assisted]=0.33	1709:assisted lying glutes stretch[assisted]=0.33
+1872	Pigeon Stretch	none (bodyweight exercise)	1511:hamstring stretch[body weight]=0.33	1388:peroneals stretch[rope]=0.33	1585:runners stretch[body weight]=0.33
+1873	Quad Stretch	none (bodyweight exercise)	1564:intermediate hip flexor and quad stretch[rope]=0.40	1511:hamstring stretch[body weight]=0.33	1388:peroneals stretch[rope]=0.33
+1874	Runners Lunge Stretch	none (bodyweight exercise)	1585:runners stretch[body weight]=0.67	3642:weighted stretch lunge[weighted]=0.50	0054:barbell lunge[barbell]=0.25
+1875	Standing IT Band Stretch	none (bodyweight exercise)	1005:band standing crunch[band]=0.40	0794:standing lateral stretch[body weight]=0.40	1007:band standing twisting crunch[band]=0.33
+1876	Supported Calf Stretch	none (bodyweight exercise)	1378:calf stretch with rope[rope]=0.50	1390:seated calf stretch (male)[body weight]=0.50	1398:standing calves calf stretch[body weight]=0.40
+1889	Decline Bench Leg Raise	Incline bench	0620:lying leg raise flat bench[body weight]=0.50	0472:hanging leg raise[body weight]=0.40	0689:seated leg raise[body weight]=0.40
+1893	Overhead Barbell Press	Barbell	0091:barbell seated overhead press[barbell]=0.75	0025:barbell bench press[barbell]=0.50	0028:barbell clean and press[barbell]=0.50
+1900	Tricep Rope Pushdowns	Cable machine	1725:cable rope incline tricep extension[cable]=0.33	1726:cable rope lying on floor tricep extension[cable]=0.29	1724:cable rope high pulley overhead tricep extension[cable]=0.25
+1901	Clean and Press	Barbell	0028:barbell clean and press[barbell]=0.67	0295:dumbbell clean[dumbbell]=0.33	0648:power clean[barbell]=0.33
+1902	Weighted push-ups	none (bodyweight exercise)	1310:weighted drop push up[weighted]=0.67	0662:push-up[body weight]=0.50	3294:archer push up[body weight]=0.33
+1916	Tuck planche	none (bodyweight exercise)	3301:frog planche[body weight]=0.33	3299:full planche[body weight]=0.33	3300:lean planche[body weight]=0.33
+1922	Seated Cable chest fly	Cable machine	2144:cable seated chest press[cable]=0.60	1262:cable one arm decline chest fly[cable]=0.43	0158:cable decline fly[cable]=0.40
+1947	dumbbell snatch	Dumbbell	3888:dumbbell one arm snatch[dumbbell]=0.50	1201:dumbbell burpee[dumbbell]=0.33	0295:dumbbell clean[dumbbell]=0.33
+1962	Step Jack	none (bodyweight exercise)	0501:jack burpee[body weight]=0.33	3224:jack jump (male)[body weight]=0.33	3671:ski step[body weight]=0.33
+1963	Slow Squat	none (bodyweight exercise)	1004:band squat[band]=0.33	3769:curtsey squat[body weight]=0.33	0413:dumbbell squat[dumbbell]=0.33
+1965	Marching High Knees	none (bodyweight exercise)	3655:walking high knees lunge[body weight]=0.40	0102:barbell squat (on knees)[barbell]=0.20	2398:close-grip push-up (on knees)[body weight]=0.20
+1968	Single-arm dumbbell shoulder press	Dumbbell	0405:dumbbell seated shoulder press[dumbbell]=0.60	0361:dumbbell one arm shoulder press[dumbbell]=0.50	0360:dumbbell one arm shoulder press v. 2[dumbbell]=0.50
+1971	Mentzer Pulldown	Cable machine/Incline bench	0198:cable pulldown[cable]=0.33	0007:alternate lateral pulldown[cable]=0.25	0974:band close-grip pulldown[band]=0.25
+2452	Curl De Muñeca Con Barra	Barbell/Bench	0031:barbell curl[barbell]=0.14	0868:cable curl[cable]=0.14	0455:finger curls[barbell]=0.14
+2494	Band Terminal Knee extension	Resistance band	0980:band bent-over hip extension[band]=0.33	0998:band side triceps extension[band]=0.33	0152:cable concentration extension (on knee)[cable]=0.33
+2529	explosive push ups	none (bodyweight exercise)	0662:push-up[body weight]=0.50	3294:archer push up[body weight]=0.33	1273:clap push up[body weight]=0.33
+2530	Russian Push Ups	none (bodyweight exercise)	0662:push-up[body weight]=0.50	3294:archer push up[body weight]=0.33	1273:clap push up[body weight]=0.33
+2618	Hip-Out and Hip-In Lateral Steps	Resistance band	0007:alternate lateral pulldown[cable]=0.17	1410:barbell lateral lunge[barbell]=0.17	0178:cable lateral raise[cable]=0.17
+2619	Single-Leg Soft-Landing Holds	none (bodyweight exercise)	0001:3/4 sit-up[body weight]=0.00	0002:45° side bend[body weight]=0.00	0003:air bike[body weight]=0.00
+2620	Reverse V-Squat		0872:reverse crunch[body weight]=0.33	0672:reverse dip[body weight]=0.33	gf-reverse-lunge:reverse lunge[body weight]=0.33
+2673	Stomach Vacuum	none (bodyweight exercise)	0001:3/4 sit-up[body weight]=0.00	0002:45° side bend[body weight]=0.00	0003:air bike[body weight]=0.00
+2674	Knieheben Beinhebemaschine	none (bodyweight exercise)	0001:3/4 sit-up[body weight]=0.00	0002:45° side bend[body weight]=0.00	0003:air bike[body weight]=0.00
+2675	Knieheben Beinhebemaschine seitlich	none (bodyweight exercise)	0001:3/4 sit-up[body weight]=0.00	0002:45° side bend[body weight]=0.00	0003:air bike[body weight]=0.00
