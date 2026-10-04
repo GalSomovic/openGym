@@ -6,10 +6,26 @@ struct SettingsView: View {
     @AppStorage(WorkoutSession.Pref.restAlarm) private var restAlarm = false
     @AppStorage(WorkoutSession.Pref.guidedDefault) private var guidedDefault = false
     @Environment(WorkoutSession.self) private var session
+    @Environment(GymStore.self) private var store
+
+    private var equipmentSummary: String {
+        _ = store.revision
+        guard let e = store.equipment(), e.filterOn else { return String(localized: "All") }
+        return e.selected.isEmpty ? String(localized: "Bodyweight only") : String(localized: "\(e.selected.count) selected")
+    }
 
     var body: some View {
         NavigationStack {
             List {
+                Section {
+                    NavigationLink { EquipmentSettingsView() } label: {
+                        LabeledContent {
+                            Text(equipmentSummary)
+                        } label: {
+                            Label("Equipment", systemImage: "dumbbell")
+                        }
+                    }
+                }
                 Section {
                     Toggle(isOn: $guidedDefault) { Label("Start workouts in guided mode", systemImage: "figure.strengthtraining.traditional") }
                     Toggle(isOn: $voice) { Label("Spoken cues", systemImage: "speaker.wave.2") }

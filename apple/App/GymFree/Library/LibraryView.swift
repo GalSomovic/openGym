@@ -47,10 +47,9 @@ struct ExerciseList<Destination: View, Trailing: View>: View {
                     if let result, result.equipment.count > 1 {
                         ChipRow(allLabel: "Any equipment", options: result.equipment, selection: $equipment)
                     }
-                    if let profile = result?.profile {
+                    if result?.profile != nil || showAll {
                         Toggle(isOn: $showAll) {
-                            Text(showAll ? "Showing all equipment" : "Showing what you have in “\(profile)”")
-                                .font(.footnote)
+                            Text("Include equipment I don’t have").font(.footnote)
                         }
                         .padding(.horizontal)
                     }

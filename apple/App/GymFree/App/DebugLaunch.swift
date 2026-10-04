@@ -4,6 +4,7 @@ import OpenGymCore
 /// Debug-only launch arguments that open a screen directly, for screenshots and UI checks:
 ///   -GFReset YES        start from an empty profile
 ///   -GFStarter ppl      load a starter plan into an empty profile
+///   -GFEquipment none   bodyweight only (or a comma-separated list)
 ///   -GFTab exercises    today | plan | exercises | settings
 ///   -GFDetail 0025      open an exercise in the library
 ///   -GFRoutine 0        open the n-th routine in the plan
@@ -32,6 +33,9 @@ enum DebugLaunch {
     @MainActor
     static func prepare(_ store: GymStore, storage: StateStorage) {
         if args.bool(forKey: "GFReset") { try? store.replaceProfile(json: "{}") }
+        if let eq = args.string(forKey: "GFEquipment") {
+            store.setEquipment(eq == "none" ? [] : eq.components(separatedBy: ","), name: "My equipment")
+        }
         if let plan = args.string(forKey: "GFStarter"), store.routines.isEmpty { store.loadStarterPlan(plan) }
         if args.object(forKey: "GFStart") != nil, store.active == nil {
             let i = args.integer(forKey: "GFStart")

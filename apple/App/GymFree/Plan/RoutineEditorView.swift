@@ -32,6 +32,7 @@ struct RoutineEditorView: View {
     @ViewBuilder
     private func content(_ r: Routine) -> some View {
         let lines = store.routineLines(routineId)
+        let missing = Set(store.missingEquipment(routineId))
         List {
             Section {
                 HStack(spacing: 12) {
@@ -76,9 +77,17 @@ struct RoutineEditorView: View {
                     Text("\(policyDescs[r.prog ?? "linear"] ?? "") Applies to every exercise in this routine that doesn’t set its own rule.")
                 }
             }
+            if !missing.isEmpty {
+                Section {
+                    Label("\(missing.count) of \(r.ex.count) exercises need equipment you don’t have. Replace them, or change your equipment in Settings.",
+                          systemImage: "exclamationmark.triangle.fill")
+                        .font(.footnote)
+                        .foregroundStyle(.orange)
+                }
+            }
             Section {
                 ForEach(Array(r.ex.enumerated()), id: \.offset) { i, e in
-                    exerciseRow(r, i, e, line: i < lines.count ? lines[i] : "")
+                    exerciseRow(r, i, e, line: i < lines.count ? lines[i] : "", missing: missing.contains(i))
                 }
                 .onMove { from, to in
                     guard let source = from.first else { return }
@@ -155,7 +164,7 @@ struct RoutineEditorView: View {
     }
 
     @ViewBuilder
-    private func exerciseRow(_ r: Routine, _ i: Int, _ e: RoutineExercise, line: String) -> some View {
+    private func exerciseRow(_ r: Routine, _ i: Int, _ e: RoutineExercise, line: String, missing: Bool) -> some View {
         let linkedAbove = i > 0 && e.sg != nil && r.ex[i - 1].sg == e.sg
         let linkedBelow = i + 1 < r.ex.count && e.sg != nil && r.ex[i + 1].sg == e.sg
         Button { editing = Slot(index: i) } label: {
@@ -169,6 +178,10 @@ struct RoutineEditorView: View {
                     }
                 }
                 Spacer(minLength: 0)
+                if missing {
+                    Image(systemName: "exclamationmark.triangle.fill").foregroundStyle(.orange)
+                        .accessibilityLabel(Text("Needs equipment you don’t have"))
+                }
                 if linkedAbove || linkedBelow {
                     Image(systemName: "link").foregroundStyle(Color.accentColor)
                         .accessibilityLabel(Text("Superset"))

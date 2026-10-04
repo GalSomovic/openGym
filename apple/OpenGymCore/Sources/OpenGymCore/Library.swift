@@ -233,3 +233,25 @@ extension GymStore {
         query("library", "historyLines", [id], as: [HistoryLine].self) ?? []
     }
 }
+
+/// The equipment you have (settings.js equipment).
+public struct EquipmentState: Codable, Hashable, Sendable {
+    public var all: [String]
+    public var selected: [String]
+    public var filterOn: Bool
+    public var profile: String?
+}
+
+extension GymStore {
+    public func equipment() -> EquipmentState? { query("settings", "equipment", as: EquipmentState.self) }
+
+    @discardableResult
+    public func setEquipment(_ selected: [String], name: String) -> EquipmentState? {
+        perform("settings", "setEquipment", [selected, name], as: EquipmentState.self)
+    }
+
+    /// Indexes of a routine's exercises that need equipment you don't have.
+    public func missingEquipment(_ routineId: String) -> [Int] {
+        query("settings", "missingEquipment", [routineId], as: [Int].self) ?? []
+    }
+}
