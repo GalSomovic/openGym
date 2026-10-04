@@ -41,10 +41,16 @@ or not applicable.
 
 ## Exercise media
 
-openGym's exercise thumbnails and animations are third-party content licensed to neither
-openGym nor this fork (root `NOTICE.md`). They are **never committed here**. The app loads
-demos through a `DemoSource` protocol so the source can be: a licensed ExerciseDB package
-bundled at build time from private storage, or original animations generated for this app.
+The demos are the 180×180 animated GIFs of the **free ExerciseDB V1 dataset by AscendAPI**
+([oss.exercisedb.dev](https://oss.exercisedb.dev)), whose terms allow non-commercial apps with
+credit to AscendAPI. This app is free, with no ads and no in-app purchases, and shows
+"Exercise animations © AscendAPI (ExerciseDB)" with every demo, in About and in the store
+listing. Every openGym exercise carries its ExerciseDB id (`0001-2gPfomN.jpg` → `2gPfomN`), so
+all 1,324 map to an official GIF.
+
+The GIFs are **never committed** (publishing the raw files would be redistribution):
+`apple/core/fetch-media.sh` downloads them once, throttled and resumable, into the gitignored
+`apple/Media/`, and Xcode bundles them (about 120 MB). The app makes no network calls for media.
 
 ## Plan
 

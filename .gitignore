@@ -26,3 +26,4 @@ frontend/bundle-size.json
 apple/OpenGymCore/.build/
 apple/**/xcuserdata/
 apple/build/
+apple/Media/
