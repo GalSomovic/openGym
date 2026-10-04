@@ -1,0 +1,26 @@
+// The training engine for the native Apple app: openGym's own pure, unit-tested
+// modules, bundled into one script that JavaScriptCore runs inside the app.
+// Nothing here is reimplemented, so behaviour matches openGym exactly and
+// upstream fixes arrive with a rebuild. Only DOM-free modules belong here.
+export * as progression from '../../frontend/src/lib/progression.js'
+export * as onerm from '../../frontend/src/lib/onerm.js'
+export * as finishWorkout from '../../frontend/src/lib/finish-workout.js'
+export * as workoutModel from '../../frontend/src/lib/workout-model.js'
+export * as supersetFlow from '../../frontend/src/lib/supersetFlow.js'
+export * as recovery from '../../frontend/src/lib/recovery.js'
+export * as recoveryView from '../../frontend/src/lib/recovery-view.js'
+export * as structuralBalance from '../../frontend/src/lib/structuralBalance.js'
+export * as history from '../../frontend/src/lib/history.js'
+export * as importCsv from '../../frontend/src/lib/import-csv.js'
+export * as plates from '../../frontend/src/lib/plates.js'
+export * as units from '../../frontend/src/lib/units.js'
+export * as exercises from '../../frontend/src/lib/exercises.js'
+export * as muscles from '../../frontend/src/lib/muscles.js'
+export * as routines from '../../frontend/src/lib/routines.js'
+export * as starter from '../../frontend/src/lib/starter.js'
+export * as sessionStart from '../../frontend/src/lib/session-start.js'
+export * as repRange from '../../frontend/src/lib/rep-range.js'
+export * as effort from '../../frontend/src/lib/effort.js'
+export * as bodyweight from '../../frontend/src/lib/bodyweight.js'
+export * as syncMerge from '../../frontend/src/lib/sync-merge.js'
+export * as format from '../../frontend/src/lib/format.js'

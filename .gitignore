@@ -21,3 +21,8 @@ node_modules
 junit.xml
 coverage/
 frontend/bundle-size.json
+
+# Apple native app
+apple/OpenGymCore/.build/
+apple/**/xcuserdata/
+apple/build/
