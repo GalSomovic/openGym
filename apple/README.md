@@ -67,7 +67,7 @@ The GIFs are **never committed** (publishing the raw files would be redistributi
 | 0 | Fork, engine bundle, JavaScriptCore bridge with tests ✅ |
 | 1 | Profile store (openGym's state JSON, saved atomically), typed snapshots, headless workout actions with tests ✅ (iCloud sync moves to phase 6) |
 | 2 | Library (search, filters, demos), Plan + routine editor, exercise settings, starter plans ✅ (muscle map moves to phase 5) |
-| 3 | Workout logger: sets, supersets, warm-ups, drop sets, rest-pause, side sets, plates, rest timer, progression on finish |
+| 3 | Workout logger: sets, supersets, warm-ups, drop sets, rest-pause, side sets, plates, rest timer, timed holds, progression on finish, UI tests ✅ (pre-workout weigh-in moves to phase 5 with body weight) |
 | 4 | Guided mode: animated demos, spoken cues over music, Live Activity, AlarmKit rest end |
 | 5 | History, stats (1RM, volume, effort), recovery and detrained maps, structural balance, body weight, check-in QR |
 | 6 | Imports (FitNotes, Strong, Hevy CSV, openGym backups), export, 16 languages (openGym's catalogues), iPad |

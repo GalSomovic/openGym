@@ -99,7 +99,7 @@ extension String {
 }
 
 extension Dictionary where Key == String, Value == JSONValue {
-    var anyObject: [String: Any] { mapValues(\.any) }
+    public var anyObject: [String: Any] { mapValues(\.any) }
 }
 
 /* ------------------------------ library, plan and settings actions ------------------------------ */
@@ -220,4 +220,16 @@ extension GymStore {
     public func starterPlans() -> [StarterPlan] { query("plan", "starterPlans", as: [StarterPlan].self) ?? [] }
     public func starterPlanConflicts(_ id: String) -> Bool { query("plan", "starterPlanConflicts", [id], as: Bool.self) ?? false }
     public func loadStarterPlan(_ id: String) { perform("plan", "loadStarterPlan", [id], as: Bool.self) }
+}
+
+public struct HistoryLine: Codable, Hashable, Sendable {
+    public var title: String
+    public var sets: String
+    public var pr: Bool
+}
+
+extension GymStore {
+    public func exerciseHistory(_ id: String) -> [HistoryLine] {
+        query("library", "historyLines", [id], as: [HistoryLine].self) ?? []
+    }
 }

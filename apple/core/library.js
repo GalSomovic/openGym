@@ -3,7 +3,10 @@
 import { need } from './actions.js'
 import { BODYPARTS, EXIDX, allExercises, equipmentOf, searchExercises, isCardio } from '../../frontend/src/lib/exercises.js'
 import { activeProfile, exAvailable } from '../../frontend/src/lib/equipment.js'
-import { bestWeightFor, exNoteFor } from '../../frontend/src/lib/history.js'
+import { bestWeightFor, exNoteFor, setLabel } from '../../frontend/src/lib/history.js'
+import { fmtDate } from '../../frontend/src/lib/format.js'
+import { speedUnitOf } from '../../frontend/src/lib/speed.js'
+import { t } from './i18n-native.js'
 import { isFav, toggleFav, sortFavouritesFirst } from '../../frontend/src/lib/favourites.js'
 import { smOf } from '../../frontend/src/lib/exercises.js'
 import { exerciseHistory } from '../../frontend/src/lib/exercise-history.js'
@@ -68,7 +71,13 @@ export function toggleFavourite(id) {
   return toggleFav(need(), id)
 }
 
-/** The exercise's past sessions, newest first, for the detail screen. */
-export function history(id) {
-  return exerciseHistory(need(), id)
+/** The exercise's past sessions, newest first, as lines to show: date, PR mark, the sets. */
+export function historyLines(id) {
+  const S = need()
+  const h = exerciseHistory(S, id)
+  return h.sessions.map(s => ({
+    title: fmtDate(s.d, true, true) + (s.pr ? ' · ' + t('PR') : ''),
+    sets: s.sets.map(r => setLabel(id, r, s.target, speedUnitOf(S))).join(', '),
+    pr: !!s.pr,
+  }))
 }

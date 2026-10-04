@@ -6,11 +6,14 @@ import SwiftUI
 struct TodayView: View {
     @Binding var tab: AppTab
     @Environment(GymStore.self) private var store
+    /// Keeps the workout screen up after finishing, for its summary.
+    @State private var finished = false
 
     var body: some View {
         NavigationStack {
-            if store.active != nil {
-                WorkoutView()
+            if store.active != nil || finished {
+                WorkoutView(onSummaryClosed: { finished = false })
+                    .onAppear { finished = true }
             } else {
                 StartChooser(tab: $tab)
             }

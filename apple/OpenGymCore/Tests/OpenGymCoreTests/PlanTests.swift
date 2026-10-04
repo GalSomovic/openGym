@@ -43,3 +43,20 @@ struct PlanTests {
         #expect(store.starterPlanConflicts("full-body"))
     }
 }
+
+@Suite(.serialized) @MainActor
+struct WorkoutViewTests {
+    @Test func describesAnExerciseBlockAndEditsSets() throws {
+        let store = GymStore(storage: MemoryStorage("""
+        {"routines": [{"id": "r1", "name": "Push", "ex": [{"id": "0025", "sets": 3, "reps": 5, "weight": 60}]}]}
+        """))
+        store.beginWorkout(routineIds: ["r1"], bodyWeight: nil, freestyleName: "Freestyle")
+        let view = try #require(store.entryView(0))
+        #expect(view.cols.first??.f == "w")
+        #expect(view.planLine?.hasPrefix("Plan: 3 × 5") == true)
+        store.bump(0, 0, "r", 1)
+        #expect(store.active?.entries[0].sets[0].r == 6)
+        store.addDrop(0, 0)
+        #expect(store.active?.entries[0].sets[0].isDropSet == true)
+    }
+}

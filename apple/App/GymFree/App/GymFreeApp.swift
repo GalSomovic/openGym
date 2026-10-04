@@ -5,6 +5,7 @@ import SwiftUI
 struct GymFreeApp: App {
     @State private var store: GymStore
     @State private var catalog: ExerciseCatalog
+    @State private var session: WorkoutSession
     @Environment(\.scenePhase) private var scenePhase
 
     init() {
@@ -14,6 +15,9 @@ struct GymFreeApp: App {
         DebugLaunch.prepare(store, storage: storage)
         _store = State(initialValue: store)
         _catalog = State(initialValue: ExerciseCatalog(store: store))
+        let session = WorkoutSession(store: store)
+        session.syncSettings()
+        _session = State(initialValue: session)
     }
 
     var body: some Scene {
@@ -21,6 +25,7 @@ struct GymFreeApp: App {
             RootView()
                 .environment(store)
                 .environment(catalog)
+                .environment(session)
         }
         // Debounced saves cover normal use; leaving the app writes at once.
         .onChange(of: scenePhase) { _, phase in

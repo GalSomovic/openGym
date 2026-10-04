@@ -55,3 +55,22 @@ targets:
         ENABLE_PREVIEWS: YES
         LOCALIZATION_PREFERS_STRING_CATALOGS: YES
         SWIFT_EMIT_LOC_STRINGS: YES
+  GymFreeUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources: [GymFreeUITests]
+    dependencies:
+      - target: GymFree
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.gsomovic.gymfree.uitests
+        GENERATE_INFOPLIST_FILE: YES
+        TEST_TARGET_NAME: GymFree
+schemes:
+  GymFree:
+    build:
+      targets:
+        GymFree: all
+        GymFreeUITests: [test]
+    test:
+      targets: [GymFreeUITests]

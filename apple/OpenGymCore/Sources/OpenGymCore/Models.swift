@@ -60,6 +60,10 @@ public struct SideRow: Codable, Hashable, Sendable {
     public var done: Bool?
     public var rir: Double?
     public var rpe: Double?
+    /// A side's own drop-set or rest-pause, logged per limb.
+    public var type: String?
+    public var drops: [Drop]?
+    public var clusters: [Burst]?
 }
 
 public struct Drop: Codable, Hashable, Sendable {
