@@ -45,7 +45,7 @@ let S = null
 // reticking a finished set does not replay the flow. Index-keyed, like the web's.
 let highWater = []
 
-function need() {
+export function need() {
   if (!S) throw new Error('state not loaded')
   return S
 }

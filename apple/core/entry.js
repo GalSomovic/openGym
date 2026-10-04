@@ -30,3 +30,6 @@ export * as exerciseHistory from '../../frontend/src/lib/exercise-history.js'
 export * as workoutControls from '../../frontend/src/lib/workout-controls.js'
 // The profile and the steps that change it (see actions.js).
 export * as actions from './actions.js'
+export * as plan from './plan.js'
+export * as library from './library.js'
+export * as i18n from './i18n-native.js'

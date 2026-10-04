@@ -200,10 +200,26 @@ public final class GymStore {
 
     /* ------------------------------ plumbing ------------------------------ */
 
+    /// Runs an action that changes the profile (`OG.<module>.<function>`), then refreshes and
+    /// saves. Returns nil and records `lastError` if the engine refuses.
+    @discardableResult
+    public func perform<T: Decodable>(_ module: String, _ function: String, _ args: [Any] = [],
+                                      as type: T.Type = T.self) -> T? {
+        run { try $0.call(module, function, args, as: T.self) }
+    }
+
+    /// Reads from the engine without changing anything.
+    public func query<T: Decodable>(_ module: String, _ function: String, _ args: [Any] = [],
+                                    as type: T.Type = T.self) -> T? {
+        do { return try engine.call(module, function, args, as: T.self) }
+        catch { lastError = "\(error)"; return nil }
+    }
+
     @discardableResult
     private func run<T>(_ body: (Engine) throws -> T) -> T? {
         do {
             let value = try body(engine)
+            lastError = nil
             changed()
             return value
         } catch {

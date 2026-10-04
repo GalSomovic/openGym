@@ -37,6 +37,18 @@ public enum JSONValue: Codable, Hashable, Sendable {
         return nil
     }
     public var number: Double? { if case .number(let n) = self { return n }; return nil }
+
+    /// As Foundation objects, for passing back into the engine.
+    public var any: Any {
+        switch self {
+        case .null: NSNull()
+        case .bool(let b): b
+        case .number(let n): n
+        case .string(let s): s
+        case .array(let a): a.map(\.any)
+        case .object(let o): o.mapValues(\.any)
+        }
+    }
     public var string: String? { if case .string(let s) = self { return s }; return nil }
     public var bool: Bool? { if case .bool(let b) = self { return b }; return nil }
 }
