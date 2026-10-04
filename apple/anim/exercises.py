@@ -12,14 +12,7 @@ import math
 
 from rig import L, SHOULDER_AT, Limb, Pose, add, angle_of, ankle_on_floor, arm_to, dist, ease, leg_to, lerp, standing, v
 
-EXERCISES = {}
-
-
-def exercise(id, name, period, active=(), props=("floor",), view="side", extra=None):
-    def wrap(fn):
-        EXERCISES[id] = dict(id=id, name=name, period=period, active=set(active), props=list(props), view=view, fn=fn, extra=extra)
-        return fn
-    return wrap
+from registry import EXERCISES, exercise  # noqa: F401
 
 
 def updown(t, down=(0.06, 0.47), up=(0.55, 0.96)):
@@ -310,3 +303,9 @@ def crunch(t):
     for side in "nf":
         setattr(p, f"arm_{side}", arm_to(p, side, target, +1, hand=p.head + 90))
     return p
+
+
+# The family modules register themselves on import.
+import ex_push  # noqa: E402,F401
+import ex_legs  # noqa: E402,F401
+import ex_bars  # noqa: E402,F401

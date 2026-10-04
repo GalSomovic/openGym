@@ -38,5 +38,481 @@
  "0274": {
   "name": "crunch",
   "period": 2.2
+ },
+ "1311": {
+  "name": "wide hand push up",
+  "period": 2.4
+ },
+ "0259": {
+  "name": "close-grip push-up",
+  "period": 2.4
+ },
+ "0283": {
+  "name": "diamond push-up",
+  "period": 2.4
+ },
+ "3211": {
+  "name": "kneeling push-up",
+  "period": 2.4
+ },
+ "2398": {
+  "name": "close-grip push-up (on knees)",
+  "period": 2.4
+ },
+ "0493": {
+  "name": "incline push-up",
+  "period": 2.4
+ },
+ "3785": {
+  "name": "incline push-up (on box)",
+  "period": 2.4
+ },
+ "0490": {
+  "name": "incline close-grip push-up",
+  "period": 2.4
+ },
+ "0494": {
+  "name": "incline reverse grip push-up",
+  "period": 2.4
+ },
+ "0279": {
+  "name": "decline push-up",
+  "period": 2.4
+ },
+ "3145": {
+  "name": "push-up plus",
+  "period": 2.8
+ },
+ "3021": {
+  "name": "scapula push-up",
+  "period": 2.2
+ },
+ "3011": {
+  "name": "incline scapula push up",
+  "period": 2.2
+ },
+ "1306": {
+  "name": "plyo push up",
+  "period": 2.0
+ },
+ "1273": {
+  "name": "clap push up",
+  "period": 2.0
+ },
+ "3699": {
+  "name": "shoulder tap",
+  "period": 2.4
+ },
+ "0699": {
+  "name": "shoulder tap push-up",
+  "period": 3.4
+ },
+ "3216": {
+  "name": "chest tap push-up (male)",
+  "period": 3.4
+ },
+ "0725": {
+  "name": "single arm push-up",
+  "period": 2.8
+ },
+ "0666": {
+  "name": "raise single arm push-up",
+  "period": 3.2
+ },
+ "0778": {
+  "name": "spider crawl push up",
+  "period": 3.0
+ },
+ "0803": {
+  "name": "superman push-up",
+  "period": 2.4
+ },
+ "1467": {
+  "name": "push-up on lower arms",
+  "period": 2.6
+ },
+ "0659": {
+  "name": "push-up (wall)",
+  "period": 2.6
+ },
+ "0658": {
+  "name": "push-up (wall) v. 2",
+  "period": 2.6
+ },
+ "0514": {
+  "name": "jump squat",
+  "period": 1.8
+ },
+ "0513": {
+  "name": "jump squat v. 2",
+  "period": 1.8
+ },
+ "3222": {
+  "name": "semi squat jump (male)",
+  "period": 1.6
+ },
+ "3543": {
+  "name": "bodyweight drop jump squat",
+  "period": 2.0
+ },
+ "3221": {
+  "name": "half knee bends (male)",
+  "period": 1.8
+ },
+ "1685": {
+  "name": "squat to overhead reach",
+  "period": 3.0
+ },
+ "1686": {
+  "name": "squat to overhead reach with twist",
+  "period": 3.0
+ },
+ "3119": {
+  "name": "potty squat",
+  "period": 3.2
+ },
+ "3132": {
+  "name": "potty squat with support",
+  "period": 3.2
+ },
+ "1489": {
+  "name": "sissy squat",
+  "period": 2.8
+ },
+ "1759": {
+  "name": "single leg squat (pistol) male",
+  "period": 3.0
+ },
+ "1476": {
+  "name": "one leg squat",
+  "period": 3.0
+ },
+ "2368": {
+  "name": "split squats",
+  "period": 2.6
+ },
+ "gf-bulgarian-split-squat": {
+  "name": "bulgarian split squat",
+  "period": 2.8
+ },
+ "0809": {
+  "name": "suspended split squat",
+  "period": 2.8
+ },
+ "1460": {
+  "name": "walking lunge",
+  "period": 3.0
+ },
+ "1688": {
+  "name": "lunge with twist",
+  "period": 3.2
+ },
+ "1687": {
+  "name": "posterior step to overhead reach",
+  "period": 3.2
+ },
+ "gf-reverse-lunge": {
+  "name": "reverse lunge",
+  "period": 3.2
+ },
+ "3582": {
+  "name": "lunge with jump",
+  "period": 1.8
+ },
+ "3655": {
+  "name": "walking high knees lunge",
+  "period": 3.4
+ },
+ "1373": {
+  "name": "bodyweight standing calf raise",
+  "period": 1.8
+ },
+ "1387": {
+  "name": "one leg floor calf raise",
+  "period": 1.8
+ },
+ "1490": {
+  "name": "standing calf raise (on a staircase)",
+  "period": 2.0
+ },
+ "0284": {
+  "name": "donkey calf raise",
+  "period": 2.0
+ },
+ "1386": {
+  "name": "one leg donkey calf raise",
+  "period": 2.0
+ },
+ "gf-wall-sit": {
+  "name": "wall sit",
+  "period": 3.0
+ },
+ "0624": {
+  "name": "march sit (wall)",
+  "period": 2.4
+ },
+ "gf-step-up": {
+  "name": "step-up",
+  "period": 3.2
+ },
+ "1472": {
+  "name": "forward jump",
+  "period": 2.6
+ },
+ "1473": {
+  "name": "backward jump",
+  "period": 2.6
+ },
+ "0795": {
+  "name": "standing single leg curl",
+  "period": 2.2
+ },
+ "0651": {
+  "name": "pull up (neutral grip)",
+  "period": 2.8
+ },
+ "1429": {
+  "name": "wide grip pull-up",
+  "period": 2.8
+ },
+ "0674": {
+  "name": "reverse grip pull-up",
+  "period": 2.8
+ },
+ "0139": {
+  "name": "biceps narrow pull-ups",
+  "period": 2.8
+ },
+ "0140": {
+  "name": "biceps pull-up",
+  "period": 2.8
+ },
+ "0253": {
+  "name": "chin-ups (narrow parallel grip)",
+  "period": 2.8
+ },
+ "1327": {
+  "name": "close grip chin-up",
+  "period": 2.8
+ },
+ "0627": {
+  "name": "mixed grip chin-up",
+  "period": 2.8
+ },
+ "1763": {
+  "name": "shoulder grip pull-up",
+  "period": 2.8
+ },
+ "3019": {
+  "name": "bench pull-ups",
+  "period": 2.8
+ },
+ "0670": {
+  "name": "rear pull-up",
+  "period": 2.8
+ },
+ "1367": {
+  "name": "wide grip rear pull-up",
+  "period": 2.8
+ },
+ "0466": {
+  "name": "gironda sternum chin",
+  "period": 2.8
+ },
+ "3418": {
+  "name": "l-pull-up",
+  "period": 2.8
+ },
+ "0638": {
+  "name": "one arm chin-up",
+  "period": 2.8
+ },
+ "0467": {
+  "name": "gorilla chin",
+  "period": 2.8
+ },
+ "0688": {
+  "name": "scapular pull-up",
+  "period": 2.2
+ },
+ "gf-dead-hang": {
+  "name": "dead hang",
+  "period": 3.0
+ },
+ "gf-negative-pull-up": {
+  "name": "negative pull-up",
+  "period": 4.0
+ },
+ "0631": {
+  "name": "muscle up",
+  "period": 3.4
+ },
+ "0558": {
+  "name": "kipping muscle up",
+  "period": 3.0
+ },
+ "1401": {
+  "name": "muscle-up (on vertical bar)",
+  "period": 3.4
+ },
+ "0472": {
+  "name": "hanging leg raise",
+  "period": 2.6
+ },
+ "0475": {
+  "name": "hanging straight leg raise",
+  "period": 2.8
+ },
+ "1764": {
+  "name": "hanging leg hip raise",
+  "period": 2.8
+ },
+ "0474": {
+  "name": "hanging straight leg hip raise",
+  "period": 2.8
+ },
+ "0473": {
+  "name": "hanging pike",
+  "period": 3.0
+ },
+ "gf-toes-to-bar": {
+  "name": "toes to bar",
+  "period": 2.6
+ },
+ "1761": {
+  "name": "hanging oblique knee raise",
+  "period": 2.6
+ },
+ "0476": {
+  "name": "hanging straight twisting leg hip raise",
+  "period": 2.8
+ },
+ "2963": {
+  "name": "captains chair straight leg raise",
+  "period": 2.6
+ },
+ "0826": {
+  "name": "vertical leg raise (on parallel bars)",
+  "period": 2.6
+ },
+ "0499": {
+  "name": "inverted row",
+  "period": 2.6
+ },
+ "0497": {
+  "name": "inverted row v. 2",
+  "period": 2.6
+ },
+ "2300": {
+  "name": "inverted row bent knees",
+  "period": 2.6
+ },
+ "2298": {
+  "name": "inverted row on bench",
+  "period": 2.6
+ },
+ "0498": {
+  "name": "inverted row with straps",
+  "period": 2.6
+ },
+ "0808": {
+  "name": "suspended row",
+  "period": 2.6
+ },
+ "3166": {
+  "name": "bodyweight standing row",
+  "period": 2.6
+ },
+ "3165": {
+  "name": "bodyweight standing row (with towel)",
+  "period": 2.6
+ },
+ "3158": {
+  "name": "bodyweight standing close-grip row",
+  "period": 2.6
+ },
+ "3162": {
+  "name": "bodyweight standing one arm row",
+  "period": 2.6
+ },
+ "3161": {
+  "name": "bodyweight standing one arm row (with towel)",
+  "period": 2.6
+ },
+ "3156": {
+  "name": "bodyweight standing close-grip one arm row",
+  "period": 2.6
+ },
+ "1773": {
+  "name": "one arm towel row",
+  "period": 2.6
+ },
+ "3168": {
+  "name": "bodyweight squatting row",
+  "period": 2.6
+ },
+ "3167": {
+  "name": "bodyweight squatting row (with towel)",
+  "period": 2.6
+ },
+ "1430": {
+  "name": "chest dip (on dip-pull-up cage)",
+  "period": 2.6
+ },
+ "2363": {
+  "name": "wide-grip chest dip on high parallel bars",
+  "period": 2.6
+ },
+ "0814": {
+  "name": "triceps dip",
+  "period": 2.6
+ },
+ "0677": {
+  "name": "ring dips",
+  "period": 2.8
+ },
+ "2462": {
+  "name": "chest dip on straight bar",
+  "period": 2.6
+ },
+ "0639": {
+  "name": "one arm dip",
+  "period": 2.6
+ },
+ "3012": {
+  "name": "scapula dips",
+  "period": 2.0
+ },
+ "3288": {
+  "name": "korean dips",
+  "period": 2.6
+ },
+ "0129": {
+  "name": "bench dip (knees bent)",
+  "period": 2.4
+ },
+ "0812": {
+  "name": "triceps dip (bench leg)",
+  "period": 2.4
+ },
+ "0813": {
+  "name": "triceps dip (between benches)",
+  "period": 2.4
+ },
+ "1753": {
+  "name": "three bench dip",
+  "period": 2.4
+ },
+ "1399": {
+  "name": "bench dip on floor",
+  "period": 2.2
+ },
+ "0815": {
+  "name": "triceps dips floor",
+  "period": 2.2
+ },
+ "0672": {
+  "name": "reverse dip",
+  "period": 2.4
  }
 }

@@ -7,7 +7,7 @@ from __future__ import annotations
 import json
 import math
 
-from rig import L, SHOULDER_AT, Pose
+from rig import FRONT_HIP, FRONT_SHOULDER, L, SHOULDER_AT, Pose
 
 W = H = 600
 FPS = 60
@@ -25,9 +25,6 @@ T = dict(torso=0.115, uarm=0.060, farm=0.048, hand=0.040, thigh=0.088, shin=0.06
 # Where each limb ends (its thickness at the far joint).
 TE = dict(uarm=0.050, farm=0.036, hand=0.034, thigh=0.064, shin=0.040)
 
-# Lateral offsets of the shoulders and hips in the front view (world units).
-FRONT_SHOULDER = 0.085
-FRONT_HIP = 0.048
 
 
 def unwrap(values: list[float]) -> list[float]:
@@ -153,7 +150,7 @@ def build(name: str, poses: list[Pose], period: float, active: set[str], props: 
 
     def colour_for(key, side):
         on = key in active
-        if side == "f":
+        if side == "f" and view != "front":
             return ACTIVE_FAR if on else BODY_FAR
         return ACTIVE if on else BODY
 
@@ -180,10 +177,14 @@ def build(name: str, poses: list[Pose], period: float, active: set[str], props: 
     def leg_chain(side):
         lim = (lambda p: p.leg_n) if side == "n" else (lambda p: p.leg_f)
         key = f"leg_{side}" if f"leg_{side}" in active else ("legs" if "legs" in active else "_")
-        foot_shape = lambda c: group([rect(s(0.04), s(L['heel']) * 0.45, s(L['foot']) + s(0.03), s(L['heel']) * 1.5 + s(0.012),
-                                           s(0.02))], c, "foot")
+        if view == "front":
+            # Seen from the front the foot points at you: a short rounded block under the ankle.
+            foot_shape = lambda c: group([rect(0, s(L['heel']) * 0.5, s(0.075), s(L['heel']) * 1.5 + s(0.01), s(0.02))], c, "foot")
+        else:
+            foot_shape = lambda c: group([rect(s(0.04), s(L['heel']) * 0.45, s(L['foot']) + s(0.03), s(L['heel']) * 1.5 + s(0.012),
+                                               s(0.02))], c, "foot")
         return limb_chain("leg" + side, side, None, [0.0] * len(poses),
-                          [0, s(lat(side, FRONT_HIP))],
+                          [s(lat(side, FRONT_HIP)), 0],
                           [("thigh", lambda p: lim(p).a1, L['thigh'], lambda c: capsule(s(L['thigh']), s(T['thigh']), c, "thigh", s(TE['thigh']))),
                            ("shin", lambda p: lim(p).a2, L['shin'], lambda c: capsule(s(L['shin']), s(T['shin']), c, "shin", s(TE['shin']))),
                            ("foot", lambda p: lim(p).a3, L['foot'], foot_shape)],
@@ -245,8 +246,13 @@ def prop_layer(prop: dict, cam: Camera) -> dict:
         shapes.append(group([rect(W / 2, y + s(0.012), W * 1.2, s(0.024), 0)], FLOOR, "floor"))
     elif kind == "bar":          # pull-up bar at world (x, y)
         p = cam.pt(prop["at"])
-        # The bar end-on, and the frame it hangs from running back and up.
-        shapes.append(group([rect(p[0] - s(0.32), p[1] - s(0.0), s(0.64), s(0.022), s(0.011))], FLOOR, "frame"))
+        if prop.get("posts"):
+            # A low bar on a stand: the upright down to the floor.
+            base = cam.pt((prop["at"][0], 0))
+            shapes.append(group([rect(p[0] + s(0.03), (p[1] + base[1]) / 2, s(0.022), base[1] - p[1], s(0.01))], FLOOR, "post"))
+        else:
+            # The bar end-on, and the frame it hangs from running back and up.
+            shapes.append(group([rect(p[0] - s(0.32), p[1] - s(0.0), s(0.64), s(0.022), s(0.011))], FLOOR, "frame"))
         shapes.append(group([ellipse(p[0], p[1], s(0.05), s(0.05))], PROP, "bar"))
     elif kind == "box":          # bench / box: centre x, width, height
         x, w, h = prop["x"], prop["w"], prop["h"]

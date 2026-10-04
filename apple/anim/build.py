@@ -21,7 +21,7 @@ def props_of(ex):
         if p == "floor":
             out.append({"kind": "floor"})
         elif p[0] == "bar":
-            out.append({"kind": "bar", "at": p[1]})
+            out.append({"kind": "bar", "at": p[1], "posts": len(p) > 2 and p[2] == "posts"})
         elif p[0] == "parallettes":
             out.append({"kind": "parallettes", "x": p[1], "h": p[2]})
         elif p[0] == "box":
