@@ -19,8 +19,10 @@ struct ExerciseDetailView: View {
                     .listRowInsets(EdgeInsets())
                     .listRowBackground(Color.clear)
             } footer: {
-                Text("Use the arrows to switch between the versions available for this exercise.")
-                    .font(.caption2).frame(maxWidth: .infinity)
+                if MediaLibrary.options(for: exerciseId).count > 1 {
+                    Text("Use the arrows to switch between the versions available for this exercise.")
+                        .font(.caption2).frame(maxWidth: .infinity)
+                }
             }
             if let detail {
                 Section {

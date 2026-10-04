@@ -152,4 +152,54 @@ export const EXTRAS = [
       'Return to all fours and switch sides.',
     ],
   },
+  {
+    id: 'gf-hand-release-push-up', n: 'hand-release push-up', bp: 'chest', eq: 'body weight', tg: 'pectorals', mg: 'triceps',
+    sm: ['triceps', 'shoulders', 'upper back', 'core'],
+    st: [
+      'Start in a high plank, hands under your shoulders and your body in a straight line.',
+      'Lower all the way until your chest, hips and thighs touch the floor.',
+      'Lift your hands off the floor and reach your arms out to the sides into a T, then bring them back under your shoulders.',
+      'Push back up to the plank as one straight line. That is one rep.',
+    ],
+  },
+  {
+    id: 'gf-side-plank', n: 'side plank', bp: 'waist', eq: 'body weight', tg: 'abs', mg: 'obliques',
+    sm: ['obliques', 'glutes', 'shoulders'],
+    st: [
+      'Lie on your side with your legs straight and stacked, propped on your forearm with the elbow under your shoulder.',
+      'Lift your hips so your body forms a straight line from head to feet.',
+      'Keep your hips high and your top hand on your hip or reaching up.',
+      'Hold for the set time, then switch sides.',
+    ],
+  },
+  {
+    id: 'gf-v-up', n: 'v-up', bp: 'waist', eq: 'body weight', tg: 'abs', mg: 'hip flexors',
+    sm: ['hip flexors', 'lower abs', 'obliques'],
+    st: [
+      'Lie on your back with your arms straight overhead and your legs straight.',
+      'In one movement, lift your legs and upper body and reach your hands toward your toes, balancing on your seat.',
+      'Lower back down with control without letting your feet or shoulders rest on the floor.',
+      'Repeat for the set number of reps.',
+    ],
+  },
+  {
+    id: 'gf-bicycle-crunch', n: 'bicycle crunch', bp: 'waist', eq: 'body weight', tg: 'abs', mg: 'obliques',
+    sm: ['obliques', 'hip flexors'],
+    st: [
+      'Lie on your back with your hands lightly behind your head and your shoulders lifted.',
+      'Bring one knee toward your chest while extending the other leg low.',
+      'Rotate your torso to bring the opposite elbow toward the bent knee.',
+      'Switch sides in a smooth pedalling motion.',
+    ],
+  },
+  {
+    id: 'gf-superman', n: 'superman', bp: 'back', eq: 'body weight', tg: 'spine', mg: 'lower back',
+    sm: ['glutes', 'hamstrings', 'upper back', 'shoulders'],
+    st: [
+      'Lie face down with your arms straight overhead and your legs straight.',
+      'Squeeze your glutes and lift your arms, chest and legs a few inches off the floor.',
+      'Keep your neck long and look at the floor; hold for a moment at the top.',
+      'Lower with control and repeat.',
+    ],
+  },
 ]

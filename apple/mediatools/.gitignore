@@ -1,0 +1,7 @@
+# Raw API search dumps (may embed API keys in paging links) and scratch match lists.
+tecom-videos.json
+dvids-more.json
+followme.json
+tecom-match.tsv
+pixabay-candidates.json
+pixabay-filtered.json

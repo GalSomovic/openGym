@@ -52,8 +52,9 @@ def download(url, path):
     return path
 
 
-def to_video(src, dst, start=0.0, length=None):
-    """H.264, 540 px tall, no audio, at most 12 s: small, plays everywhere, loops cleanly."""
+def to_video(src, dst, start=0.0, length=None, crop=None):
+    """H.264, 540 px tall, no audio, at most 12 s: small, plays everywhere, loops cleanly.
+    crop: an ffmpeg crop expression (w:h:x:y) applied first, to frame the person."""
     if os.path.exists(dst):
         return dst
     cmd = ["ffmpeg", "-v", "error", "-y", "-ss", str(start), "-i", src]
@@ -61,7 +62,8 @@ def to_video(src, dst, start=0.0, length=None):
         cmd += ["-t", str(length)]
     else:
         cmd += ["-t", "12"]
-    cmd += ["-vf", "scale=-2:540:flags=lanczos,fps=30", "-an", "-c:v", "libx264", "-preset", "slow", "-crf", "26",
+    vf = (f"crop={crop}," if crop else "") + "scale=-2:540:flags=lanczos,fps=30"
+    cmd += ["-vf", vf, "-an", "-c:v", "libx264", "-preset", "slow", "-crf", "26",
             "-pix_fmt", "yuv420p", "-movflags", "+faststart", dst]
     subprocess.run(cmd, check=True)
     return dst
@@ -78,7 +80,10 @@ def to_image(src, dst):
 
 # Rejected on review: logos, other apps' watermarks or screenshots, likely AI-generated art.
 BLOCKED = {"wger-i1573", "wger-i2529", "wger-i984", "wger-i1551", "wger-i1554", "wger-i1572",
-           "wger-i507", "wger-i301", "wger-i265", "wger-i1307"}
+           "wger-i507", "wger-i301", "wger-i265", "wger-i1307",
+           # Marine Corps clips whose busiest window misses the move, or where the person is tiny.
+           "tecom-679638", "tecom-639937", "tecom-549334", "tecom-679688", "tecom-640257",
+           "tecom-548828", "tecom-551148"}
 
 
 def add_option(ix, exercise_id, option):
@@ -226,9 +231,180 @@ def feeel(repo):
     save_index(ix)
 
 
+# Pixabay videos picked by hand (Pixabay Content License: free to use, no attribution
+# required; credited anyway). id: (openGym ids, start, length, crop)
+PIXABAY = {
+    13134: (["0662"], 2.0, 9.0, None),
+    330871: (["0662"], 0.0, 9.0, "iw*0.52:ih*0.52:iw*0.18:ih*0.40"),
+}
+
+
+def pixabay():
+    CURRENT[0] = "pixabay-"
+    cands = {c["id"]: c for c in json.load(open(os.path.join(HERE, "pixabay-filtered.json")))}
+    raw = os.path.join(OUT, "..", "_raw", "pixabay")
+    os.makedirs(os.path.join(OUT, "pixabay"), exist_ok=True)
+    ix = load_index()
+    for pid, (targets, start, length, crop) in PIXABAY.items():
+        c = cands[pid]
+        src = os.path.join(raw, f"{pid}.mp4")
+        name = f"pixabay-{pid}.mp4"
+        to_video(src, os.path.join(OUT, "pixabay", name), start, length, crop)
+        for t in targets:
+            add_option(ix, t, {"id": f"pixabay-{pid}", "kind": "video", "files": [f"pixabay/{name}"], "source": "Pixabay",
+                               "title": c["tags"].split(",")[0], "license": "Pixabay Content License", "author": c["user"],
+                               "link": c["page"]})
+        print("pixabay", pid, "->", ",".join(targets), flush=True)
+    save_index(ix)
+
+
+# DVIDS (US military media, public domain). video id -> [(openGym ids, start, length, crop)].
+# Segments and crops picked from contact sheets (dvids.py preview/zoom); crops keep on-screen
+# text out of the frame.
+TEXT_FREE = "iw*0.84:ih*0.58:iw*0.08:ih*0.41"
+DVIDS = {
+    "video:1016258": [(["0662"], 34.5, 5.4, None)],                                   # Culture of Fitness: Push Ups
+    "video:1016260": [(["gf-hand-release-push-up"], 64.0, 7.0, TEXT_FREE)],           # Hand Release Push Up
+    "video:1016256": [(["3679", "0735"], 54.0, 3.6, TEXT_FREE)],                       # Sit Ups (arms crossed)
+    "video:1016254": [(["0871"], 36.0, 8.0, TEXT_FREE)],                               # Cross Leg Crunch
+    "video:1017408": [(["0652"], 26.7, 4.3, None)],                                    # Get Fit: Proper Pull-Up
+    "video:1003262": [(["gf-step-up"], 37.0, 7.0, None)],                              # Get Fit: Proper Step-Up
+    "video:695517": [(["0472"], 78.0, 10.0, None)],                                    # ACFT: Leg Tuck
+    "video:840093": [(["gf-plank"], 5.5, 3.4, None),                                  # ACFT Prep: Plank
+                     (["0872"], 32.0, 6.0, "iw:ih*0.8:0:0"),                           #   bent-leg raise
+                     (["gf-side-plank"], 43.0, 2.6, "iw:ih*0.8:0:0")],                 #   side bridge
+}
+
+
+def dvids():
+    CURRENT[0] = "dvids-"
+    sys.path.insert(0, HERE)
+    import dvids as D
+    raw = os.path.join(OUT, "..", "_raw", "dvids")
+    os.makedirs(os.path.join(OUT, "dvids"), exist_ok=True)
+    ix = load_index()
+    for vid, cuts in DVIDS.items():
+        a = D.asset(vid)
+        f = D.file_for(a, 720)
+        src = D.download(f["src"], os.path.join(raw, f"{vid.replace(':', '_')}-{f['height']}.mp4"))
+        people = ", ".join(" ".join(x for x in (c.get("rank"), c.get("name")) if x) for c in a.get("credit", []) or [])
+        author = f"{people} / DVIDS" if people else "DVIDS"
+        for n, (targets, start, length, crop) in enumerate(cuts):
+            oid = f"dvids-{vid.split(':')[1]}-{n}"
+            name = f"{oid}.mp4"
+            to_video(src, os.path.join(OUT, "dvids", name), start, length, crop)
+            for t in targets:
+                add_option(ix, t, {"id": oid, "kind": "video", "files": [f"dvids/{name}"], "source": "DVIDS",
+                                   "title": a.get("title", ""), "license": "Public domain (US DoD)", "author": author,
+                                   "link": f"https://www.dvidshub.net/video/{vid.split(':')[1]}"})
+        print("dvids", vid, a.get("title"), "->", [c[0] for c in cuts], flush=True)
+    save_index(ix)
+
+
+def analyse(src, max_len=8.0):
+    """
+    Where to cut a clip: the most active `max_len` seconds (frame-to-frame motion), and a crop
+    for the Marine Corps library layout (two stacked camera views inside black side bars, with a
+    label box): the content columns and the lower view.
+    """
+    import numpy as np
+    probe = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height:format=duration",
+                            "-of", "json", src], capture_output=True, text=True)
+    info = json.loads(probe.stdout)
+    w, h = info["streams"][0]["width"], info["streams"][0]["height"]
+    dur = float(info["format"]["duration"])
+    sw, sh, fps = 160, int(160 * h / w) // 2 * 2, 4
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", src, "-vf", f"fps={fps},scale={sw}:{sh},format=gray", "-f", "rawvideo", "-"],
+                         capture_output=True).stdout
+    frames = np.frombuffer(raw, np.uint8).reshape(-1, sh, sw).astype(np.int16)
+    crop = None
+    mean = frames.mean(axis=0)
+    cols = mean.mean(axis=0)
+    if cols[: sw // 6].mean() < 14 and cols[-sw // 6:].mean() < 14:
+        lit = np.where(cols > 20)[0]
+        # The label box sits in the left bar; the content is the widest lit run.
+        runs, start = [], lit[0]
+        for a, b in zip(lit, lit[1:]):
+            if b != a + 1:
+                runs.append((start, a)); start = b
+        runs.append((start, lit[-1]))
+        x0, x1 = max(runs, key=lambda r: r[1] - r[0])
+        x0f, x1f = (x0 + 1) / sw, (x1 - 1) / sw
+        crop = f"iw*{x1f - x0f:.3f}:ih*0.5:iw*{x0f:.3f}:ih*0.5"
+        frames = frames[:, sh // 2:, x0:x1]
+    else:
+        # Older clips: 4:3 inside black bars above and below. Keep only the picture.
+        rows = mean.mean(axis=1)
+        lit = np.where(rows > 24)[0]   # video black is 16
+        if len(lit) and (lit[0] > sh // 20 or lit[-1] < sh - sh // 20):
+            y0f, y1f = (lit[0] + 1) / sh, lit[-1] / sh
+            crop = f"iw:ih*{y1f - y0f:.3f}:0:ih*{y0f:.3f}"
+            frames = frames[:, lit[0]:lit[-1]]
+    motion = np.abs(np.diff(frames, axis=0)).mean(axis=(1, 2)) if len(frames) > 1 else np.zeros(1)
+    win = int(max_len * fps)
+    if dur <= max_len + 0.5 or len(motion) <= win:
+        return 0.0, min(dur, max_len + 0.5), crop
+    sums = np.convolve(motion, np.ones(win), "valid")
+    best = int(np.argmax(sums))
+    return best / fps, max_len, crop
+
+
+def tecom():
+    CURRENT[0] = "tecom-"
+    sys.path.insert(0, HERE)
+    import dvids as D
+    from tecom_map import TECOM_TO_OPENGYM, OTHER_VIDEOS
+    titles = {x["name"]: x for x in json.load(open(os.path.join(HERE, "tecom-titles.json")))}
+    raw = os.path.join(OUT, "..", "_raw", "dvids")
+    os.makedirs(os.path.join(OUT, "tecom"), exist_ok=True)
+    ix = load_index()
+    for title, targets in TECOM_TO_OPENGYM.items():
+        t = titles.get(title)
+        if not t:
+            print("missing title", title); continue
+        vid = t["id"]
+        a = D.asset(vid)
+        f = D.file_for(a, 720)
+        if not f:
+            print("no file", title); continue
+        oid = f"tecom-{vid.split(':')[1]}"
+        if oid in BLOCKED:
+            continue
+        src = D.download(f["src"], os.path.join(raw, f"{vid.replace(':', '_')}-{f['height']}.mp4"))
+        name = f"{oid}.mp4"
+        dst = os.path.join(OUT, "tecom", name)
+        if not os.path.exists(dst):
+            start, length, crop = analyse(src)
+            to_video(src, dst, start, length, crop)
+        for tg in targets:
+            add_option(ix, tg, {"id": oid, "kind": "video", "files": [f"tecom/{name}"], "source": "DVIDS",
+                                "title": title, "license": "Public domain (US DoD)",
+                                "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+                                "link": f"https://www.dvidshub.net/video/{vid.split(':')[1]}"})
+        print("tecom", title, "->", ",".join(targets), flush=True)
+    for vid, (title, targets, (start, length)) in OTHER_VIDEOS.items():
+        a = D.asset(vid)
+        f = D.file_for(a, 720)
+        src = D.download(f["src"], os.path.join(raw, f"{vid.replace(':', '_')}-{f['height']}.mp4"))
+        oid = f"tecom-{vid.split(':')[1]}"
+        name = f"{oid}.mp4"
+        to_video(src, os.path.join(OUT, "tecom", name), start, length)
+        for tg in targets:
+            add_option(ix, tg, {"id": oid, "kind": "video", "files": [f"tecom/{name}"], "source": "DVIDS",
+                                "title": title, "license": "Public domain (US DoD)",
+                                "author": a.get("unit_name") or "U.S. Marine Corps / DVIDS",
+                                "link": f"https://www.dvidshub.net/video/{vid.split(':')[1]}"})
+        print("dvids", title, "->", ",".join(targets), flush=True)
+    save_index(ix)
+    used = {f for opts in ix.values() for o in opts for f in o["files"]}
+    for name in os.listdir(os.path.join(OUT, "tecom")):
+        if f"tecom/{name}" not in used:
+            os.remove(os.path.join(OUT, "tecom", name))
+
+
 if __name__ == "__main__":
     cmd = sys.argv[1]
     if cmd == "feeel":
         feeel(sys.argv[2])
     else:
-        {"wger": wger, "commons": commons}[cmd]()
+        {"wger": wger, "commons": commons, "pixabay": pixabay, "dvids": dvids, "tecom": tecom}[cmd]()
