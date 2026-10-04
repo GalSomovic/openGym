@@ -13,6 +13,7 @@ independent fork, published under a different name, and credits openGym prominen
 ```
 apple/
   core/                 entry.js + build.sh: bundles openGym's training engine
+                        actions.js: the profile and the steps that change it (vitest)
   OpenGymCore/          Swift package: JavaScriptCore bridge + typed Swift API
   App/                  SwiftUI app (iPhone + iPad), widgets, Live Activity
 ```
@@ -24,6 +25,13 @@ modules are bundled into one script (`apple/core/build.sh`) that runs in JavaScr
 the app. Results therefore match openGym exactly, the state shape matches openGym backups, and
 upstream fixes arrive by merging upstream and rebuilding. The script ships inside the app and is
 never downloaded, which App Review allows.
+
+**One way to change anything.** openGym's screens change the profile from closures inside its
+React views. `apple/core/actions.js` reproduces those closures headless, on the same lib helpers
+(start, tick a set, rest, supersets, add/swap/move exercises, finish, log a past workout), and
+the default profile is lifted from openGym's own store at build time (`gen-defaults.mjs`).
+Swift's `GymStore` calls these actions and draws the snapshots they return; it never writes the
+profile itself, so fields it does not model survive untouched.
 
 **Local-first.** No account and no server: data lives on the device, in openGym's state shape,
 with optional iCloud sync (openGym's `sync-merge` reconciles devices). Server-only features
@@ -57,7 +65,7 @@ The GIFs are **never committed** (publishing the raw files would be redistributi
 | Phase | Scope |
 |---|---|
 | 0 | Fork, engine bundle, JavaScriptCore bridge with tests ✅ |
-| 1 | State store (openGym shape, file + iCloud), typed models, engine facade tests ported from openGym's own test vectors |
+| 1 | Profile store (openGym's state JSON, saved atomically), typed snapshots, headless workout actions with tests ✅ (iCloud sync moves to phase 6) |
 | 2 | Library (search, filters, muscle map from MuscleMap, demos), Plan + routine editor, starter plans |
 | 3 | Workout logger: sets, supersets, warm-ups, drop sets, rest-pause, side sets, plates, rest timer, progression on finish |
 | 4 | Guided mode: animated demos, spoken cues over music, Live Activity, AlarmKit rest end |
@@ -69,6 +77,6 @@ The GIFs are **never committed** (publishing the raw files would be redistributi
 
 ```sh
 cd frontend && npm ci && cd ..
-apple/core/build.sh                       # bundle the engine
-cd apple/OpenGymCore && swift test        # bridge tests
+apple/core/build.sh                       # test the actions, bundle the engine
+cd apple/OpenGymCore && swift test        # bridge and store tests
 ```

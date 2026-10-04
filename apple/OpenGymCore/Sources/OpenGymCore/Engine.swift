@@ -52,21 +52,41 @@ public final class Engine: @unchecked Sendable {
                                    as type: T.Type = T.self) throws -> T {
         lock.lock(); defer { lock.unlock() }
         guard isLoaded else { throw Failure.missingEngine }
-        var thrown: String?
-        context.exceptionHandler = { _, value in thrown = value?.toString() }
-        let fn = og.objectForKeyedSubscript(module).objectForKeyedSubscript(function)!
-        let jsArgs: [Any] = try args.map { arg in
-            if arg is NSNull { return NSNull() }
-            let data = try JSONSerialization.data(withJSONObject: arg, options: [.fragmentsAllowed])
-            return context.evaluateScript("(\(String(decoding: data, as: UTF8.self)))") as Any
-        }
-        let result = fn.call(withArguments: jsArgs)
-        if let thrown { throw Failure.exception(thrown) }
+        let result = try invoke(module, function, args)
         let json = context.objectForKeyedSubscript("JSON").invokeMethod("stringify", withArguments: [result as Any])
         guard let text = json?.toString(), text != "undefined", let data = text.data(using: .utf8) else {
             throw Failure.notJSON
         }
         return try JSONDecoder().decode(T.self, from: data)
+    }
+
+    /// Calls a function that returns a string (such as a whole saved profile) and hands it
+    /// back as is, without a round trip through JSON.
+    public func callString(_ module: String, _ function: String, _ args: [Any] = []) throws -> String {
+        lock.lock(); defer { lock.unlock() }
+        guard isLoaded else { throw Failure.missingEngine }
+        let result = try invoke(module, function, args)
+        guard result.isString, let text = result.toString() else { throw Failure.notJSON }
+        return text
+    }
+
+    /// Strings cross as JavaScript strings; everything else as a JSON literal. Call with the
+    /// lock held.
+    private func invoke(_ module: String, _ function: String, _ args: [Any]) throws -> JSValue {
+        var caught: String?
+        context.exceptionHandler = { _, value in caught = value?.toString() }
+        let fn = og.objectForKeyedSubscript(module).objectForKeyedSubscript(function)!
+        guard fn.isObject else { throw Failure.exception("OG.\(module).\(function) is not a function") }
+        let jsArgs: [Any] = try args.map { arg in
+            if arg is NSNull { return NSNull() }
+            if let text = arg as? String { return JSValue(object: text, in: context) as Any }
+            let data = try JSONSerialization.data(withJSONObject: arg, options: [.fragmentsAllowed])
+            return context.evaluateScript("(\(String(decoding: data, as: UTF8.self)))") as Any
+        }
+        let result = fn.call(withArguments: jsArgs)
+        if let caught { throw Failure.exception(caught) }
+        guard let result else { throw Failure.notJSON }
+        return result
     }
 
     /// Reads `OG.<module>.<constant>`.
