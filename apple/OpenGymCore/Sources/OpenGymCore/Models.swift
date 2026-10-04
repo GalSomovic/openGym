@@ -175,6 +175,8 @@ public struct RoutineExercise: Codable, Hashable, Sendable {
     public var sec: Double?
     public var mode: String?
     public var note: String?
+    /// Superset group: neighbours with the same value are done back to back.
+    public var sg: String?
 }
 
 public struct Routine: Codable, Hashable, Sendable, Identifiable {
@@ -182,6 +184,8 @@ public struct Routine: Codable, Hashable, Sendable, Identifiable {
     public var name: String
     public var emoji: String?
     public var ex: [RoutineExercise]
+    /// The routine's progression rule ('off', 'linear', 'greyskull', 'double'); absent is linear.
+    public var prog: String?
     public var excludeFromProgression: Bool?
 }
 

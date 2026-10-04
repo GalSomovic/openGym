@@ -15,7 +15,7 @@ apple/
   core/                 entry.js + build.sh: bundles openGym's training engine
                         actions.js: the profile and the steps that change it (vitest)
   OpenGymCore/          Swift package: JavaScriptCore bridge + typed Swift API
-  App/                  SwiftUI app (iPhone + iPad), widgets, Live Activity
+  App/                  SwiftUI app (iPhone + iPad): project.yml (XcodeGen), dev.sh, shot.sh
 ```
 
 **Native UI, openGym's engine.** Every screen is SwiftUI. The training logic (progression
@@ -66,7 +66,7 @@ The GIFs are **never committed** (publishing the raw files would be redistributi
 |---|---|
 | 0 | Fork, engine bundle, JavaScriptCore bridge with tests ✅ |
 | 1 | Profile store (openGym's state JSON, saved atomically), typed snapshots, headless workout actions with tests ✅ (iCloud sync moves to phase 6) |
-| 2 | Library (search, filters, muscle map from MuscleMap, demos), Plan + routine editor, starter plans |
+| 2 | Library (search, filters, demos), Plan + routine editor, exercise settings, starter plans ✅ (muscle map moves to phase 5) |
 | 3 | Workout logger: sets, supersets, warm-ups, drop sets, rest-pause, side sets, plates, rest timer, progression on finish |
 | 4 | Guided mode: animated demos, spoken cues over music, Live Activity, AlarmKit rest end |
 | 5 | History, stats (1RM, volume, effort), recovery and detrained maps, structural balance, body weight, check-in QR |
@@ -79,4 +79,6 @@ The GIFs are **never committed** (publishing the raw files would be redistributi
 cd frontend && npm ci && cd ..
 apple/core/build.sh                       # test the actions, bundle the engine
 cd apple/OpenGymCore && swift test        # bridge and store tests
+apple/core/fetch-media.sh                 # once: the exercise animations (about 125 MB)
+brew install xcodegen && apple/App/dev.sh # generate, build, install on the booted simulator
 ```

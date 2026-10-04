@@ -1,0 +1,57 @@
+# GymFree: generate the Xcode project with `xcodegen` (brew install xcodegen) from this folder.
+name: GymFree
+options:
+  bundleIdPrefix: com.gsomovic
+  deploymentTarget:
+    iOS: "26.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    DEVELOPMENT_TEAM: 768BZ9W5AR
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    SWIFT_VERSION: "6.0"
+    SWIFT_STRICT_CONCURRENCY: complete
+    STRING_CATALOG_GENERATE_SYMBOLS: NO
+packages:
+  OpenGymCore:
+    path: ../OpenGymCore
+targets:
+  GymFree:
+    type: application
+    platform: iOS
+    sources:
+      - path: GymFree
+      # The ExerciseDB animations: fetched by ../core/fetch-media.sh, never committed.
+      - path: ../Media/ExerciseGIFs
+        type: folder
+        buildPhase: resources
+    dependencies:
+      - package: OpenGymCore
+    preBuildScripts:
+      - name: Check exercise media
+        basedOnDependencyAnalysis: false
+        script: |
+          n=$(ls "$SRCROOT/../Media/ExerciseGIFs" 2>/dev/null | wc -l | tr -d ' ')
+          if [ "$n" -lt 1300 ]; then
+            echo "error: exercise animations missing ($n found). Run apple/core/fetch-media.sh first."
+            exit 1
+          fi
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.gsomovic.gymfree
+        PRODUCT_NAME: GymFree
+        INFOPLIST_KEY_CFBundleDisplayName: GymFree
+        TARGETED_DEVICE_FAMILY: "1,2"
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: UIInterfaceOrientationPortrait
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
+        INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents: YES
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.healthcare-fitness
+        INFOPLIST_KEY_ITSAppUsesNonExemptEncryption: NO
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        ENABLE_PREVIEWS: YES
+        LOCALIZATION_PREFERS_STRING_CATALOGS: YES
+        SWIFT_EMIT_LOC_STRINGS: YES
