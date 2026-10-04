@@ -15,6 +15,8 @@ struct WorkoutView: View {
     @State private var renaming = false
     @State private var newName = ""
     @State private var addingRoutine = false
+    @State private var guided = false
+    @AppStorage(WorkoutSession.Pref.guidedDefault) private var guidedDefault = false
 
     var body: some View {
         if let a = store.active {
@@ -92,7 +94,7 @@ struct WorkoutView: View {
             }
         }
         .safeAreaInset(edge: .bottom) {
-            if session.rest != nil || session.hold != nil { TimerBar().padding(.horizontal).padding(.bottom, 6) }
+            if !guided, session.rest != nil || session.hold != nil { TimerBar().padding(.horizontal).padding(.bottom, 6) }
         }
         .navigationTitle(a.name ?? "")
         .navigationBarTitleDisplayMode(.inline)
@@ -106,8 +108,8 @@ struct WorkoutView: View {
         }
         .confirmationDialog("Discard workout?", isPresented: $discardAsk, titleVisibility: .visible) {
             Button("Discard", role: .destructive) {
-                session.stopRest(); session.cancelHold()
                 store.discardWorkout()
+                session.ended()
             }
         } message: {
             Text("The sets you logged in this session will be lost.")
@@ -130,6 +132,15 @@ struct WorkoutView: View {
             Text("Every set is done. Finish and save the workout?")
         }
         .overlay(alignment: .top) { ToastView() }
+        .fullScreenCover(isPresented: $guided) {
+            GuidedWorkoutView(close: { guided = false }, finish: { finish() })
+                .environment(store).environment(session).environment(catalog)
+        }
+        .onAppear {
+            session.publish()
+            if DebugLaunch.guided { guided = true }
+            if guidedDefault && a.setsDone == 0 && !a.isBackfill && !a.entries.isEmpty { guided = true }
+        }
     }
 
     private var finishTitle: String {
@@ -139,6 +150,16 @@ struct WorkoutView: View {
 
     private func header(_ a: ActiveSession) -> some View {
         VStack(alignment: .leading, spacing: 8) {
+            if !a.entries.isEmpty && !a.isBackfill {
+                Button { guided = true } label: {
+                    Label("Guided mode", systemImage: "figure.strengthtraining.traditional")
+                        .font(.headline)
+                        .frame(maxWidth: .infinity, minHeight: 44)
+                }
+                .buttonStyle(.borderedProminent)
+                .buttonBorderShape(.roundedRectangle(radius: 14))
+                .accessibilityHint(Text("One set at a time, with spoken cues over your music"))
+            }
             HStack {
                 if a.isBackfill {
                     Label(a.d, systemImage: "calendar").font(.subheadline).foregroundStyle(.secondary)
@@ -203,9 +224,10 @@ struct WorkoutView: View {
     }
 
     private func finish() {
-        session.stopRest(); session.cancelHold()
         if let s = store.finishWorkout() {
+            session.ended()
             session.cues.finished()
+            guided = false
             summary = s
         }
     }

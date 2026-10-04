@@ -22,6 +22,10 @@ enum DebugLaunch {
     }
     static var detail: String? { args.string(forKey: "GFDetail") }
     static var routine: Int? { args.object(forKey: "GFRoutine").map { _ in args.integer(forKey: "GFRoutine") } }
+    /// -GFGuided YES: open guided mode on the running workout.
+    static var guided: Bool { args.bool(forKey: "GFGuided") }
+    /// -GFTick 1: complete that many sets the way guided mode does.
+    static var ticks: Int { args.integer(forKey: "GFTick") }
     /// -GFConfig 0: with -GFRoutine, open that routine's n-th exercise settings.
     static var config: Int? { args.object(forKey: "GFConfig").map { _ in args.integer(forKey: "GFConfig") } }
 
@@ -41,6 +45,8 @@ enum DebugLaunch {
     static let detail: String? = nil
     static let routine: Int? = nil
     static let config: Int? = nil
+    static let guided = false
+    static let ticks = 0
     @MainActor static func prepare(_ store: GymStore, storage: StateStorage) {}
     #endif
 }

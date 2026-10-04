@@ -101,3 +101,29 @@ describe('set edits', () => {
     expect(sets[1].r).toBe(3)
   })
 })
+
+describe('guided mode', () => {
+  it('walks the sets in order and previews the next one', () => {
+    A.load(JSON.stringify({ routines: [{ id: 'r1', name: 'P', ex: [{ id: '0025', sets: 2, reps: 5, weight: 60 }, { id: '0032', sets: 1, reps: 5, weight: 100 }] }] }))
+    A.beginWorkout(['r1'])
+    let g = W.guide()
+    expect(g.step).toMatchObject({ idx: 0, set: 0, num: 1, count: 2, r: 5, w: 60 })
+    expect(g.next).toMatchObject({ idx: 0, set: 1 })
+    A.toggleSet(0, 0); A.toggleSet(0, 1)
+    g = W.guide()
+    expect(g.step).toMatchObject({ idx: 1, set: 0, current: false })
+    expect(g.next).toBeNull()
+    A.toggleSet(1, 0)
+    expect(W.guide().done).toBe(true)
+  })
+  it('alternates a superset and does per-side sets left first', () => {
+    A.load(JSON.stringify({ routines: [{ id: 'r1', name: 'P', ex: [
+      { id: '0025', sets: 2, reps: 5, weight: 60, sg: 'a' }, { id: '0032', sets: 2, reps: 5, weight: 100, sg: 'a' }] }] }))
+    A.beginWorkout(['r1'])
+    expect(W.guide().next).toMatchObject({ idx: 1, set: 0 })
+    A.load(JSON.stringify({ routines: [{ id: 'r1', name: 'P', ex: [{ id: '0025', sets: 1, reps: 10, weight: 20, side: true, mode: 'reps' }] }] }))
+    A.beginWorkout(['r1'])
+    expect(W.guide().step.side).toBe('L')
+    expect(W.guide().next.side).toBe('R')
+  })
+})

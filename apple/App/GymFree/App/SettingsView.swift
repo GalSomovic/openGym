@@ -2,13 +2,28 @@ import OpenGymCore
 import SwiftUI
 
 struct SettingsView: View {
+    @AppStorage(WorkoutSession.Pref.voice) private var voice = true
+    @AppStorage(WorkoutSession.Pref.restAlarm) private var restAlarm = false
+    @AppStorage(WorkoutSession.Pref.guidedDefault) private var guidedDefault = false
+    @Environment(WorkoutSession.self) private var session
+
     var body: some View {
         NavigationStack {
             List {
                 Section {
+                    Toggle(isOn: $guidedDefault) { Label("Start workouts in guided mode", systemImage: "figure.strengthtraining.traditional") }
+                    Toggle(isOn: $voice) { Label("Spoken cues", systemImage: "speaker.wave.2") }
+                    Toggle(isOn: $restAlarm) { Label("Rest alarm", systemImage: "alarm") }
+                } header: {
+                    Text("Guided workouts")
+                } footer: {
+                    Text("Cues play over your music: it ducks while GymFree speaks, then comes back up. The rest alarm rings through silent mode and Focus when a rest ends while your phone is locked.")
+                }
+                Section {
                     NavigationLink { AboutView() } label: { Label("About GymFree", systemImage: "info.circle") }
                 }
             }
+            .onChange(of: voice) { session.syncSettings() }
             .navigationTitle("Settings")
         }
     }

@@ -24,6 +24,9 @@ import {
   removeSideClusterAt, setSideClusterAt, WEIGHT_ORIGIN_MANUAL,
 } from '../../frontend/src/lib/workout-model.js'
 import { effortColor } from '../../frontend/src/lib/effort.js'
+import { nextOpenSet } from '../../frontend/src/lib/workout-keys.js'
+import { supersetUnits, unitOf } from '../../frontend/src/lib/history.js'
+import { restSecFor } from '../../frontend/src/lib/supersetFlow.js'
 
 const entryAt = idx => {
   const A = need().active
@@ -351,3 +354,54 @@ export function applyProgressionSettings(idx, cfg) {
   return true
 }
 
+
+/* ------------------------------ guided mode ------------------------------ */
+
+function describeStep(S, entries, at) {
+  if (!at) return null
+  const entry = entries[at.idx]
+  const row = entry.sets[at.i]
+  const warm = isWarmupRow(row)
+  const cfg = { ...(entry.target || {}), id: entry.id }
+  const mode = modeOf(cfg)
+  const phase = entry.sets.filter(x => isWarmupRow(x) === warm)
+  const src = at.side ? (row.sides?.[at.side] || {}) : row
+  return {
+    idx: at.idx, set: at.i, side: at.side || null, current: !!at.current,
+    exerciseId: entry.id, mode, warm, timed: mode === 'time', cardio: mode === 'cardio', bw: isBw(cfg),
+    num: entry.sets.slice(0, at.i + 1).filter(x => isWarmupRow(x) === warm).length,
+    count: phase.length,
+    label: setLabel(entry.id, row, entry.target, speedUnitOf(S)),
+    w: src.w ?? null, r: src.r ?? null, sec: row.sec ?? null, min: row.min ?? null,
+    speed: row.speed != null ? toSpeed(row.speed, speedUnitOf(S)) : null,
+  }
+}
+
+/**
+ * Guided mode's step: the next set to do, by openGym's own rule (workout-keys.js nextOpenSet:
+ * the current exercise, the member of a superset whose turn it is, then the next exercise with
+ * work left; per-side sets left first), and a preview of the one after it.
+ */
+export function guide() {
+  const S = need()
+  const A = S.active
+  if (!A || !A.entries.length) return { done: true, step: null, next: null, unit: S.unit, speedUnit: speedUnitOf(S) }
+  const at = nextOpenSet(A.entries, A.cur)
+  if (!at) return { done: true, step: null, next: null, unit: S.unit, speedUnit: speedUnitOf(S) }
+  const step = describeStep(S, A.entries, at)
+  const units = supersetUnits(A.entries)
+  const unit = unitOf(units, at.idx)
+  step.unitNum = units.findIndex(u => u === unit) + 1
+  step.unitCount = units.length
+  step.superset = unit.length > 1
+  step.restSec = restSecFor(A.entries, unit, S.restSec)
+  // The step after: this one ticked on a copy, then the same rule from where a superset would
+  // move next (its partner).
+  const copy = JSON.parse(JSON.stringify(A.entries))
+  const row = copy[at.idx].sets[at.i]
+  if (at.side) { row.sides[at.side].done = true; row.done = row.sides.L.done && row.sides.R.done } else row.done = true
+  const pos = unit.indexOf(at.idx)
+  const from = unit.length > 1 && !at.side ? unit[(pos + 1) % unit.length] : at.idx
+  const next = describeStep(S, copy, nextOpenSet(copy, from))
+  return { done: false, step, next, unit: S.unit, speedUnit: speedUnitOf(S) }
+}

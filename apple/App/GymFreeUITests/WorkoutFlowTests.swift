@@ -64,4 +64,22 @@ final class WorkoutFlowTests: XCTestCase {
         app.buttons["Done"].tap()
         XCTAssertTrue(app.staticTexts["3/4 Sit-up"].waitForExistence(timeout: 3))
     }
+
+    func testGuidedModeTicksASetAndRests() {
+        let app = launch(["-GFTab", "today", "-GFStart", "0"])
+        let guided = app.buttons["Guided mode"]
+        XCTAssertTrue(guided.waitForExistence(timeout: 5))
+        guided.tap()
+        let done = app.buttons["Set done"]
+        XCTAssertTrue(done.waitForExistence(timeout: 5))
+        done.tap()
+        let skip = app.buttons["Skip rest"]
+        XCTAssertTrue(skip.waitForExistence(timeout: 3), "guided mode rests after a set")
+        XCTAssertTrue(app.staticTexts["UP NEXT"].exists || app.staticTexts["Up next"].exists)
+        skip.tap()
+        XCTAssertTrue(done.waitForExistence(timeout: 3))
+        XCTAssertTrue(app.staticTexts["Set 2 of 3"].exists || app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH 'Set 2 of'")).firstMatch.exists)
+        app.buttons["Show the whole workout"].tap()
+        XCTAssertTrue(app.buttons["Guided mode"].waitForExistence(timeout: 3))
+    }
 }

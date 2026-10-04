@@ -36,20 +36,101 @@ final class WorkoutSession {
     var completePrompt = false
     var toast: String?
 
+    /// Guided mode is on screen: cues are spoken as well as chimed.
+    var guided = false
+
     let cues = CuePlayer()
     @ObservationIgnored private let store: GymStore
+    @ObservationIgnored private let catalog: ExerciseCatalog
+    @ObservationIgnored private let activity = LiveActivityController()
+    @ObservationIgnored private let alarm = RestAlarm()
     @ObservationIgnored private var ticker: Task<Void, Never>?
     @ObservationIgnored private var lastCountdown = -1
+    @ObservationIgnored private var spokeTen = false
+    @ObservationIgnored private var spokeHalf = false
     private static let restNotification = "gymfree.rest"
 
-    init(store: GymStore) {
+    /// Device settings of GymFree's own (not part of the openGym profile).
+    enum Pref {
+        static let voice = "gf.voice"
+        static let restAlarm = "gf.restAlarm"
+        static let guidedDefault = "gf.guidedDefault"
+    }
+
+    init(store: GymStore, catalog: ExerciseCatalog) {
         self.store = store
+        self.catalog = catalog
+        UserDefaults.standard.register(defaults: [Pref.voice: true, Pref.restAlarm: false, Pref.guidedDefault: false])
     }
 
     var restRunning: Bool { rest?.running == true }
+    private var voiceOn: Bool { guided && UserDefaults.standard.bool(forKey: Pref.voice) }
+    private var alarmOn: Bool { UserDefaults.standard.bool(forKey: Pref.restAlarm) }
 
     func syncSettings() {
         cues.enabled = store.pick("sound", as: Bool.self) ?? true
+        cues.voice = UserDefaults.standard.bool(forKey: Pref.voice)
+    }
+
+    /// After a launch with a session in progress (also one started by a Lock Screen button).
+    func resumeIfActive() { publish() }
+
+    func saveSoon() { store.saveNow() }
+
+    /* ------------------------------ guided ------------------------------ */
+
+    /// The set guided mode is on, or the Lock Screen's "Set done": tick it, or start its hold.
+    func completeCurrentSet() {
+        guard let g = store.guide(), let step = g.step else { return }
+        if hold != nil { finishHoldEarly(); return }
+        if !step.current { store.setCurrent(step.idx) }
+        if step.timed {
+            startHold(step.idx, step.set, plan: step.sec ?? 45)
+        } else {
+            toggle(step.idx, step.set, side: step.side)
+        }
+    }
+
+    /// Says the coming set: on entering guided mode, after a rest, after a skipped rest.
+    func announceStep() {
+        guard voiceOn, let g = store.guide(), let step = g.step else { return }
+        cues.say(Speech.step(step, name: catalog.name(step.exerciseId), unit: g.unit))
+    }
+
+    /* ------------------------------ the Lock Screen ------------------------------ */
+
+    /// Brings the Live Activity in line with the session.
+    func publish() {
+        guard let a = store.active else { activity.end(); return }
+        let g = store.guide()
+        let step = g?.step
+        let name = step.map { catalog.name($0.exerciseId) } ?? (a.name ?? "")
+        var detail = ""
+        if let step, let g {
+            let setText = step.warm ? String(localized: "Warm-up \(step.num) of \(step.count)") : String(localized: "Set \(step.num) of \(step.count)")
+            detail = "\(setText) · \(Self.shortTarget(step, unit: g.unit))"
+        }
+        let r = rest.flatMap { $0.running ? $0 : nil }
+        let state = GymActivityAttributes.ContentState(
+            exercise: name, detail: detail,
+            restStart: r.map { $0.endsAt.addingTimeInterval(-$0.total) }, restEnd: r?.endsAt,
+            holdStart: hold?.startedAt, holdEnd: hold?.endsAt,
+            setsDone: a.setsDone, setsTotal: a.setsTotal, complete: g?.done ?? false)
+        activity.update(workoutId: a.id, name: a.name ?? "", startedAt: a.startDate, state: state)
+    }
+
+    static func shortTarget(_ s: GuideStep, unit: String) -> String {
+        if s.cardio { return "\(Fmt.num(s.min ?? 0)) min" }
+        let w = (s.w ?? 0) > 0 ? "\(Fmt.num(s.w!, decimals: 2)) \(unit)" : nil
+        if s.timed { return ["\(Int(s.sec ?? 0)) s", w].compactMap { $0 }.joined(separator: " · ") }
+        return [w, "× \(Int(s.r ?? 0))"].compactMap { $0 }.joined(separator: " ")
+    }
+
+    /// The workout was finished or discarded.
+    func ended() {
+        stopRest()
+        hold = nil
+        activity.end()
     }
 
     /* ------------------------------ sets ------------------------------ */
@@ -77,11 +158,15 @@ final class WorkoutSession {
         if o.complete {
             stopRest()
             completePrompt = true
+            if voiceOn { cues.say(String(localized: "All sets done. Great work.")) }
         } else if o.toast == "cardio" {
             toast = String(localized: "Cardio logged")
         } else if o.toast == "hold" {
             toast = String(localized: "Hold logged")
         }
+        // Moving on with no rest (a superset round, or a rest of 0): say what is next.
+        if o.checked && o.rest == nil && !o.complete { announceStep() }
+        publish()
     }
 
     /* ------------------------------ rest ------------------------------ */
@@ -91,8 +176,21 @@ final class WorkoutSession {
         abandonHold()
         rest = Rest(endsAt: .now.addingTimeInterval(seconds), total: seconds, forIdx: forIdx)
         lastCountdown = -1
-        scheduleRestNotification(at: rest!.endsAt)
+        spokeTen = false
+        armRestEnd(rest!.endsAt)
+        if voiceOn { cues.say(Speech.restStart(seconds)) }
         runTicker()
+        publish()
+    }
+
+    /// The rest's end outside the app: an alarm if chosen, otherwise a notification.
+    private func armRestEnd(_ date: Date) {
+        if alarmOn {
+            cancelRestNotification()
+            alarm.schedule(seconds: date.timeIntervalSinceNow)
+        } else {
+            scheduleRestNotification(at: date)
+        }
     }
 
     func adjustRest(_ delta: Double) {
@@ -101,10 +199,11 @@ final class WorkoutSession {
             r.paused = max(0, p + delta)
         } else {
             r.endsAt = max(.now, r.endsAt.addingTimeInterval(delta))
-            scheduleRestNotification(at: r.endsAt)
+            armRestEnd(r.endsAt)
         }
         r.total = max(r.total + delta, r.remaining())
         rest = r
+        publish()
     }
 
     func togglePause() {
@@ -112,17 +211,23 @@ final class WorkoutSession {
         if let p = r.paused {
             r.endsAt = .now.addingTimeInterval(p)
             r.paused = nil
-            scheduleRestNotification(at: r.endsAt)
+            armRestEnd(r.endsAt)
         } else {
             r.paused = r.remaining()
             cancelRestNotification()
+            alarm.cancel()
         }
         rest = r
+        publish()
     }
 
     func stopRest() {
+        let wasRunning = rest?.running == true
         rest = nil
         cancelRestNotification()
+        alarm.cancel()
+        if wasRunning { announceStep() }
+        publish()
     }
 
     /// Keeps the rest with its exercise when exercises are removed or moved.
@@ -145,10 +250,15 @@ final class WorkoutSession {
 
     /// Starts holding a timed set; the row's plan is its seconds.
     func startHold(_ entry: Int, _ set: Int, plan: Double) {
-        stopRest()
+        rest = nil
+        cancelRestNotification()
+        alarm.cancel()
         hold = Hold(entry: entry, set: set, plan: max(1, plan), startedAt: .now)
         lastCountdown = -1
+        spokeHalf = false
+        if voiceOn { cues.say(String(localized: "Go.")) }
         runTicker()
+        publish()
     }
 
     /// "Done" before the time is up: logs what was actually held.
@@ -157,7 +267,10 @@ final class WorkoutSession {
         endHold(h, elapsed: Date.now.timeIntervalSince(h.startedAt).rounded(), chimed: false)
     }
 
-    func cancelHold() { hold = nil }
+    func cancelHold() {
+        hold = nil
+        publish()
+    }
 
     /// A rest that displaces a running hold keeps the hold's seconds and nothing else.
     private func abandonHold() {
@@ -194,6 +307,10 @@ final class WorkoutSession {
         if let h = hold {
             let left = h.endsAt.timeIntervalSince(now)
             countdownCue(left)
+            if voiceOn, !spokeHalf, h.plan >= 20, left <= h.plan / 2 {
+                spokeHalf = true
+                cues.say(String(localized: "Halfway."))
+            }
             if left <= 0 {
                 cues.restOver()
                 UINotificationFeedbackGenerator().notificationOccurred(.success)
@@ -203,12 +320,18 @@ final class WorkoutSession {
         }
         if var r = rest, r.running {
             let left = r.remaining(at: now)
+            if voiceOn, !spokeTen, r.total > 20, left <= 10, left > 9 {
+                spokeTen = true
+                cues.say(String(localized: "10 seconds."))
+            }
             countdownCue(left)
             if left <= 0 {
                 r.ready = true
                 rest = r
                 cues.restOver()
                 UINotificationFeedbackGenerator().notificationOccurred(.success)
+                announceStep()
+                publish()
             }
             return true
         }

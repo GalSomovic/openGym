@@ -115,3 +115,42 @@ extension GymStore {
         addExercise(exId, config: config?.anyObject)
     }
 }
+
+/// One set in guided mode (workout.js guide).
+public struct GuideStep: Codable, Hashable, Sendable {
+    public var idx: Int
+    public var set: Int
+    public var side: String?
+    /// In the exercise (or superset) marked current; otherwise guided mode moves there.
+    public var current: Bool
+    public var exerciseId: String
+    public var mode: String
+    public var warm: Bool
+    public var timed: Bool
+    public var cardio: Bool
+    public var bw: Bool
+    public var num: Int
+    public var count: Int
+    public var label: String
+    public var w: Double?
+    public var r: Double?
+    public var sec: Double?
+    public var min: Double?
+    public var speed: Double?
+    public var unitNum: Int?
+    public var unitCount: Int?
+    public var superset: Bool?
+    public var restSec: Double?
+}
+
+public struct Guide: Codable, Hashable, Sendable {
+    public var done: Bool
+    public var step: GuideStep?
+    public var next: GuideStep?
+    public var unit: String
+    public var speedUnit: String
+}
+
+extension GymStore {
+    public func guide() -> Guide? { query("workout", "guide", as: Guide.self) }
+}

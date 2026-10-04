@@ -22,12 +22,14 @@ targets:
     platform: iOS
     sources:
       - path: GymFree
+      - path: Shared
       # The ExerciseDB animations: fetched by ../core/fetch-media.sh, never committed.
       - path: ../Media/ExerciseGIFs
         type: folder
         buildPhase: resources
     dependencies:
       - package: OpenGymCore
+      - target: GymFreeWidgets
     preBuildScripts:
       - name: Check exercise media
         basedOnDependencyAnalysis: false
@@ -55,6 +57,28 @@ targets:
         ENABLE_PREVIEWS: YES
         LOCALIZATION_PREFERS_STRING_CATALOGS: YES
         SWIFT_EMIT_LOC_STRINGS: YES
+        INFOPLIST_KEY_NSSupportsLiveActivities: YES
+        INFOPLIST_KEY_NSAlarmKitUsageDescription: "GymFree rings when a rest is over, even in silent mode, so you know when to start your next set."
+  GymFreeWidgets:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: GymFreeWidgets
+      - path: Shared
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.gsomovic.gymfree.widgets
+        PRODUCT_NAME: GymFreeWidgets
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: GymFree
+        INFOPLIST_KEY_NSExtension_NSExtensionPointIdentifier: com.apple.widgetkit-extension
+        INFOPLIST_KEY_NSSupportsLiveActivities: YES
+        SKIP_INSTALL: YES
+    info:
+      path: GymFreeWidgets/Info.plist
+      properties:
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
   GymFreeUITests:
     type: bundle.ui-testing
     platform: iOS
