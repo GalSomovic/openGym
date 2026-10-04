@@ -7,6 +7,7 @@ struct PlanView: View {
     @State private var path = NavigationPath()
     @State private var starterPresented = false
     @State private var deleting: Routine?
+    @State private var reordering = false
 
     private var weekStart: Int { Int(store.pick("weekStart", as: Double.self) ?? 1) }
 
@@ -40,9 +41,14 @@ struct PlanView: View {
                         if target != source { store.moveRoutine(source, by: target - source) }
                     }
                 } header: {
-                    HStack {
+                    HStack(spacing: 16) {
                         Text("Routines")
                         Spacer()
+                        if store.routines.count > 1 {
+                            Button(reordering ? "Done" : "Reorder") { withAnimation { reordering.toggle() } }
+                                .font(.subheadline.weight(reordering ? .semibold : .regular))
+                                .textCase(nil)
+                        }
                         Button("New", systemImage: "plus") { newRoutine() }
                             .font(.subheadline)
                             .textCase(nil)
@@ -62,6 +68,7 @@ struct PlanView: View {
                 }
             }
             .navigationTitle("Plan")
+            .environment(\.editMode, .constant(reordering ? .active : .inactive))
             .toolbar {
                 if !store.routines.isEmpty {
                     ToolbarItem(placement: .primaryAction) {

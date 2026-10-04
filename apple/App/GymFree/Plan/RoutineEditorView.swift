@@ -13,6 +13,7 @@ struct RoutineEditorView: View {
     @State private var replacing: Int?
     @State private var adding = false
     @State private var confirmDelete = false
+    @State private var reordering = false
 
     private struct Slot: Identifiable { let index: Int; var id: Int { index } }
 
@@ -97,10 +98,20 @@ struct RoutineEditorView: View {
                     Label("Add exercise", systemImage: "plus.circle.fill").fontWeight(.semibold)
                 }
             } header: {
-                Text("Exercises")
+                HStack {
+                    Text("Exercises")
+                    Spacer()
+                    if r.ex.count > 1 {
+                        Button(reordering ? "Done" : "Reorder") { withAnimation { reordering.toggle() } }
+                            .font(.subheadline.weight(reordering ? .semibold : .regular))
+                            .textCase(nil)
+                    }
+                }
             } footer: {
-                if r.ex.count > 1 {
-                    Text("Swipe right on an exercise to superset it with the one above: you’ll do them back to back.")
+                if reordering {
+                    Text("Drag the handles to change the order. Supersets move together.")
+                } else if r.ex.count > 1 {
+                    Text("Tap an exercise to change its sets and reps. Swipe right to superset it with the one above, left to remove it.")
                 }
             }
             if !r.ex.isEmpty, let muscles = store.routineMuscles(routineId), !muscles.worked.isEmpty {
@@ -117,7 +128,12 @@ struct RoutineEditorView: View {
         }
         .navigationTitle(r.name)
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar { EditButton() }
+        .environment(\.editMode, .constant(reordering ? .active : .inactive))
+        .safeAreaInset(edge: .bottom) {
+            Text("Changes save automatically")
+                .font(.caption).foregroundStyle(.secondary)
+                .padding(.bottom, 4)
+        }
         .onAppear {
             name = r.name
             if let i = DebugLaunch.config, editing == nil, i < r.ex.count { editing = Slot(index: i) }

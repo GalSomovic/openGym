@@ -70,6 +70,9 @@ public final class GymStore {
 
     /// Top-level profile fields, decoded: `store.pick("restSec", as: Double.self)`.
     public func pick<T: Decodable>(_ key: String, as type: T.Type = T.self) -> T? {
+        // Reading `revision` makes every view that reads the profile this way redraw when it
+        // changes: the engine itself is not observable.
+        _ = revision
         guard let dict = try? engine.call("actions", "pick", [[key]], as: [String: JSONValue].self),
               let raw = dict[key], let data = try? JSONEncoder().encode(raw) else { return nil }
         return try? JSONDecoder().decode(T.self, from: data)
@@ -211,6 +214,7 @@ public final class GymStore {
     /// Reads from the engine without changing anything.
     public func query<T: Decodable>(_ module: String, _ function: String, _ args: [Any] = [],
                                     as type: T.Type = T.self) -> T? {
+        _ = revision   // see pick
         do { return try engine.call(module, function, args, as: T.self) }
         catch { lastError = "\(error)"; return nil }
     }

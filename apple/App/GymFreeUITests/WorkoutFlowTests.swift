@@ -82,4 +82,28 @@ final class WorkoutFlowTests: XCTestCase {
         app.buttons["Show the whole workout"].tap()
         XCTAssertTrue(app.buttons["Guided mode"].waitForExistence(timeout: 3))
     }
+
+    func testAssigningARoutineToADayShowsAtOnce() {
+        let app = launch(["-GFTab", "plan"])
+        // Full Body loads Monday, Wednesday and Friday; Tuesday is a rest day.
+        let tuesday = app.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Tuesday'")).firstMatch
+        XCTAssertTrue(tuesday.waitForExistence(timeout: 5))
+        tuesday.tap()
+        let pick = app.buttons.matching(NSPredicate(format: "label CONTAINS 'Full Body A'")).firstMatch
+        XCTAssertTrue(pick.waitForExistence(timeout: 3))
+        pick.tap()
+        XCTAssertTrue(app.buttons["Remove Full Body A from Tuesday"].waitForExistence(timeout: 3),
+                      "the week updates without a restart")
+    }
+
+    func testRoutineEditorReorderIsExplicit() {
+        let app = launch(["-GFTab", "plan", "-GFRoutine", "0"])
+        let reorder = app.buttons["Reorder"]
+        XCTAssertTrue(reorder.waitForExistence(timeout: 5))
+        XCTAssertFalse(app.buttons["Edit"].exists, "no unexplained Edit button")
+        reorder.tap()
+        XCTAssertTrue(app.buttons["Done"].waitForExistence(timeout: 3))
+        app.buttons["Done"].tap()
+        XCTAssertTrue(app.staticTexts["Changes save automatically"].exists)
+    }
 }
