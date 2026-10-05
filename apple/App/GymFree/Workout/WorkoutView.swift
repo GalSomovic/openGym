@@ -147,6 +147,7 @@ struct WorkoutView: View {
             if guidedDefault && a.setsDone == 0 && !a.isBackfill && !a.isEditing && !a.entries.isEmpty { guided = true }
         }
         .keepsScreenAwake(store.pick("keepAwake", as: Bool.self) != false)
+        .keyboardDoneButton()
         .modifier(TimerFlash(tick: session.flashTick, on: store.pick("timerFlash", as: Bool.self) == true))
     }
 

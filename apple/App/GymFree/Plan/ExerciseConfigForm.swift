@@ -26,21 +26,51 @@ struct ExerciseConfigForm: View {
         _draft = State(initialValue: start)
     }
 
+    /// How far the form has scrolled: the demo above it shrinks from full size to a small strip.
+    @State private var scrolled: CGFloat = 0
+    private static let demoMax: CGFloat = 300, demoMin: CGFloat = 76
+
     var body: some View {
-        Form {
-            Section {
-                HStack(spacing: 14) {
-                    ExerciseAnimation(exerciseId: exerciseId)
-                        .frame(width: 110, height: 110)
-                        .clipShape(.rect(cornerRadius: 14))
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(catalog.name(exerciseId)).font(.headline)
-                        if let e = catalog[exerciseId] {
-                            Text(catalog.subtitle(e)).font(.subheadline).foregroundStyle(.secondary)
-                        }
-                    }
+        VStack(spacing: 0) {
+            demoHeader
+            form
+                .onScrollGeometryChange(for: CGFloat.self, of: { $0.contentOffset.y + $0.contentInsets.top }) { _, y in
+                    scrolled = max(0, y)
+                }
+        }
+        .keyboardDoneButton()
+    }
+
+    private var demoHeader: some View {
+        let height = max(Self.demoMin, Self.demoMax - scrolled)
+        let small = height < 150
+        return HStack(spacing: 14) {
+            VStack(spacing: 6) {
+                ExerciseAnimation(exerciseId: exerciseId)
+                    .frame(width: height, height: height)
+                    .clipShape(.rect(cornerRadius: small ? 10 : 18))
+                if !small, let e = catalog[exerciseId] {
+                    Text(catalog.subtitle(e)).font(.subheadline).foregroundStyle(.secondary)
                 }
             }
+            if small {
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(catalog.name(exerciseId)).font(.subheadline.weight(.semibold)).lineLimit(2)
+                    if let e = catalog[exerciseId] {
+                        Text(catalog.subtitle(e)).font(.caption).foregroundStyle(.secondary).lineLimit(1)
+                    }
+                }
+                Spacer(minLength: 0)
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: small ? .leading : .center)
+        .padding(.horizontal)
+        .padding(.vertical, 8)
+        .accessibilityElement(children: .contain)
+    }
+
+    private var form: some View {
+        Form {
             if let info { fields(info) }
             Section {
                 TextField("Note (optional): loading cues, anything worth remembering", text: text("note"), axis: .vertical)

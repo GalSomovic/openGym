@@ -169,6 +169,7 @@ struct NutritionSetupView: View {
         }
         .navigationTitle("Calories & food")
         .navigationBarTitleDisplayMode(.inline)
+        .keyboardDoneButton()
         .toolbar {
             ToolbarItem(placement: .confirmationAction) {
                 Button("Save") {
@@ -281,6 +282,7 @@ struct FoodLogView: View {
                     Button { shift(1) } label: { Image(systemName: "chevron.forward") }.buttonStyle(.borderless)
                         .disabled(iso >= Self.todayISO)
                 }
+                .listRowSeparator(.hidden)
                 MacroBar(label: "Calories", value: day?.total.kcal ?? 0, target: Double(t?.kcal ?? 0), unit: "kcal")
                 if let p = t?.protein { MacroBar(label: "Protein", value: day?.total.p ?? 0, target: Double(p), unit: "g") }
                 MacroBar(label: "Fat", value: day?.total.f ?? 0, target: Double(t?.fat ?? 0), unit: "g")
@@ -429,6 +431,7 @@ struct AddFoodSheet: View {
             }
             .navigationTitle("Add food")
             .navigationBarTitleDisplayMode(.inline)
+            .keyboardDoneButton()
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) { Button("Cancel") { dismiss() } }
                 ToolbarItem(placement: .confirmationAction) {

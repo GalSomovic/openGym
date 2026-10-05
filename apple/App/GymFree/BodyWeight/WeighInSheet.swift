@@ -123,6 +123,7 @@ struct WeighInSheet: View {
                 }
             }
             .navigationTitle(routineIds != nil ? "Quick check-in" : "Log body weight")
+            .keyboardDoneButton()
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) { Button("Cancel") { dismiss() } }
@@ -186,6 +187,7 @@ struct WeightGoalSheet: View {
                 }
             }
             .navigationTitle("Target weight")
+            .keyboardDoneButton()
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) { Button("Cancel") { dismiss() } }

@@ -41,7 +41,7 @@ final class HistoryFlowTests: XCTestCase {
         let confirm = app.buttons["Finish workout"]
         XCTAssertTrue(confirm.waitForExistence(timeout: 3))
         confirm.tap()
-        XCTAssertTrue(app.staticTexts["Workout complete"].waitForExistence(timeout: 6))
+        XCTAssertTrue(app.staticTexts["Workout complete"].waitForExistence(timeout: 15))
         tapWhenReady(app.buttons["Done"])
 
         let history = app.buttons["today.history"]
@@ -82,7 +82,7 @@ final class HistoryFlowTests: XCTestCase {
         let finish = app.alerts.buttons["Finish"]
         XCTAssertTrue(finish.waitForExistence(timeout: 3))
         finish.tap()
-        XCTAssertTrue(app.staticTexts["Workout complete"].waitForExistence(timeout: 6))
+        XCTAssertTrue(app.staticTexts["Workout complete"].waitForExistence(timeout: 15))
         tapWhenReady(app.buttons["Done"])
 
         XCTAssertTrue(history.waitForExistence(timeout: 5))

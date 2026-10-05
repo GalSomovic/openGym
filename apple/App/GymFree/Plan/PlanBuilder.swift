@@ -151,6 +151,7 @@ struct PlanBuilderView: View {
             }
             .navigationTitle("Make me a plan")
             .navigationBarTitleDisplayMode(.inline)
+            .keyboardDoneButton()
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) { Button("Cancel") { dismiss() } }
                 ToolbarItem(placement: .confirmationAction) {

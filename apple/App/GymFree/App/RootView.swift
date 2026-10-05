@@ -38,5 +38,7 @@ struct RootView: View {
         }
         .tabViewStyle(.sidebarAdaptable)
         .preferredColorScheme(scheme)
+        // Scrolling any list puts the keyboard away (number pads have no return key).
+        .scrollDismissesKeyboard(.interactively)
     }
 }
