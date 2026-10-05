@@ -340,24 +340,39 @@ private struct MacroBar: View {
     }
 }
 
-/// Adds what was eaten: a saved food, or a label typed once (per 100 g) and the grams eaten.
+/// Adds what was eaten: a saved food, a food from the bundled USDA database, or a label typed
+/// once (per 100 g), and the grams eaten. All the math is apple/core/nutrition.js.
 struct AddFoodSheet: View {
     let iso: String
     @Environment(GymStore.self) private var store
     @Environment(\.dismiss) private var dismiss
+    @State private var query = ""
+    @State private var results: [USDAFood] = []
+    @State private var usda: USDAFood?          // the database food the values came from
+    @State private var labelMode = false        // typing a label (or editing a database food)
     @State private var name = ""
     @State private var kcal: Double?
     @State private var protein: Double?
     @State private var fat: Double?
     @State private var carbs: Double?
+    @State private var fiber: Double?
     @State private var grams: Double?
     @State private var save = true
     @State private var picked: SavedFood?
+    @FocusState private var searchFocused: Bool
+
+    private var editing: Bool { labelMode || usda != nil }
 
     private var per100: [String: Any] {
         var d: [String: Any] = ["p": protein ?? 0, "f": fat ?? 0, "c": carbs ?? 0]
         if let kcal { d["kcal"] = kcal }
+        if let fiber { d["fiber"] = fiber }
         return d
+    }
+    /// The database food, unless its values were edited (then it is the user's own label).
+    private var source: String? {
+        guard let u = usda, kcal == u.kcal, protein == u.p, fat == u.f, carbs == u.c, (fiber ?? 0) == u.fiber else { return nil }
+        return u.source
     }
     private var amount: FoodAmount? {
         guard let g = grams, g > 0 else { return nil }
@@ -368,32 +383,22 @@ struct AddFoodSheet: View {
         NavigationStack {
             Form {
                 let saved = store.query("nutrition", "savedFoods", as: [SavedFood].self) ?? []
-                if !saved.isEmpty {
-                    Section("Saved foods") {
-                        Picker("Food", selection: $picked) {
-                            Text("New food").tag(SavedFood?.none)
-                            ForEach(saved) { Text($0.name).tag(Optional($0)) }
-                        }
+                if picked == nil && !editing {
+                    searchSection(saved: saved)
+                } else if let food = picked {
+                    Section("Saved food") {
+                        LabeledContent(food.name, value: "\(Int(food.per100.kcal.rounded())) kcal / 100 g")
+                        Button("Choose another food") { picked = nil; grams = nil }
                     }
+                } else if usda != nil {
+                    // A database pick: how much first (portions), then the values, still editable.
+                    amountSection
+                    labelSection
+                } else {
+                    labelSection
                 }
-                if picked == nil {
-                    Section {
-                        TextField("Name", text: $name).accessibilityIdentifier("food.name")
-                        field("Calories (optional)", $kcal, "kcal", id: "kcal")
-                        field("Protein", $protein, "g", id: "protein")
-                        field("Fat", $fat, "g", id: "fat")
-                        field("Carbs", $carbs, "g", id: "carbs")
-                        Toggle("Save this food", isOn: $save)
-                    } header: { Text("From the label, per 100 g") } footer: {
-                        Text("Leave calories empty to work them out from protein, fat and carbs. Labels can be off by about 20%, so round numbers are fine.")
-                    }
-                }
-                Section {
-                    field("Amount eaten", $grams, "g", id: "grams")
-                    if let a = amount {
-                        LabeledContent("That's", value: "\(Int(a.kcal.rounded())) kcal")
-                        LabeledContent("Protein · fat · carbs", value: "\(fmt(a.p)) · \(fmt(a.f)) · \(fmt(a.c)) g")
-                    }
+                if picked != nil || labelMode {
+                    amountSection
                 }
             }
             .navigationTitle("Add food")
@@ -405,6 +410,134 @@ struct AddFoodSheet: View {
                         .disabled((grams ?? 0) <= 0 || (picked == nil && name.trimmingCharacters(in: .whitespaces).isEmpty))
                         .accessibilityIdentifier("food.confirm")
                 }
+            }
+            .task(id: query) {
+                let q = query
+                let found = await Task.detached(priority: .userInitiated) { FoodDatabase.shared.search(q) }.value
+                if !Task.isCancelled { results = found }
+            }
+        }
+    }
+
+    /* --------------------------- search and pick --------------------------- */
+
+    @ViewBuilder private func searchSection(saved: [SavedFood]) -> some View {
+        Section {
+            HStack {
+                Image(systemName: "magnifyingglass").foregroundStyle(.secondary)
+                TextField("Search foods", text: $query)
+                    .autocorrectionDisabled()
+                    .textInputAutocapitalization(.never)
+                    .submitLabel(.search)
+                    .focused($searchFocused)
+                    .accessibilityIdentifier("food.search")
+                if !query.isEmpty {
+                    Button { query = "" } label: { Image(systemName: "xmark.circle.fill").foregroundStyle(.secondary) }
+                        .buttonStyle(.borderless)
+                        .accessibilityLabel(Text("Clear"))
+                }
+            }
+        }
+        let q = query.trimmingCharacters(in: .whitespaces)
+        let savedMatches = q.isEmpty ? saved : saved.filter { FoodDatabase.fold($0.name).contains(FoodDatabase.fold(q)) }
+        if !savedMatches.isEmpty {
+            Section("Saved foods") {
+                ForEach(savedMatches) { food in
+                    Button { picked = food; searchFocused = false } label: {
+                        FoodResultRow(name: food.name, kcal: food.per100.kcal, protein: food.per100.p)
+                    }
+                    .accessibilityIdentifier("food.saved")
+                }
+            }
+        }
+        if !q.isEmpty {
+            Section {
+                if results.isEmpty {
+                    Text("No matches in the food list.").foregroundStyle(.secondary)
+                }
+                ForEach(results) { food in
+                    Button { pick(food) } label: {
+                        FoodResultRow(name: food.name, kcal: food.kcal, protein: food.p)
+                    }
+                    .accessibilityIdentifier("food.result")
+                }
+            } header: { Text("Foods") } footer: {
+                Text("Average values per 100 g from USDA FoodData Central. A product's own label may differ.")
+            }
+        }
+        Section {
+            Button { startLabel() } label: { Label("Enter a label instead", systemImage: "square.and.pencil") }
+                .accessibilityIdentifier("food.enterLabel")
+        }
+    }
+
+    private func pick(_ food: USDAFood) {
+        usda = food
+        name = food.name
+        kcal = food.kcal; protein = food.p; fat = food.f; carbs = food.c; fiber = food.fiber
+        grams = food.portions.first?.grams ?? 100
+        searchFocused = false
+    }
+
+    private func startLabel() {
+        usda = nil
+        name = query.trimmingCharacters(in: .whitespaces)
+        kcal = nil; protein = nil; fat = nil; carbs = nil; fiber = nil
+        labelMode = true
+        searchFocused = false
+    }
+
+    private func backToSearch() {
+        usda = nil; labelMode = false; grams = nil
+    }
+
+    /* ------------------------------ values ------------------------------ */
+
+    @ViewBuilder private var labelSection: some View {
+        Section {
+            TextField("Name", text: $name).accessibilityIdentifier("food.name")
+            field("Calories (optional)", $kcal, "kcal", id: "kcal")
+            field("Protein", $protein, "g", id: "protein")
+            field("Fat", $fat, "g", id: "fat")
+            field("Carbs", $carbs, "g", id: "carbs")
+            field("Fibre (optional)", $fiber, "g", id: "fiber")
+            Toggle("Save this food", isOn: $save)
+            Button(usda != nil ? "Search for another food" : "Search foods instead") { backToSearch() }
+        } header: {
+            Text(usda != nil ? "USDA average, per 100 g" : "From the label, per 100 g")
+        } footer: {
+            if usda != nil {
+                Text("Values from USDA FoodData Central are averages; your food's label may differ, so edit any number. Weigh it the way it's described (raw or cooked). Carbs don't include fibre, as on EU labels; US labels count fibre in carbs.")
+            } else {
+                Text("Leave calories empty to work them out from protein, fat and carbs. Labels can be off by about 20%, so round numbers are fine. On US labels, take fibre away from total carbs.")
+            }
+        }
+    }
+
+    @ViewBuilder private var amountSection: some View {
+        Section {
+            if let portions = usda?.portions, !portions.isEmpty {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 8) {
+                        ForEach(portions, id: \.self) { p in
+                            Button { grams = p.grams } label: {
+                                Text("\(p.label) = \(fmt(p.grams)) g")
+                                    .font(.subheadline)
+                                    .padding(.horizontal, 12).padding(.vertical, 6)
+                                    .foregroundStyle(grams == p.grams ? Color.black : Color.primary)
+                                    .background(grams == p.grams ? AnyShapeStyle(.tint) : AnyShapeStyle(.quaternary.opacity(0.7)), in: .capsule)
+                            }
+                            .buttonStyle(.plain)
+                            .accessibilityIdentifier("food.portion")
+                        }
+                    }
+                }
+                .scrollClipDisabled()
+            }
+            field("Amount eaten", $grams, "g", id: "grams")
+            if let a = amount {
+                LabeledContent("That's", value: "\(Int(a.kcal.rounded())) kcal")
+                LabeledContent("Protein · fat · carbs", value: "\(fmt(a.p)) · \(fmt(a.f)) · \(fmt(a.c)) g")
             }
         }
     }
@@ -422,8 +555,9 @@ struct AddFoodSheet: View {
     private func fmt(_ x: Double) -> String { x.formatted(.number.precision(.fractionLength(0...1))) }
 
     private func add() {
-        let spec: [String: Any] = picked.map { ["foodId": $0.id, "grams": grams ?? 0] }
+        var spec: [String: Any] = picked.map { ["foodId": $0.id, "grams": grams ?? 0] }
             ?? ["name": name, "per100": per100, "grams": grams ?? 0, "save": save]
+        if picked == nil, let source { spec["src"] = source }
         store.perform("nutrition", "logFood", [iso, spec], as: FoodDay.self)
         dismiss()
     }

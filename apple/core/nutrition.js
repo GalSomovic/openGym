@@ -1,7 +1,8 @@
 // Optional food log (GymFree addition, not in openGym): foods by what their label says per
-// 100 g, entries by the weight eaten. No meal plans, no food database calls: the user types a
-// label once, saves it, and logs grams. Stored in the profile as `gfFoods` and `gfFoodLog`, so
-// backups carry it and openGym ignores it.
+// 100 g, entries by the weight eaten. No meal plans, no network calls: the user types a label
+// once (or picks a food from the bundled USDA database, which only fills in the per-100 g values),
+// saves it, and logs grams. Stored in the profile as `gfFoods` and `gfFoodLog`, so backups carry
+// it and openGym ignores it. `src` (e.g. "usda:168878") records where bundled values came from.
 import { need } from './actions.js'
 
 const KCAL = { p: 4, c: 4, f: 9 }
@@ -39,12 +40,16 @@ export function savedFoods() {
   return foods(need()).slice().sort((a, b) => (b.used || 0) - (a.used || 0))
 }
 
-/** Saves (or updates, with `id`) a food by its per-100 g label. */
-export function saveFood({ id, name, per100 }) {
+/**
+ * Saves (or updates, with `id`) a food by its per-100 g label. A food from the bundled database
+ * (`src`) is saved once: picking it again updates that saved food instead of adding a copy.
+ */
+export function saveFood({ id, name, per100, src }) {
   const S = need()
   const list = foods(S)
   const clean = { name: String(name || '').trim() || 'Food', per100: normalizePer100(per100) }
-  const existing = id && list.find(x => x.id === id)
+  if (src) clean.src = String(src)
+  const existing = (id && list.find(x => x.id === id)) || (src && list.find(x => x.src === String(src)))
   if (existing) { Object.assign(existing, clean); return existing }
   const food = { id: newId('food'), ...clean, used: 0 }
   list.push(food)
@@ -61,12 +66,13 @@ export function deleteFood(id) {
  * Logs what was eaten on a day: a saved food (`foodId`) or a one-off label (`name`, `per100`),
  * and the grams. `save: true` also keeps a one-off label as a saved food.
  */
-export function logFood(iso, { foodId, name, per100, grams, save }) {
+export function logFood(iso, { foodId, name, per100, grams, save, src }) {
   const S = need()
   let food = foodId ? foods(S).find(x => x.id === foodId) : null
-  if (!food && save) food = saveFood({ name, per100 })
+  if (!food && save) food = saveFood({ name, per100, src })
   const label = food ? food.per100 : normalizePer100(per100)
   const entry = { id: newId('fe'), name: food ? food.name : String(name || '').trim() || 'Food', grams: +grams || 0, per100: label }
+  if (src || food?.src) entry.src = String(src || food.src)
   if (food) {
     entry.foodId = food.id
     // Strictly increasing, so two foods logged in the same millisecond still sort by order.
