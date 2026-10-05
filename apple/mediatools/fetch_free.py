@@ -352,6 +352,9 @@ def analyse(src, max_len=14.0, window=None):
     return pick_span(frames, fps, dur, max_len, window), crop
 
 
+STATIC = [False]
+
+
 def pick_span(frames, fps, dur, max_len=14.0, window=None, min_len=3.0):
     """
     The stretch of a demo video where the exercise is being done, as (start, length) in seconds.
@@ -364,6 +367,7 @@ def pick_span(frames, fps, dur, max_len=14.0, window=None, min_len=3.0):
     stretch) score no repetition and keep the middle of their longest shot.
     """
     import numpy as np
+    STATIC[0] = False
     n = len(frames)
     if n < 2:
         return 0.0, min(dur, max_len)
@@ -426,9 +430,17 @@ def pick_span(frames, fps, dur, max_len=14.0, window=None, min_len=3.0):
             best = (float(sums[i]), a + i, a + i + L, a, b)
     score, s0, s1, a, b = best
     if score < 0.5 * fps:
+        # A held position (a stretch, a plank): show getting into it, from the start of the
+        # longest shot, rather than the middle of a hold that looks like a still picture.
+        STATIC[0] = True
         a, b = max(shots, key=lambda r: r[1] - r[0])
-        mid, L = (a + b) // 2, min(win, b - a)
-        return (mid - L // 2) / fps, L / fps
+        # Skip standing still at the start of the shot: begin just before the first real movement.
+        sm = np.convolve(diff, np.ones(int(fps)) / int(fps), "same")[a:b]
+        moving = np.where(sm > 0.3 * float(np.percentile(sm, 90)))[0]
+        if len(moving):
+            a = min(b - int(min_len * fps), a + max(0, int(moving[0]) - int(0.5 * fps)))
+        L = min(win, b - a)
+        return a / fps, L / fps
     # Trim the window to where the repetition starts and stops.
     sm = np.convolve(rep, np.ones(int(fps)) / int(fps), "same")
     seg = sm[s0:s1]

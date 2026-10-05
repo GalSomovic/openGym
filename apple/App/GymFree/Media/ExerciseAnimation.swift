@@ -253,11 +253,13 @@ private struct FullScreenDemo: View {
             ExerciseAnimation(exerciseId: exerciseId, toggle: true, fullScreen: true)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             Button(action: close) {
+                // Dark, so it shows on the white ExerciseDB animations as well as on video.
                 Image(systemName: "xmark")
                     .font(.headline)
                     .foregroundStyle(.white)
                     .frame(width: 44, height: 44)
-                    .background(.white.opacity(0.18), in: .circle)
+                    .background(.black.opacity(0.6), in: .circle)
+                    .overlay(Circle().stroke(.white.opacity(0.35), lineWidth: 1))
             }
             .accessibilityLabel(Text("Close"))
             .accessibilityIdentifier("media.close")

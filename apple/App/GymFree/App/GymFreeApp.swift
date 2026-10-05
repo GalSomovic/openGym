@@ -7,6 +7,11 @@ struct GymFreeApp: App {
     @Environment(\.scenePhase) private var scenePhase
     private let services = AppServices.shared
 
+    init() {
+        // Before any demo video plays: the default audio mode would stop the user's music.
+        CuePlayer.mixWithMusic()
+    }
+
     var body: some Scene {
         WindowGroup {
             RootView()

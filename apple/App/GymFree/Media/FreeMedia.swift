@@ -125,6 +125,30 @@ struct LoopingVideo: UIViewRepresentable {
         var playerLayer: AVPlayerLayer { layer as! AVPlayerLayer }
         var looper: AVPlayerLooper?
         var url: URL?
+        var playing = true
+
+        override init(frame: CGRect) {
+            super.init(frame: frame)
+            // Another app's audio starting, a call, or a trip to the background can pause the
+            // player; pick the loop up again so the demo never sits frozen. (Selector observers
+            // are removed by the system when the view goes away.)
+            let center = NotificationCenter.default
+            for name in [AVAudioSession.interruptionNotification, UIApplication.didBecomeActiveNotification,
+                         AVAudioSession.mediaServicesWereResetNotification] {
+                center.addObserver(self, selector: #selector(resumeFromNotification), name: name, object: nil)
+            }
+        }
+
+        required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+
+        @objc private func resumeFromNotification() {
+            DispatchQueue.main.async { [weak self] in self?.resume() }
+        }
+
+        func resume() {
+            guard playing, let player = playerLayer.player, player.timeControlStatus != .playing else { return }
+            player.play()
+        }
     }
 
     func makeUIView(context: Context) -> PlayerView {
@@ -138,11 +162,13 @@ struct LoopingVideo: UIViewRepresentable {
         if view.url != url {
             let player = AVQueuePlayer()
             player.isMuted = true
+            player.audiovisualBackgroundPlaybackPolicy = .pauses
             player.preventsDisplaySleepDuringVideoPlayback = false
             view.looper = AVPlayerLooper(player: player, templateItem: AVPlayerItem(url: url))
             view.playerLayer.player = player
             view.url = url
         }
+        view.playing = playing
         if playing { view.playerLayer.player?.play() } else { view.playerLayer.player?.pause() }
     }
 

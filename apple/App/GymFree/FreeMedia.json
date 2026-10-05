@@ -2842,20 +2842,6 @@
    "title": "Banded Palloff Press"
   }
  ],
- "0993": [
-  {
-   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
-   "files": [
-    "tecom/tecom-636824.mp4"
-   ],
-   "id": "tecom-636824",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/636824",
-   "source": "DVIDS",
-   "title": "Band Bent Over Lateral Raises"
-  }
- ],
  "0997": [
   {
    "author": "U.S. Marine Corps Training and Education Command / DVIDS",
@@ -4015,6 +4001,20 @@
    "link": "https://www.dvidshub.net/video/638261",
    "source": "DVIDS",
    "title": "Lax Ball Roll Lats"
+  }
+ ],
+ "gf-band-bent-over-lateral-raise": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-636824.mp4"
+   ],
+   "id": "tecom-636824",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/636824",
+   "source": "DVIDS",
+   "title": "Band Bent Over Lateral Raises"
   }
  ],
  "gf-band-bent-over-row": [

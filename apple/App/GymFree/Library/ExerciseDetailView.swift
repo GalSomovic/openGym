@@ -101,6 +101,10 @@ struct FlowTags: View {
                     .background(i == 0 ? AnyShapeStyle(.tint.opacity(0.2)) : AnyShapeStyle(.quaternary.opacity(0.6)), in: .capsule)
             }
         }
+        // A List row can measure this at another width than it lays it out at; taking the full
+        // width keeps the measured height right when the chips wrap onto a second line.
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .fixedSize(horizontal: false, vertical: true)
     }
 }
 

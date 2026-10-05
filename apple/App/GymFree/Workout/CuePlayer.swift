@@ -107,7 +107,14 @@ final class CuePlayer: NSObject, AVSpeechSynthesizerDelegate {
             guard !Task.isCancelled, let self, self.pending == 0 else { return }
             self.engine.pause()
             try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+            Self.mixWithMusic()
         }
+    }
+
+    /// The app's resting audio mode: mixes with whatever music is playing and never stops it, so
+    /// the silent demo videos can play over it. Set at launch and again after every cue.
+    static func mixWithMusic() {
+        try? AVAudioSession.sharedInstance().setCategory(.ambient, mode: .default, options: [.mixWithOthers])
     }
 
     nonisolated func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {

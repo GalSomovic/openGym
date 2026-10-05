@@ -17,19 +17,32 @@ struct PlanView: View {
             List {
                 if store.routines.isEmpty {
                     Section {
-                        ContentUnavailableView {
-                            Label("No routines yet", systemImage: "list.clipboard")
-                        } description: {
+                        // Not ContentUnavailableView: on iOS 26 it squeezes its action buttons into
+                        // a narrow column, hiding their titles.
+                        VStack(spacing: 14) {
+                            Image(systemName: "list.clipboard").font(.system(size: 40)).foregroundStyle(.secondary)
+                            Text("No routines yet").font(.title3.bold())
                             Text("Build your own, or start from a plan and change anything you like.")
-                        } actions: {
-                            Button("New routine", systemImage: "plus") { newRoutine() }
+                                .font(.subheadline).foregroundStyle(.secondary).multilineTextAlignment(.center)
+                            VStack(spacing: 10) {
+                                Button { newRoutine() } label: {
+                                    Label("New routine", systemImage: "plus").frame(maxWidth: .infinity)
+                                }
                                 .buttonStyle(.borderedProminent)
-                            HStack {
-                                Button("Make me a plan", systemImage: "wand.and.stars") { builderPresented = true }
-                                Button("Starter plans", systemImage: "sparkles") { starterPresented = true }
+                                Button { builderPresented = true } label: {
+                                    Label("Make me a plan", systemImage: "wand.and.stars").frame(maxWidth: .infinity)
+                                }
+                                .buttonStyle(.bordered)
+                                Button { starterPresented = true } label: {
+                                    Label("Starter plans", systemImage: "sparkles").frame(maxWidth: .infinity)
+                                }
+                                .buttonStyle(.bordered)
                             }
-                            .buttonStyle(.bordered)
+                            .controlSize(.large)
+                            .padding(.top, 4)
                         }
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 12)
                     }
                 }
                 Section("Week schedule") {

@@ -347,6 +347,11 @@ ex("band-bent-over-row", "band bent-over row", "back", BAND, "upper back", "lats
     "Hinge forward with a flat back and let your arms hang.",
     "Row your elbows back to your sides, squeezing your shoulder blades.",
     "Lower with control."], tecom=["Band Bent Over Rows"])
+ex("band-bent-over-lateral-raise", "band bent-over lateral raise", "shoulders", BAND, "delts", "rear shoulders", ["upper back"], [
+    "Stand on the middle of a band, holding an end in each hand, and hinge forward with a flat back.",
+    "With a slight bend in the elbows, raise your arms out to the sides until they are level with your back.",
+    "Squeeze your shoulder blades together, then lower slowly.",
+    "Keep your neck long and avoid swinging."], tecom=["Band Bent Over Lateral Raises"])
 ex("band-deadlift", "band deadlift", "upper legs", BAND, "glutes", "glutes", ["hamstrings", "lower back"], tecom=["Band Deadlift"])
 ex("band-good-morning", "band good morning", "upper legs", BAND, "hamstrings", "hamstrings", ["glutes", "lower back"],
    tecom=["Band Goodmorning", "Band Good Morning"])
@@ -967,7 +972,7 @@ ex("wide-outs", "squat wide-outs", "upper legs", BW, "quads", "quads", ["glutes"
 
 # Demos of exercises already in the catalogue: title -> openGym ids.
 TECOM_MORE = {"Barbell back squat": ["0043"], "Barbell Dead Lift": ["0032"], "Butterfly": ["1494"], "Dumbbell Bicep Curl": ["0375"],
-              "Hip Adduction": ["3667"], "Seated Band Row": ["3144"], "Band Bent Over Lateral Raises": ["0993"]}
+              "Hip Adduction": ["3667"], "Seated Band Row": ["3144"]}
 SASEBO_MORE = {"Banded Forward Raise": ["0978"], "Banded Knee Extension": ["3007"], "Banded Palloff Press": ["0979"],
                "Bent Over Row": ["0293"], "Bent Over T": ["0380"], "Biceps Curl": ["0294"], "Bound Angle Stretch": ["1494"],
                "Forward & Backward Monster Walks": ["0628"], "One-arm Bent Over Row": ["0292"], "Quadriceps Stretch": ["1713"],
