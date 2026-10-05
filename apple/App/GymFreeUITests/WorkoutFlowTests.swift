@@ -52,6 +52,29 @@ final class WorkoutFlowTests: XCTestCase {
         XCTAssertTrue(app.staticTexts["Instructions"].waitForExistence(timeout: 3) || app.staticTexts["INSTRUCTIONS"].exists)
     }
 
+    func testDemoArrowsSwitchVersionsAndOpenFullScreen() {
+        let app = launch(["-GFTab", "exercises", "-GFDetail", "0662"])
+        let label = app.staticTexts["media.label"]
+        XCTAssertTrue(label.waitForExistence(timeout: 5))
+        let first = label.label
+        app.buttons["media.next"].tap()
+        XCTAssertNotEqual(label.label, first)
+        app.buttons["media.previous"].tap()
+        XCTAssertEqual(label.label, first)
+        app.buttons["media.fullscreen"].tap()
+        let close = app.buttons["media.close"]
+        XCTAssertTrue(close.waitForExistence(timeout: 3))
+        app.buttons["media.next"].firstMatch.tap()
+        sleep(1)
+        let shot = XCTAttachment(screenshot: app.screenshot())
+        shot.name = "fullscreen-landscape"; shot.lifetime = .keepAlways
+        add(shot)
+        close.tap()
+        XCTAssertTrue(label.waitForExistence(timeout: 3))
+        XCTAssertNotEqual(label.label, first, "a version picked full screen is kept")
+        app.buttons["media.previous"].tap()
+    }
+
     func testBuildARoutine() {
         let app = launch(["-GFTab", "plan"])
         app.buttons["New"].firstMatch.tap()

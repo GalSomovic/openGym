@@ -92,11 +92,14 @@ let animationStage = Color(red: 0.106, green: 0.122, blue: 0.141)
 
 /// An exercise's demo. Plays on its own unless Reduce Motion is on; then it holds still and
 /// plays on a tap. `toggle` adds the switcher that cycles through every version available:
-/// free real footage, the classic animation, illustrations, GymFree's own animation.
+/// free real footage, the classic animation, illustrations, GymFree's own animation, and a
+/// button that opens the demo full screen (still looping, still inline: never the system player).
 struct ExerciseAnimation: View {
     let exerciseId: String
     var animated = true
     var toggle = false
+    /// Shown full screen: fills the space it is given instead of a square.
+    var fullScreen = false
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var still: UIImage?
     @State private var loop: UIImage?
@@ -118,7 +121,7 @@ struct ExerciseAnimation: View {
                     .foregroundStyle(.white, .black.opacity(0.55))
             }
         }
-        .aspectRatio(1, contentMode: .fit)
+        .modifier(SquareUnlessFullScreen(fullScreen: fullScreen))
         .contentShape(Rectangle())
         .overlay(alignment: .bottom) {
             if toggle, let current { switcher(current) }
@@ -129,6 +132,7 @@ struct ExerciseAnimation: View {
             index = MediaLibrary.chosen(for: exerciseId, in: options)
             await prepare()
         }
+
         .accessibilityElement(children: .contain)
         .accessibilityLabel(Text("Exercise demonstration"))
     }
@@ -170,18 +174,34 @@ struct ExerciseAnimation: View {
 
     private func switcher(_ option: MediaOption) -> some View {
         VStack(spacing: 3) {
-            if options.count > 1 {
-                HStack(spacing: 6) {
-                    Button { step(-1) } label: { Image(systemName: "chevron.backward").frame(width: 30, height: 26) }
+            HStack(spacing: 6) {
+                if options.count > 1 {
+                    Button { step(-1) } label: { Image(systemName: "chevron.backward").frame(width: 36, height: 30) }
                         .accessibilityLabel(Text("Previous version"))
-                    Text("\(option.label)  \(index + 1)/\(options.count)")
-                        .font(.caption.weight(.semibold))
-                        .lineLimit(1)
-                        .frame(maxWidth: .infinity)
-                    Button { step(1) } label: { Image(systemName: "chevron.forward").frame(width: 30, height: 26) }
+                        .accessibilityIdentifier("media.previous")
+                }
+                Text(options.count > 1 ? "\(option.label)  \(index + 1)/\(options.count)" : option.label)
+                    .font(.caption.weight(.semibold))
+                    .lineLimit(1)
+                    .frame(maxWidth: .infinity)
+                    .accessibilityIdentifier("media.label")
+                if options.count > 1 {
+                    Button { step(1) } label: { Image(systemName: "chevron.forward").frame(width: 36, height: 30) }
                         .accessibilityLabel(Text("Next version"))
+                        .accessibilityIdentifier("media.next")
+                }
+                if !fullScreen {
+                    Button { openFullScreen() } label: {
+                        Image(systemName: "arrow.up.left.and.arrow.down.right").frame(width: 32, height: 30)
+                    }
+                    .accessibilityLabel(Text("Full screen"))
+                    .accessibilityIdentifier("media.fullscreen")
                 }
             }
+            // Inside a List row, plain buttons all fire on any tap in the row (Previous then Next
+            // undid each other); borderless buttons get only their own taps.
+            .buttonStyle(.borderless)
+            .contentShape(Rectangle())
             if let credit = option.credit, !credit.isEmpty {
                 Text(credit).font(.system(size: 9)).lineLimit(2).multilineTextAlignment(.center).opacity(0.85)
             }
@@ -190,6 +210,14 @@ struct ExerciseAnimation: View {
         .padding(.horizontal, 8).padding(.vertical, 6)
         .background(.black.opacity(0.55), in: .rect(cornerRadius: 12))
         .padding(8)
+    }
+
+    private func openFullScreen() {
+        FullScreenDemo.present(exerciseId: exerciseId) {
+            // A version picked full screen is kept here too.
+            index = MediaLibrary.chosen(for: exerciseId, in: options)
+            Task { await prepare() }
+        }
     }
 
     private func step(_ d: Int) {
@@ -212,6 +240,73 @@ struct ExerciseAnimation: View {
     }
 }
 
+/// The demo on its own, filling the screen: same versions, same switcher, a close button. A
+/// video turns the phone to landscape, as full-screen video does; it can be turned back.
+private struct FullScreenDemo: View {
+    let exerciseId: String
+    let close: () -> Void
+
+    var body: some View {
+        ZStack(alignment: .topTrailing) {
+            Color.black.ignoresSafeArea()
+            ExerciseAnimation(exerciseId: exerciseId, toggle: true, fullScreen: true)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            Button(action: close) {
+                Image(systemName: "xmark")
+                    .font(.headline)
+                    .foregroundStyle(.white)
+                    .frame(width: 44, height: 44)
+                    .background(.white.opacity(0.18), in: .circle)
+            }
+            .accessibilityLabel(Text("Close"))
+            .accessibilityIdentifier("media.close")
+            .padding()
+        }
+    }
+
+    /// Presented from UIKit: SwiftUI's own full-screen cover stays portrait-only.
+    @MainActor static func present(exerciseId: String, onDismiss: @escaping () -> Void) {
+        guard let scene = UIApplication.shared.connectedScenes.compactMap({ $0 as? UIWindowScene }).first,
+              var top = scene.keyWindow?.rootViewController else { return }
+        while let next = top.presentedViewController { top = next }
+        var host: LandscapeHost<FullScreenDemo>?
+        let view = FullScreenDemo(exerciseId: exerciseId) {
+            host?.dismiss(animated: true) {
+                OrientationLock.allowsLandscape = false
+                onDismiss()
+            }
+        }
+        host = LandscapeHost(rootView: view)
+        host?.modalPresentationStyle = .fullScreen
+        host?.view.backgroundColor = .black
+        OrientationLock.allowsLandscape = true
+        top.present(host!, animated: true) {
+            let options = MediaLibrary.options(for: exerciseId)
+            if case .video = options[safe: MediaLibrary.chosen(for: exerciseId, in: options)]?.kind {
+                OrientationLock.turnToLandscape()
+            }
+        }
+    }
+}
+
+private final class LandscapeHost<Content: View>: UIHostingController<Content> {
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask { .allButUpsideDown }
+    override var prefersStatusBarHidden: Bool { true }
+    override var prefersHomeIndicatorAutoHidden: Bool { true }
+}
+
+private struct SquareUnlessFullScreen: ViewModifier {
+    let fullScreen: Bool
+
+    func body(content: Content) -> some View {
+        if fullScreen {
+            content.frame(maxWidth: .infinity, maxHeight: .infinity)
+        } else {
+            content.aspectRatio(1, contentMode: .fit)
+        }
+    }
+}
+
 /// First frames of the free videos, for list thumbnails.
 final class VideoPosters: @unchecked Sendable {
     static let shared = VideoPosters()
@@ -219,10 +314,14 @@ final class VideoPosters: @unchecked Sendable {
 
     func poster(_ url: URL) async -> UIImage? {
         if let hit = cache.object(forKey: url as NSURL) { return hit }
-        let gen = AVAssetImageGenerator(asset: AVURLAsset(url: url))
+        let asset = AVURLAsset(url: url)
+        let gen = AVAssetImageGenerator(asset: asset)
         gen.appliesPreferredTrackTransform = true
         gen.maximumSize = CGSize(width: 240, height: 240)
-        guard let cg = try? await gen.image(at: CMTime(seconds: 0.5, preferredTimescale: 600)).image else { return nil }
+        // The middle of the clip: its first moments can still be fading in from a title card.
+        let duration = (try? await asset.load(.duration).seconds) ?? 1
+        let at = CMTime(seconds: duration.isFinite && duration > 0 ? duration / 2 : 0.5, preferredTimescale: 600)
+        guard let cg = try? await gen.image(at: at).image else { return nil }
         let image = UIImage(cgImage: cg)
         cache.setObject(image, forKey: url as NSURL)
         return image

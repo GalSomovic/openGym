@@ -169,6 +169,18 @@
    "link": "https://www.dvidshub.net/video/548431",
    "source": "DVIDS",
    "title": "Barbell Deadlift"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-517483.mp4"
+   ],
+   "id": "tecom-517483",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517483",
+   "source": "DVIDS",
+   "title": "Barbell Dead Lift"
   }
  ],
  "0033": [
@@ -259,6 +271,18 @@
    "link": "https://www.dvidshub.net/video/548433",
    "source": "DVIDS",
    "title": "Barbell Front Squat"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-517485.mp4"
+   ],
+   "id": "tecom-517485",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517485",
+   "source": "DVIDS",
+   "title": "Barbell Front Squat"
   }
  ],
  "0043": [
@@ -286,6 +310,18 @@
    "link": "https://www.dvidshub.net/video/517475",
    "source": "DVIDS",
    "title": "Barbell Back Squat"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-548426.mp4"
+   ],
+   "id": "tecom-548426",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/548426",
+   "source": "DVIDS",
+   "title": "Barbell back squat"
   }
  ],
  "0044": [
@@ -395,12 +431,36 @@
   {
    "author": "U.S. Marine Corps Training and Education Command / DVIDS",
    "files": [
+    "tecom/tecom-517493.mp4"
+   ],
+   "id": "tecom-517493",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517493",
+   "source": "DVIDS",
+   "title": "Barbell Overhead Squat"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
     "tecom/tecom-548747.mp4"
    ],
    "id": "tecom-548747",
    "kind": "video",
    "license": "Public domain (US DoD)",
    "link": "https://www.dvidshub.net/video/548747",
+   "source": "DVIDS",
+   "title": "PVC Overhead Squat"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-517552.mp4"
+   ],
+   "id": "tecom-517552",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517552",
    "source": "DVIDS",
    "title": "PVC Overhead Squat"
   }
@@ -506,6 +566,30 @@
    "link": "https://www.dvidshub.net/video/639927",
    "source": "DVIDS",
    "title": "Barbell Romanian Deadlift"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-548437.mp4"
+   ],
+   "id": "tecom-548437",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/548437",
+   "source": "DVIDS",
+   "title": "Barbell Romanian Deadlift"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-517494.mp4"
+   ],
+   "id": "tecom-517494",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517494",
+   "source": "DVIDS",
+   "title": "Barbell Romanian Deadlift"
   }
  ],
  "0095": [
@@ -533,6 +617,18 @@
    "kind": "video",
    "license": "Public domain (US DoD)",
    "link": "https://www.dvidshub.net/video/548428",
+   "source": "DVIDS",
+   "title": "Barbell Bulgarian Split Squat"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-517476.mp4"
+   ],
+   "id": "tecom-517476",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517476",
    "source": "DVIDS",
    "title": "Barbell Bulgarian Split Squat"
   }
@@ -725,6 +821,18 @@
    "title": "Ab crunches"
   },
   {
+   "author": "Travis Burcham, Staff Sgt. Elijah Dority, Joshua DuFrane / DVIDS",
+   "files": [
+    "dvids/dvids-1016254-0.mp4"
+   ],
+   "id": "dvids-1016254-0",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/1016254",
+   "source": "DVIDS",
+   "title": "Culture of Fitness: Cross Leg Crunch"
+  },
+  {
    "author": "U.S. Marine Corps Training and Education Command / DVIDS",
    "files": [
     "tecom/tecom-639889.mp4"
@@ -838,6 +946,20 @@
    "title": "Dumbbell Bench Press"
   }
  ],
+ "0292": [
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-773835.mp4"
+   ],
+   "id": "sasebo-773835",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/773835",
+   "source": "DVIDS",
+   "title": "One-arm Bent Over Row"
+  }
+ ],
  "0293": [
   {
    "author": "U.S. Marine Corps Training and Education Command / DVIDS",
@@ -850,6 +972,18 @@
    "link": "https://www.dvidshub.net/video/636921",
    "source": "DVIDS",
    "title": "Dumbbell Bent Over Rows"
+  },
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-768141.mp4"
+   ],
+   "id": "sasebo-768141",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/768141",
+   "source": "DVIDS",
+   "title": "Bent Over Row"
   }
  ],
  "0294": [
@@ -889,6 +1023,18 @@
    "link": "https://www.dvidshub.net/video/636923",
    "source": "DVIDS",
    "title": "Dumbbell Curl"
+  },
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-773842.mp4"
+   ],
+   "id": "sasebo-773842",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/773842",
+   "source": "DVIDS",
+   "title": "Biceps Curl"
   }
  ],
  "0308": [
@@ -1060,6 +1206,46 @@
    "title": "Dumbbell Lunges Standing"
   }
  ],
+ "0375": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-679657.mp4"
+   ],
+   "id": "tecom-679657",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/679657",
+   "source": "DVIDS",
+   "title": "Dumbbell Bicep Curl"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-679653.mp4"
+   ],
+   "id": "tecom-679653",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/679653",
+   "source": "DVIDS",
+   "title": "Dumbbell Bicep Curl"
+  }
+ ],
+ "0380": [
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-774041.mp4"
+   ],
+   "id": "sasebo-774041",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/774041",
+   "source": "DVIDS",
+   "title": "Bent Over T"
+  }
+ ],
  "0381": [
   {
    "author": "AlucardEvil40",
@@ -1158,12 +1344,48 @@
   {
    "author": "U.S. Marine Corps Training and Education Command / DVIDS",
    "files": [
+    "tecom/tecom-548725.mp4"
+   ],
+   "id": "tecom-548725",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/548725",
+   "source": "DVIDS",
+   "title": "Dumbbell Split Squat"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-517522.mp4"
+   ],
+   "id": "tecom-517522",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517522",
+   "source": "DVIDS",
+   "title": "Dumbbell Split Squat"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
     "tecom/tecom-548450.mp4"
    ],
    "id": "tecom-548450",
    "kind": "video",
    "license": "Public domain (US DoD)",
    "link": "https://www.dvidshub.net/video/548450",
+   "source": "DVIDS",
+   "title": "Dumbbell Bulgarian Split Squat"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-517507.mp4"
+   ],
+   "id": "tecom-517507",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517507",
    "source": "DVIDS",
    "title": "Dumbbell Bulgarian Split Squat"
   }
@@ -1178,6 +1400,30 @@
    "kind": "video",
    "license": "Public domain (US DoD)",
    "link": "https://www.dvidshub.net/video/636936",
+   "source": "DVIDS",
+   "title": "Dumbbell Single Leg Squat"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-548723.mp4"
+   ],
+   "id": "tecom-548723",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/548723",
+   "source": "DVIDS",
+   "title": "Dumbbell Single Leg Squat"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-517521.mp4"
+   ],
+   "id": "tecom-517521",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517521",
    "source": "DVIDS",
    "title": "Dumbbell Single Leg Squat"
   }
@@ -1495,6 +1741,18 @@
    "link": "https://www.dvidshub.net/video/548733",
    "source": "DVIDS",
    "title": "Kettlebell Goblet Squat"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-517533.mp4"
+   ],
+   "id": "tecom-517533",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517533",
+   "source": "DVIDS",
+   "title": "Kettlebell Goblet Squat"
   }
  ],
  "0535": [
@@ -1561,6 +1819,30 @@
    "kind": "video",
    "license": "Public domain (US DoD)",
    "link": "https://www.dvidshub.net/video/754731",
+   "source": "DVIDS",
+   "title": "Kettlebell Swing"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-548744.mp4"
+   ],
+   "id": "tecom-548744",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/548744",
+   "source": "DVIDS",
+   "title": "Kettlebell Swing"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-517548.mp4"
+   ],
+   "id": "tecom-517548",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517548",
    "source": "DVIDS",
    "title": "Kettlebell Swing"
   }
@@ -1780,6 +2062,30 @@
    "link": "https://www.dvidshub.net/video/558585",
    "source": "DVIDS",
    "title": "Monster Walk"
+  },
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-771635.mp4"
+   ],
+   "id": "sasebo-771635",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/771635",
+   "source": "DVIDS",
+   "title": "Forward & Backward Monster Walks"
+  },
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-765285.mp4"
+   ],
+   "id": "sasebo-765285",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/765285",
+   "source": "DVIDS",
+   "title": "Sideways Monster Walk"
   }
  ],
  "0630": [
@@ -1807,6 +2113,18 @@
    "kind": "video",
    "license": "Public domain (US DoD)",
    "link": "https://www.dvidshub.net/video/558587",
+   "source": "DVIDS",
+   "title": "Mountain Climbers"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-692520.mp4"
+   ],
+   "id": "tecom-692520",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/692520",
    "source": "DVIDS",
    "title": "Mountain Climbers"
   }
@@ -1892,18 +2210,6 @@
  ],
  "0662": [
   {
-   "author": "Wensceslao",
-   "files": [
-    "commons/commons-Pushups.mp4"
-   ],
-   "id": "commons-Pushups",
-   "kind": "video",
-   "license": "CC BY-SA 4.0",
-   "link": "https://commons.wikimedia.org/wiki/File:Pushups.gif",
-   "source": "Wikimedia Commons",
-   "title": "Pushups"
-  },
-  {
    "author": "Licensed under the CC BY-SA 4.0 license. Derived from Keiji Yoshiki's push-up photo, published under the CC0 license.",
    "files": [
     "feeel/feeel-pushUps-0.jpg"
@@ -1938,6 +2244,18 @@
    "link": "https://pixabay.com/videos/id-330871/",
    "source": "Pixabay",
    "title": "push ups"
+  },
+  {
+   "author": "Wensceslao",
+   "files": [
+    "commons/commons-Pushups.mp4"
+   ],
+   "id": "commons-Pushups",
+   "kind": "video",
+   "license": "CC BY-SA 4.0",
+   "link": "https://commons.wikimedia.org/wiki/File:Pushups.gif",
+   "source": "Wikimedia Commons",
+   "title": "Pushups"
   },
   {
    "author": "Travis Burcham, Staff Sgt. Elijah Dority, Joshua DuFrane / DVIDS",
@@ -1978,18 +2296,6 @@
  ],
  "0664": [
   {
-   "author": "Army Combat Fitness Test",
-   "files": [
-    "commons/commons-Conditioning_Drill-_Eight_Count_T_Push-Up.mp4"
-   ],
-   "id": "commons-Conditioning_Drill-_Eight_Count_T_Push-Up",
-   "kind": "video",
-   "license": "Public domain",
-   "link": "https://commons.wikimedia.org/wiki/File:Conditioning_Drill-_Eight_Count_T_Push-Up.webm",
-   "source": "Wikimedia Commons",
-   "title": "Conditioning Drill- Eight Count T Push-Up"
-  },
-  {
    "author": "Licensed under the CC BY-SA 4.0 license. Derived from \"Woman in Purple Tank Top and Gray Sweat Pants\" on Pexels, published under the CC0 license.",
    "files": [
     "feeel/feeel-pushUpRotations-0.jpg"
@@ -2000,6 +2306,18 @@
    "link": "https://gitlab.com/enjoyingfoss/feeel",
    "source": "Feeel",
    "title": "Push up rotations"
+  },
+  {
+   "author": "Army Combat Fitness Test",
+   "files": [
+    "commons/commons-Conditioning_Drill-_Eight_Count_T_Push-Up.mp4"
+   ],
+   "id": "commons-Conditioning_Drill-_Eight_Count_T_Push-Up",
+   "kind": "video",
+   "license": "Public domain",
+   "link": "https://commons.wikimedia.org/wiki/File:Conditioning_Drill-_Eight_Count_T_Push-Up.webm",
+   "source": "Wikimedia Commons",
+   "title": "Conditioning Drill- Eight Count T Push-Up"
   }
  ],
  "0687": [
@@ -2216,6 +2534,20 @@
    "title": "TRX Low Row"
   }
  ],
+ "0809": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-517576.mp4"
+   ],
+   "id": "tecom-517576",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517576",
+   "source": "DVIDS",
+   "title": "TRX Split Squat"
+  }
+ ],
  "0811": [
   {
    "author": "U.S. Marine Corps Training and Education Command / DVIDS",
@@ -2226,6 +2558,18 @@
    "kind": "video",
    "license": "Public domain (US DoD)",
    "link": "https://www.dvidshub.net/video/548726",
+   "source": "DVIDS",
+   "title": "Hexbar Deadlift"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-517528.mp4"
+   ],
+   "id": "tecom-517528",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517528",
    "source": "DVIDS",
    "title": "Hexbar Deadlift"
   }
@@ -2360,6 +2704,18 @@
    "link": "https://www.dvidshub.net/video/754443",
    "source": "DVIDS",
    "title": "Tricep Stretch"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-699182.mp4"
+   ],
+   "id": "tecom-699182",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/699182",
+   "source": "DVIDS",
+   "title": "Tricep Stretch"
   }
  ],
  "0832": [
@@ -2432,20 +2788,6 @@
    "title": "Biceps Curl With Cable"
   }
  ],
- "0871": [
-  {
-   "author": "Travis Burcham, Staff Sgt. Elijah Dority, Joshua DuFrane / DVIDS",
-   "files": [
-    "dvids/dvids-1016254-0.mp4"
-   ],
-   "id": "dvids-1016254-0",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/1016254",
-   "source": "DVIDS",
-   "title": "Culture of Fitness: Cross Leg Crunch"
-  }
- ],
  "0872": [
   {
    "author": "Spc. William China, Sgt. Bertha Smith / DVIDS",
@@ -2472,6 +2814,46 @@
    "link": "https://www.dvidshub.net/video/636829",
    "source": "DVIDS",
    "title": "Band Front Raise"
+  },
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-774030.mp4"
+   ],
+   "id": "sasebo-774030",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/774030",
+   "source": "DVIDS",
+   "title": "Banded Forward Raise"
+  }
+ ],
+ "0979": [
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-774026.mp4"
+   ],
+   "id": "sasebo-774026",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/774026",
+   "source": "DVIDS",
+   "title": "Banded Palloff Press"
+  }
+ ],
+ "0993": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-636824.mp4"
+   ],
+   "id": "tecom-636824",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/636824",
+   "source": "DVIDS",
+   "title": "Band Bent Over Lateral Raises"
   }
  ],
  "0997": [
@@ -2500,21 +2882,21 @@
    "link": "https://www.dvidshub.net/video/548423",
    "source": "DVIDS",
    "title": "Band Squat"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-517473.mp4"
+   ],
+   "id": "tecom-517473",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517473",
+   "source": "DVIDS",
+   "title": "Band Squat"
   }
  ],
  "1160": [
-  {
-   "author": "Wensceslao",
-   "files": [
-    "commons/commons-Burpees.mp4"
-   ],
-   "id": "commons-Burpees",
-   "kind": "video",
-   "license": "CC BY-SA 4.0",
-   "link": "https://commons.wikimedia.org/wiki/File:Burpees.gif",
-   "source": "Wikimedia Commons",
-   "title": "Burpees"
-  },
   {
    "author": "Licensed under the CC BY-SA 4.0 license. Derived from a triangulation by kettenfett, which was derived from \"The 6-Minute Sweat Workout: Burpee\" by ExperienceLifeMag on YouTube, published under the CC BY 3.0 license.",
    "files": [
@@ -2545,6 +2927,18 @@
    "link": "https://gitlab.com/enjoyingfoss/feeel",
    "source": "Feeel",
    "title": "No push up burpees"
+  },
+  {
+   "author": "Wensceslao",
+   "files": [
+    "commons/commons-Burpees.mp4"
+   ],
+   "id": "commons-Burpees",
+   "kind": "video",
+   "license": "CC BY-SA 4.0",
+   "link": "https://commons.wikimedia.org/wiki/File:Burpees.gif",
+   "source": "Wikimedia Commons",
+   "title": "Burpees"
   },
   {
    "author": "U.S. Marine Corps Training and Education Command / DVIDS",
@@ -2595,6 +2989,18 @@
    "kind": "video",
    "license": "Public domain (US DoD)",
    "link": "https://www.dvidshub.net/video/636847",
+   "source": "DVIDS",
+   "title": "Clap Pushups"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-679633.mp4"
+   ],
+   "id": "tecom-679633",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/679633",
    "source": "DVIDS",
    "title": "Clap Pushups"
   }
@@ -2896,6 +3302,30 @@
    "link": "https://www.dvidshub.net/video/639938",
    "source": "DVIDS",
    "title": "Dumbbell Romanian Deadlift"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-548459.mp4"
+   ],
+   "id": "tecom-548459",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/548459",
+   "source": "DVIDS",
+   "title": "Dumbbell Romanian Deadlift"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-517516.mp4"
+   ],
+   "id": "tecom-517516",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517516",
+   "source": "DVIDS",
+   "title": "Dumbbell Romanian Deadlift"
   }
  ],
  "1460": [
@@ -2953,6 +3383,30 @@
    "link": "https://www.dvidshub.net/video/636499",
    "source": "DVIDS",
    "title": "Butterfly Stretch"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-550433.mp4"
+   ],
+   "id": "tecom-550433",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/550433",
+   "source": "DVIDS",
+   "title": "Butterfly"
+  },
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-774071.mp4"
+   ],
+   "id": "sasebo-774071",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/774071",
+   "source": "DVIDS",
+   "title": "Bound Angle Stretch"
   }
  ],
  "1585": [
@@ -2983,6 +3437,20 @@
    "title": "Walking Lunge with Twist"
   }
  ],
+ "1713": [
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-774059.mp4"
+   ],
+   "id": "sasebo-774059",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/774059",
+   "source": "DVIDS",
+   "title": "Quadriceps Stretch"
+  }
+ ],
  "1757": [
   {
    "author": "U.S. Marine Corps Training and Education Command / DVIDS",
@@ -2993,6 +3461,30 @@
    "kind": "video",
    "license": "Public domain (US DoD)",
    "link": "https://www.dvidshub.net/video/639941",
+   "source": "DVIDS",
+   "title": "Dumbbell Single Leg Deadlift"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-548720.mp4"
+   ],
+   "id": "tecom-548720",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/548720",
+   "source": "DVIDS",
+   "title": "Dumbbell Single Leg Deadlift"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-517518.mp4"
+   ],
+   "id": "tecom-517518",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517518",
    "source": "DVIDS",
    "title": "Dumbbell Single Leg Deadlift"
   }
@@ -3095,21 +3587,21 @@
    "link": "https://gitlab.com/enjoyingfoss/feeel",
    "source": "Feeel",
    "title": "Split squats"
+  },
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-768140.mp4"
+   ],
+   "id": "sasebo-768140",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/768140",
+   "source": "DVIDS",
+   "title": "Split Squat"
   }
  ],
  "2612": [
-  {
-   "author": "Wensceslao",
-   "files": [
-    "commons/commons-Jumpingrope.mp4"
-   ],
-   "id": "commons-Jumpingrope",
-   "kind": "video",
-   "license": "CC BY-SA 4.0",
-   "link": "https://commons.wikimedia.org/wiki/File:Jumpingrope.gif",
-   "source": "Wikimedia Commons",
-   "title": "Jumpingrope"
-  },
   {
    "author": "Licensed under the CC BY-SA 4.0 license. Derived from a triangulation by Mohammad H. Tajaddini, which was derived from \"Jump rope - skipping\" by Drew and Merissa, published under the CC BY 2.0 license.",
    "files": [
@@ -3121,6 +3613,18 @@
    "link": "https://gitlab.com/enjoyingfoss/feeel",
    "source": "Feeel",
    "title": "Jump rope basic"
+  },
+  {
+   "author": "Wensceslao",
+   "files": [
+    "commons/commons-Jumpingrope.mp4"
+   ],
+   "id": "commons-Jumpingrope",
+   "kind": "video",
+   "license": "CC BY-SA 4.0",
+   "link": "https://commons.wikimedia.org/wiki/File:Jumpingrope.gif",
+   "source": "Wikimedia Commons",
+   "title": "Jumpingrope"
   }
  ],
  "2810": [
@@ -3135,6 +3639,46 @@
    "link": "https://www.dvidshub.net/video/548441",
    "source": "DVIDS",
    "title": "Barbell Split Squat"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-517497.mp4"
+   ],
+   "id": "tecom-517497",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517497",
+   "source": "DVIDS",
+   "title": "Barbell Split Squat"
+  }
+ ],
+ "3007": [
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-774052.mp4"
+   ],
+   "id": "sasebo-774052",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/774052",
+   "source": "DVIDS",
+   "title": "Banded Knee Extension"
+  }
+ ],
+ "3144": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-640249.mp4"
+   ],
+   "id": "tecom-640249",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/640249",
+   "source": "DVIDS",
+   "title": "Seated Band Row"
   }
  ],
  "3212": [
@@ -3229,6 +3773,18 @@
    "link": "https://www.dvidshub.net/video/551361",
    "source": "DVIDS",
    "title": "Bear Crawl"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-677348.mp4"
+   ],
+   "id": "tecom-677348",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/677348",
+   "source": "DVIDS",
+   "title": "Bear Crawl"
   }
  ],
  "3361": [
@@ -3247,18 +3803,6 @@
  ],
  "3470": [
   {
-   "author": "Army Combat Fitness Test",
-   "files": [
-    "commons/commons-Strength_Training_Circuit-_Forward_Lunge.mp4"
-   ],
-   "id": "commons-Strength_Training_Circuit-_Forward_Lunge",
-   "kind": "video",
-   "license": "Public domain",
-   "link": "https://commons.wikimedia.org/wiki/File:Strength_Training_Circuit-_Forward_Lunge.webm",
-   "source": "Wikimedia Commons",
-   "title": "Strength Training Circuit- Forward Lunge"
-  },
-  {
    "author": "Licensed under the CC BY-SA 4.0 license. Derived from Mass Communication Specialist 2nd Class Brian Morales's \"U.S. Navy Gas Turbine Systems Technician (Mechanical) 2nd Class Milton Lovelace, left, and Logistics Specialist Seaman Brittney Joseph, both assigned to the Naval Air Station (NAS) Key West port operations department, perform lunges during a physical training session at NAS Key West, Fla., Aug. 28, 2013. The Sailors were preparing for a Navy-wide physical fitness assessment.\"_2nd_Class_Milton_Lovelace,_left,_and_Logistics_Specialist_Seaman_Brittney_Joseph,_both_assigned_to_the_Naval_Air_Station_(NAS)_Key_West_port_operations_130828-N-YB753-041.jpg), which is in the public domain.",
    "files": [
     "feeel/feeel-lunges-0.jpg"
@@ -3271,6 +3815,18 @@
    "title": "Lunges"
   },
   {
+   "author": "Army Combat Fitness Test",
+   "files": [
+    "commons/commons-Strength_Training_Circuit-_Forward_Lunge.mp4"
+   ],
+   "id": "commons-Strength_Training_Circuit-_Forward_Lunge",
+   "kind": "video",
+   "license": "Public domain",
+   "link": "https://commons.wikimedia.org/wiki/File:Strength_Training_Circuit-_Forward_Lunge.webm",
+   "source": "Wikimedia Commons",
+   "title": "Strength Training Circuit- Forward Lunge"
+  },
+  {
    "author": "U.S. Marine Corps Training and Education Command / DVIDS",
    "files": [
     "tecom/tecom-551832.mp4"
@@ -3281,6 +3837,20 @@
    "link": "https://www.dvidshub.net/video/551832",
    "source": "DVIDS",
    "title": "Stationary Forward Lunge"
+  }
+ ],
+ "3667": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551395.mp4"
+   ],
+   "id": "tecom-551395",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551395",
+   "source": "DVIDS",
+   "title": "Hip Adduction"
   }
  ],
  "3679": [
@@ -3321,6 +3891,726 @@
    "link": "https://www.dvidshub.net/video/551396",
    "source": "DVIDS",
    "title": "Inchworm"
+  }
+ ],
+ "gf-4-way-bear-crawl": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-753726.mp4"
+   ],
+   "id": "tecom-753726",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/753726",
+   "source": "DVIDS",
+   "title": "4 Way Bear Crawl"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-640966.mp4"
+   ],
+   "id": "tecom-640966",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/640966",
+   "source": "DVIDS",
+   "title": "4 Way Bear Crawl"
+  }
+ ],
+ "gf-90-90-active-hamstring": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-550424.mp4"
+   ],
+   "id": "tecom-550424",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/550424",
+   "source": "DVIDS",
+   "title": "90/90 Active Hamstring"
+  }
+ ],
+ "gf-90-90-hip-switch": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-754744.mp4"
+   ],
+   "id": "tecom-754744",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/754744",
+   "source": "DVIDS",
+   "title": "Combination Hip Stretch"
+  }
+ ],
+ "gf-archer-stretch": [
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-764645.mp4"
+   ],
+   "id": "sasebo-764645",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/764645",
+   "source": "DVIDS",
+   "title": "Archer Stretch"
+  }
+ ],
+ "gf-arm-circles": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551356.mp4"
+   ],
+   "id": "tecom-551356",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551356",
+   "source": "DVIDS",
+   "title": "Arm Circles"
+  }
+ ],
+ "gf-ball-roll-foot": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638190.mp4"
+   ],
+   "id": "tecom-638190",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638190",
+   "source": "DVIDS",
+   "title": "Lax Ball With Foot"
+  }
+ ],
+ "gf-ball-roll-glute": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638188.mp4"
+   ],
+   "id": "tecom-638188",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638188",
+   "source": "DVIDS",
+   "title": "Lax Ball to Glute Fold"
+  }
+ ],
+ "gf-ball-roll-lats": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638261.mp4"
+   ],
+   "id": "tecom-638261",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638261",
+   "source": "DVIDS",
+   "title": "Lax Ball Roll Lats"
+  }
+ ],
+ "gf-band-bent-over-row": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-636827.mp4"
+   ],
+   "id": "tecom-636827",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/636827",
+   "source": "DVIDS",
+   "title": "Band Bent Over Rows"
+  }
+ ],
+ "gf-band-biceps-curl": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-636835.mp4"
+   ],
+   "id": "tecom-636835",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/636835",
+   "source": "DVIDS",
+   "title": "Band Standing Curl"
+  }
+ ],
+ "gf-band-deadlift": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-548274.mp4"
+   ],
+   "id": "tecom-548274",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/548274",
+   "source": "DVIDS",
+   "title": "Band Deadlift"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-517463.mp4"
+   ],
+   "id": "tecom-517463",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517463",
+   "source": "DVIDS",
+   "title": "Band Deadlift"
+  }
+ ],
+ "gf-band-good-morning": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-548275.mp4"
+   ],
+   "id": "tecom-548275",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/548275",
+   "source": "DVIDS",
+   "title": "Band Goodmorning"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-517468.mp4"
+   ],
+   "id": "tecom-517468",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517468",
+   "source": "DVIDS",
+   "title": "Band Good Morning"
+  }
+ ],
+ "gf-band-lat-pulldown": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-639891.mp4"
+   ],
+   "id": "tecom-639891",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/639891",
+   "source": "DVIDS",
+   "title": "Band Lat Pulldown"
+  }
+ ],
+ "gf-band-lateral-raise": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-636831.mp4"
+   ],
+   "id": "tecom-636831",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/636831",
+   "source": "DVIDS",
+   "title": "Band Side Lateral Raise"
+  },
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-774033.mp4"
+   ],
+   "id": "sasebo-774033",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/774033",
+   "source": "DVIDS",
+   "title": "Banded Lateral Raise"
+  }
+ ],
+ "gf-band-lying-leg-curl": [
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-774053.mp4"
+   ],
+   "id": "sasebo-774053",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/774053",
+   "source": "DVIDS",
+   "title": "Banded Knee Flexion"
+  }
+ ],
+ "gf-band-lying-pullover": [
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-774043.mp4"
+   ],
+   "id": "sasebo-774043",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/774043",
+   "source": "DVIDS",
+   "title": "Lying Pullover"
+  }
+ ],
+ "gf-band-overhead-squat": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-548421.mp4"
+   ],
+   "id": "tecom-548421",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/548421",
+   "source": "DVIDS",
+   "title": "Band Overhead Squat"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-517469.mp4"
+   ],
+   "id": "tecom-517469",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517469",
+   "source": "DVIDS",
+   "title": "Band Overhead Squat"
+  },
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-773830.mp4"
+   ],
+   "id": "sasebo-773830",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/773830",
+   "source": "DVIDS",
+   "title": "Banded Overhead Squat"
+  }
+ ],
+ "gf-band-overhead-triceps-extension": [
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-773936.mp4"
+   ],
+   "id": "sasebo-773936",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/773936",
+   "source": "DVIDS",
+   "title": "Banded Tricep Extension"
+  }
+ ],
+ "gf-band-push-up": [
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-774050.mp4"
+   ],
+   "id": "sasebo-774050",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/774050",
+   "source": "DVIDS",
+   "title": "Banded Push-ups"
+  }
+ ],
+ "gf-band-romanian-deadlift": [
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-774020.mp4"
+   ],
+   "id": "sasebo-774020",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/774020",
+   "source": "DVIDS",
+   "title": "Banded Romanian Deadlift"
+  }
+ ],
+ "gf-band-seated-calf-press": [
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-774036.mp4"
+   ],
+   "id": "sasebo-774036",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/774036",
+   "source": "DVIDS",
+   "title": "Banded Calf Raises"
+  }
+ ],
+ "gf-band-shoulder-external-rotation": [
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-764644.mp4"
+   ],
+   "id": "sasebo-764644",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/764644",
+   "source": "DVIDS",
+   "title": "External Shoulder Rotation"
+  }
+ ],
+ "gf-band-shoulder-internal-rotation": [
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-771043.mp4"
+   ],
+   "id": "sasebo-771043",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/771043",
+   "source": "DVIDS",
+   "title": "Internal Shoulder Rotation"
+  }
+ ],
+ "gf-band-standing-chest-press": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-639894.mp4"
+   ],
+   "id": "tecom-639894",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/639894",
+   "source": "DVIDS",
+   "title": "Band Standing Chest Press"
+  },
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-774046.mp4"
+   ],
+   "id": "sasebo-774046",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/774046",
+   "source": "DVIDS",
+   "title": "Banded Bench Press"
+  }
+ ],
+ "gf-band-standing-fly": [
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-774027.mp4"
+   ],
+   "id": "sasebo-774027",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/774027",
+   "source": "DVIDS",
+   "title": "Banded Fly"
+  }
+ ],
+ "gf-band-standing-twist": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-640969.mp4"
+   ],
+   "id": "tecom-640969",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/640969",
+   "source": "DVIDS",
+   "title": "Band Standing Twist"
+  },
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-774038.mp4"
+   ],
+   "id": "sasebo-774038",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/774038",
+   "source": "DVIDS",
+   "title": "Banded Twists for Abdomen"
+  }
+ ],
+ "gf-band-triceps-kickback": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-636838.mp4"
+   ],
+   "id": "tecom-636838",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/636838",
+   "source": "DVIDS",
+   "title": "Band Tricep Kickback"
+  }
+ ],
+ "gf-band-triceps-pushdown": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-639904.mp4"
+   ],
+   "id": "tecom-639904",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/639904",
+   "source": "DVIDS",
+   "title": "Band Tricep Pressdown"
+  }
+ ],
+ "gf-band-upright-row": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-636841.mp4"
+   ],
+   "id": "tecom-636841",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/636841",
+   "source": "DVIDS",
+   "title": "Band Upright Row"
+  },
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-774048.mp4"
+   ],
+   "id": "sasebo-774048",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/774048",
+   "source": "DVIDS",
+   "title": "Banded Upright Row"
+  }
+ ],
+ "gf-band-wood-chop-high-to-low": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-640971.mp4"
+   ],
+   "id": "tecom-640971",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/640971",
+   "source": "DVIDS",
+   "title": "Band Truck Twist High To Low"
+  }
+ ],
+ "gf-barbell-clean-hang-pull": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551025.mp4"
+   ],
+   "id": "tecom-551025",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551025",
+   "source": "DVIDS",
+   "title": "Clean Hang Pull"
+  }
+ ],
+ "gf-barbell-clean-high-pull": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551029.mp4"
+   ],
+   "id": "tecom-551029",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551029",
+   "source": "DVIDS",
+   "title": "Clean High Pull"
+  }
+ ],
+ "gf-barbell-diagonal-lunge": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-549279.mp4"
+   ],
+   "id": "tecom-549279",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/549279",
+   "source": "DVIDS",
+   "title": "Barbell Diagonal Lunge"
+  }
+ ],
+ "gf-barbell-hang-clean": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-679675.mp4"
+   ],
+   "id": "tecom-679675",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/679675",
+   "source": "DVIDS",
+   "title": "Hang Clean"
+  }
+ ],
+ "gf-barbell-hang-snatch": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-679678.mp4"
+   ],
+   "id": "tecom-679678",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/679678",
+   "source": "DVIDS",
+   "title": "Hang Snatch"
+  }
+ ],
+ "gf-barbell-lateral-squat": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-548435.mp4"
+   ],
+   "id": "tecom-548435",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/548435",
+   "source": "DVIDS",
+   "title": "Barbell Lateral Squat"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-517491.mp4"
+   ],
+   "id": "tecom-517491",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517491",
+   "source": "DVIDS",
+   "title": "Barbell Lateral Squat"
+  }
+ ],
+ "gf-barbell-power-snatch": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-692528.mp4"
+   ],
+   "id": "tecom-692528",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/692528",
+   "source": "DVIDS",
+   "title": "Power Snatch"
+  }
+ ],
+ "gf-barbell-push-press": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-639925.mp4"
+   ],
+   "id": "tecom-639925",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/639925",
+   "source": "DVIDS",
+   "title": "Barbell Push Press"
+  }
+ ],
+ "gf-barbell-shrug-upright-row": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-639930.mp4"
+   ],
+   "id": "tecom-639930",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/639930",
+   "source": "DVIDS",
+   "title": "Barbell Shrug and Upright Row"
+  }
+ ],
+ "gf-barbell-split-jerk": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-640258.mp4"
+   ],
+   "id": "tecom-640258",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/640258",
+   "source": "DVIDS",
+   "title": "Split Jerk"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-692856.mp4"
+   ],
+   "id": "tecom-692856",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/692856",
+   "source": "DVIDS",
+   "title": "Split Jerk"
+  }
+ ],
+ "gf-box-depth-jump": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-550428.mp4"
+   ],
+   "id": "tecom-550428",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/550428",
+   "source": "DVIDS",
+   "title": "Box Depth Jump"
+  }
+ ],
+ "gf-box-jump": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-550429.mp4"
+   ],
+   "id": "tecom-550429",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/550429",
+   "source": "DVIDS",
+   "title": "Box Jump"
   }
  ],
  "gf-bulgarian-split-squat": [
@@ -3364,6 +4654,18 @@
   {
    "author": "U.S. Marine Corps Training and Education Command / DVIDS",
    "files": [
+    "tecom/tecom-517507.mp4"
+   ],
+   "id": "tecom-517507",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517507",
+   "source": "DVIDS",
+   "title": "Dumbbell Bulgarian Split Squat"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
     "tecom/tecom-548728.mp4"
    ],
    "id": "tecom-548728",
@@ -3372,6 +4674,746 @@
    "link": "https://www.dvidshub.net/video/548728",
    "source": "DVIDS",
    "title": "Kettlebell Bulgarian Split Squat"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-517530.mp4"
+   ],
+   "id": "tecom-517530",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517530",
+   "source": "DVIDS",
+   "title": "Kettlebell Bulgarian Split Squat"
+  }
+ ],
+ "gf-butt-kicks": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-558559.mp4"
+   ],
+   "id": "tecom-558559",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/558559",
+   "source": "DVIDS",
+   "title": "Butt-Kickers"
+  }
+ ],
+ "gf-carioca": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-558561.mp4"
+   ],
+   "id": "tecom-558561",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/558561",
+   "source": "DVIDS",
+   "title": "Carioca"
+  }
+ ],
+ "gf-carioca-knee-drive": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-558560.mp4"
+   ],
+   "id": "tecom-558560",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/558560",
+   "source": "DVIDS",
+   "title": "Carioca w/Knee Drive"
+  }
+ ],
+ "gf-cat-camel": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-753723.mp4"
+   ],
+   "id": "tecom-753723",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/753723",
+   "source": "DVIDS",
+   "title": "Cat Camel"
+  }
+ ],
+ "gf-chair-pistol-squat": [
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-770128.mp4"
+   ],
+   "id": "sasebo-770128",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/770128",
+   "source": "DVIDS",
+   "title": "Chair Pistol Squat"
+  }
+ ],
+ "gf-childs-pose": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-753717.mp4"
+   ],
+   "id": "tecom-753717",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/753717",
+   "source": "DVIDS",
+   "title": "Child Pose"
+  },
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-774070.mp4"
+   ],
+   "id": "sasebo-774070",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/774070",
+   "source": "DVIDS",
+   "title": "Childs Pose Stretch"
+  }
+ ],
+ "gf-clap-to-chest-push-up": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-636850.mp4"
+   ],
+   "id": "tecom-636850",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/636850",
+   "source": "DVIDS",
+   "title": "Clap to Chest Pushups"
+  }
+ ],
+ "gf-couch-stretch": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-636500.mp4"
+   ],
+   "id": "tecom-636500",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/636500",
+   "source": "DVIDS",
+   "title": "Couch Stretch"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551031.mp4"
+   ],
+   "id": "tecom-551031",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551031",
+   "source": "DVIDS",
+   "title": "Couch Stretch"
+  }
+ ],
+ "gf-crab-walk": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551362.mp4"
+   ],
+   "id": "tecom-551362",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551362",
+   "source": "DVIDS",
+   "title": "Crab Walk"
+  }
+ ],
+ "gf-cross-body-shoulder-stretch": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-699168.mp4"
+   ],
+   "id": "tecom-699168",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/699168",
+   "source": "DVIDS",
+   "title": "Cross Body Stretch"
+  }
+ ],
+ "gf-crossover-lunge": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551366.mp4"
+   ],
+   "id": "tecom-551366",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551366",
+   "source": "DVIDS",
+   "title": "Cross-over Lunge"
+  }
+ ],
+ "gf-crossover-walk": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551370.mp4"
+   ],
+   "id": "tecom-551370",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551370",
+   "source": "DVIDS",
+   "title": "Crossover Walk"
+  }
+ ],
+ "gf-depth-push-up": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-679642.mp4"
+   ],
+   "id": "tecom-679642",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/679642",
+   "source": "DVIDS",
+   "title": "Depth Pushup"
+  }
+ ],
+ "gf-diagonal-lunge": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551373.mp4"
+   ],
+   "id": "tecom-551373",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551373",
+   "source": "DVIDS",
+   "title": "Diagonal Lunge"
+  }
+ ],
+ "gf-dowel-hip-hinge": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-754739.mp4"
+   ],
+   "id": "tecom-754739",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/754739",
+   "source": "DVIDS",
+   "title": "PVC RDL Stretch"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638242.mp4"
+   ],
+   "id": "tecom-638242",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638242",
+   "source": "DVIDS",
+   "title": "PVC RDL Stretch"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551138.mp4"
+   ],
+   "id": "tecom-551138",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551138",
+   "source": "DVIDS",
+   "title": "PVC RDL Stretch"
+  }
+ ],
+ "gf-downward-dog": [
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-774075.mp4"
+   ],
+   "id": "sasebo-774075",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/774075",
+   "source": "DVIDS",
+   "title": "Downward Facing Dog Stretch"
+  }
+ ],
+ "gf-dragon-stretch": [
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-774062.mp4"
+   ],
+   "id": "sasebo-774062",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/774062",
+   "source": "DVIDS",
+   "title": "Dragon Stretch"
+  }
+ ],
+ "gf-dumbbell-3-way-shoulder-raise": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-679650.mp4"
+   ],
+   "id": "tecom-679650",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/679650",
+   "source": "DVIDS",
+   "title": "Dumbbell 3 Way Shoulder Raise"
+  }
+ ],
+ "gf-dumbbell-bent-over-y-raise": [
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-773839.mp4"
+   ],
+   "id": "sasebo-773839",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/773839",
+   "source": "DVIDS",
+   "title": "Bent Over Y"
+  }
+ ],
+ "gf-dumbbell-curtsy-lunge": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-549289.mp4"
+   ],
+   "id": "tecom-549289",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/549289",
+   "source": "DVIDS",
+   "title": "Dumbbell Curtsy Lunge"
+  }
+ ],
+ "gf-dumbbell-half-kneeling-press": [
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-768147.mp4"
+   ],
+   "id": "sasebo-768147",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/768147",
+   "source": "DVIDS",
+   "title": "Kneeling Overhead Press"
+  },
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-768139.mp4"
+   ],
+   "id": "sasebo-768139",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/768139",
+   "source": "DVIDS",
+   "title": "Kneeling Overhead Press"
+  }
+ ],
+ "gf-dumbbell-lateral-lunge": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-549290.mp4"
+   ],
+   "id": "tecom-549290",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/549290",
+   "source": "DVIDS",
+   "title": "Dumbbell Lateral Lunge"
+  }
+ ],
+ "gf-dumbbell-lateral-squat": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-548454.mp4"
+   ],
+   "id": "tecom-548454",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/548454",
+   "source": "DVIDS",
+   "title": "Dumbbell Lateral Squat"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-517512.mp4"
+   ],
+   "id": "tecom-517512",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517512",
+   "source": "DVIDS",
+   "title": "Dumbbell Lateral Squat"
+  }
+ ],
+ "gf-dumbbell-lunge-to-press": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-549332.mp4"
+   ],
+   "id": "tecom-549332",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/549332",
+   "source": "DVIDS",
+   "title": "Dumbbell Lunge to Overhead Press"
+  }
+ ],
+ "gf-dumbbell-one-arm-romanian-deadlift": [
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-773832.mp4"
+   ],
+   "id": "sasebo-773832",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/773832",
+   "source": "DVIDS",
+   "title": "One Arm Romanian Deadlift"
+  }
+ ],
+ "gf-dumbbell-push-up": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-679662.mp4"
+   ],
+   "id": "tecom-679662",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/679662",
+   "source": "DVIDS",
+   "title": "Dumbbell Pushup"
+  }
+ ],
+ "gf-dumbbell-push-up-row": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-636932.mp4"
+   ],
+   "id": "tecom-636932",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/636932",
+   "source": "DVIDS",
+   "title": "Dumbbell Pushup With Row"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-679658.mp4"
+   ],
+   "id": "tecom-679658",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/679658",
+   "source": "DVIDS",
+   "title": "Dumbbell Pushup With Row"
+  }
+ ],
+ "gf-dumbbell-rotational-lunge": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-679667.mp4"
+   ],
+   "id": "tecom-679667",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/679667",
+   "source": "DVIDS",
+   "title": "Dumbbell Rotational Lunge"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-692480.mp4"
+   ],
+   "id": "tecom-692480",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/692480",
+   "source": "DVIDS",
+   "title": "Dumbbell Rotational Lunge"
+  }
+ ],
+ "gf-dumbbell-squat-to-press": [
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-769565.mp4"
+   ],
+   "id": "sasebo-769565",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/769565",
+   "source": "DVIDS",
+   "title": "Squat-to-overhead Press"
+  }
+ ],
+ "gf-dumbbell-step-down": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551038.mp4"
+   ],
+   "id": "tecom-551038",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551038",
+   "source": "DVIDS",
+   "title": "Dumbbell Single Leg Step Down"
+  }
+ ],
+ "gf-figure-4-stretch": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-754732.mp4"
+   ],
+   "id": "tecom-754732",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/754732",
+   "source": "DVIDS",
+   "title": "Figure 4 Stretch"
+  },
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-768664.mp4"
+   ],
+   "id": "sasebo-768664",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/768664",
+   "source": "DVIDS",
+   "title": "Figure 4 Stretch"
+  }
+ ],
+ "gf-fire-hydrants": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638171.mp4"
+   ],
+   "id": "tecom-638171",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638171",
+   "source": "DVIDS",
+   "title": "Fire Hydrants"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551375.mp4"
+   ],
+   "id": "tecom-551375",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551375",
+   "source": "DVIDS",
+   "title": "Fire Hydrants"
+  },
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-774025.mp4"
+   ],
+   "id": "sasebo-774025",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/774025",
+   "source": "DVIDS",
+   "title": "Fire Hydrants"
+  }
+ ],
+ "gf-frankenstein-walk": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551378.mp4"
+   ],
+   "id": "tecom-551378",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551378",
+   "source": "DVIDS",
+   "title": "Frankenstein"
+  }
+ ],
+ "gf-frog-stretch": [
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-774066.mp4"
+   ],
+   "id": "sasebo-774066",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/774066",
+   "source": "DVIDS",
+   "title": "Frog Stretch"
+  }
+ ],
+ "gf-front-leg-swing": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551823.mp4"
+   ],
+   "id": "tecom-551823",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551823",
+   "source": "DVIDS",
+   "title": "Sagittal Leg Swing"
+  }
+ ],
+ "gf-groiners": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-558570.mp4"
+   ],
+   "id": "tecom-558570",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/558570",
+   "source": "DVIDS",
+   "title": "Groiners"
+  }
+ ],
+ "gf-half-kneeling-ankle-mobilization": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551045.mp4"
+   ],
+   "id": "tecom-551045",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551045",
+   "source": "DVIDS",
+   "title": "Forward Lunge for Ankle"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638173.mp4"
+   ],
+   "id": "tecom-638173",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638173",
+   "source": "DVIDS",
+   "title": "Forward Lunge For Ankle"
+  }
+ ],
+ "gf-half-kneeling-hip-flexor-rotation": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551050.mp4"
+   ],
+   "id": "tecom-551050",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551050",
+   "source": "DVIDS",
+   "title": "Half Kneeling with Rotation"
+  }
+ ],
+ "gf-half-kneeling-hip-flexor-stretch": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638238.mp4"
+   ],
+   "id": "tecom-638238",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638238",
+   "source": "DVIDS",
+   "title": "PVC Half Kneeling Hip Flexor"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551136.mp4"
+   ],
+   "id": "tecom-551136",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551136",
+   "source": "DVIDS",
+   "title": "PVC Half Kneeling Hip Flexor"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-699171.mp4"
+   ],
+   "id": "tecom-699171",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/699171",
+   "source": "DVIDS",
+   "title": "PVC Half Kneeling Hip Flexor"
+  }
+ ],
+ "gf-half-kneeling-wall-rotation": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-754733.mp4"
+   ],
+   "id": "tecom-754733",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/754733",
+   "source": "DVIDS",
+   "title": "1/2 Kneeling Wall Rotation Stretch"
   }
  ],
  "gf-hand-release-push-up": [
@@ -3388,6 +5430,62 @@
    "title": "Culture of Fitness: Hand Release Push Up"
   }
  ],
+ "gf-hanging-flutter-kicks": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-639944.mp4"
+   ],
+   "id": "tecom-639944",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/639944",
+   "source": "DVIDS",
+   "title": "Hanging Flutter Kicks"
+  }
+ ],
+ "gf-hanging-leg-lowers": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-639947.mp4"
+   ],
+   "id": "tecom-639947",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/639947",
+   "source": "DVIDS",
+   "title": "Hanging Leg Lowers"
+  }
+ ],
+ "gf-hanging-windmill": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-640225.mp4"
+   ],
+   "id": "tecom-640225",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/640225",
+   "source": "DVIDS",
+   "title": "Hanging Windmill"
+  }
+ ],
+ "gf-heel-toe-raises": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551384.mp4"
+   ],
+   "id": "tecom-551384",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551384",
+   "source": "DVIDS",
+   "title": "Heel/Toe Raises"
+  }
+ ],
  "gf-high-knees": [
   {
    "author": "wger.de contributors",
@@ -3399,18 +5497,6 @@
    "license": "CC BY-SA 4.0",
    "link": "https://wger.de/exercise/983/view/",
    "source": "wger",
-   "title": "High knees"
-  },
-  {
-   "author": "Wensceslao",
-   "files": [
-    "commons/commons-High_knees.mp4"
-   ],
-   "id": "commons-High_knees",
-   "kind": "video",
-   "license": "CC BY-SA 4.0",
-   "link": "https://commons.wikimedia.org/wiki/File:High_knees.gif",
-   "source": "Wikimedia Commons",
    "title": "High knees"
   },
   {
@@ -3426,6 +5512,18 @@
    "title": "High knees"
   },
   {
+   "author": "Wensceslao",
+   "files": [
+    "commons/commons-High_knees.mp4"
+   ],
+   "id": "commons-High_knees",
+   "kind": "video",
+   "license": "CC BY-SA 4.0",
+   "link": "https://commons.wikimedia.org/wiki/File:High_knees.gif",
+   "source": "Wikimedia Commons",
+   "title": "High knees"
+  },
+  {
    "author": "U.S. Marine Corps Training and Education Command / DVIDS",
    "files": [
     "tecom/tecom-558574.mp4"
@@ -3436,6 +5534,20 @@
    "link": "https://www.dvidshub.net/video/558574",
    "source": "DVIDS",
    "title": "High Knees"
+  }
+ ],
+ "gf-highland-flings": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551387.mp4"
+   ],
+   "id": "tecom-551387",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551387",
+   "source": "DVIDS",
+   "title": "Highland Flings"
   }
  ],
  "gf-hollow-hold": [
@@ -3467,18 +5579,6 @@
    "title": "Jumping Jacks"
   },
   {
-   "author": "Wensceslao",
-   "files": [
-    "commons/commons-Jumpingjacks.mp4"
-   ],
-   "id": "commons-Jumpingjacks",
-   "kind": "video",
-   "license": "CC BY-SA 4.0",
-   "link": "https://commons.wikimedia.org/wiki/File:Jumpingjacks.gif",
-   "source": "Wikimedia Commons",
-   "title": "Jumpingjacks"
-  },
-  {
    "author": "Licensed under the CC BY-SA 4.0 license. Derived from United States Air Force's \"Top leaders unite for senior enlisted summit\", which is in the public domain.",
    "files": [
     "feeel/feeel-jumpingJacks-0.jpg"
@@ -3491,6 +5591,18 @@
    "title": "Jumping jacks"
   },
   {
+   "author": "Wensceslao",
+   "files": [
+    "commons/commons-Jumpingjacks.mp4"
+   ],
+   "id": "commons-Jumpingjacks",
+   "kind": "video",
+   "license": "CC BY-SA 4.0",
+   "link": "https://commons.wikimedia.org/wiki/File:Jumpingjacks.gif",
+   "source": "Wikimedia Commons",
+   "title": "Jumpingjacks"
+  },
+  {
    "author": "U.S. Marine Corps Training and Education Command / DVIDS",
    "files": [
     "tecom/tecom-551825.mp4"
@@ -3501,6 +5613,360 @@
    "link": "https://www.dvidshub.net/video/551825",
    "source": "DVIDS",
    "title": "Side Straddle Hops"
+  }
+ ],
+ "gf-kettlebell-lateral-lunge": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-549341.mp4"
+   ],
+   "id": "tecom-549341",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/549341",
+   "source": "DVIDS",
+   "title": "Kettlebell Lateral Lunge"
+  }
+ ],
+ "gf-kettlebell-one-arm-swing": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-692481.mp4"
+   ],
+   "id": "tecom-692481",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/692481",
+   "source": "DVIDS",
+   "title": "Kettlebell Swing (Single Arm)"
+  }
+ ],
+ "gf-kettlebell-overhead-lunge": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-549346.mp4"
+   ],
+   "id": "tecom-549346",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/549346",
+   "source": "DVIDS",
+   "title": "Kettlebell Overhead Lunge"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-679690.mp4"
+   ],
+   "id": "tecom-679690",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/679690",
+   "source": "DVIDS",
+   "title": "Kettlebell Overhead Lunge"
+  }
+ ],
+ "gf-kettlebell-overhead-split-squat": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-548739.mp4"
+   ],
+   "id": "tecom-548739",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/548739",
+   "source": "DVIDS",
+   "title": "Kettlebell Overhead Split Squat"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-517537.mp4"
+   ],
+   "id": "tecom-517537",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517537",
+   "source": "DVIDS",
+   "title": "Kettlebell Overhead Split Squat"
+  }
+ ],
+ "gf-kettlebell-romanian-deadlift": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-548741.mp4"
+   ],
+   "id": "tecom-548741",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/548741",
+   "source": "DVIDS",
+   "title": "Kettlebell Romanian Deadlift"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-517541.mp4"
+   ],
+   "id": "tecom-517541",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517541",
+   "source": "DVIDS",
+   "title": "Kettlebell Romanian Deadlift"
+  }
+ ],
+ "gf-kettlebell-upright-row": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638182.mp4"
+   ],
+   "id": "tecom-638182",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638182",
+   "source": "DVIDS",
+   "title": "Kettlebell Upright Row"
+  }
+ ],
+ "gf-kettlebell-windmill-curl-press": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-679683.mp4"
+   ],
+   "id": "tecom-679683",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/679683",
+   "source": "DVIDS",
+   "title": "Kettlebell Double Windmill Curl To Press"
+  }
+ ],
+ "gf-knee-to-wall-ankle-mobilization": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-754737.mp4"
+   ],
+   "id": "tecom-754737",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/754737",
+   "source": "DVIDS",
+   "title": "3 Way Knee to Wall"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-636493.mp4"
+   ],
+   "id": "tecom-636493",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/636493",
+   "source": "DVIDS",
+   "title": "3 Way Knee to Wall"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-550419.mp4"
+   ],
+   "id": "tecom-550419",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/550419",
+   "source": "DVIDS",
+   "title": "3 Way Knee to Wall"
+  }
+ ],
+ "gf-kneeling-wrist-stretch": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-753725.mp4"
+   ],
+   "id": "tecom-753725",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/753725",
+   "source": "DVIDS",
+   "title": "Passive Wrist Stretch"
+  }
+ ],
+ "gf-landmine-rotation": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-640981.mp4"
+   ],
+   "id": "tecom-640981",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/640981",
+   "source": "DVIDS",
+   "title": "Landmine Rotation"
+  }
+ ],
+ "gf-lateral-box-jump": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-692485.mp4"
+   ],
+   "id": "tecom-692485",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/692485",
+   "source": "DVIDS",
+   "title": "Lateral Box Jump"
+  }
+ ],
+ "gf-lateral-leg-swing": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551381.mp4"
+   ],
+   "id": "tecom-551381",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551381",
+   "source": "DVIDS",
+   "title": "Frontal Leg Swing"
+  }
+ ],
+ "gf-lateral-lunge": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-677362.mp4"
+   ],
+   "id": "tecom-677362",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/677362",
+   "source": "DVIDS",
+   "title": "Lateral Lunge"
+  }
+ ],
+ "gf-lateral-shuffle": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-558578.mp4"
+   ],
+   "id": "tecom-558578",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/558578",
+   "source": "DVIDS",
+   "title": "Lateral Shuffle"
+  }
+ ],
+ "gf-lateral-squat-jump": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-549347.mp4"
+   ],
+   "id": "tecom-549347",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/549347",
+   "source": "DVIDS",
+   "title": "Lateral Squat Jump"
+  }
+ ],
+ "gf-lateral-squat-wave": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551411.mp4"
+   ],
+   "id": "tecom-551411",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551411",
+   "source": "DVIDS",
+   "title": "Lateral Squat Wave"
+  }
+ ],
+ "gf-lateral-step-squat": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551418.mp4"
+   ],
+   "id": "tecom-551418",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551418",
+   "source": "DVIDS",
+   "title": "Lateral Step Squat"
+  }
+ ],
+ "gf-lizard-stretch": [
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-774063.mp4"
+   ],
+   "id": "sasebo-774063",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/774063",
+   "source": "DVIDS",
+   "title": "Lizard Stretch"
+  }
+ ],
+ "gf-long-arm-chest-stretch": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-753719.mp4"
+   ],
+   "id": "tecom-753719",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/753719",
+   "source": "DVIDS",
+   "title": "Long Arm Pull and Rotate"
+  }
+ ],
+ "gf-long-strider": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551420.mp4"
+   ],
+   "id": "tecom-551420",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551420",
+   "source": "DVIDS",
+   "title": "Long Strider"
+  }
+ ],
+ "gf-lunge-power-skip": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-558582.mp4"
+   ],
+   "id": "tecom-558582",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/558582",
+   "source": "DVIDS",
+   "title": "Lunge w/Power Skip"
   }
  ],
  "gf-lying-leg-raise": [
@@ -3518,18 +5984,6 @@
    "title": "Leg Raises, Lying"
   },
   {
-   "author": "Wensceslao",
-   "files": [
-    "commons/commons-Legraises.mp4"
-   ],
-   "id": "commons-Legraises",
-   "kind": "video",
-   "license": "CC BY-SA 4.0",
-   "link": "https://commons.wikimedia.org/wiki/File:Legraises.gif",
-   "source": "Wikimedia Commons",
-   "title": "Legraises"
-  },
-  {
    "author": "Licensed under the CC BY-SA 4.0 license. Derived from a triangulation by kettenfett, which was derived from \"20-Minute At-Home Full-Body Workout | No Equipment\" by \"EatMoveRest - The Stanczyks\" on YouTube, published under the CC BY 3.0 license.",
    "files": [
     "feeel/feeel-legRaises-0.jpg",
@@ -3543,6 +5997,18 @@
    "title": "Leg raises"
   },
   {
+   "author": "Wensceslao",
+   "files": [
+    "commons/commons-Legraises.mp4"
+   ],
+   "id": "commons-Legraises",
+   "kind": "video",
+   "license": "CC BY-SA 4.0",
+   "link": "https://commons.wikimedia.org/wiki/File:Legraises.gif",
+   "source": "Wikimedia Commons",
+   "title": "Legraises"
+  },
+  {
    "author": "U.S. Marine Corps Training and Education Command / DVIDS",
    "files": [
     "tecom/tecom-692487.mp4"
@@ -3553,6 +6019,210 @@
    "link": "https://www.dvidshub.net/video/692487",
    "source": "DVIDS",
    "title": "Leg Lowers"
+  }
+ ],
+ "gf-med-ball-arch-chop": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-692490.mp4"
+   ],
+   "id": "tecom-692490",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/692490",
+   "source": "DVIDS",
+   "title": "Med Ball Arch Chops"
+  }
+ ],
+ "gf-med-ball-crunch": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-640227.mp4"
+   ],
+   "id": "tecom-640227",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/640227",
+   "source": "DVIDS",
+   "title": "Med Ball Crunch"
+  }
+ ],
+ "gf-med-ball-figure-8": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-692495.mp4"
+   ],
+   "id": "tecom-692495",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/692495",
+   "source": "DVIDS",
+   "title": "Med Ball figure 8's"
+  }
+ ],
+ "gf-med-ball-single-leg-v-up": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-640228.mp4"
+   ],
+   "id": "tecom-640228",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/640228",
+   "source": "DVIDS",
+   "title": "Med Ball Single Leg V Up"
+  }
+ ],
+ "gf-med-ball-toe-touches": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-692506.mp4"
+   ],
+   "id": "tecom-692506",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/692506",
+   "source": "DVIDS",
+   "title": "Med Ball Toe Touches"
+  }
+ ],
+ "gf-med-ball-v-up": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-640229.mp4"
+   ],
+   "id": "tecom-640229",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/640229",
+   "source": "DVIDS",
+   "title": "Med Ball V Up"
+  }
+ ],
+ "gf-med-ball-wood-chop": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-692512.mp4"
+   ],
+   "id": "tecom-692512",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/692512",
+   "source": "DVIDS",
+   "title": "Med Ball Woodchoppers"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-641002.mp4"
+   ],
+   "id": "tecom-641002",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/641002",
+   "source": "DVIDS",
+   "title": "Med Ball Wood Chopper"
+  }
+ ],
+ "gf-mini-band-squat": [
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-773838.mp4"
+   ],
+   "id": "sasebo-773838",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/773838",
+   "source": "DVIDS",
+   "title": "Mini-Band Squat"
+  }
+ ],
+ "gf-overhead-plate-lunge": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-549349.mp4"
+   ],
+   "id": "tecom-549349",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/549349",
+   "source": "DVIDS",
+   "title": "Overhead Plate Lunge"
+  }
+ ],
+ "gf-overhead-strap-triceps-stretch": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-754452.mp4"
+   ],
+   "id": "tecom-754452",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/754452",
+   "source": "DVIDS",
+   "title": "Strap Stretch"
+  }
+ ],
+ "gf-passive-strap-hamstring-stretch": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638231.mp4"
+   ],
+   "id": "tecom-638231",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638231",
+   "source": "DVIDS",
+   "title": "Passive Strap Stretch"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551135.mp4"
+   ],
+   "id": "tecom-551135",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551135",
+   "source": "DVIDS",
+   "title": "Passive Strap Stretch"
+  },
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-774056.mp4"
+   ],
+   "id": "sasebo-774056",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/774056",
+   "source": "DVIDS",
+   "title": "Hamstring Stretch with Towel"
+  }
+ ],
+ "gf-pike-jump": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-692517.mp4"
+   ],
+   "id": "tecom-692517",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/692517",
+   "source": "DVIDS",
+   "title": "Pike Jump"
   }
  ],
  "gf-pike-push-up": [
@@ -3597,18 +6267,6 @@
    "title": "Plank"
   },
   {
-   "author": "Wensceslao",
-   "files": [
-    "commons/commons-Plank.jpg"
-   ],
-   "id": "commons-Plank",
-   "kind": "images",
-   "license": "CC BY-SA 4.0",
-   "link": "https://commons.wikimedia.org/wiki/File:Plank.png",
-   "source": "Wikimedia Commons",
-   "title": "Plank"
-  },
-  {
    "author": "Licensed under the CC BY-SA 4.0 license. Derived from a plank photo from PxHere, published under the CC0 license.",
    "files": [
     "feeel/feeel-forearmPlank-0.jpg"
@@ -3619,6 +6277,18 @@
    "link": "https://gitlab.com/enjoyingfoss/feeel",
    "source": "Feeel",
    "title": "Forearm plank"
+  },
+  {
+   "author": "Wensceslao",
+   "files": [
+    "commons/commons-Plank.jpg"
+   ],
+   "id": "commons-Plank",
+   "kind": "images",
+   "license": "CC BY-SA 4.0",
+   "link": "https://commons.wikimedia.org/wiki/File:Plank.png",
+   "source": "Wikimedia Commons",
+   "title": "Plank"
   },
   {
    "author": "Spc. William China, Sgt. Bertha Smith / DVIDS",
@@ -3643,6 +6313,74 @@
    "link": "https://www.dvidshub.net/video/640237",
    "source": "DVIDS",
    "title": "Plank"
+  }
+ ],
+ "gf-plank-hand-raise": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-640233.mp4"
+   ],
+   "id": "tecom-640233",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/640233",
+   "source": "DVIDS",
+   "title": "Plank with Hand Raise"
+  },
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-774023.mp4"
+   ],
+   "id": "sasebo-774023",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/774023",
+   "source": "DVIDS",
+   "title": "Pillar Bridge with Arm Lift"
+  }
+ ],
+ "gf-plank-leg-extension": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551422.mp4"
+   ],
+   "id": "tecom-551422",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551422",
+   "source": "DVIDS",
+   "title": "Plank Leg Extension"
+  }
+ ],
+ "gf-prone-leg-over": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-677372.mp4"
+   ],
+   "id": "tecom-677372",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/677372",
+   "source": "DVIDS",
+   "title": "Prone Leg Overs"
+  }
+ ],
+ "gf-prone-twisted-cross": [
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-774064.mp4"
+   ],
+   "id": "sasebo-774064",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/774064",
+   "source": "DVIDS",
+   "title": "Twisted Cross"
   }
  ],
  "gf-reverse-lunge": [
@@ -3699,6 +6437,800 @@
    "title": "Stationary Reverse Lunge"
   }
  ],
+ "gf-roll-calf": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638250.mp4"
+   ],
+   "id": "tecom-638250",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638250",
+   "source": "DVIDS",
+   "title": "Roll Calf"
+  }
+ ],
+ "gf-roll-forearm": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638252.mp4"
+   ],
+   "id": "tecom-638252",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638252",
+   "source": "DVIDS",
+   "title": "Roll Forearm w/ Peanut"
+  }
+ ],
+ "gf-roll-glute": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638255.mp4"
+   ],
+   "id": "tecom-638255",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638255",
+   "source": "DVIDS",
+   "title": "Roll Glute"
+  }
+ ],
+ "gf-roll-hamstring": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638256.mp4"
+   ],
+   "id": "tecom-638256",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638256",
+   "source": "DVIDS",
+   "title": "Roll Hamstring"
+  }
+ ],
+ "gf-roll-hip-flexor": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638448.mp4"
+   ],
+   "id": "tecom-638448",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638448",
+   "source": "DVIDS",
+   "title": "Rolling Hip Flexor"
+  }
+ ],
+ "gf-roll-it-band": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638258.mp4"
+   ],
+   "id": "tecom-638258",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638258",
+   "source": "DVIDS",
+   "title": "Roll IT Band"
+  }
+ ],
+ "gf-roll-lower-back": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638264.mp4"
+   ],
+   "id": "tecom-638264",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638264",
+   "source": "DVIDS",
+   "title": "Roll Lower Back"
+  }
+ ],
+ "gf-roll-quad": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638442.mp4"
+   ],
+   "id": "tecom-638442",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638442",
+   "source": "DVIDS",
+   "title": "Roll Quad"
+  }
+ ],
+ "gf-roll-t-spine": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638445.mp4"
+   ],
+   "id": "tecom-638445",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638445",
+   "source": "DVIDS",
+   "title": "Roll T-Spine"
+  }
+ ],
+ "gf-roll-triceps": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638443.mp4"
+   ],
+   "id": "tecom-638443",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638443",
+   "source": "DVIDS",
+   "title": "Roll Tricep"
+  }
+ ],
+ "gf-rope-kneeling-slam": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-692859.mp4"
+   ],
+   "id": "tecom-692859",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/692859",
+   "source": "DVIDS",
+   "title": "Kneeling Rope Throws"
+  }
+ ],
+ "gf-rope-side-plank-spiral": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-692868.mp4"
+   ],
+   "id": "tecom-692868",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/692868",
+   "source": "DVIDS",
+   "title": "Rope Side Plank Spiral"
+  }
+ ],
+ "gf-rope-side-plank-waves": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-692869.mp4"
+   ],
+   "id": "tecom-692869",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/692869",
+   "source": "DVIDS",
+   "title": "Rope Side Plank Waves"
+  }
+ ],
+ "gf-rope-standing-slam": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-692878.mp4"
+   ],
+   "id": "tecom-692878",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/692878",
+   "source": "DVIDS",
+   "title": "Standing Rope Throws"
+  }
+ ],
+ "gf-rope-wave-lateral-lunge": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-549353.mp4"
+   ],
+   "id": "tecom-549353",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/549353",
+   "source": "DVIDS",
+   "title": "Rope Alternating Wave with Lateral Lunge"
+  }
+ ],
+ "gf-rope-wave-lunge": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-549355.mp4"
+   ],
+   "id": "tecom-549355",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/549355",
+   "source": "DVIDS",
+   "title": "Rope Alternating Wave with Lunge"
+  }
+ ],
+ "gf-rope-wave-split-squat": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-549928.mp4"
+   ],
+   "id": "tecom-549928",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/549928",
+   "source": "DVIDS",
+   "title": "Rope Alternating Wave with Split Squat"
+  }
+ ],
+ "gf-sandbag-balance-step-lunge": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-549931.mp4"
+   ],
+   "id": "tecom-549931",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/549931",
+   "source": "DVIDS",
+   "title": "Sandbag Balance Step Lunge"
+  }
+ ],
+ "gf-sandbag-bear-hug-squat": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-548802.mp4"
+   ],
+   "id": "tecom-548802",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/548802",
+   "source": "DVIDS",
+   "title": "Sandbag Bear Hug Squat"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-517555.mp4"
+   ],
+   "id": "tecom-517555",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517555",
+   "source": "DVIDS",
+   "title": "Sandbag Bear Hug Squat"
+  }
+ ],
+ "gf-sandbag-bent-over-row": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638450.mp4"
+   ],
+   "id": "tecom-638450",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638450",
+   "source": "DVIDS",
+   "title": "Sandbad Bent Over Rows"
+  }
+ ],
+ "gf-sandbag-biceps-curl": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638453.mp4"
+   ],
+   "id": "tecom-638453",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638453",
+   "source": "DVIDS",
+   "title": "Sandbag Bicep Curl"
+  }
+ ],
+ "gf-sandbag-clean": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-549933.mp4"
+   ],
+   "id": "tecom-549933",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/549933",
+   "source": "DVIDS",
+   "title": "Sandbag Clean"
+  }
+ ],
+ "gf-sandbag-cyclone": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-642024.mp4"
+   ],
+   "id": "tecom-642024",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/642024",
+   "source": "DVIDS",
+   "title": "Sandbag Cyclone"
+  }
+ ],
+ "gf-sandbag-front-lunge": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-549936.mp4"
+   ],
+   "id": "tecom-549936",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/549936",
+   "source": "DVIDS",
+   "title": "Sandbag Front Lunge"
+  }
+ ],
+ "gf-sandbag-front-squat": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-548807.mp4"
+   ],
+   "id": "tecom-548807",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/548807",
+   "source": "DVIDS",
+   "title": "Sandbag Front Squat"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-517558.mp4"
+   ],
+   "id": "tecom-517558",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517558",
+   "source": "DVIDS",
+   "title": "Sandbag Front Squat"
+  }
+ ],
+ "gf-sandbag-good-morning": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-548810.mp4"
+   ],
+   "id": "tecom-548810",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/548810",
+   "source": "DVIDS",
+   "title": "Sandbag Good Morning"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-517559.mp4"
+   ],
+   "id": "tecom-517559",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517559",
+   "source": "DVIDS",
+   "title": "Sandbag Goodmorning"
+  }
+ ],
+ "gf-sandbag-kneeling-around-world": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-642021.mp4"
+   ],
+   "id": "tecom-642021",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/642021",
+   "source": "DVIDS",
+   "title": "Sandbag Kneeling Aound The World"
+  }
+ ],
+ "gf-sandbag-lateral-drag": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-642026.mp4"
+   ],
+   "id": "tecom-642026",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/642026",
+   "source": "DVIDS",
+   "title": "Sandbag Lateral Bag Drag"
+  }
+ ],
+ "gf-sandbag-lateral-lunge": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-549939.mp4"
+   ],
+   "id": "tecom-549939",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/549939",
+   "source": "DVIDS",
+   "title": "Sandbag Lateral Lunge"
+  }
+ ],
+ "gf-sandbag-overhead-lateral-lunge": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-549941.mp4"
+   ],
+   "id": "tecom-549941",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/549941",
+   "source": "DVIDS",
+   "title": "Sandbag Overhead Lateral Lunge"
+  }
+ ],
+ "gf-sandbag-overhead-squat": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-548813.mp4"
+   ],
+   "id": "tecom-548813",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/548813",
+   "source": "DVIDS",
+   "title": "Sandbag Overhead Squat"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-517564.mp4"
+   ],
+   "id": "tecom-517564",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517564",
+   "source": "DVIDS",
+   "title": "Sandbag Overhead Squat"
+  }
+ ],
+ "gf-sandbag-romanian-deadlift": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-548816.mp4"
+   ],
+   "id": "tecom-548816",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/548816",
+   "source": "DVIDS",
+   "title": "Sandbag Romanian Deadlift"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-517566.mp4"
+   ],
+   "id": "tecom-517566",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517566",
+   "source": "DVIDS",
+   "title": "Sandbag Romanian Deadlift"
+  }
+ ],
+ "gf-sandbag-rotational-lunge": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-549943.mp4"
+   ],
+   "id": "tecom-549943",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/549943",
+   "source": "DVIDS",
+   "title": "Sandbag Rotational Lunge"
+  }
+ ],
+ "gf-sandbag-shoulder-lunge": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-549946.mp4"
+   ],
+   "id": "tecom-549946",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/549946",
+   "source": "DVIDS",
+   "title": "Sandbag Shoulder Lunge"
+  }
+ ],
+ "gf-sandbag-shoulder-squat": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-548817.mp4"
+   ],
+   "id": "tecom-548817",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/548817",
+   "source": "DVIDS",
+   "title": "Sandbag Shoulder Squat"
+  }
+ ],
+ "gf-sandbag-single-grip-row": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638456.mp4"
+   ],
+   "id": "tecom-638456",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638456",
+   "source": "DVIDS",
+   "title": "Sandbag Single Grip Bent Over Row"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-692872.mp4"
+   ],
+   "id": "tecom-692872",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/692872",
+   "source": "DVIDS",
+   "title": "Single Grip Vent Over Row"
+  }
+ ],
+ "gf-sandbag-single-leg-deadlift": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-548820.mp4"
+   ],
+   "id": "tecom-548820",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/548820",
+   "source": "DVIDS",
+   "title": "Sandbag Single Leg Deadlift"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-517567.mp4"
+   ],
+   "id": "tecom-517567",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517567",
+   "source": "DVIDS",
+   "title": "Sandbag Single Leg Deadlift"
+  }
+ ],
+ "gf-sandbag-standing-around-world": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-642029.mp4"
+   ],
+   "id": "tecom-642029",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/642029",
+   "source": "DVIDS",
+   "title": "Sandbag Standing Around The World"
+  }
+ ],
+ "gf-sandbag-suitcase-lunge": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-549951.mp4"
+   ],
+   "id": "tecom-549951",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/549951",
+   "source": "DVIDS",
+   "title": "Sandbag Suitcase Lunge"
+  }
+ ],
+ "gf-scarecrow": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-640246.mp4"
+   ],
+   "id": "tecom-640246",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/640246",
+   "source": "DVIDS",
+   "title": "Scarecrow"
+  }
+ ],
+ "gf-scorpion": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551824.mp4"
+   ],
+   "id": "tecom-551824",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551824",
+   "source": "DVIDS",
+   "title": "Scorpions"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-677374.mp4"
+   ],
+   "id": "tecom-677374",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/677374",
+   "source": "DVIDS",
+   "title": "Scorpion"
+  }
+ ],
+ "gf-seal-stretch": [
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-774068.mp4"
+   ],
+   "id": "sasebo-774068",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/774068",
+   "source": "DVIDS",
+   "title": "Seal Pose Stretch"
+  }
+ ],
+ "gf-seated-hamstring-stretch": [
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-774065.mp4"
+   ],
+   "id": "sasebo-774065",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/774065",
+   "source": "DVIDS",
+   "title": "Seated Hamstring Stretch"
+  }
+ ],
+ "gf-seated-hip-cross-stretch": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638186.mp4"
+   ],
+   "id": "tecom-638186",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638186",
+   "source": "DVIDS",
+   "title": "Lateral Hip Stretch"
+  }
+ ],
+ "gf-seated-hip-internal-rotation": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638225.mp4"
+   ],
+   "id": "tecom-638225",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638225",
+   "source": "DVIDS",
+   "title": "Leaning Back With Hip Internal Rotation"
+  }
+ ],
+ "gf-seated-side-reach-stretch": [
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-774076.mp4"
+   ],
+   "id": "sasebo-774076",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/774076",
+   "source": "DVIDS",
+   "title": "QLT Stretch"
+  }
+ ],
+ "gf-seated-straddle-stretch": [
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-774072.mp4"
+   ],
+   "id": "sasebo-774072",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/774072",
+   "source": "DVIDS",
+   "title": "Seated Straddle Stretch"
+  }
+ ],
+ "gf-seated-tibialis-stretch": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638234.mp4"
+   ],
+   "id": "tecom-638234",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638234",
+   "source": "DVIDS",
+   "title": "Passive Tibialis Stretch"
+  }
+ ],
+ "gf-shoot-through": [
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-774055.mp4"
+   ],
+   "id": "sasebo-774055",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/774055",
+   "source": "DVIDS",
+   "title": "Shoot Throughs"
+  },
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-774054.mp4"
+   ],
+   "id": "sasebo-774054",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/774054",
+   "source": "DVIDS",
+   "title": "Shoot Throughs"
+  }
+ ],
  "gf-side-plank": [
   {
    "author": "Licensed under the CC BY-SA 4.0 license. Derived from Sgt. Thomas Childs's \"U.S. Marine Corps Sgt. Jonathan Benezette demonstrates the left plank position during Marine Corps martial arts training aboard the dock landing ship USS Oak Hill (LSD 51) during Amphibious-Southern Partnership Station (A-SPS) 2012 in the Caribbean Sea Oct. 9, 2011. SPS is an annual deployment of U.S. ships to the U.S. Southern Command's area of responsibility in the Caribbean and Latin America. The exercise involves information sharing with navies, coast guards and civilian services throughout the region.\"_during_Amphibious-Southern_Partnership_111009-A-WF228-011.jpg), which is in the public domain.",
@@ -3737,19 +7269,215 @@
    "title": "Side Plank"
   }
  ],
- "gf-squat": [
+ "gf-side-plank-hip-dip": [
   {
-   "author": "Wensceslao",
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
    "files": [
-    "commons/commons-Squats.mp4"
+    "sasebo/sasebo-774017.mp4"
    ],
-   "id": "commons-Squats",
+   "id": "sasebo-774017",
    "kind": "video",
-   "license": "CC BY-SA 4.0",
-   "link": "https://commons.wikimedia.org/wiki/File:Squats.gif",
-   "source": "Wikimedia Commons",
-   "title": "Squats"
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/774017",
+   "source": "DVIDS",
+   "title": "Dynamic Pillar Bridge"
+  }
+ ],
+ "gf-side-sitting-forward-lean": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-754742.mp4"
+   ],
+   "id": "tecom-754742",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/754742",
+   "source": "DVIDS",
+   "title": "Side Sitting and Lean Forward Stretch"
   },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638459.mp4"
+   ],
+   "id": "tecom-638459",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638459",
+   "source": "DVIDS",
+   "title": "Side Sitting Forward Lean"
+  }
+ ],
+ "gf-side-slide-arm-swing": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-558590.mp4"
+   ],
+   "id": "tecom-558590",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/558590",
+   "source": "DVIDS",
+   "title": "Side Slide w/Arm Swing"
+  }
+ ],
+ "gf-single-arm-plyo-push-up": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638461.mp4"
+   ],
+   "id": "tecom-638461",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638461",
+   "source": "DVIDS",
+   "title": "Single Arm Plyo Pushups"
+  }
+ ],
+ "gf-single-leg-balance-reach": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551827.mp4"
+   ],
+   "id": "tecom-551827",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551827",
+   "source": "DVIDS",
+   "title": "Single Leg Balance"
+  }
+ ],
+ "gf-single-leg-box-tuck-jump": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-549288.mp4"
+   ],
+   "id": "tecom-549288",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/549288",
+   "source": "DVIDS",
+   "title": "Box Tuck Jump Single Leg"
+  }
+ ],
+ "gf-slant-board-calf-stretch": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638464.mp4"
+   ],
+   "id": "tecom-638464",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638464",
+   "source": "DVIDS",
+   "title": "Slant Board Stretch"
+  }
+ ],
+ "gf-snatch-press-under": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-640238.mp4"
+   ],
+   "id": "tecom-640238",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/640238",
+   "source": "DVIDS",
+   "title": "Press Under"
+  }
+ ],
+ "gf-snatch-quick-drop": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-640243.mp4"
+   ],
+   "id": "tecom-640243",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/640243",
+   "source": "DVIDS",
+   "title": "Quick Drop"
+  }
+ ],
+ "gf-spiderman-crawl": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551828.mp4"
+   ],
+   "id": "tecom-551828",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551828",
+   "source": "DVIDS",
+   "title": "Spiderman"
+  }
+ ],
+ "gf-split-jack": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551830.mp4"
+   ],
+   "id": "tecom-551830",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551830",
+   "source": "DVIDS",
+   "title": "Split Jack Forward"
+  }
+ ],
+ "gf-split-squat-drops": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-558599.mp4"
+   ],
+   "id": "tecom-558599",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/558599",
+   "source": "DVIDS",
+   "title": "Split Squat Drops"
+  }
+ ],
+ "gf-split-squat-jump-combo": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-549955.mp4"
+   ],
+   "id": "tecom-549955",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/549955",
+   "source": "DVIDS",
+   "title": "Split Squat Jump Combo"
+  }
+ ],
+ "gf-split-squat-med-ball-slam": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-549958.mp4"
+   ],
+   "id": "tecom-549958",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/549958",
+   "source": "DVIDS",
+   "title": "Split Squat with Med. Ball Slam"
+  }
+ ],
+ "gf-squat": [
   {
    "author": "Licensed under the CC BY-SA 4.0 license. Derived from Vinceypo0's \"Parallel Squat Form\", published under the CC BY-SA 3.0 license.",
    "files": [
@@ -3760,6 +7488,18 @@
    "license": "CC BY-SA 4.0",
    "link": "https://gitlab.com/enjoyingfoss/feeel",
    "source": "Feeel",
+   "title": "Squats"
+  },
+  {
+   "author": "Wensceslao",
+   "files": [
+    "commons/commons-Squats.mp4"
+   ],
+   "id": "commons-Squats",
+   "kind": "video",
+   "license": "CC BY-SA 4.0",
+   "link": "https://commons.wikimedia.org/wiki/File:Squats.gif",
+   "source": "Wikimedia Commons",
    "title": "Squats"
   },
   {
@@ -3777,6 +7517,18 @@
   {
    "author": "U.S. Marine Corps Training and Education Command / DVIDS",
    "files": [
+    "tecom/tecom-517502.mp4"
+   ],
+   "id": "tecom-517502",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517502",
+   "source": "DVIDS",
+   "title": "Body Weight Squat"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
     "tecom/tecom-551837.mp4"
    ],
    "id": "tecom-551837",
@@ -3785,6 +7537,62 @@
    "link": "https://www.dvidshub.net/video/551837",
    "source": "DVIDS",
    "title": "Stationary Squat"
+  }
+ ],
+ "gf-squat-to-stand": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551146.mp4"
+   ],
+   "id": "tecom-551146",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551146",
+   "source": "DVIDS",
+   "title": "Squat to Stand"
+  }
+ ],
+ "gf-standing-quad-stretch": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-699175.mp4"
+   ],
+   "id": "tecom-699175",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/699175",
+   "source": "DVIDS",
+   "title": "Quad Stretch"
+  }
+ ],
+ "gf-standing-side-bend": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551406.mp4"
+   ],
+   "id": "tecom-551406",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551406",
+   "source": "DVIDS",
+   "title": "Lateral Side Bends"
+  }
+ ],
+ "gf-star-stretch": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638472.mp4"
+   ],
+   "id": "tecom-638472",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638472",
+   "source": "DVIDS",
+   "title": "Star Stretch"
   }
  ],
  "gf-step-up": [
@@ -3825,6 +7633,76 @@
    "title": "Get Fit: Conducting a Proper Step-Up"
   }
  ],
+ "gf-stick-hamstring": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638478.mp4"
+   ],
+   "id": "tecom-638478",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638478",
+   "source": "DVIDS",
+   "title": "Stick To Hamstring"
+  }
+ ],
+ "gf-stick-lower-back": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638479.mp4"
+   ],
+   "id": "tecom-638479",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638479",
+   "source": "DVIDS",
+   "title": "Stick to Lower Back"
+  }
+ ],
+ "gf-stick-quad": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638475.mp4"
+   ],
+   "id": "tecom-638475",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638475",
+   "source": "DVIDS",
+   "title": "Stick Quad"
+  }
+ ],
+ "gf-stick-shin": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638476.mp4"
+   ],
+   "id": "tecom-638476",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638476",
+   "source": "DVIDS",
+   "title": "Stick Tibia"
+  }
+ ],
+ "gf-sumo-squat-stretch": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-699179.mp4"
+   ],
+   "id": "tecom-699179",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/699179",
+   "source": "DVIDS",
+   "title": "Sumo Stretch"
+  }
+ ],
  "gf-superman": [
   {
    "author": "U.S. Marine Corps Training and Education Command / DVIDS",
@@ -3837,6 +7715,1102 @@
    "link": "https://www.dvidshub.net/video/640241",
    "source": "DVIDS",
    "title": "Prone Superman"
+  }
+ ],
+ "gf-supine-knee-crossover": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638183.mp4"
+   ],
+   "id": "tecom-638183",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638183",
+   "source": "DVIDS",
+   "title": "Knee Cross Over"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-754454.mp4"
+   ],
+   "id": "tecom-754454",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/754454",
+   "source": "DVIDS",
+   "title": "Supine Knee Over"
+  },
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-774061.mp4"
+   ],
+   "id": "sasebo-774061",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/774061",
+   "source": "DVIDS",
+   "title": "Supine Twist Stretch"
+  }
+ ],
+ "gf-supine-knee-to-chest": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-754447.mp4"
+   ],
+   "id": "tecom-754447",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/754447",
+   "source": "DVIDS",
+   "title": "Supine Knee to Chest Stretch"
+  }
+ ],
+ "gf-supine-leg-over": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551838.mp4"
+   ],
+   "id": "tecom-551838",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551838",
+   "source": "DVIDS",
+   "title": "Supine Leg Overs"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-754449.mp4"
+   ],
+   "id": "tecom-754449",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/754449",
+   "source": "DVIDS",
+   "title": "Supine Leg Over"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-638480.mp4"
+   ],
+   "id": "tecom-638480",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/638480",
+   "source": "DVIDS",
+   "title": "Supine Leg Over"
+  }
+ ],
+ "gf-supine-straight-leg-raise": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551841.mp4"
+   ],
+   "id": "tecom-551841",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551841",
+   "source": "DVIDS",
+   "title": "Supine Straight Leg Raise"
+  }
+ ],
+ "gf-suspension-abducted-lunge": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-549968.mp4"
+   ],
+   "id": "tecom-549968",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/549968",
+   "source": "DVIDS",
+   "title": "TRX Abducted Lunge"
+  }
+ ],
+ "gf-suspension-active-straight-leg-raise": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551153.mp4"
+   ],
+   "id": "tecom-551153",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551153",
+   "source": "DVIDS",
+   "title": "TRX Active Straight Leg Raises"
+  }
+ ],
+ "gf-suspension-assisted-pull-up": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-695722.mp4"
+   ],
+   "id": "tecom-695722",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/695722",
+   "source": "DVIDS",
+   "title": "TRX Pull Up"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-640278.mp4"
+   ],
+   "id": "tecom-640278",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/640278",
+   "source": "DVIDS",
+   "title": "TRX Pullup"
+  }
+ ],
+ "gf-suspension-assisted-squat": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-692882.mp4"
+   ],
+   "id": "tecom-692882",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/692882",
+   "source": "DVIDS",
+   "title": "TRX Assisted Bottom Up Squat"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-642032.mp4"
+   ],
+   "id": "tecom-642032",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/642032",
+   "source": "DVIDS",
+   "title": "TRX Assisted Squat"
+  }
+ ],
+ "gf-suspension-balance-lunge": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-549972.mp4"
+   ],
+   "id": "tecom-549972",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/549972",
+   "source": "DVIDS",
+   "title": "TRX Balance Lunge"
+  }
+ ],
+ "gf-suspension-biceps-curl": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-640262.mp4"
+   ],
+   "id": "tecom-640262",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/640262",
+   "source": "DVIDS",
+   "title": "TRX Bicep Curls"
+  }
+ ],
+ "gf-suspension-burpee": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-640264.mp4"
+   ],
+   "id": "tecom-640264",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/640264",
+   "source": "DVIDS",
+   "title": "TRX Burpee"
+  }
+ ],
+ "gf-suspension-chest-press": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-640266.mp4"
+   ],
+   "id": "tecom-640266",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/640266",
+   "source": "DVIDS",
+   "title": "TRX Chest Press"
+  }
+ ],
+ "gf-suspension-clock-press": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-692885.mp4"
+   ],
+   "id": "tecom-692885",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/692885",
+   "source": "DVIDS",
+   "title": "TRX Clock Press"
+  }
+ ],
+ "gf-suspension-cossack-squat": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-692889.mp4"
+   ],
+   "id": "tecom-692889",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/692889",
+   "source": "DVIDS",
+   "title": "TRX Cossack"
+  }
+ ],
+ "gf-suspension-crossing-balance-lunge": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-692893.mp4"
+   ],
+   "id": "tecom-692893",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/692893",
+   "source": "DVIDS",
+   "title": "TRX Crossing Balance Lunge"
+  }
+ ],
+ "gf-suspension-curtsy-lunge": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551156.mp4"
+   ],
+   "id": "tecom-551156",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551156",
+   "source": "DVIDS",
+   "title": "TRX Curtsy Lunge"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-549973.mp4"
+   ],
+   "id": "tecom-549973",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/549973",
+   "source": "DVIDS",
+   "title": "TRX Curtsy Lunge"
+  }
+ ],
+ "gf-suspension-forward-lunge-hip-flexor": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551157.mp4"
+   ],
+   "id": "tecom-551157",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551157",
+   "source": "DVIDS",
+   "title": "TRX Forward Lunge with Hip Flexor Stretch"
+  }
+ ],
+ "gf-suspension-half-kneeling-rollout": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-692894.mp4"
+   ],
+   "id": "tecom-692894",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/692894",
+   "source": "DVIDS",
+   "title": "TRX Half Kneeling Roll Out"
+  }
+ ],
+ "gf-suspension-half-kneeling-split-squat": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-692897.mp4"
+   ],
+   "id": "tecom-692897",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/692897",
+   "source": "DVIDS",
+   "title": "TRX Halk Kneeling Split Squat"
+  }
+ ],
+ "gf-suspension-half-kneeling-y-fly": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-642043.mp4"
+   ],
+   "id": "tecom-642043",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/642043",
+   "source": "DVIDS",
+   "title": "TRX Half Kneeling Y Fly"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551160.mp4"
+   ],
+   "id": "tecom-551160",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551160",
+   "source": "DVIDS",
+   "title": "TRX Half Kneeling Y Fly"
+  }
+ ],
+ "gf-suspension-hamstring-curl": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-692901.mp4"
+   ],
+   "id": "tecom-692901",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/692901",
+   "source": "DVIDS",
+   "title": "TRX Hmastring Curl"
+  }
+ ],
+ "gf-suspension-high-row": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-640267.mp4"
+   ],
+   "id": "tecom-640267",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/640267",
+   "source": "DVIDS",
+   "title": "TRX High Row"
+  }
+ ],
+ "gf-suspension-hip-abduction": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-692904.mp4"
+   ],
+   "id": "tecom-692904",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/692904",
+   "source": "DVIDS",
+   "title": "TRX Hip Abduction"
+  }
+ ],
+ "gf-suspension-hip-drop": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-642044.mp4"
+   ],
+   "id": "tecom-642044",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/642044",
+   "source": "DVIDS",
+   "title": "TRX Hip Drop"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551162.mp4"
+   ],
+   "id": "tecom-551162",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551162",
+   "source": "DVIDS",
+   "title": "TRX Hip Drop"
+  }
+ ],
+ "gf-suspension-hip-hinge": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-642046.mp4"
+   ],
+   "id": "tecom-642046",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/642046",
+   "source": "DVIDS",
+   "title": "TRX Hip Hinge"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551166.mp4"
+   ],
+   "id": "tecom-551166",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551166",
+   "source": "DVIDS",
+   "title": "TRX Hip Hinge"
+  }
+ ],
+ "gf-suspension-hip-press": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-692907.mp4"
+   ],
+   "id": "tecom-692907",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/692907",
+   "source": "DVIDS",
+   "title": "TRX Hip Press"
+  }
+ ],
+ "gf-suspension-incline-press": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-640269.mp4"
+   ],
+   "id": "tecom-640269",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/640269",
+   "source": "DVIDS",
+   "title": "TRX Incline Press"
+  }
+ ],
+ "gf-suspension-jump-squat": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551169.mp4"
+   ],
+   "id": "tecom-551169",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551169",
+   "source": "DVIDS",
+   "title": "TRX Jump Squat"
+  }
+ ],
+ "gf-suspension-long-torso-stretch": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-694593.mp4"
+   ],
+   "id": "tecom-694593",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/694593",
+   "source": "DVIDS",
+   "title": "TRX Long Torso Stretch"
+  }
+ ],
+ "gf-suspension-lunge": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-549980.mp4"
+   ],
+   "id": "tecom-549980",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/549980",
+   "source": "DVIDS",
+   "title": "TRX Lunge"
+  }
+ ],
+ "gf-suspension-lunge-hop": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-549977.mp4"
+   ],
+   "id": "tecom-549977",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/549977",
+   "source": "DVIDS",
+   "title": "TRX Lunge with Hop"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-694606.mp4"
+   ],
+   "id": "tecom-694606",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/694606",
+   "source": "DVIDS",
+   "title": "TRX Lunge with Hop"
+  }
+ ],
+ "gf-suspension-mid-row": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-694415.mp4"
+   ],
+   "id": "tecom-694415",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/694415",
+   "source": "DVIDS",
+   "title": "TRX Mid Row"
+  }
+ ],
+ "gf-suspension-overhead-back-extension": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-694414.mp4"
+   ],
+   "id": "tecom-694414",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/694414",
+   "source": "DVIDS",
+   "title": "TRX Overhead Back Extension"
+  }
+ ],
+ "gf-suspension-pendulum": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-694418.mp4"
+   ],
+   "id": "tecom-694418",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/694418",
+   "source": "DVIDS",
+   "title": "TRX Pendulum"
+  }
+ ],
+ "gf-suspension-power-pull": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-694600.mp4"
+   ],
+   "id": "tecom-694600",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/694600",
+   "source": "DVIDS",
+   "title": "TRX Power Pull"
+  }
+ ],
+ "gf-suspension-resisted-torso-rotation": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-694425.mp4"
+   ],
+   "id": "tecom-694425",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/694425",
+   "source": "DVIDS",
+   "title": "TRX Resisted Torso Rotation"
+  }
+ ],
+ "gf-suspension-reverse-lunge": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-549981.mp4"
+   ],
+   "id": "tecom-549981",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/549981",
+   "source": "DVIDS",
+   "title": "TRX Reverse Lunge"
+  }
+ ],
+ "gf-suspension-single-arm-row": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-640281.mp4"
+   ],
+   "id": "tecom-640281",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/640281",
+   "source": "DVIDS",
+   "title": "TRX Single Arm Row"
+  }
+ ],
+ "gf-suspension-single-leg-hip-hinge": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-642045.mp4"
+   ],
+   "id": "tecom-642045",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/642045",
+   "source": "DVIDS",
+   "title": "TRX Hip Hinge Single Leg"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551163.mp4"
+   ],
+   "id": "tecom-551163",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551163",
+   "source": "DVIDS",
+   "title": "TRX Hip Hinge Single Leg"
+  }
+ ],
+ "gf-suspension-single-leg-jump-squat": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-694416.mp4"
+   ],
+   "id": "tecom-694416",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/694416",
+   "source": "DVIDS",
+   "title": "TRX Single Leg Jump Squat"
+  }
+ ],
+ "gf-suspension-single-leg-squat": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-642055.mp4"
+   ],
+   "id": "tecom-642055",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/642055",
+   "source": "DVIDS",
+   "title": "TRX Single Leg Squat"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-548825.mp4"
+   ],
+   "id": "tecom-548825",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/548825",
+   "source": "DVIDS",
+   "title": "TRX Single Leg Squat"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-517573.mp4"
+   ],
+   "id": "tecom-517573",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517573",
+   "source": "DVIDS",
+   "title": "TRX Single Leg Squat"
+  }
+ ],
+ "gf-suspension-speed-skater": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-549988.mp4"
+   ],
+   "id": "tecom-549988",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/549988",
+   "source": "DVIDS",
+   "title": "TRX Speed Skater"
+  }
+ ],
+ "gf-suspension-spiderman-push-up": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-694427.mp4"
+   ],
+   "id": "tecom-694427",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/694427",
+   "source": "DVIDS",
+   "title": "TRX Spiderman Push Up"
+  }
+ ],
+ "gf-suspension-split-fly": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-694429.mp4"
+   ],
+   "id": "tecom-694429",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/694429",
+   "source": "DVIDS",
+   "title": "TRX Split Fly"
+  }
+ ],
+ "gf-suspension-split-squat-m-fly": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-754450.mp4"
+   ],
+   "id": "tecom-754450",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/754450",
+   "source": "DVIDS",
+   "title": "TRX Split Squat with M Deltoid Fly"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-694603.mp4"
+   ],
+   "id": "tecom-694603",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/694603",
+   "source": "DVIDS",
+   "title": "TRX Split Squat W/ M Deltoid Fly"
+  }
+ ],
+ "gf-suspension-split-squat-t-fly": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-754446.mp4"
+   ],
+   "id": "tecom-754446",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/754446",
+   "source": "DVIDS",
+   "title": "TRX Split Squat with T Deltoid Fly"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-694432.mp4"
+   ],
+   "id": "tecom-694432",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/694432",
+   "source": "DVIDS",
+   "title": "TRX Split Squat w/ T Deltoid Fly"
+  }
+ ],
+ "gf-suspension-split-squat-y-fly": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-754448.mp4"
+   ],
+   "id": "tecom-754448",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/754448",
+   "source": "DVIDS",
+   "title": "TRX Split Squat with Y Deltoid Fly"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-694431.mp4"
+   ],
+   "id": "tecom-694431",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/694431",
+   "source": "DVIDS",
+   "title": "TRX Split Squat w/ Y Deltoid Fly"
+  }
+ ],
+ "gf-suspension-squat": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-548831.mp4"
+   ],
+   "id": "tecom-548831",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/548831",
+   "source": "DVIDS",
+   "title": "TRX Squat"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-517577.mp4"
+   ],
+   "id": "tecom-517577",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/517577",
+   "source": "DVIDS",
+   "title": "TRX Squat"
+  }
+ ],
+ "gf-suspension-squat-to-press": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-692887.mp4"
+   ],
+   "id": "tecom-692887",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/692887",
+   "source": "DVIDS",
+   "title": "TRX Assisted Squat To Press"
+  }
+ ],
+ "gf-suspension-step-back-lunge": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-694607.mp4"
+   ],
+   "id": "tecom-694607",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/694607",
+   "source": "DVIDS",
+   "title": "TRX Step Back Lunge"
+  }
+ ],
+ "gf-suspension-supine-plank": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-694436.mp4"
+   ],
+   "id": "tecom-694436",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/694436",
+   "source": "DVIDS",
+   "title": "TRX Supine Plank"
+  }
+ ],
+ "gf-suspension-t-spine-rotation": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-754738.mp4"
+   ],
+   "id": "tecom-754738",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/754738",
+   "source": "DVIDS",
+   "title": "TRX T-Spine Rotation"
+  },
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-694439.mp4"
+   ],
+   "id": "tecom-694439",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/694439",
+   "source": "DVIDS",
+   "title": "TRX T-Spine Rotation"
+  }
+ ],
+ "gf-suspension-triceps-press": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-640286.mp4"
+   ],
+   "id": "tecom-640286",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/640286",
+   "source": "DVIDS",
+   "title": "TRX Tricep Press"
+  }
+ ],
+ "gf-suspension-v-sit": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-694443.mp4"
+   ],
+   "id": "tecom-694443",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/694443",
+   "source": "DVIDS",
+   "title": "TRX V-Sit"
+  }
+ ],
+ "gf-t-spine-heel-sit-reach": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-754453.mp4"
+   ],
+   "id": "tecom-754453",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/754453",
+   "source": "DVIDS",
+   "title": "T-Spine Heel Sit With Reach"
+  }
+ ],
+ "gf-t-spine-rib-grab": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-753727.mp4"
+   ],
+   "id": "tecom-753727",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/753727",
+   "source": "DVIDS",
+   "title": "T-Spine Rib Grab"
+  }
+ ],
+ "gf-thread-the-needle": [
+  {
+   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
+   "files": [
+    "sasebo/sasebo-774074.mp4"
+   ],
+   "id": "sasebo-774074",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/774074",
+   "source": "DVIDS",
+   "title": "Thread the Needle Stretch"
+  }
+ ],
+ "gf-traveling-push-up": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-692881.mp4"
+   ],
+   "id": "tecom-692881",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/692881",
+   "source": "DVIDS",
+   "title": "Traveling Push Up"
+  }
+ ],
+ "gf-triple-extension-jump": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551150.mp4"
+   ],
+   "id": "tecom-551150",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551150",
+   "source": "DVIDS",
+   "title": "Triple Extension"
+  }
+ ],
+ "gf-trunk-circles": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551844.mp4"
+   ],
+   "id": "tecom-551844",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551844",
+   "source": "DVIDS",
+   "title": "Trunk Circles"
+  }
+ ],
+ "gf-trunk-flexion-extension": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551847.mp4"
+   ],
+   "id": "tecom-551847",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551847",
+   "source": "DVIDS",
+   "title": "Trunk Flexion and Extension"
+  }
+ ],
+ "gf-trunk-twists": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551848.mp4"
+   ],
+   "id": "tecom-551848",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551848",
+   "source": "DVIDS",
+   "title": "Trunk Twists"
   }
  ],
  "gf-v-up": [
@@ -3853,6 +8827,104 @@
    "title": "V Ups"
   }
  ],
+ "gf-walking-knee-hug": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551850.mp4"
+   ],
+   "id": "tecom-551850",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551850",
+   "source": "DVIDS",
+   "title": "Walking Knee Hug"
+  }
+ ],
+ "gf-walking-leg-cradle": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551854.mp4"
+   ],
+   "id": "tecom-551854",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551854",
+   "source": "DVIDS",
+   "title": "Walking Leg Cradle"
+  }
+ ],
+ "gf-walking-lunge-elbow-to-instep": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551857.mp4"
+   ],
+   "id": "tecom-551857",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551857",
+   "source": "DVIDS",
+   "title": "Walking Lunge Elbow to Instep"
+  }
+ ],
+ "gf-walking-lunge-side-reach": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551860.mp4"
+   ],
+   "id": "tecom-551860",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551860",
+   "source": "DVIDS",
+   "title": "Walking Lunge with Side Reach"
+  }
+ ],
+ "gf-walking-plank": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-642066.mp4"
+   ],
+   "id": "tecom-642066",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/642066",
+   "source": "DVIDS",
+   "title": "Walking Plank"
+  }
+ ],
+ "gf-walking-quad-stretch": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-551863.mp4"
+   ],
+   "id": "tecom-551863",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/551863",
+   "source": "DVIDS",
+   "title": "Walking Quad Stretch"
+  }
+ ],
+ "gf-wall-ball": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-642068.mp4"
+   ],
+   "id": "tecom-642068",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/642068",
+   "source": "DVIDS",
+   "title": "Wall Ball"
+  }
+ ],
  "gf-wall-sit": [
   {
    "author": "Licensed under the CC BY-SA 4.0 license. Derived from \"Fitness Gym Wall Sit Workout Vaughan Gray Fitness\" from Max Pixel, published under the CC0 license.",
@@ -3865,6 +8937,34 @@
    "link": "https://gitlab.com/enjoyingfoss/feeel",
    "source": "Feeel",
    "title": "Wall sit"
+  }
+ ],
+ "gf-warrior-stretch": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-754741.mp4"
+   ],
+   "id": "tecom-754741",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/754741",
+   "source": "DVIDS",
+   "title": "Warrior Stretch"
+  }
+ ],
+ "gf-wide-outs": [
+  {
+   "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+   "files": [
+    "tecom/tecom-677342.mp4"
+   ],
+   "id": "tecom-677342",
+   "kind": "video",
+   "license": "Public domain (US DoD)",
+   "link": "https://www.dvidshub.net/video/677342",
+   "source": "DVIDS",
+   "title": "Wideouts"
   }
  ]
 }

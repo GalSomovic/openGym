@@ -145,6 +145,8 @@ COMMONS = {
     "Conditioning_Drill-_Eight_Count_T_Push-Up.webm": ["0664"],
     "Strength_Training_Circuit-_Forward_Lunge.webm": ["3470"],
 }
+# US Army drill videos: a slow walk-through, then the move at speed. Keep the at-speed part.
+COMMONS_CUTS = {"Conditioning_Drill-_Eight_Count_T_Push-Up.webm": (58.6, 13.0)}
 
 
 def commons_info(title):
@@ -177,7 +179,14 @@ def commons():
             kind = "images"
         else:
             name = f"commons-{base}.mp4"
-            to_video(src, os.path.join(OUT, "commons", name))
+            if title in COMMONS_CUTS:
+                start, length = COMMONS_CUTS[title]
+                to_video(src, os.path.join(OUT, "commons", name), start, length)
+            elif title.endswith(".webm"):
+                (start, length), crop = analyse(src)
+                to_video(src, os.path.join(OUT, "commons", name), start, length, crop)
+            else:
+                to_video(src, os.path.join(OUT, "commons", name))
             kind = "video"
         for t in targets:
             add_option(ix, t, {"id": f"commons-{base}", "kind": kind, "files": [f"commons/{name}"], "source": "Wikimedia Commons",
@@ -266,12 +275,12 @@ DVIDS = {
     "video:1016258": [(["0662"], 34.5, 5.4, None)],                                   # Culture of Fitness: Push Ups
     "video:1016260": [(["gf-hand-release-push-up"], 64.0, 7.0, TEXT_FREE)],           # Hand Release Push Up
     "video:1016256": [(["3679", "0735"], 54.0, 3.6, TEXT_FREE)],                       # Sit Ups (arms crossed)
-    "video:1016254": [(["0871"], 36.0, 8.0, TEXT_FREE)],                               # Cross Leg Crunch
+    "video:1016254": [(["0274"], 36.0, 8.0, TEXT_FREE)],                               # Cross Leg Crunch
     "video:1017408": [(["0652"], 26.7, 4.3, None)],                                    # Get Fit: Proper Pull-Up
     "video:1003262": [(["gf-step-up"], 37.0, 7.0, None)],                              # Get Fit: Proper Step-Up
     "video:695517": [(["0472"], 78.0, 10.0, None)],                                    # ACFT: Leg Tuck
     "video:840093": [(["gf-plank"], 5.5, 3.4, None),                                  # ACFT Prep: Plank
-                     (["0872"], 32.0, 6.0, "iw:ih*0.8:0:0"),                           #   bent-leg raise
+                     (["0872"], 33.5, 5.5, "iw:ih*0.8:0:0"),                           #   bent-leg raise
                      (["gf-side-plank"], 43.0, 2.6, "iw:ih*0.8:0:0")],                 #   side bridge
 }
 
@@ -301,7 +310,7 @@ def dvids():
     save_index(ix)
 
 
-def analyse(src, max_len=8.0):
+def analyse(src, max_len=14.0, window=None):
     """
     Where to cut a clip: the most active `max_len` seconds (frame-to-frame motion), and a crop
     for the Marine Corps library layout (two stacked camera views inside black side bars, with a
@@ -340,13 +349,103 @@ def analyse(src, max_len=8.0):
             y0f, y1f = (lit[0] + 1) / sh, lit[-1] / sh
             crop = f"iw:ih*{y1f - y0f:.3f}:0:ih*{y0f:.3f}"
             frames = frames[:, lit[0]:lit[-1]]
-    motion = np.abs(np.diff(frames, axis=0)).mean(axis=(1, 2)) if len(frames) > 1 else np.zeros(1)
+    return pick_span(frames, fps, dur, max_len, window), crop
+
+
+def pick_span(frames, fps, dur, max_len=14.0, window=None, min_len=3.0):
+    """
+    The stretch of a demo video where the exercise is being done, as (start, length) in seconds.
+
+    The video is split into shots at hard cuts, dissolves (the whole frame's tones change, where a
+    moving person barely changes them) and black, faded or flat title-card frames. Inside the shots,
+    each moment scores by repetition: the pose changes within half a second but comes back within
+    a few seconds, as reps do, while walking in, picking up weights or walking off do not. The best
+    `max_len` window is kept, trimmed to where the repetition starts and stops. Static demos (a held
+    stretch) score no repetition and keep the middle of their longest shot.
+    """
+    import numpy as np
+    n = len(frames)
+    if n < 2:
+        return 0.0, min(dur, max_len)
+    f = frames.astype(np.float32)
+    bright = f.mean(axis=(1, 2))
+    spread = f.std(axis=(1, 2))
+    valid = (bright > 30) & (spread > 20)
+    hist = np.stack([np.histogram(x, bins=32, range=(0, 256))[0] for x in frames]).astype(np.float32)
+    hist /= hist.sum(axis=1, keepdims=True)
+    k = max(1, int(fps // 2))
+    change = np.zeros(n)
+    for t in range(n):
+        a, b = max(0, t - k), min(n - 1, t + k)
+        change[t] = np.abs(hist[a] - hist[b]).sum()
+    diff = np.zeros(n)
+    diff[1:] = np.abs(np.diff(f, axis=0)).mean(axis=(1, 2))
+    hard = diff > max(22.0, 5 * float(np.median(diff[1:])))
+    boundary = (change > 0.35) | hard
+    usable = valid & ~boundary
+    lo, hi = 0, n
+    if window:
+        lo, hi = min(n - 1, int(window[0] * fps)), max(int(window[0] * fps) + 1, min(n, int((dur - window[1]) * fps)))
+    usable[:lo] = False
+    usable[hi:] = False
+    shots, start = [], None
+    for i in range(n + 1):
+        ok = i < n and usable[i]
+        if ok and start is None:
+            start = i
+        elif not ok and start is not None:
+            shots.append((start, i)); start = None
+    trim = int(0.5 * fps)
+    shots = [(a + trim * (a > lo), b - trim * (b < hi)) for a, b in shots]
+    shots = [(a, b) for a, b in shots if b - a >= min_len * fps]
+    if not shots:
+        return lo / fps, min(dur - lo / fps, max_len)
+    # Repetition score per frame, on small blurred frames.
+    small = f[:, ::2, ::2]
+    small = small - small.mean(axis=(1, 2), keepdims=True)
+    flat = small.reshape(n, -1)
+
+    def d(i, j):
+        return float(np.abs(flat[i] - flat[j]).mean())
+
+    near_k, back_lo, back_hi = max(1, int(0.5 * fps)), max(2, int(0.75 * fps)), int(5 * fps)
+    rep = np.zeros(n)
+    for a, b in shots:
+        for t in range(a, b - near_k):
+            near = d(t, t + near_k)
+            js = range(t + back_lo, min(b, t + back_hi))
+            back = min((d(t, j) for j in js), default=near)
+            rep[t] = max(0.0, near - back)
     win = int(max_len * fps)
-    if dur <= max_len + 0.5 or len(motion) <= win:
-        return 0.0, min(dur, max_len + 0.5), crop
-    sums = np.convolve(motion, np.ones(win), "valid")
-    best = int(np.argmax(sums))
-    return best / fps, max_len, crop
+    best = None
+    for a, b in shots:
+        L = min(win, b - a)
+        sums = np.convolve(rep[a:b], np.ones(L), "valid")
+        i = int(np.argmax(sums))
+        if best is None or sums[i] > best[0]:
+            best = (float(sums[i]), a + i, a + i + L, a, b)
+    score, s0, s1, a, b = best
+    if score < 0.5 * fps:
+        a, b = max(shots, key=lambda r: r[1] - r[0])
+        mid, L = (a + b) // 2, min(win, b - a)
+        return (mid - L // 2) / fps, L / fps
+    # Trim the window to where the repetition starts and stops.
+    sm = np.convolve(rep, np.ones(int(fps)) / int(fps), "same")
+    seg = sm[s0:s1]
+    on = np.where(seg > 0.35 * float(seg.max()))[0]
+    if len(on):
+        pad = int(0.5 * fps)
+        t0, t1 = max(a, s0 + on[0] - pad), min(b, s0 + on[-1] + 1 + pad)
+        if t1 - t0 >= min_len * fps:
+            s0, s1 = t0, min(t1, t0 + win + int(fps))
+    # At least `keep` seconds (or the whole shot), grown evenly around the reps.
+    keep = int(5 * fps)
+    if s1 - s0 < keep:
+        grow = min(keep, b - a) - (s1 - s0)
+        s0 = max(a, s0 - grow // 2)
+        s1 = min(b, s0 + min(keep, b - a))
+        s0 = max(a, s1 - min(keep, b - a))
+    return s0 / fps, (s1 - s0) / fps
 
 
 def tecom():
@@ -358,29 +457,37 @@ def tecom():
     raw = os.path.join(OUT, "..", "_raw", "dvids")
     os.makedirs(os.path.join(OUT, "tecom"), exist_ok=True)
     ix = load_index()
-    for title, targets in TECOM_TO_OPENGYM.items():
+    import dvids_extras as X
+    targets_by_title = {t: list(ids) for t, ids in TECOM_TO_OPENGYM.items()}
+    for t, ids in X.tecom_targets().items():
+        targets_by_title.setdefault(t, []).extend(i for i in ids if i not in targets_by_title.get(t, []))
+    for title, targets in targets_by_title.items():
         t = titles.get(title)
         if not t:
             print("missing title", title); continue
-        vid = t["id"]
-        a = D.asset(vid)
-        f = D.file_for(a, 720)
-        if not f:
-            print("no file", title); continue
-        oid = f"tecom-{vid.split(':')[1]}"
-        if oid in BLOCKED:
-            continue
-        src = D.download(f["src"], os.path.join(raw, f"{vid.replace(':', '_')}-{f['height']}.mp4"))
-        name = f"{oid}.mp4"
-        dst = os.path.join(OUT, "tecom", name)
-        if not os.path.exists(dst):
-            start, length, crop = analyse(src)
-            to_video(src, dst, start, length, crop)
-        for tg in targets:
-            add_option(ix, tg, {"id": oid, "kind": "video", "files": [f"tecom/{name}"], "source": "DVIDS",
-                                "title": title, "license": "Public domain (US DoD)",
-                                "author": "U.S. Marine Corps Training and Education Command / DVIDS",
-                                "link": f"https://www.dvidshub.net/video/{vid.split(':')[1]}"})
+        # Every take of the title: the library has several for some exercises.
+        for vid in t.get("all") or [t["id"]]:
+            a = D.asset(vid)
+            f = D.file_for(a, 720)
+            if not f:
+                print("no file", title, vid); continue
+            oid = f"tecom-{vid.split(':')[1]}"
+            if oid in BLOCKED:
+                continue
+            src = D.download(f["src"], os.path.join(raw, f"{vid.replace(':', '_')}-{f['height']}.mp4"))
+            name = f"{oid}.mp4"
+            dst = os.path.join(OUT, "tecom", name)
+            if not os.path.exists(dst):
+                skip = X.SKIP_START.get(title)
+                (start, length), crop = analyse(src, window=(skip, 0) if skip else None)
+                if vid in X.CUTS or title in X.CUTS:
+                    start, length = X.CUTS.get(vid) or X.CUTS[title]
+                to_video(src, dst, start, length, crop)
+            for tg in targets:
+                add_option(ix, tg, {"id": oid, "kind": "video", "files": [f"tecom/{name}"], "source": "DVIDS",
+                                    "title": title, "license": "Public domain (US DoD)",
+                                    "author": "U.S. Marine Corps Training and Education Command / DVIDS",
+                                    "link": f"https://www.dvidshub.net/video/{vid.split(':')[1]}"})
         print("tecom", title, "->", ",".join(targets), flush=True)
     for vid, (title, targets, (start, length)) in OTHER_VIDEOS.items():
         a = D.asset(vid)
@@ -402,9 +509,47 @@ def tecom():
             os.remove(os.path.join(OUT, "tecom", name))
 
 
+def sasebo():
+    """AFN Sasebo "Fitness Workout" series (US Navy, public domain): one continuous demo per video
+    between a title card and an outro, so only the middle is searched for the busiest stretch."""
+    CURRENT[0] = "sasebo-"
+    sys.path.insert(0, HERE)
+    import dvids as D
+    import dvids_extras as X
+    titles = {x["name"]: x for x in json.load(open(os.path.join(HERE, "sasebo-titles.json")))}
+    raw = os.path.join(OUT, "..", "_raw", "dvids")
+    os.makedirs(os.path.join(OUT, "sasebo"), exist_ok=True)
+    ix = load_index()
+    for title, targets in X.sasebo_targets().items():
+        for vid in titles[title]["all"]:
+            oid = f"sasebo-{vid.split(':')[1]}"
+            if oid in BLOCKED:
+                continue
+            a = D.asset(vid)
+            f = D.file_for(a, 720)
+            src = D.download(f["src"], os.path.join(raw, f"{vid.replace(':', '_')}-{f['height']}.mp4"))
+            name = f"{oid}.mp4"
+            dst = os.path.join(OUT, "sasebo", name)
+            if not os.path.exists(dst):
+                (start, length), crop = analyse(src, window=(12, 12))
+                to_video(src, dst, start, length, crop)
+            people = ", ".join(c.get("name", "") for c in a.get("credit", []) or [] if c.get("name"))
+            for tg in targets:
+                add_option(ix, tg, {"id": oid, "kind": "video", "files": [f"sasebo/{name}"], "source": "DVIDS",
+                                    "title": title, "license": "Public domain (US DoD)",
+                                    "author": f"{people + ' / ' if people else ''}AFN Sasebo, MWR Fitness / DVIDS",
+                                    "link": f"https://www.dvidshub.net/video/{vid.split(':')[1]}"})
+        print("sasebo", title, "->", ",".join(targets), flush=True)
+    save_index(ix)
+    used = {f for opts in ix.values() for o in opts for f in o["files"]}
+    for name in os.listdir(os.path.join(OUT, "sasebo")):
+        if f"sasebo/{name}" not in used:
+            os.remove(os.path.join(OUT, "sasebo", name))
+
+
 if __name__ == "__main__":
     cmd = sys.argv[1]
     if cmd == "feeel":
         feeel(sys.argv[2])
     else:
-        {"wger": wger, "commons": commons, "pixabay": pixabay, "dvids": dvids, "tecom": tecom}[cmd]()
+        {"wger": wger, "commons": commons, "pixabay": pixabay, "dvids": dvids, "tecom": tecom, "sasebo": sasebo}[cmd]()

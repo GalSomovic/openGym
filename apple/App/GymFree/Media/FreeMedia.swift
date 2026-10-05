@@ -49,8 +49,8 @@ enum MediaLibrary {
                                withExtension: (name as NSString).pathExtension, subdirectory: dir)
     }
 
-    /// Every option for an exercise, in the default order: real footage first, then the
-    /// classic animation, illustrations, and GymFree's own animation.
+    /// Every option for an exercise, in the default order: real footage first (DVIDS, then the
+    /// rest), then the classic animation, illustrations, and GymFree's own animation.
     static func options(for id: String) -> [MediaOption] {
         var videos: [MediaOption] = [], frames: [MediaOption] = []
         for e in index[id] ?? [] {
@@ -65,7 +65,11 @@ enum MediaLibrary {
                 }
             }
         }
-        var out = videos
+        // DVIDS footage (US military trainers, real gyms) is the clearest, so it leads.
+        let rank = ["DVIDS": 0, "Pixabay": 1, "wger": 2]
+        var out = videos.enumerated()
+            .sorted { (rank[$0.element.source] ?? 3, $0.offset) < (rank[$1.element.source] ?? 3, $1.offset) }
+            .map(\.element)
         if ExerciseMedia.url(id) != nil {
             out.append(MediaOption(id: "classic", kind: .classic, source: "ExerciseDB", credit: ExerciseMedia.credit,
                                    link: URL(string: "https://oss.exercisedb.dev")))

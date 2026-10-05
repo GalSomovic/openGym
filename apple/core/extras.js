@@ -197,9 +197,9 @@ export const EXTRAS = [
     sm: ['glutes', 'hamstrings', 'upper back', 'shoulders'],
     st: [
       'Lie face down with your arms straight overhead and your legs straight.',
-      'Squeeze your glutes and lift your arms, chest and legs a few inches off the floor.',
-      'Keep your neck long and look at the floor; hold for a moment at the top.',
-      'Lower with control and repeat.',
+      'Squeeze your glutes and lift one straight leg and the opposite arm a few inches off the floor.',
+      'Hold for a moment, lower with control, then lift the other leg and arm; keep alternating.',
+      'Keep your hips on the floor and your neck long. Easier: rest your forehead on your hands and lift one leg at a time. Harder: lift both arms and both legs together.',
     ],
   },
 ]
