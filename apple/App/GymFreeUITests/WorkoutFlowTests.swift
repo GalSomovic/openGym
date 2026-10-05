@@ -149,7 +149,9 @@ final class WorkoutFlowTests: XCTestCase {
 
     func testBuildARoutine() {
         let app = launch(["-GFTab", "plan"])
-        app.buttons["New"].firstMatch.tap()
+        let new = app.buttons["New routine"].firstMatch
+        XCTAssertTrue(new.waitForExistence(timeout: 5))
+        new.tap()
         let add = app.buttons["Add exercise"]
         XCTAssertTrue(add.waitForExistence(timeout: 5))
         add.tap()

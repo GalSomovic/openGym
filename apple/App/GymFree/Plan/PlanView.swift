@@ -47,23 +47,6 @@ struct PlanView: View {
                         .padding(.vertical, 12)
                     }
                 }
-                if let week = store.query("plan", "weekMuscles", as: RoutineMuscles.self), !week.worked.isEmpty {
-                    let gaps = (store.bodyInfo()?.muscles ?? []).filter { (week.levels[$0.slug] ?? 0) <= 1 }.map(\.name)
-                    Section {
-                        BodyMapView(levels: week.levels)
-                            .frame(maxHeight: 160)
-                            .padding(.vertical, 2)
-                        FlowTags(tags: week.worked.prefix(6).map { catalog.muscleName($0) })
-                        if !gaps.isEmpty {
-                            Label {
-                                Text("Little or no work: \(gaps.formatted(.list(type: .and)))")
-                            } icon: { Image(systemName: "exclamationmark.circle").foregroundStyle(.orange) }
-                            .font(.footnote)
-                        }
-                    } header: { Text("What your plan covers") } footer: {
-                        Text("Every planned day added up; darker is more sets.")
-                    }
-                }
                 Section("Week schedule") {
                     let week = store.week
                     ForEach(Fmt.weekOrder(start: weekStart), id: \.self) { day in
@@ -111,10 +94,31 @@ struct PlanView: View {
                             .textCase(nil)
                     }
                 }
+                if let week = store.query("plan", "weekMuscles", as: RoutineMuscles.self), !week.worked.isEmpty {
+                    let gaps = (store.bodyInfo()?.muscles ?? []).filter { (week.levels[$0.slug] ?? 0) <= 1 }.map(\.name)
+                    Section {
+                        BodyMapView(levels: week.levels)
+                            .frame(maxHeight: 160)
+                            .padding(.vertical, 2)
+                        FlowTags(tags: week.worked.prefix(6).map { catalog.muscleName($0) })
+                        if !gaps.isEmpty {
+                            Label {
+                                Text("Little or no work: \(gaps.formatted(.list(type: .and)))")
+                            } icon: { Image(systemName: "exclamationmark.circle").foregroundStyle(.orange) }
+                            .font(.footnote)
+                        }
+                    } header: { Text("What your plan covers") } footer: {
+                        Text("Every planned day added up; darker is more sets.")
+                    }
+                }
             }
             .navigationTitle("Plan")
             .environment(\.editMode, .constant(reordering ? .active : .inactive))
             .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Button { newRoutine() } label: { Image(systemName: "plus") }
+                        .accessibilityLabel(Text("New routine"))
+                }
                 if !store.routines.isEmpty {
                     ToolbarItem(placement: .primaryAction) {
                         Menu {
