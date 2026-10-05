@@ -29,6 +29,7 @@ import {
 import { workoutText } from '../../frontend/src/lib/workout-text.js'
 import { saveSessionAsRoutine } from '../../frontend/src/lib/session-routines.js'
 import { weeklyWeights } from '../../frontend/src/lib/bodyweight.js'
+import { activitySummary, activityLine } from './activity.js'
 
 /* ------------------------------ workouts ------------------------------ */
 
@@ -47,8 +48,10 @@ export function historyRows() {
     d: w.d,
     name: w.name || '',
     emoji: (S.routines.find(r => r.id === routineIdOf(w)) || {}).emoji || null,
-    line: [fmtDate(w.d, true), ...durPart(w.end - w.start), t('{0} sets', setsDone(w)), fmtVol(w.vol || 0, S.unit)].join(' · '),
+    // A GPS walk, run or ride reads as distance and pace, not sets and volume (activity.js).
+    line: activityLine(S, w) || [fmtDate(w.d, true), ...durPart(w.end - w.start), t('{0} sets', setsDone(w)), fmtVol(w.vol || 0, S.unit)].join(' · '),
     prs: (w.prs || []).length,
+    activity: w.gfActivity?.kind || null,
   }))
 }
 
@@ -88,7 +91,7 @@ export function workoutDetail(key) {
   })
   return {
     key: keyOf(w), d: w.d, name: w.name || '',
-    line: [fmtDate(w.d, true), ...durPart(w.end - w.start), fmtVol(w.vol || 0, S.unit), ...(w.bw ? [fmtNum(w.bw) + ' ' + S.unit] : [])].join(' · '),
+    line: activityLine(S, w) || [fmtDate(w.d, true), ...durPart(w.end - w.start), fmtVol(w.vol || 0, S.unit), ...(w.bw ? [fmtNum(w.bw) + ' ' + S.unit] : [])].join(' · '),
     note: w.note || '',
     durationMin: durationMinOf(w),
     startTime: startTimeOf(w),
@@ -96,6 +99,7 @@ export function workoutDetail(key) {
     sections,
     // The editor and a date move need no session running (WorkoutDetail disables Edit).
     busy: !!S.active,
+    activity: activitySummary(S, w),
   }
 }
 

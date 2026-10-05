@@ -45,7 +45,18 @@ or not applicable.
   `.duckOthers`); the current set and rest timer live on the Lock Screen and Dynamic Island
   (Live Activity), and the end of a rest can ring through silent mode (AlarmKit, opt-in).
 - **Animated exercise demos.** Pluggable source (see "Exercise media" below).
-- iPad layouts, widgets, Siri/App Shortcuts, haptics, Apple Health export (later).
+- **Walks, runs and rides with GPS** (optional, Today → "Walk, run or ride"): a live map of the
+  route, distance, moving time and pace, pause/resume, tracking on with the screen locked (When
+  In Use location plus the `location` background mode) and a Lock Screen Live Activity. Fixes
+  worse than 20 m are dropped and the rest smoothed (`OpenGymCore/Route.swift`, tested). An
+  activity is filed as an ordinary openGym cardio workout (`core/activity.js`), so History,
+  the calendar and the streak count it; the route stays in a file on the device, outside the
+  profile and backups.
+- **Apple Health, opt-in** (Settings → Apple Health): strength workouts (start and end, no
+  invented calories), walks/runs/rides with distance and route (an `HKWorkoutSession` with its
+  live builder while tracking), and weigh-ins are saved; the latest body weight can be imported
+  and the 7-day step average fills the calorie setup. Nothing is asked until it is turned on.
+- iPad layouts, widgets, Siri/App Shortcuts, haptics.
 
 ## Exercise media
 

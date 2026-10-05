@@ -12,6 +12,8 @@ public struct HistoryRow: Codable, Hashable, Sendable, Identifiable {
     public var emoji: String?
     public var line: String
     public var prs: Int
+    /// "walk", "run" or "cycle" for a GPS activity (activity.js), nil for a strength session.
+    public var activity: String?
     public var id: String { key }
 }
 
@@ -48,6 +50,8 @@ public struct WorkoutDetail: Codable, Hashable, Sendable {
     public var sections: [DetailSection]
     /// A session is running: the workout cannot be opened in the editor.
     public var busy: Bool
+    /// A GPS walk, run or ride: its distance, pace and route.
+    public var activity: ActivitySummary?
 }
 
 public struct EditOutcome: Codable, Hashable, Sendable {

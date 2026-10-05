@@ -8,6 +8,7 @@ import WidgetKit
 struct GymFreeWidgets: WidgetBundle {
     var body: some Widget {
         WorkoutLiveActivity()
+        MotionLiveActivity()
         RestAlarmActivity()
     }
 }
@@ -114,6 +115,64 @@ private struct LockScreenCard: View {
             ProgressView(value: Double(state.setsDone), total: Double(max(1, state.setsTotal)))
                 .tint(lime)
             Actions(state: state)
+        }
+    }
+}
+
+/// A GPS walk, run or ride: distance, pace and the moving time, which freezes while paused.
+struct MotionLiveActivity: Widget {
+    var body: some WidgetConfiguration {
+        ActivityConfiguration(for: MotionActivityAttributes.self) { ctx in
+            HStack(alignment: .center, spacing: 14) {
+                Image(systemName: ctx.attributes.symbol).font(.title).foregroundStyle(lime)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(ctx.state.pausedClock != nil ? "\(ctx.attributes.name) · Paused" : ctx.attributes.name)
+                        .font(.caption).foregroundStyle(.secondary)
+                    Text(ctx.state.distance).font(.title2.weight(.bold)).monospacedDigit()
+                    Text(ctx.state.detail).font(.subheadline).foregroundStyle(.secondary).monospacedDigit()
+                }
+                Spacer()
+                MotionClock(state: ctx.state)
+                    .font(.system(size: 30, weight: .bold).monospacedDigit())
+                    .foregroundStyle(lime)
+                    .frame(maxWidth: 130, alignment: .trailing)
+            }
+            .padding()
+            .activitySystemActionForegroundColor(lime)
+        } dynamicIsland: { ctx in
+            DynamicIsland {
+                DynamicIslandExpandedRegion(.leading) {
+                    Image(systemName: ctx.attributes.symbol).foregroundStyle(lime).font(.title2)
+                }
+                DynamicIslandExpandedRegion(.trailing) {
+                    MotionClock(state: ctx.state).font(.title2.weight(.bold).monospacedDigit()).frame(maxWidth: 110)
+                }
+                DynamicIslandExpandedRegion(.center) {
+                    VStack(spacing: 2) {
+                        Text(ctx.state.distance).font(.headline).monospacedDigit()
+                        Text(ctx.state.detail).font(.caption).foregroundStyle(.secondary).monospacedDigit()
+                    }
+                }
+            } compactLeading: {
+                Image(systemName: ctx.attributes.symbol).foregroundStyle(lime)
+            } compactTrailing: {
+                Text(ctx.state.distance).monospacedDigit().frame(maxWidth: 64)
+            } minimal: {
+                Image(systemName: ctx.attributes.symbol).foregroundStyle(lime)
+            }
+            .keylineTint(lime)
+        }
+    }
+}
+
+private struct MotionClock: View {
+    let state: MotionActivityAttributes.ContentState
+
+    var body: some View {
+        if let paused = state.pausedClock {
+            Text(paused)
+        } else {
+            Text(timerInterval: state.clockStart...Date.distantFuture, countsDown: false)
         }
     }
 }

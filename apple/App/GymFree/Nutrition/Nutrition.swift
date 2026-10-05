@@ -41,7 +41,10 @@ extension GymStore {
 /// The questions behind the targets. Safety first: some answers mean no targets at all.
 struct NutritionSetupView: View {
     @Environment(GymStore.self) private var store
+    @Environment(HealthSync.self) private var health
     @Environment(\.dismiss) private var dismiss
+    /// The last 7 days' average from Apple Health, when connected.
+    @State private var healthSteps: Int?
     @State private var age = 30
     @State private var sex = "female"
     @State private var height = 170.0
@@ -103,7 +106,18 @@ struct NutritionSetupView: View {
                 Stepper("Moderate exercise: \(moderateMin) min/week", value: $moderateMin, in: 0...1200, step: 30)
                 Stepper("Hard exercise: \(vigorousMin) min/week", value: $vigorousMin, in: 0...900, step: 30)
                 TextField("Daily steps, if you know (optional)", text: $steps).keyboardType(.numberPad)
+                if let hs = healthSteps {
+                    Button { steps = String(hs) } label: {
+                        LabeledContent {
+                            Text(steps == String(hs) ? "In use" : "Use")
+                        } label: {
+                            Label("\(hs.formatted()) a day from Apple Health (last 7 days)", systemImage: "heart.fill")
+                        }
+                    }
+                    .disabled(steps == String(hs))
+                }
             }
+            .task { healthSteps = await health.averageSteps() }
             Section {
                 Picker("Goal", selection: $goal) {
                     Text("Lose weight").tag("lose")

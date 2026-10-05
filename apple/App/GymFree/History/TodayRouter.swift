@@ -36,6 +36,8 @@ final class TodayRouter {
 
     var path: [Route] = []
     var sheet: Sheet?
+    /// The GPS walk, run or ride screen is up.
+    var activityShown = false
     /// Switches tabs (Save as routine opens the plan).
     @ObservationIgnored var openTab: (AppTab) -> Void = { _ in }
 

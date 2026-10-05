@@ -72,6 +72,24 @@ targets:
         SWIFT_EMIT_LOC_STRINGS: YES
         INFOPLIST_KEY_NSSupportsLiveActivities: YES
         INFOPLIST_KEY_NSAlarmKitUsageDescription: "GymFree rings when a rest is over, even in silent mode, so you know when to start your next set."
+        # GPS walks, runs and rides: only while you track one, and it never leaves the phone.
+        INFOPLIST_KEY_NSLocationWhenInUseUsageDescription: "GymFree uses your location only while you track a walk, run or ride, to draw your route and measure distance and pace. It stays on your iPhone."
+        # Apple Health, opt-in in Settings.
+        INFOPLIST_KEY_NSHealthShareUsageDescription: "GymFree reads your body weight, to add it to your weigh-ins if you choose, and your daily steps, for the activity part of your calorie estimate. Nothing leaves your iPhone."
+        INFOPLIST_KEY_NSHealthUpdateUsageDescription: "GymFree saves your workouts, walks, runs and rides (with their routes) and your weigh-ins to Apple Health."
+    # Location keeps tracking a walk with the screen locked; workout-processing runs the
+    # HealthKit workout session on iPhone (iOS 26).
+    info:
+      path: GymFree/Info.plist
+      properties:
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        UIBackgroundModes: [location, workout-processing]
+    entitlements:
+      path: GymFree/GymFree.entitlements
+      properties:
+        com.apple.developer.healthkit: true
+        com.apple.developer.healthkit.access: []
   GymFreeWidgets:
     type: app-extension
     platform: iOS

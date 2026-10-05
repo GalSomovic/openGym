@@ -41,3 +41,5 @@ export * as planner from './planner.js'
 export * as targets from './targets.js'
 // History, Home's week and body weight (see history-actions.js).
 export * as historyActions from './history-actions.js'
+// GPS walks, runs and rides, filed as cardio workouts (see activity.js).
+export * as activity from './activity.js'

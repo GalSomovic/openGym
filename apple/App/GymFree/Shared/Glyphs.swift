@@ -48,9 +48,11 @@ enum Glyphs {
 struct RoutineIcon: View {
     let emoji: String?
     var size: CGFloat = 34
+    /// An SF Symbol instead of the routine's glyph (a GPS walk's figure).
+    var symbol: String? = nil
 
     var body: some View {
-        Image(systemName: Glyphs.symbol(emoji))
+        Image(systemName: symbol ?? Glyphs.symbol(emoji))
             .font(.system(size: size * 0.5, weight: .semibold))
             .foregroundStyle(.tint)
             .frame(width: size, height: size)
