@@ -23,6 +23,14 @@ import { computeBalance, overrideKey, withOverride, loadForReps } from '../../fr
 import { balanceStatusView } from '../../frontend/src/lib/structuralBalance-view.js'
 import { TEMPLATES, TEMPLATE_LIST, DEFAULT_TEMPLATE_ID, EVALUATION_MODES } from '../../frontend/src/lib/structuralBalanceTemplates.js'
 import { historyRows } from './history-actions.js'
+import {
+  MUSCLES, INERT, MUSCLE_NAME, levelsOf, rankOf, loadOfWorkouts, muscleBalanceWindow, musclesOf,
+} from '../../frontend/src/lib/muscles.js'
+import { isWarmupRow } from '../../frontend/src/lib/workout-model.js'
+import { fatigueOf, strengthOf, STRENGTH_FLOOR, LB_TO_KG } from '../../frontend/src/lib/recovery.js'
+import { fatigueStateOf } from '../../frontend/src/lib/recovery-view.js'
+import { strengthExerciseRowsForMuscle } from '../../frontend/src/lib/strength-exercises.js'
+import { isHardSet } from '../../frontend/src/lib/effort.js'
 
 const DAY_MS = 86400000
 
@@ -478,4 +486,164 @@ export function setBalanceExercise(roleId, exId, now = Date.now()) {
   if (!role) throw new Error('Unknown lift')
   S.balanceOverrides = withOverride(S.balanceOverrides, overrideKey(template, role), exId || null, now)
   return true
+}
+
+/* ------------------------------ muscle maps ------------------------------ */
+
+const muscleName = slug => t(MUSCLE_NAME[slug] || slug)
+
+/**
+ * What every body map needs besides its geometry (body-paths.json): which outline set to draw
+ * (Settings → Appearance → Body diagram, S.body), the muscles that take a shade in head-to-toe
+ * order with their names, and the parts drawn only as the silhouette.
+ */
+export function bodyInfo() {
+  const S = need()
+  return {
+    body: S.body === 'female' ? 'female' : 'male',
+    muscles: MUSCLES.map(slug => ({ slug, name: muscleName(slug) })),
+    inert: INERT,
+  }
+}
+
+// Stats.jsx's fixed shade bands for the recovery maps (FATIGUE_LEVELS, STRENGTH_LEVELS). They
+// live in the React view, which the engine cannot import, so they are carried over verbatim.
+const FATIGUE_LEVELS = [
+  { at: 0, level: 0 },
+  { at: 0.15, level: 1 },
+  { at: 0.25, level: 2 },
+  { at: 0.4, level: 3 },
+  { at: 0.55, level: 4, exclusive: true },
+]
+const STRENGTH_LEVELS = [
+  { at: STRENGTH_FLOOR, level: 0 },
+  { at: 0.625, level: 1 },
+  { at: 0.75, level: 2 },
+  { at: 0.875, level: 3 },
+  { at: 1, level: 4 },
+]
+
+// Stats.jsx latestMuscleTraining: when each muscle last had a completed work set.
+function latestMuscleTraining(workouts) {
+  const latest = {}
+  for (const workout of workouts || []) {
+    const timestamp = Number(workout?.start || new Date(workout?.d).getTime())
+    if (!Number.isFinite(timestamp)) continue
+    for (const entry of workout.entries || []) {
+      if (!(entry.sets || []).some(set => set?.done === true && !isWarmupRow(set))) continue
+      const exercise = EXIDX[entry.id] || entry.exercise || entry
+      for (const slug of Object.keys(musclesOf(exercise))) {
+        if (latest[slug] == null || timestamp > latest[slug]) latest[slug] = timestamp
+      }
+    }
+  }
+  return latest
+}
+// Stats.jsx weeksSinceTraining.
+const weeksSinceTraining = (now, lastTrained) => Math.max(0, Math.floor((now - lastTrained) / DAY_MS / 7))
+
+// Stats.jsx MuscleBalance: the user's own last weigh-in drives bodyweight-exercise tonnage.
+function bodyweightKgOf(S) {
+  const entries = S.bodyweight || []
+  if (!entries.length) return null
+  const last = entries.slice().sort((a, b) => String(a.d).localeCompare(String(b.d))).at(-1)
+  if (!last || !(last.w > 0)) return null
+  return S.unit === 'lb' ? last.w * LB_TO_KG : last.w
+}
+
+/**
+ * Stats.jsx MuscleBalance, one of its three maps:
+ *   'balance'  — sets per muscle in a window (`win` 7 = this week, 30, 90, 0 = all), or only the
+ *                hard ones (`hard`, offered when the window holds rated sets)
+ *   'fatigue'  — how recently each muscle was trained (lib/recovery.js), on fixed bands
+ *   'strength' — retained strength since each muscle was last trained; a `selected` muscle
+ *                lists its exercises with their estimated 1RM (lib/strength-exercises.js)
+ * `levels` (0–4 per muscle) is what the map shades; `palette` says which colours.
+ */
+export function muscleBalance({ view = 'balance', win = 7, hard = false, selected = null } = {}, now = Date.now(), today = todayISO()) {
+  const S = need()
+  const mode = view === 'fatigue' || view === 'strength' ? view : 'balance'
+  const sel = MUSCLES.includes(selected) ? selected : null
+  const base = {
+    view: mode,
+    views: [
+      { value: 'balance', label: t('Muscle balance') },
+      { value: 'fatigue', label: t('Fatigue') },
+      { value: 'strength', label: t('Strength') },
+    ],
+    body: S.body === 'female' ? 'female' : 'male',
+    selected: sel,
+    selectedName: sel ? muscleName(sel) : null,
+  }
+  const opts = { bodyweightKg: bodyweightKgOf(S), unit: S.unit }
+
+  if (mode === 'fatigue') {
+    const fatigue = fatigueOf(S.workouts, now, opts)
+    const state = sel ? fatigueStateOf(fatigue[sel]) : null
+    return {
+      ...base, palette: 'fatigue', title: t('Fatigue'),
+      levels: levelsOf(fatigue, FATIGUE_LEVELS),
+      legend: [{ label: t('Fatigued'), level: 4 }, { label: t('Recovering'), level: 2 }, { label: t('Ready'), level: 0 }],
+      note: t('Fatigue shows how recently each muscle was trained. High means rest.'),
+      selectedValue: state ? t(state === 'ready' ? 'Ready' : state === 'recovering' ? 'Recovering' : 'Fatigued') : null,
+    }
+  }
+
+  if (mode === 'strength') {
+    const strength = strengthOf(S.workouts, now, opts)
+    const lastTrained = latestMuscleTraining(S.workouts)
+    const hint = slug => lastTrained[slug] == null ? t('not trained') : t('Weeks since training: {0}', weeksSinceTraining(now, lastTrained[slug]))
+    const volWin = S.workouts.filter(w => (w.start || new Date(w.d).getTime()) > now - 90 * DAY_MS)
+    const vol90 = loadOfWorkouts(volWin, null)
+    const { worked: order } = rankOf(strength)
+    return {
+      ...base, palette: 'strength', title: t('Strength'),
+      levels: levelsOf(strength, STRENGTH_LEVELS),
+      legend: [{ label: '1 ' + t('full'), level: 4 }, { label: '', level: 3 }, { label: '', level: 2 }, { label: '', level: 1 }, { label: fmtNum(STRENGTH_FLOOR) + ' ' + t('floor'), level: 0 }],
+      note: t('Strength shows retained muscle strength. Train again to reset it.'),
+      exercisesTitle: sel ? `${t('Exercises')} · ${muscleName(sel)}` : null,
+      exercises: sel ? strengthExerciseRowsForMuscle(S, now, sel).map(row => ({
+        // The catalogue's display name (capitalised as the rest of the app shows it), else the logged one.
+        id: row.id, name: EXIDX[row.id] ? exerciseNameText(EXIDX[row.id]) : row.name,
+        role: row.primary === sel ? t('primary') : t('secondary'),
+        estimate: `${t('Est. 1RM')}: ${fmtNum(row.est)} ${S.unit} · ${fmtDate(row.estDate, true)}`,
+        frac: row.decay,
+        value: `${fmtNum(row.current)} ${S.unit} · ${Math.round(row.decay * 100)}%`,
+      })) : [],
+      noExercises: t('No exercises with an estimated 1RM yet.'),
+      hint: sel ? null : t('Tap a muscle to see its exercises.'),
+      detrained: order.filter(slug => strength[slug] < 1).map(slug => {
+        const sets90 = Math.round((vol90[slug] || 0) * 10) / 10
+        return {
+          slug, name: muscleName(slug), frac: strength[slug],
+          value: sets90 ? t('{0} sets', fmtNum(sets90)) : hint(slug),
+          detail: sets90 ? hint(slug) : null,
+        }
+      }),
+    }
+  }
+
+  const inWin = muscleBalanceWindow(S.workouts, win, now, today, weekStartOf(S))
+  // Only offered when the window holds ratings: with none, the hard map would read as nothing trained.
+  const rated = inWin.some(w => w.entries.some(e => e.sets.some(s => s.done && isHardSet(s))))
+  const on = !!hard && rated
+  const load = loadOfWorkouts(inWin, on ? isHardSet : null)
+  const { worked, missed } = rankOf(load)
+  const max = worked.length ? load[worked[0]] : 0
+  const sets = m => fmtNum(Math.round((load[m] || 0) * 10) / 10)
+  return {
+    ...base, palette: 'balance', title: t('Muscle balance'),
+    subtitle: on ? t('by hard sets') : t('by sets worked'),
+    windows: [{ value: 7, label: t('Week') }, { value: 30, label: '30d' }, { value: 90, label: '90d' }, { value: 0, label: t('All') }],
+    win,
+    hardShown: rated, hard: on, hardLabel: on ? t('Hard') : t('All'),
+    levels: levelsOf(load),
+    legend: [{ label: t('Less'), level: 0 }, { label: '', level: 1 }, { label: '', level: 2 }, { label: '', level: 3 }, { label: t('More'), level: 4 }],
+    empty: inWin.length ? null : t('No workouts in this period yet.'),
+    selectedValue: sel ? (load[sel] ? t('{0} sets', sets(sel)) : on ? t('no hard sets') : t('not trained')) : null,
+    top: worked.slice(0, 4).map(m => ({ slug: m, name: muscleName(m), frac: max ? load[m] / max : 0, value: t('{0} sets', sets(m)) })),
+    missedTitle: missed.length ? (on ? t('No hard sets in this period') : t('Not trained in this period')) : null,
+    missed: missed.map(muscleName),
+    allWorked: !missed.length && worked.length ? (on ? t('Every muscle group got at least one hard set in this period.') : t('Every muscle group got some work in this period.')) : null,
+  }
 }

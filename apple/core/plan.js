@@ -13,7 +13,7 @@ import { starterPlanOptions, starterPlanDays, buildStarterPlan } from '../../fro
 import { policyFor, POLICIES_FOR, POLICY_NAME, POLICY_DESC, MAX_BW_SETS, defaultIncrement } from '../../frontend/src/lib/progression.js'
 import { normalizeRepRange } from '../../frontend/src/lib/rep-range.js'
 import { speedUnitOf } from '../../frontend/src/lib/speed.js'
-import { loadOfRoutine, rankOf } from '../../frontend/src/lib/muscles.js'
+import { loadOfRoutine, rankOf, levelsOf } from '../../frontend/src/lib/muscles.js'
 
 const routineOf = id => {
   const r = need().routines.find(x => x.id === id)
@@ -86,7 +86,8 @@ export function routineLines(id) {
 /** The muscles a routine works, most first: the editor's "What this session hits". */
 export function routineMuscles(id) {
   const load = loadOfRoutine(routineOf(id))
-  return { load, worked: rankOf(load).worked }
+  // `levels`: RoutineEdit's body map, shaded relative to the routine's most-worked muscle.
+  return { load, worked: rankOf(load).worked, levels: levelsOf(load) }
 }
 
 /* ------------------------------ routine exercises ------------------------------ */

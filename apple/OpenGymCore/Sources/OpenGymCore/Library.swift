@@ -56,6 +56,8 @@ public struct StarterPlan: Codable, Hashable, Sendable, Identifiable {
 public struct RoutineMuscles: Codable, Hashable, Sendable {
     public var load: [String: Double]
     public var worked: [String]
+    /// The body map's shade per muscle, 0–4, relative to the most-worked one.
+    public var levels: [String: Int]
 }
 
 /// What the exercise settings sheet shows for a draft (plan.js configInfo).
@@ -253,5 +255,36 @@ extension GymStore {
     /// Indexes of a routine's exercises that need equipment you don't have.
     public func missingEquipment(_ routineId: String) -> [Int] {
         query("settings", "missingEquipment", [routineId], as: [Int].self) ?? []
+    }
+}
+
+/// One muscle in the explorer, with how many exercises train it.
+public struct MuscleCount: Codable, Hashable, Sendable, Identifiable {
+    public var slug: String
+    public var name: String
+    public var count: Int
+    public var id: String { slug }
+}
+
+public struct MuscleExercise: Codable, Hashable, Sendable, Identifiable {
+    public var id: String
+    /// "Primary target · Chest · barbell".
+    public var line: String
+}
+
+/// components/MuscleExplorer.jsx: the catalogue by muscle (library.js byMuscle).
+public struct MuscleBrowse: Codable, Hashable, Sendable {
+    public var muscles: [MuscleCount]
+    public var selected: String?
+    public var title: String?
+    public var prompt: String
+    public var exercises: [MuscleExercise]
+    public var profile: String?
+}
+
+extension GymStore {
+    public func exercisesByMuscle(_ selected: String?, query: String = "", showAll: Bool = false) -> MuscleBrowse? {
+        let opts: [String: Any] = ["selected": selected ?? NSNull(), "q": query, "showAll": showAll]
+        return self.query("library", "byMuscle", [opts], as: MuscleBrowse.self)
     }
 }

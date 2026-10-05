@@ -116,6 +116,18 @@ describe('library', () => {
     expect(L.detail('0032')).toMatchObject({ fav: true, note: 'seat 4' })
     expect(L.detail('0032').st.length).toBeGreaterThan(0)
   })
+  it('browses by muscle, as the muscle explorer does', () => {
+    const none = L.byMuscle()
+    expect(none.selected).toBe(null)
+    expect(none.exercises).toEqual([])
+    expect(none.muscles.find(m => m.slug === 'chest').count).toBeGreaterThan(20)
+    const chest = L.byMuscle({ selected: 'chest' })
+    expect(chest.title).toBe('Exercises for Chest')
+    expect(chest.exercises.map(e => e.id)).toContain('0025')
+    expect(chest.exercises.find(e => e.id === '0025').line).toMatch(/^Primary target/)
+    expect(L.byMuscle({ selected: 'chest', q: 'bench' }).exercises.length).toBeLessThan(chest.exercises.length)
+    expect(L.byMuscle({ selected: 'nonsense' }).selected).toBe(null)
+  })
 })
 
 describe('GymFree extras', () => {

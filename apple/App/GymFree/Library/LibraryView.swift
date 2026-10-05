@@ -8,17 +8,35 @@ struct LibraryView: View {
 
     @State private var path: [String] = DebugLaunch.detail.map { [$0] } ?? []
     @State private var creating = false
+    /// "list" or "muscle" (openGym's muscle explorer).
+    @State private var mode = DebugLaunch.libraryMode ?? "list"
 
     var body: some View {
         NavigationStack(path: $path) {
-            ExerciseList { id in
-                ExerciseDetailView(exerciseId: id)
-            } trailing: { id in
-                AddToPlanButton(exerciseId: id)
+            Group {
+                if mode == "muscle" {
+                    MuscleExplorerView()
+                } else {
+                    ExerciseList { id in
+                        ExerciseDetailView(exerciseId: id)
+                    } trailing: { id in
+                        AddToPlanButton(exerciseId: id)
+                    }
+                }
             }
             .navigationTitle("Exercises")
             .navigationDestination(for: String.self) { id in ExerciseDetailView(exerciseId: id) }
             .toolbar {
+                // The catalogue as a list, or on a body map (openGym's muscle explorer).
+                ToolbarItem(placement: .topBarLeading) {
+                    Picker("Browse", selection: $mode) {
+                        Image(systemName: "list.bullet").accessibilityLabel(Text("All exercises")).tag("list")
+                        Image(systemName: "figure.arms.open").accessibilityLabel(Text("By muscle")).tag("muscle")
+                    }
+                    .pickerStyle(.segmented)
+                    .frame(width: 110)
+                    .accessibilityIdentifier("library.mode")
+                }
                 ToolbarItem(placement: .primaryAction) {
                     Button { creating = true } label: { Image(systemName: "plus") }
                         .accessibilityLabel(Text("New exercise"))

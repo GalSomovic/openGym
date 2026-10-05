@@ -45,6 +45,9 @@ private struct StatsHome: View {
                         HeatmapView(map: map, onMetric: { store.setHeatmapMetric($0) }, onDay: open)
                     }
                 }
+                if o.workouts > 0 {
+                    Section { MuscleBalanceCard() }
+                }
                 progress(o)
                 if o.hasEffort {
                     Section { EffortCardView() }

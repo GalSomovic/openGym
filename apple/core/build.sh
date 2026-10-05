@@ -6,6 +6,7 @@ cd "$(dirname "$0")"
 OUT=../OpenGymCore/Sources/OpenGymCore/Resources
 mkdir -p "$OUT"
 node gen-defaults.mjs
+node gen-body.mjs
 ../../frontend/node_modules/.bin/vitest run --root . --silent
 ../../frontend/node_modules/.bin/rolldown -c rolldown.config.mjs
 ls -la "$OUT/engine.js" | awk '{print "engine.js", $5, "bytes"}'
