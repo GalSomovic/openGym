@@ -22,7 +22,14 @@ struct GymFreeApp: App {
         // Debounced saves cover normal use; leaving the app writes at once.
         .onChange(of: scenePhase) { _, phase in
             if phase != .active { services.store.saveNow() }
-            if phase == .active { services.session.syncSettings() }
+            if phase == .active {
+                services.session.syncSettings()
+                Task { await Reminders.sync(store: services.store) }
+            }
+        }
+        // The plan, a finished workout or the reminder time may have changed what to remind about.
+        .onChange(of: services.store.revision) { _, _ in
+            Task { await Reminders.sync(store: services.store) }
         }
     }
 }

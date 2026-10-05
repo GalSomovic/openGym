@@ -7,6 +7,7 @@ struct PlanView: View {
     @State private var path = NavigationPath()
     @State private var starterPresented = false
     @State private var builderPresented = false
+    @State private var sharePresented = false
     @State private var deleting: Routine?
     @State private var reordering = false
 
@@ -94,6 +95,7 @@ struct PlanView: View {
                         Menu {
                             Button("Make me a plan", systemImage: "wand.and.stars") { builderPresented = true }
                             Button("Starter plans", systemImage: "sparkles") { starterPresented = true }
+                            Button("Share plan", systemImage: "square.and.arrow.up") { sharePresented = true }
                         } label: { Image(systemName: "ellipsis") }
                         .accessibilityLabel(Text("More"))
                     }
@@ -105,6 +107,7 @@ struct PlanView: View {
             }
             .sheet(isPresented: $starterPresented) { StarterPlanSheet() }
             .sheet(isPresented: $builderPresented) { PlanBuilderView() }
+            .sheet(isPresented: $sharePresented) { PlanShareSheet() }
             .confirmationDialog("Delete routine?", isPresented: Binding(
                 get: { deleting != nil }, set: { if !$0 { deleting = nil } }), presenting: deleting) { r in
                 Button("Delete", role: .destructive) { store.deleteRoutine(r.id) }

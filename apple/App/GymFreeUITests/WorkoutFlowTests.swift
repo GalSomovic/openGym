@@ -99,6 +99,18 @@ final class WorkoutFlowTests: XCTestCase {
         XCTAssertTrue(app.staticTexts["Full Body 3× · A"].firstMatch.waitForExistence(timeout: 5))
     }
 
+    func testSharePlanOffersTheFileAndPrint() {
+        let app = launch(["-GFTab", "plan"])
+        let more = app.buttons["More"].firstMatch
+        XCTAssertTrue(more.waitForExistence(timeout: 5))
+        more.tap()
+        let share = app.buttons["Share plan"].firstMatch
+        XCTAssertTrue(share.waitForExistence(timeout: 3))
+        share.tap()
+        XCTAssertTrue(app.buttons["Send plan file"].waitForExistence(timeout: 5))
+        XCTAssertTrue(app.buttons["Print or save as PDF"].isEnabled)
+    }
+
     func testBuildARoutine() {
         let app = launch(["-GFTab", "plan"])
         app.buttons["New"].firstMatch.tap()

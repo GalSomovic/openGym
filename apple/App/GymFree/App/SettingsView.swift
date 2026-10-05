@@ -40,6 +40,7 @@ struct SettingsView: View {
                 } footer: {
                     Text("Cues play over your music: it ducks while GymFree speaks, then comes back up. The rest alarm rings through silent mode and Focus when a rest ends while your phone is locked.")
                 }
+                ReminderSettingsSection()
                 Section {
                     NutritionSettingsRow()
                 } footer: {
