@@ -290,29 +290,61 @@ struct ExerciseNoteSheet: View {
     }
 }
 
-/// The exercise's past sessions (lib/exercise-history.js).
+/// sheets.jsx ExerciseHistory, mid-workout: the curve (top set or estimated 1RM), the best, then
+/// the last sessions set by set (lib/exercise-history.js).
 struct ExerciseHistorySheet: View {
     let exerciseId: String
     @Environment(GymStore.self) private var store
     @Environment(ExerciseCatalog.self) private var catalog
     @Environment(\.dismiss) private var dismiss
+    @State private var curve = "top"
 
     var body: some View {
         NavigationStack {
-            let sessions = store.exerciseHistory(exerciseId)
+            let h = store.exerciseHistorySheet(exerciseId)
             List {
-                if sessions.isEmpty {
-                    ContentUnavailableView("No history yet", systemImage: "clock",
-                                           description: Text("Sessions with this exercise show up here."))
-                }
-                ForEach(Array(sessions.enumerated()), id: \.offset) { _, s in
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(s.title).font(.subheadline.weight(.semibold))
-                        Text(s.sets).font(.footnote).foregroundStyle(.secondary)
+                if let h, h.total > 0 {
+                    let onE1 = curve == "e1rm" && !h.e1rm.isEmpty
+                    Section {
+                        if !h.e1rm.isEmpty {
+                            Picker("Curve", selection: $curve) {
+                                Text("Top set").tag("top")
+                                Text("Est. 1RM").tag("e1rm")
+                            }
+                            .pickerStyle(.segmented)
+                        }
+                        ProgressChart(points: onE1 ? h.e1rm : h.points, unit: onE1 ? h.e1rmUnit : h.unit, height: 150)
+                        Label {
+                            Text("\(h.bestLabel) \(Text(onE1 ? (h.e1rmBest ?? "—") : h.best).bold().foregroundStyle(Color.accentColor))")
+                        } icon: {
+                            Image(systemName: "trophy.fill").foregroundStyle(.yellow)
+                        }
+                        .font(.subheadline)
+                    } header: {
+                        Text(h.subtitle)
                     }
+                    Section(h.sessionsTitle) {
+                        ForEach(h.sessions) { s in
+                            HStack(alignment: .top) {
+                                VStack(alignment: .leading, spacing: 4) {
+                                    HStack(spacing: 6) {
+                                        Text(s.date).font(.subheadline.weight(.semibold))
+                                        if s.pr { PRBadge() }
+                                    }
+                                    Text(s.sets).font(.footnote).foregroundStyle(.secondary)
+                                    if let tail = s.tail { Text(tail).font(.caption).foregroundStyle(.tertiary) }
+                                }
+                                Spacer(minLength: 8)
+                                if let v = s.value { Text(v).font(.subheadline.weight(.semibold)).foregroundStyle(Color.accentColor) }
+                            }
+                        }
+                    }
+                } else {
+                    ContentUnavailableView("No history yet", systemImage: "clock",
+                                           description: Text(h?.empty ?? "Sessions with this exercise show up here."))
                 }
             }
-            .navigationTitle(catalog.name(exerciseId))
+            .navigationTitle(h?.name ?? catalog.name(exerciseId))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar { ToolbarItem(placement: .confirmationAction) { Button("Done") { dismiss() } } }
         }

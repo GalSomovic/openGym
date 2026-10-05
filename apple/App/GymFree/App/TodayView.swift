@@ -20,14 +20,7 @@ struct TodayView: View {
                     StartChooser()
                 }
             }
-            .navigationDestination(for: TodayRouter.Route.self) { route in
-                switch route {
-                case .history: HistoryView()
-                case .workout(let key): WorkoutDetailView(key: key)
-                case .weight: WeightView()
-                case .exercise(let id): ExerciseDetailView(exerciseId: id)
-                }
-            }
+            .navigationDestination(for: TodayRouter.Route.self) { route in RouteDestination(route: route) }
         }
         .overlay(alignment: .top) { if store.active == nil && !finished { ToastView() } }
         .sheet(item: $router.sheet) { sheet in
@@ -44,8 +37,25 @@ struct TodayView: View {
     }
 }
 
-/// The sheets over the Today tab, one at a time.
-private struct TodaySheetView: View {
+/// Where a route of the Today and Stats stacks goes.
+struct RouteDestination: View {
+    let route: TodayRouter.Route
+
+    var body: some View {
+        switch route {
+        case .history: HistoryView()
+        case .workout(let key): WorkoutDetailView(key: key)
+        case .weight: WeightView()
+        case .exercise(let id): ExerciseDetailView(exerciseId: id)
+        case .progress(let id): ExerciseProgressView(exerciseId: id)
+        case .progressPicker: ProgressPickerView()
+        case .balance: StructuralBalanceView()
+        }
+    }
+}
+
+/// The sheets over the Today (and Stats) tab, one at a time.
+struct TodaySheetView: View {
     let sheet: TodayRouter.Sheet
 
     var body: some View {

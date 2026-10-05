@@ -41,3 +41,5 @@ export * as planner from './planner.js'
 export * as targets from './targets.js'
 // History, Home's week and body weight (see history-actions.js).
 export * as historyActions from './history-actions.js'
+// Stats, the heatmap, effort, the 1RM calculator, structural balance (see stats.js).
+export * as stats from './stats.js'
