@@ -4,6 +4,7 @@ import SwiftUI
 /// openGym's Plan screen: the week, then the routines.
 struct PlanView: View {
     @Environment(GymStore.self) private var store
+    @Environment(ExerciseCatalog.self) private var catalog
     @State private var path = NavigationPath()
     @State private var starterPresented = false
     @State private var builderPresented = false
@@ -46,6 +47,23 @@ struct PlanView: View {
                         .padding(.vertical, 12)
                     }
                 }
+                if let week = store.query("plan", "weekMuscles", as: RoutineMuscles.self), !week.worked.isEmpty {
+                    let gaps = (store.bodyInfo()?.muscles ?? []).filter { (week.levels[$0.slug] ?? 0) <= 1 }.map(\.name)
+                    Section {
+                        BodyMapView(levels: week.levels)
+                            .frame(maxHeight: 160)
+                            .padding(.vertical, 2)
+                        FlowTags(tags: week.worked.prefix(6).map { catalog.muscleName($0) })
+                        if !gaps.isEmpty {
+                            Label {
+                                Text("Little or no work: \(gaps.formatted(.list(type: .and)))")
+                            } icon: { Image(systemName: "exclamationmark.circle").foregroundStyle(.orange) }
+                            .font(.footnote)
+                        }
+                    } header: { Text("What your plan covers") } footer: {
+                        Text("Every planned day added up; darker is more sets.")
+                    }
+                }
                 Section("Week schedule") {
                     let week = store.week
                     ForEach(Fmt.weekOrder(start: weekStart), id: \.self) { day in
@@ -60,6 +78,13 @@ struct PlanView: View {
                                 VStack(alignment: .leading, spacing: 2) {
                                     Text(r.name)
                                     Text(Fmt.exercises(r.ex.count)).font(.subheadline).foregroundStyle(.secondary)
+                                }
+                                Spacer(minLength: 8)
+                                // What the routine trains, at a glance; the editor has the full map.
+                                if !r.ex.isEmpty, let m = store.routineMuscles(r.id), !m.worked.isEmpty {
+                                    BodyMapView(levels: m.levels)
+                                        .frame(width: 64, height: 54)
+                                        .accessibilityHidden(true)
                                 }
                             }
                         }

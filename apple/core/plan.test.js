@@ -139,3 +139,14 @@ describe('GymFree extras', () => {
     expect(st().routines[0].ex[0].id).toBe('gf-squat')
   })
 })
+
+describe('week muscles', () => {
+  it('adds up every planned day', () => {
+    A.load(null)
+    expect(P.weekMuscles().worked).toEqual([])
+    P.loadStarterPlan('full-body')
+    const w = P.weekMuscles()
+    expect(w.worked.length).toBeGreaterThan(5)
+    expect(Object.values(w.levels).some(l => l > 0)).toBe(true)
+  })
+})

@@ -90,6 +90,23 @@ export function routineMuscles(id) {
   return { load, worked: rankOf(load).worked, levels: levelsOf(load) }
 }
 
+/**
+ * The muscles the whole weekly plan works: each routine's load counted once per weekday it is
+ * on, then ranked and shaded like a single routine (GymFree addition, on openGym's helpers).
+ */
+export function weekMuscles() {
+  const s = need()
+  const load = {}
+  for (const ids of Object.values(s.week || {})) {
+    for (const rid of [].concat(ids || [])) {
+      const r = s.routines.find(x => x.id === rid)
+      if (!r) continue
+      for (const [m, v] of Object.entries(loadOfRoutine(r))) load[m] = (load[m] || 0) + v
+    }
+  }
+  return { load, worked: rankOf(load).worked, levels: levelsOf(load) }
+}
+
 /* ------------------------------ routine exercises ------------------------------ */
 
 /** RoutineEdit "Add exercise": `cfg` null is the quick "+" default. */

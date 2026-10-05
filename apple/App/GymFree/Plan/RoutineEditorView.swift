@@ -62,6 +62,15 @@ struct RoutineEditorView: View {
                         }
                 }
             }
+            if !r.ex.isEmpty, let muscles = store.routineMuscles(routineId), !muscles.worked.isEmpty {
+                // RoutineEdit.jsx: the routine as planned on a body map, so a gap shows while you build it.
+                Section("What this session hits") {
+                    BodyMapView(levels: muscles.levels)
+                        .frame(maxHeight: 220)
+                        .padding(.vertical, 4)
+                    FlowTags(tags: muscles.worked.prefix(6).map { catalog.muscleName($0) })
+                }
+            }
             Section {
                 Picker(selection: Binding(get: { r.prog ?? "linear" }, set: { store.setRoutineProgression(routineId, $0) })) {
                     ForEach(Self.routinePolicies, id: \.self) { p in Text(policyNames[p] ?? p).tag(p) }
@@ -112,15 +121,6 @@ struct RoutineEditorView: View {
                     Text("Drag the handles to change the order. Supersets move together.")
                 } else if r.ex.count > 1 {
                     Text("Tap an exercise to change its sets and reps. Swipe right to superset it with the one above, left to remove it.")
-                }
-            }
-            if !r.ex.isEmpty, let muscles = store.routineMuscles(routineId), !muscles.worked.isEmpty {
-                // RoutineEdit.jsx: the routine as planned on a body map, so a gap shows while you build it.
-                Section("What this session hits") {
-                    BodyMapView(levels: muscles.levels)
-                        .frame(maxHeight: 220)
-                        .padding(.vertical, 4)
-                    FlowTags(tags: muscles.worked.prefix(6).map { catalog.muscleName($0) })
                 }
             }
             Section {
