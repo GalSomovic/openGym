@@ -6,6 +6,7 @@ struct PlanView: View {
     @Environment(GymStore.self) private var store
     @State private var path = NavigationPath()
     @State private var starterPresented = false
+    @State private var builderPresented = false
     @State private var deleting: Routine?
     @State private var reordering = false
 
@@ -14,6 +15,23 @@ struct PlanView: View {
     var body: some View {
         NavigationStack(path: $path) {
             List {
+                if store.routines.isEmpty {
+                    Section {
+                        ContentUnavailableView {
+                            Label("No routines yet", systemImage: "list.clipboard")
+                        } description: {
+                            Text("Build your own, or start from a plan and change anything you like.")
+                        } actions: {
+                            Button("New routine", systemImage: "plus") { newRoutine() }
+                                .buttonStyle(.borderedProminent)
+                            HStack {
+                                Button("Make me a plan", systemImage: "wand.and.stars") { builderPresented = true }
+                                Button("Starter plans", systemImage: "sparkles") { starterPresented = true }
+                            }
+                            .buttonStyle(.bordered)
+                        }
+                    }
+                }
                 Section("Week schedule") {
                     let week = store.week
                     ForEach(Fmt.weekOrder(start: weekStart), id: \.self) { day in
@@ -54,18 +72,6 @@ struct PlanView: View {
                             .textCase(nil)
                     }
                 }
-                if store.routines.isEmpty {
-                    Section {
-                        ContentUnavailableView {
-                            Label("No routines yet", systemImage: "list.clipboard")
-                        } description: {
-                            Text("Create one or load a starter plan.")
-                        } actions: {
-                            Button("Load starter plan", systemImage: "sparkles") { starterPresented = true }
-                                .buttonStyle(.borderedProminent)
-                        }
-                    }
-                }
             }
             .navigationTitle("Plan")
             .environment(\.editMode, .constant(reordering ? .active : .inactive))
@@ -73,7 +79,8 @@ struct PlanView: View {
                 if !store.routines.isEmpty {
                     ToolbarItem(placement: .primaryAction) {
                         Menu {
-                            Button("Load starter plan", systemImage: "sparkles") { starterPresented = true }
+                            Button("Make me a plan", systemImage: "wand.and.stars") { builderPresented = true }
+                            Button("Starter plans", systemImage: "sparkles") { starterPresented = true }
                         } label: { Image(systemName: "ellipsis") }
                         .accessibilityLabel(Text("More"))
                     }
@@ -84,6 +91,7 @@ struct PlanView: View {
                 if let i = DebugLaunch.routine, path.isEmpty, i < store.routines.count { path.append(store.routines[i].id) }
             }
             .sheet(isPresented: $starterPresented) { StarterPlanSheet() }
+            .sheet(isPresented: $builderPresented) { PlanBuilderView() }
             .confirmationDialog("Delete routine?", isPresented: Binding(
                 get: { deleting != nil }, set: { if !$0 { deleting = nil } }), presenting: deleting) { r in
                 Button("Delete", role: .destructive) { store.deleteRoutine(r.id) }
@@ -166,10 +174,34 @@ struct StarterPlanSheet: View {
     @Environment(GymStore.self) private var store
     @Environment(\.dismiss) private var dismiss
     @State private var confirming: StarterPlan?
+    @State private var presets: [Preset] = []
+
+    struct Preset: Decodable, Identifiable { var id: String; var name: String; var days: Int; var minutes: Int; var plan: JSONValue }
 
     var body: some View {
         NavigationStack {
-            List(store.starterPlans()) { plan in
+            List {
+                if !presets.isEmpty {
+                    Section {
+                        ForEach(presets) { p in
+                            if let plan = GeneratedPlan(p.plan) {
+                                NavigationLink {
+                                    PlanPreviewView(plan: plan) { dismiss() }
+                                } label: {
+                                    VStack(alignment: .leading, spacing: 2) {
+                                        Text(p.name)
+                                        Text("\(p.days) days per week · about \(p.minutes) min · \(Self.presetAbout(p.id))")
+                                            .font(.subheadline).foregroundStyle(.secondary)
+                                    }
+                                }
+                            }
+                        }
+                    } header: { Text("Evidence-based") } footer: {
+                        Text("Built from independent research reviews, filled with exercises for the equipment in Settings.")
+                    }
+                }
+                Section("openGym classics") {
+            ForEach(store.starterPlans()) { plan in
                 Button {
                     if store.starterPlanConflicts(plan.id) { confirming = plan } else { load(plan) }
                 } label: {
@@ -184,6 +216,12 @@ struct StarterPlanSheet: View {
                     .contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
+            }
+                }
+            }
+            .onAppear {
+                let eq = PlanAnswers(equipment: store.equipment()).equipment
+                presets = store.query("planner", "presetList", [eq], as: [Preset].self) ?? []
             }
             .navigationTitle("Choose starter plan")
             .navigationBarTitleDisplayMode(.inline)
@@ -212,6 +250,20 @@ struct StarterPlanSheet: View {
         case "full-body": String(localized: "Full Body")
         case "5x5": String(localized: "5×5")
         default: id
+        }
+    }
+
+    static func presetAbout(_ id: String) -> String {
+        switch id {
+        case "P01": String(localized: "an easy start")
+        case "P02", "P04", "P05": String(localized: "the whole body each time")
+        case "P06": String(localized: "upper and lower body twice each")
+        case "P08": String(localized: "heavy main lifts")
+        case "P09": String(localized: "for experienced lifters")
+        case "P10": String(localized: "strength plus cardio")
+        case "P11": String(localized: "strength and balance")
+        case "P12": String(localized: "the least that works")
+        default: ""
         }
     }
 

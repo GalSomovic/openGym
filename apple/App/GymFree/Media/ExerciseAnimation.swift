@@ -112,21 +112,22 @@ struct ExerciseAnimation: View {
     private var current: MediaOption? { options[safe: index] }
 
     var body: some View {
-        ZStack {
-            content
-            if animated, reduceMotion, !playRequested {
-                Image(systemName: "play.circle.fill")
-                    .font(.system(size: 44))
-                    .symbolRenderingMode(.palette)
-                    .foregroundStyle(.white, .black.opacity(0.55))
+        // The switcher sits under the picture, never on it, so it hides nothing of the move.
+        VStack(spacing: 0) {
+            ZStack {
+                content
+                if animated, reduceMotion, !playRequested {
+                    Image(systemName: "play.circle.fill")
+                        .font(.system(size: 44))
+                        .symbolRenderingMode(.palette)
+                        .foregroundStyle(.white, .black.opacity(0.55))
+                }
             }
-        }
-        .modifier(SquareUnlessFullScreen(fullScreen: fullScreen))
-        .contentShape(Rectangle())
-        .overlay(alignment: .bottom) {
+            .modifier(SquareUnlessFullScreen(fullScreen: fullScreen))
+            .contentShape(Rectangle())
+            .onTapGesture { if animated, reduceMotion { playRequested.toggle() } }
             if toggle, let current { switcher(current) }
         }
-        .onTapGesture { if animated, reduceMotion { playRequested.toggle() } }
         .task(id: exerciseId) {
             options = MediaLibrary.options(for: exerciseId)
             index = MediaLibrary.chosen(for: exerciseId, in: options)
@@ -206,10 +207,10 @@ struct ExerciseAnimation: View {
                 Text(credit).font(.system(size: 9)).lineLimit(2).multilineTextAlignment(.center).opacity(0.85)
             }
         }
-        .foregroundStyle(.white)
+        .foregroundStyle(fullScreen ? AnyShapeStyle(.white) : AnyShapeStyle(.primary))
         .padding(.horizontal, 8).padding(.vertical, 6)
-        .background(.black.opacity(0.55), in: .rect(cornerRadius: 12))
-        .padding(8)
+        .frame(maxWidth: .infinity)
+        .background(fullScreen ? AnyShapeStyle(.black) : AnyShapeStyle(.background.secondary))
     }
 
     private func openFullScreen() {

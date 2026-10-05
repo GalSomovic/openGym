@@ -75,6 +75,26 @@ final class WorkoutFlowTests: XCTestCase {
         app.buttons["media.previous"].tap()
     }
 
+    func testMakeMeAPlanAddsRoutines() {
+        // The starter plan is loaded, so the builder is in the More menu.
+        let app = launch(["-GFTab", "plan"])
+        let more = app.buttons["More"].firstMatch
+        XCTAssertTrue(more.waitForExistence(timeout: 5))
+        more.tap()
+        app.buttons["Make me a plan"].firstMatch.tap()
+        let show = app.buttons["planBuilder.show"]
+        XCTAssertTrue(show.waitForExistence(timeout: 5))
+        show.tap()
+        let add = app.buttons["planPreview.add"]
+        XCTAssertTrue(add.waitForExistence(timeout: 5))
+        XCTAssertTrue(app.staticTexts["Why this plan"].exists || app.staticTexts["WHY THIS PLAN"].exists)
+        add.tap()
+        // Monday, Wednesday and Friday already have the starter routines: confirm replacing them.
+        let confirm = app.buttons["Add plan"]
+        if confirm.waitForExistence(timeout: 3) { confirm.tap() }
+        XCTAssertTrue(app.staticTexts["Full Body 3× · A"].firstMatch.waitForExistence(timeout: 5))
+    }
+
     func testBuildARoutine() {
         let app = launch(["-GFTab", "plan"])
         app.buttons["New"].firstMatch.tap()

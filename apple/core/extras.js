@@ -202,4 +202,44 @@ export const EXTRAS = [
       'Keep your hips on the floor and your neck long. Easier: rest your forehead on your hands and lift one leg at a time. Harder: lift both arms and both legs together.',
     ],
   },
+  {
+    id: 'gf-sit-to-stand', n: 'sit to stand', bp: 'upper legs', eq: 'body weight', tg: 'quads', mg: 'quads',
+    sm: ['glutes', 'core'],
+    st: [
+      'Sit near the front of a sturdy chair with your feet flat and hip-width apart, arms crossed or reaching forward.',
+      'Lean your chest forward and stand up by pushing through your whole feet, without using your hands if you can.',
+      'Stand fully tall, then sit back down slowly and with control.',
+      'Use your hands on the armrests at first if you need to; aim to need them less over the weeks.',
+    ],
+  },
+  {
+    id: 'gf-tandem-stance', n: 'tandem stance', bp: 'lower legs', eq: 'body weight', tg: 'calves', mg: 'balance',
+    sm: ['ankles', 'core'],
+    st: [
+      'Stand next to a counter or wall you can touch for support.',
+      'Place one foot directly in front of the other, heel touching toes, as if on a tightrope.',
+      'Hold steady for the set time, looking ahead, touching the support only if you need to.',
+      'Switch which foot is in front and repeat.',
+    ],
+  },
+  {
+    id: 'gf-single-leg-stance', n: 'single-leg stance', bp: 'lower legs', eq: 'body weight', tg: 'calves', mg: 'balance',
+    sm: ['glutes', 'ankles', 'core'],
+    st: [
+      'Stand next to a counter or wall you can touch for support.',
+      'Shift your weight onto one foot and lift the other a little off the floor.',
+      'Hold steady for the set time; use a fingertip on the support if you wobble.',
+      'Switch legs. Harder: let go of the support, or turn your head slowly side to side.',
+    ],
+  },
+  {
+    id: 'gf-heel-to-toe-walk', n: 'heel-to-toe walk', bp: 'lower legs', eq: 'body weight', tg: 'calves', mg: 'balance',
+    sm: ['ankles', 'core'],
+    st: [
+      'Stand at one end of a hallway or next to a counter, so you can reach a support.',
+      'Walk forward placing the heel of each foot directly in front of the toes of the other.',
+      'Look ahead rather than at your feet, and keep a steady, slow pace.',
+      'Walk 10 to 20 steps, turn carefully and walk back.',
+    ],
+  },
 ]
