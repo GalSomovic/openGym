@@ -10,6 +10,7 @@ import { t } from './i18n-native.js'
 import { isFav, toggleFav, sortFavouritesFirst } from '../../frontend/src/lib/favourites.js'
 import { smOf } from '../../frontend/src/lib/exercises.js'
 import { exerciseHistory } from '../../frontend/src/lib/exercise-history.js'
+import { MUSCLES, MUSCLE_NAME, musclesOf } from '../../frontend/src/lib/muscles.js'
 
 const brief = e => ({
   id: e.id, n: e.n, bp: e.bp, eq: e.eq, tg: e.tg || null, sm: smOf(e),
@@ -80,4 +81,30 @@ export function historyLines(id) {
     sets: s.sets.map(r => setLabel(id, r, s.target, speedUnitOf(S))).join(', '),
     pr: !!s.pr,
   }))
+}
+
+/**
+ * components/MuscleExplorer.jsx: browse the catalogue by muscle. Every muscle with how many
+ * exercises train it (after the equipment profile, unless `showAll`), and for the `selected`
+ * one its exercises, searched by `q`, favourites first, each marked primary or secondary.
+ */
+export function byMuscle({ selected = null, q = '', showAll = false } = {}) {
+  const S = need()
+  const profile = activeProfile(S)
+  const all = allExercises(S)
+  const catalog = (profile && !showAll) ? all.filter(e => exAvailable(S, e)) : all
+  const counts = Object.fromEntries(MUSCLES.map(m => [m, catalog.filter(e => musclesOf(e)[m]).length]))
+  const sel = MUSCLES.includes(selected) ? selected : null
+  const list = sel ? sortFavouritesFirst(searchExercises(catalog.filter(e => musclesOf(e)[sel]), q), S) : []
+  return {
+    muscles: MUSCLES.map(slug => ({ slug, name: t(MUSCLE_NAME[slug]), count: counts[slug] })),
+    selected: sel,
+    title: sel ? t('Exercises for {0}', t(MUSCLE_NAME[sel])) : null,
+    prompt: t('Choose a muscle to see exercises that train it.'),
+    exercises: list.map(e => ({
+      id: e.id,
+      line: `${t(musclesOf(e)[sel] === 1 ? 'Primary target' : 'Also trains')} · ${t(MUSCLE_NAME[e.tg] || e.tg || e.bp)} · ${t(e.eq)}`,
+    })),
+    profile: profile ? profile.name : null,
+  }
 }

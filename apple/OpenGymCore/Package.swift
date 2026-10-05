@@ -6,7 +6,7 @@ let package = Package(
     platforms: [.iOS(.v26), .macOS(.v15)],
     products: [.library(name: "OpenGymCore", targets: ["OpenGymCore"])],
     targets: [
-        .target(name: "OpenGymCore", resources: [.copy("Resources/engine.js")]),
+        .target(name: "OpenGymCore", resources: [.copy("Resources/engine.js"), .copy("Resources/body-paths.json")]),
         .testTarget(name: "OpenGymCoreTests", dependencies: ["OpenGymCore"]),
     ]
 )

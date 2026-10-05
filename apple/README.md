@@ -33,6 +33,14 @@ the default profile is lifted from openGym's own store at build time (`gen-defau
 Swift's `GymStore` calls these actions and draws the snapshots they return; it never writes the
 profile itself, so fields it does not model survive untouched.
 
+**Body maps.** The muscle diagrams are openGym's own outlines (`frontend/src/lib/body-paths.js`,
+artwork from MuscleMap by Melih Colpan, MIT; credited in the root `NOTICE.md`). `core/build.sh` writes
+them out unchanged as `OpenGymCore/Resources/body-paths.json` (`core/gen-body.mjs`) rather than through
+the engine, which never needs the ~90 KB of path strings. `SVGPath.swift` parses the path data (every
+SVG command, arcs to Béziers) once into `BodyGeometry`, and SwiftUI draws each muscle as a shape of its
+own, so taps and VoiceOver hit the exact muscle. What the shades mean, which parts are muscles and the
+figure (Settings → Appearance → Body diagram) come from the engine (`core/stats.js`, `plan.js`, `library.js`).
+
 **Local-first.** No account and no server: data lives on the device, in openGym's state shape,
 with optional iCloud sync (openGym's `sync-merge` reconciles devices). Server-only features
 (passkey accounts, self-hosted sync, admin, web push, MCP) are replaced by native equivalents

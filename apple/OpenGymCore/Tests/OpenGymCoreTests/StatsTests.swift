@@ -62,4 +62,19 @@ struct StatsTests {
         store.setBalanceExercise(role, "0025")
         #expect(store.structuralBalance()?.rows.first?.custom == true)
     }
+
+    @Test func muscleMapsDecode() throws {
+        let store = try logged()
+        let body = try #require(store.bodyInfo())
+        #expect(body.muscles.count == 18)
+        let balance = try #require(store.muscleMap(view: "balance", window: 0, hard: false, selected: "chest", today: "2026-10-05"))
+        #expect(balance.levels["chest"] == 4)
+        #expect(balance.top?.first?.slug == "chest")
+        let strength = try #require(store.muscleMap(view: "strength", window: 0, hard: false, selected: "chest", today: "2026-10-05"))
+        #expect(strength.palette == "strength")
+        #expect(store.muscleMap(view: "fatigue", window: 0, hard: false, selected: nil, today: "2026-10-05")?.legend.count == 3)
+        let browse = try #require(store.exercisesByMuscle("chest"))
+        #expect(browse.exercises.contains { $0.id == "0025" })
+        #expect(store.routineMuscles("r1")?.levels["chest"] == 4)
+    }
 }

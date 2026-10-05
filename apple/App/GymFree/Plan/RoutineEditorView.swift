@@ -115,8 +115,12 @@ struct RoutineEditorView: View {
                 }
             }
             if !r.ex.isEmpty, let muscles = store.routineMuscles(routineId), !muscles.worked.isEmpty {
+                // RoutineEdit.jsx: the routine as planned on a body map, so a gap shows while you build it.
                 Section("What this session hits") {
-                    FlowTags(tags: muscles.worked.prefix(8).map { catalog.muscleName($0) })
+                    BodyMapView(levels: muscles.levels)
+                        .frame(maxHeight: 220)
+                        .padding(.vertical, 4)
+                    FlowTags(tags: muscles.worked.prefix(6).map { catalog.muscleName($0) })
                 }
             }
             Section {

@@ -10,6 +10,7 @@ import OpenGymCore
 ///                       each heavier and rated (RIR), for the Stats screens
 ///   -GFProgress 0025    with -GFTab stats, open that exercise's progress
 ///   -GFBalance YES      with -GFTab stats, open structural balance
+///   -GFLibrary muscle   open the Exercises tab on the muscle explorer (or "list")
 ///   -GFDetail 0025      open an exercise in the library
 ///   -GFRoutine 0        open the n-th routine in the plan
 ///   -GFStart 0          start the n-th routine
@@ -35,6 +36,7 @@ enum DebugLaunch {
         }
     }
     static var detail: String? { args.string(forKey: "GFDetail") }
+    static var libraryMode: String? { args.string(forKey: "GFLibrary") }
     @MainActor static var statsPath: [TodayRouter.Route] {
         if let id = args.string(forKey: "GFProgress") { return [.progress(id)] }
         if args.bool(forKey: "GFBalance") { return [.balance] }
@@ -110,6 +112,7 @@ enum DebugLaunch {
     static let tab: AppTab? = nil
     @MainActor static var statsPath: [TodayRouter.Route] { [] }
     static let detail: String? = nil
+    static let libraryMode: String? = nil
     static let routine: Int? = nil
     static let config: Int? = nil
     static let guided = false

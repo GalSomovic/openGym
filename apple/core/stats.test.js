@@ -243,3 +243,62 @@ describe('structural balance', () => {
     expect(St.balance().rows.find(r => r.role === role).custom).toBe(false)
   })
 })
+
+describe('muscle maps', () => {
+  beforeEach(() => fresh())
+
+  it('names the muscles and the silhouette parts, and follows the body setting', () => {
+    const b = St.bodyInfo()
+    expect(b.body).toBe('male')
+    expect(b.muscles[0]).toEqual({ slug: 'trapezius', name: 'Traps' })
+    expect(b.inert).toContain('head')
+    fresh({ body: 'female' })
+    expect(St.bodyInfo().body).toBe('female')
+    expect(St.muscleBalance({}, NOW, '2026-10-05').body).toBe('female')
+  })
+
+  it('shades sets per muscle in a window, and only hard sets on request', () => {
+    const all = St.muscleBalance({ win: 0 }, NOW, '2026-10-05')
+    expect(all.palette).toBe('balance')
+    expect(all.levels.chest).toBe(4)                     // bench is the most-trained
+    expect(all.levels.hamstring).toBeGreaterThan(0)      // the deadlifts
+    expect(Object.values(all.levels).filter(l => l === 0).length).toBe(all.missed.length)
+    expect(all.top[0].slug).toBe('chest')
+    expect(all.missed.length).toBeGreaterThan(0)
+    expect(all.hardShown).toBe(true)
+    const hard = St.muscleBalance({ win: 0, hard: true }, NOW, '2026-10-05')
+    expect(hard.hard).toBe(true)
+    expect(hard.subtitle).toBe('by hard sets')
+    // The deadlifts and push-ups were never rated, so the muscles only they trained drop out.
+    const shaded = m => Object.values(m.levels).filter(Boolean).length
+    expect(shaded(hard)).toBeLessThan(shaded(all))
+    const week = St.muscleBalance({ win: 7 }, NOW, '2026-10-05')   // Mon 5 Oct: nothing yet
+    expect(week.empty).toBeTruthy()
+    const month = St.muscleBalance({ win: 30, selected: 'chest' }, NOW, '2026-10-05')
+    expect(month.selectedValue).toMatch(/sets/)
+  })
+
+  it('shows fatigue on fixed bands and names a muscle’s state', () => {
+    const f = St.muscleBalance({ view: 'fatigue', selected: 'chest' }, NOW)
+    expect(f.palette).toBe('fatigue')
+    expect(f.legend.map(l => l.level)).toEqual([4, 2, 0])
+    expect(['Ready', 'Recovering', 'Fatigued']).toContain(f.selectedValue)
+    const fresh0 = St.muscleBalance({ view: 'fatigue', selected: 'chest' }, at('2026-10-02', 20))
+    expect(fresh0.levels.chest).toBeGreaterThan(f.levels.chest)   // right after the session
+  })
+
+  it('shows retained strength and a muscle’s exercises with their estimated 1RM', () => {
+    const s = St.muscleBalance({ view: 'strength', selected: 'chest' }, NOW)
+    expect(s.palette).toBe('strength')
+    expect(s.levels.chest).toBe(4)                       // trained three days ago: full
+    expect(s.exercises[0].id).toBe('0025')
+    expect(s.exercises[0].estimate).toContain('79.2 kg')
+    expect(s.exercises[0].role).toBe('primary')
+    expect(s.exercises[0].name).toBe('Barbell Bench Press')
+    expect(s.hint).toBe(null)
+    const later = St.muscleBalance({ view: 'strength' }, NOW + 60 * 86400000)
+    expect(later.levels.chest).toBeLessThan(4)
+    expect(later.detrained.map(d => d.slug)).toContain('chest')
+    expect(later.hint).toBe('Tap a muscle to see its exercises.')
+  })
+})

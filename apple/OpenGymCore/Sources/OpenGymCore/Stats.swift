@@ -291,3 +291,85 @@ extension GymStore {
         perform(Self.stats, "setBalanceExercise", [role, exerciseId ?? NSNull(), nowMs], as: Bool.self)
     }
 }
+
+/* ------------------------------ muscle maps ------------------------------ */
+
+public struct BodyMuscle: Codable, Hashable, Sendable, Identifiable {
+    public var slug: String
+    public var name: String
+    public var id: String { slug }
+}
+
+/// Which outlines to draw (S.body), the muscles that take a shade and the silhouette parts.
+public struct BodyInfo: Codable, Hashable, Sendable {
+    public var body: String
+    public var muscles: [BodyMuscle]
+    public var inert: [String]
+}
+
+public struct MapLegend: Codable, Hashable, Sendable {
+    public var label: String
+    public var level: Int
+}
+
+public struct MuscleBar: Codable, Hashable, Sendable, Identifiable {
+    public var slug: String
+    public var name: String
+    public var frac: Double
+    public var value: String
+    public var detail: String?
+    public var id: String { slug }
+}
+
+public struct StrengthExercise: Codable, Hashable, Sendable, Identifiable {
+    public var id: String
+    public var name: String
+    public var role: String
+    public var estimate: String
+    public var frac: Double
+    public var value: String
+}
+
+/// Stats.jsx MuscleBalance: one of the balance, fatigue and strength maps.
+public struct MuscleMapData: Codable, Hashable, Sendable {
+    public var view: String
+    public var views: [StatsOption]
+    public var body: String
+    public var selected: String?
+    public var selectedName: String?
+    public var selectedValue: String?
+    /// "balance", "fatigue" or "strength": which colours the levels take.
+    public var palette: String
+    public var title: String
+    public var levels: [String: Int]
+    public var legend: [MapLegend]
+    public var note: String?
+    // balance
+    public var subtitle: String?
+    public var windows: [StatsOption]?
+    public var win: Int?
+    public var hardShown: Bool?
+    public var hard: Bool?
+    public var hardLabel: String?
+    public var empty: String?
+    public var top: [MuscleBar]?
+    public var missedTitle: String?
+    public var missed: [String]?
+    public var allWorked: String?
+    // strength
+    public var exercisesTitle: String?
+    public var exercises: [StrengthExercise]?
+    public var noExercises: String?
+    public var hint: String?
+    public var detrained: [MuscleBar]?
+}
+
+extension GymStore {
+    public func bodyInfo() -> BodyInfo? { query("stats", "bodyInfo", as: BodyInfo.self) }
+
+    /// `view` "balance", "fatigue" or "strength"; `window` 7 (this week), 30, 90 or 0 (all).
+    public func muscleMap(view: String, window: Int, hard: Bool, selected: String?, today: String) -> MuscleMapData? {
+        let opts: [String: Any] = ["view": view, "win": window, "hard": hard, "selected": selected ?? NSNull()]
+        return query("stats", "muscleBalance", [opts, Date().timeIntervalSince1970 * 1000, today], as: MuscleMapData.self)
+    }
+}
