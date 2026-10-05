@@ -141,6 +141,7 @@ struct WorkoutView: View {
             if DebugLaunch.guided { guided = true }
             if guidedDefault && a.setsDone == 0 && !a.isBackfill && !a.entries.isEmpty { guided = true }
         }
+        .keepsScreenAwake(store.pick("keepAwake", as: Bool.self) != false)
     }
 
     private var finishTitle: String {

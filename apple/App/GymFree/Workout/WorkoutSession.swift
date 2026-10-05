@@ -28,7 +28,13 @@ final class WorkoutSession {
         var set: Int
         var plan: Double
         var startedAt: Date
+        /// openGym's timedSetOvertime: past the target the hold keeps timing, up to 15 minutes.
+        var overtime = false
+        /// The target was reached and chimed.
+        var alerted = false
         var endsAt: Date { startedAt.addingTimeInterval(plan) }
+        /// The longest a hold can log (useUI.js MAX_WORK_OVERTIME_SEC).
+        var limit: Double { plan + (overtime ? 15 * 60 : 0) }
     }
 
     var rest: Rest?
@@ -38,6 +44,8 @@ final class WorkoutSession {
 
     /// Guided mode is on screen: cues are spoken as well as chimed.
     var guided = false
+    /// openGym's `vibrate` setting: the buzz on a tick and at the end of a rest or a hold.
+    var haptics = true
 
     let cues = CuePlayer()
     @ObservationIgnored private let store: GymStore
@@ -69,6 +77,7 @@ final class WorkoutSession {
 
     func syncSettings() {
         cues.enabled = store.pick("sound", as: Bool.self) ?? true
+        haptics = store.pick("vibrate", as: Bool.self) ?? true
         cues.voice = UserDefaults.standard.bool(forKey: Pref.voice)
     }
 
@@ -151,7 +160,7 @@ final class WorkoutSession {
     private func apply(_ o: ToggleOutcome) {
         if o.checked {
             if o.beep { cues.tick() }
-            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+            if haptics { UIImpactFeedbackGenerator(style: .light).impactOccurred() }
         }
         if o.stopRest { stopRest() }
         if let r = o.rest { startRest(r.sec, forIdx: r.forIdx) }
@@ -253,7 +262,8 @@ final class WorkoutSession {
         rest = nil
         cancelRestNotification()
         alarm.cancel()
-        hold = Hold(entry: entry, set: set, plan: max(1, plan), startedAt: .now)
+        hold = Hold(entry: entry, set: set, plan: max(1, plan), startedAt: .now,
+                    overtime: store.pick("timedSetOvertime", as: Bool.self) == true)
         lastCountdown = -1
         spokeHalf = false
         if voiceOn { cues.say(String(localized: "Go.")) }
@@ -264,7 +274,7 @@ final class WorkoutSession {
     /// "Done" before the time is up: logs what was actually held.
     func finishHoldEarly() {
         guard let h = hold else { return }
-        endHold(h, elapsed: Date.now.timeIntervalSince(h.startedAt).rounded(), chimed: false)
+        endHold(h, elapsed: min(h.limit, Date.now.timeIntervalSince(h.startedAt).rounded()), chimed: false)
     }
 
     func cancelHold() {
@@ -311,10 +321,13 @@ final class WorkoutSession {
                 spokeHalf = true
                 cues.say(String(localized: "Halfway."))
             }
-            if left <= 0 {
+            if left <= 0, !h.alerted {
                 cues.restOver()
-                UINotificationFeedbackGenerator().notificationOccurred(.success)
-                endHold(h, elapsed: h.plan, chimed: true)
+                if haptics { UINotificationFeedbackGenerator().notificationOccurred(.success) }
+                // With overtime on, the target only chimes; Done logs what was really held.
+                if h.overtime { hold?.alerted = true } else { endHold(h, elapsed: h.plan, chimed: true) }
+            } else if h.overtime, left <= h.plan - h.limit {
+                endHold(h, elapsed: h.limit, chimed: true)
             }
             return true
         }
@@ -329,7 +342,7 @@ final class WorkoutSession {
                 r.ready = true
                 rest = r
                 cues.restOver()
-                UINotificationFeedbackGenerator().notificationOccurred(.success)
+                if haptics { UINotificationFeedbackGenerator().notificationOccurred(.success) }
                 announceStep()
                 publish()
             }

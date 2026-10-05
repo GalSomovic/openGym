@@ -9,7 +9,7 @@
 // sheet) are returned as a description of what to do, never performed here.
 import { DEF } from './defaults.gen.js'
 import { registerCustom, EXIDX, betterWeight, beatsWeight } from '../../frontend/src/lib/exercises.js'
-import { todayISO, uid } from '../../frontend/src/lib/format.js'
+import { todayISO, uid, setWeightDecimals } from '../../frontend/src/lib/format.js'
 import {
   bestWeightFor, bestWeightForEntry, buildSets, freestyleConfig, defaultConfig, setsDoneActive,
   setUnitsTotal, supersetUnits, unitOf, modeOf, isPerSide, cascadeWeight, insertWarmupRow,
@@ -61,6 +61,7 @@ export function load(json) {
   S = Object.assign(clone(DEF), saved || {})
   if (!saved) S.langAuto = true
   registerCustom(S.customEx)
+  setWeightDecimals(S.wdec)
   rebaseline()
   return true
 }
@@ -88,6 +89,7 @@ export function patch(values) {
     st[k] = v
   }
   if ('customEx' in (values || {})) registerCustom(st.customEx)
+  if ('wdec' in (values || {})) setWeightDecimals(st.wdec)
   return true
 }
 

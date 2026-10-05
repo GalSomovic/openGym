@@ -9,6 +9,9 @@ import OpenGymCore
 ///   -GFDetail 0025      open an exercise in the library
 ///   -GFRoutine 0        open the n-th routine in the plan
 ///   -GFStart 0          start the n-th routine
+///   -GFBackupFile YES   Settings → Data exports to and imports from a file in the app's tmp
+///                       folder instead of the system file sheets (UI tests cannot drive those)
+///   GFImportText (environment): the text "Import from another app" reads instead of a file
 enum DebugLaunch {
     #if DEBUG
     private static var args: UserDefaults { .standard }
@@ -29,6 +32,10 @@ enum DebugLaunch {
     static var ticks: Int { args.integer(forKey: "GFTick") }
     /// -GFConfig 0: with -GFRoutine, open that routine's n-th exercise settings.
     static var config: Int? { args.object(forKey: "GFConfig").map { _ in args.integer(forKey: "GFConfig") } }
+    static var backupFile: URL? {
+        args.bool(forKey: "GFBackupFile") ? URL.temporaryDirectory.appending(path: "gymfree-uitest-backup.json") : nil
+    }
+    static var importText: String? { ProcessInfo.processInfo.environment["GFImportText"] }
 
     @MainActor
     static func prepare(_ store: GymStore, storage: StateStorage) {
@@ -51,6 +58,8 @@ enum DebugLaunch {
     static let config: Int? = nil
     static let guided = false
     static let ticks = 0
+    static let backupFile: URL? = nil
+    static let importText: String? = nil
     @MainActor static func prepare(_ store: GymStore, storage: StateStorage) {}
     #endif
 }

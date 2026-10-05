@@ -28,7 +28,7 @@ struct ExerciseDetailView: View {
                 Section {
                     FlowTags(tags: tags(detail))
                     if detail.best > 0 {
-                        LabeledContent("Best", value: Fmt.num(detail.best))
+                        LabeledContent("Best", value: "\(Fmt.num(detail.best)) \(store.pick("unit", as: String.self) ?? "kg")")
                     }
                 }
                 if !detail.st.isEmpty {

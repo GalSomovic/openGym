@@ -50,19 +50,24 @@ struct TimerBar: View {
     }
 
     private func hold(_ h: WorkoutSession.Hold, now: Date) -> some View {
-        let left = max(0, h.endsAt.timeIntervalSince(now))
         let name = store.active?.entries[safe: h.entry].map { catalog.name($0.id) } ?? ""
         return HStack(spacing: 12) {
             Image(systemName: "timer").font(.title2).foregroundStyle(Color.accentColor)
             VStack(alignment: .leading, spacing: 0) {
                 Text(name).font(.caption).foregroundStyle(.secondary).lineLimit(1)
-                Text(Self.clock(left)).font(.title2.weight(.bold).monospacedDigit())
+                Text(Self.holdClock(h, now: now)).font(.title2.weight(.bold).monospacedDigit())
             }
             Spacer()
             Button("Cancel") { session.cancelHold() }.buttonStyle(.bordered)
             Button("Done") { session.finishHoldEarly() }.buttonStyle(.borderedProminent)
         }
         .controlSize(.small)
+    }
+
+    /// A hold counts down to its target, then (openGym's "Keep timing after target") up past it.
+    static func holdClock(_ h: WorkoutSession.Hold, now: Date) -> String {
+        let over = now.timeIntervalSince(h.endsAt)
+        return h.overtime && over > 0 ? "+" + clock(over.rounded(.down)) : clock(max(0, -over))
     }
 
     static func clock(_ seconds: Double) -> String {

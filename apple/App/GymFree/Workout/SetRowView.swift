@@ -129,7 +129,7 @@ struct SetRowView: View {
                 .contentTransition(.symbolEffect(.replace))
         }
         .buttonStyle(.plain)
-        .sensoryFeedback(.success, trigger: done) { old, new in !old && new }
+        .sensoryFeedback(.success, trigger: done) { old, new in !old && new && session.haptics }
         .accessibilityLabel(Text(done ? "Done" : "Mark set done"))
     }
 
