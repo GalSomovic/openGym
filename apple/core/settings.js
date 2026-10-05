@@ -2,6 +2,9 @@
 import { need } from './actions.js'
 import { ALL_EQUIPMENT, activeProfile, newProfile, exAvailable } from '../../frontend/src/lib/equipment.js'
 import { EXIDX } from '../../frontend/src/lib/exercises.js'
+import { effortOf } from '../../frontend/src/lib/history.js'
+import { speedUnitOf } from '../../frontend/src/lib/speed.js'
+import { weekStartOf } from '../../frontend/src/lib/format.js'
 
 /** Body weight is always available (lib/equipment.js), so it is never a choice. */
 const ALWAYS = 'body weight'
@@ -50,4 +53,28 @@ export function missingEquipment(rid) {
   const r = S.routines.find(x => x.id === rid)
   if (!p || !r) return []
   return r.ex.map((e, i) => (EXIDX[e.id] && !exAvailable(S, EXIDX[e.id]) ? i : -1)).filter(i => i >= 0)
+}
+
+/**
+ * The General and During a workout settings, read the way openGym's Settings screen reads them:
+ * an absent or legacy value shows as what it means (speed follows the weight unit until chosen,
+ * effort from the old showRir switch, the plan unless "last" was picked).
+ */
+export function prefs() {
+  const S = need()
+  return {
+    unit: S.unit === 'lb' ? 'lb' : 'kg', speedUnit: speedUnitOf(S), wdec: S.wdec === 2 ? 2 : 1,
+    weekStart: weekStartOf(S), effort: effortOf(S), startFrom: S.startFrom === 'last' ? 'last' : 'plan',
+    restSec: Number.isFinite(S.restSec) ? S.restSec : 90, restPauseSec: S.restPauseSec || 15,
+    timedSetOvertime: !!S.timedSetOvertime, keepAwake: S.keepAwake !== false, weighIn: S.weighIn !== false,
+    sound: !!S.sound, vibrate: S.vibrate !== false,
+  }
+}
+
+/** Effort per set: 'none', 'rir' or 'rpe'. The legacy showRir switch goes with it, as in openGym. */
+export function setEffort(kind) {
+  const S = need()
+  S.effort = kind === 'rir' || kind === 'rpe' ? kind : 'none'
+  delete S.showRir
+  return prefs()
 }

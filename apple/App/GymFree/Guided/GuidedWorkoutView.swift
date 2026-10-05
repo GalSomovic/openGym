@@ -110,7 +110,7 @@ private struct StepPanel: View {
                     .buttonStyle(.borderedProminent)
                     .buttonBorderShape(.roundedRectangle(radius: 20))
                     .padding(.horizontal)
-                    .sensoryFeedback(.success, trigger: store.active?.setsDone ?? 0)
+                    .sensoryFeedback(.success, trigger: store.active?.setsDone ?? 0) { _, _ in session.haptics }
                 }
                 if let next {
                     UpNext(step: next, unit: unit).padding(.horizontal)
@@ -190,7 +190,7 @@ private struct HoldPanel: View {
         TimelineView(.periodic(from: .now, by: 0.1)) { ctx in
             let left = max(0, hold.endsAt.timeIntervalSince(ctx.date))
             VStack(spacing: 14) {
-                Ring(fraction: left / hold.plan, text: TimerBar.clock(left), caption: String(localized: "Hold"))
+                Ring(fraction: left / hold.plan, text: TimerBar.holdClock(hold, now: ctx.date), caption: String(localized: "Hold"))
                     .frame(width: 200, height: 200)
                 Button { session.finishHoldEarly() } label: {
                     Text("Done").font(.title3.weight(.bold)).frame(maxWidth: .infinity, minHeight: 54)

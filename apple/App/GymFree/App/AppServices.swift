@@ -16,6 +16,7 @@ final class AppServices {
             ?? FileStateStorage(url: URL.temporaryDirectory.appending(path: "gym_state_v1.json"))
         store = GymStore(storage: storage)
         DebugLaunch.prepare(store, storage: storage)
+        Fmt.sync(store)
         catalog = ExerciseCatalog(store: store)
         session = WorkoutSession(store: store, catalog: catalog)
         session.syncSettings()

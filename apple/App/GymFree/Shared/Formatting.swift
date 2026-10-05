@@ -1,9 +1,16 @@
 import Foundation
+import OpenGymCore
 
 enum Fmt {
-    /// openGym's fmtNum: up to `decimals` places, no trailing zeros.
-    static func num(_ v: Double, decimals: Int = 1) -> String {
-        v.formatted(.number.precision(.fractionLength(0...decimals)))
+    /// openGym's weight decimals (`wdec`): 1 or 2, display only. Kept in step with the profile
+    /// by `sync`, the way openGym's App.jsx pushes it to lib/format.js.
+    nonisolated(unsafe) static var weightDecimals = 1
+
+    @MainActor static func sync(_ store: GymStore) { weightDecimals = store.prefs()?.wdec ?? 1 }
+
+    /// openGym's fmtNum: up to `decimals` places (the weight decimals by default), no trailing zeros.
+    static func num(_ v: Double, decimals: Int? = nil) -> String {
+        v.formatted(.number.precision(.fractionLength(0...(decimals ?? weightDecimals))))
     }
 
     /// Weekday names in openGym's numbering (0 Sunday … 6 Saturday), in the device language.
