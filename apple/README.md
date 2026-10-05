@@ -60,6 +60,17 @@ The GIFs are **never committed** (publishing the raw files would be redistributi
 `apple/core/fetch-media.sh` downloads them once, throttled and resumable, into the gitignored
 `apple/Media/`, and Xcode bundles them (about 120 MB). The app makes no network calls for media.
 
+## Food database
+
+The optional food log can search about 7,700 generic foods offline: **USDA FoodData Central**
+Foundation Foods and SR Legacy, public domain (CC0), credited in About as "U.S. Department of
+Agriculture, Agricultural Research Service. FoodData Central". `apple/mediatools/usda_foods.py`
+downloads the CSVs into the gitignored `apple/Media/_raw/usda/` and writes the committed
+`apple/App/GymFree/Food/usda-foods.json` (about 0.9 MB, 0.2 MB gzipped): per 100 g kcal, protein,
+fat, available carbohydrate (USDA's carbohydrate by difference minus fibre, as on EU labels) and
+fibre, plus household portions. Search runs in Swift (`Food/FoodDatabase.swift`); picking a food only
+fills in the per-100 g values, and logging stays in `apple/core/nutrition.js`.
+
 ## Plan
 
 | Phase | Scope |

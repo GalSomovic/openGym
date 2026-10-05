@@ -34,6 +34,17 @@ describe('food log', () => {
     N.removeEntry('2026-10-05', d.entries[0].id)
     expect(A.pick('gfFoodLog').gfFoodLog).toEqual({})
   })
+  it('logs a food picked from the bundled database, saving it once', () => {
+    const rice = { kcal: 130, p: 2.7, f: 0.3, c: 27.8, fiber: 0.4 }
+    const d1 = N.logFood('2026-10-05', { name: 'Rice, white, cooked', per100: rice, grams: 200, save: true, src: 'usda:168878' })
+    N.logFood('2026-10-06', { name: 'Rice, white, cooked', per100: rice, grams: 150, save: true, src: 'usda:168878' })
+    expect(N.savedFoods()).toHaveLength(1)
+    expect(N.savedFoods()[0]).toMatchObject({ src: 'usda:168878', per100: { kcal: 130, fiber: 0.4 } })
+    expect(d1.entries[0]).toMatchObject({ src: 'usda:168878', amount: { kcal: 260, p: 5.4, c: 55.6, fiber: 0.8 } })
+    const once = N.logFood('2026-10-07', { name: 'Rice', per100: rice, grams: 100, save: false, src: 'usda:168878' })
+    expect(once.entries[0].src).toBe('usda:168878')
+    expect(N.savedFoods()).toHaveLength(1)
+  })
   it('is kept in the profile and survives a reload', () => {
     N.logFood('2026-10-05', { name: 'Egg', per100: { kcal: 143, p: 12.6, f: 9.5, c: 0.7 }, grams: 120 })
     const json = A.exportState()

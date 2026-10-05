@@ -208,10 +208,13 @@ struct AboutView: View {
                 NavigationLink { MediaCreditsView() } label: {
                     Label("Exercise media credits", systemImage: "photo.on.rectangle")
                 }
+                Link(destination: URL(string: "https://fdc.nal.usda.gov/")!) {
+                    Label("USDA FoodData Central", systemImage: "fork.knife")
+                }
             } header: {
                 Text("Thanks to")
             } footer: {
-                Text("Exercise animations © AscendAPI (ExerciseDB), used under its free non-commercial licence. Videos and illustrations from wger, Wikimedia Commons and Feeel are used under their open licences (mostly CC BY-SA 4.0; US Army clips are public domain).")
+                Text("Exercise animations © AscendAPI (ExerciseDB), used under its free non-commercial licence. Videos and illustrations from wger, Wikimedia Commons and Feeel are used under their open licences (mostly CC BY-SA 4.0; US Army clips are public domain). Food values: U.S. Department of Agriculture, Agricultural Research Service. FoodData Central (Foundation Foods and SR Legacy), public domain (CC0).")
             }
         }
         .navigationTitle("About")
