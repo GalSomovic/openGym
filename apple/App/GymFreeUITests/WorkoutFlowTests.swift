@@ -15,6 +15,10 @@ final class WorkoutFlowTests: XCTestCase {
         let start = app.staticTexts["Start"].firstMatch
         XCTAssertTrue(start.waitForExistence(timeout: 5))
         start.tap()
+        // The pre-workout weigh-in (on by default) can be skipped.
+        let skipWeighIn = app.buttons["Start without weighing in"]
+        XCTAssertTrue(skipWeighIn.waitForExistence(timeout: 3), "the weigh-in comes first")
+        skipWeighIn.tap()
 
         let tick = app.buttons["Mark set done"].firstMatch
         XCTAssertTrue(tick.waitForExistence(timeout: 5))

@@ -36,3 +36,5 @@ export * as i18n from './i18n-native.js'
 export * as workout from './workout.js'
 export * as settings from './settings.js'
 export * as nutrition from './nutrition.js'
+// History, Home's week and body weight (see history-actions.js).
+export * as historyActions from './history-actions.js'
