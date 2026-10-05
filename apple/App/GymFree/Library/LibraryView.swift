@@ -7,6 +7,7 @@ struct LibraryView: View {
     @Environment(ExerciseCatalog.self) private var catalog
 
     @State private var path: [String] = DebugLaunch.detail.map { [$0] } ?? []
+    @State private var creating = false
 
     var body: some View {
         NavigationStack(path: $path) {
@@ -17,6 +18,15 @@ struct LibraryView: View {
             }
             .navigationTitle("Exercises")
             .navigationDestination(for: String.self) { id in ExerciseDetailView(exerciseId: id) }
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Button { creating = true } label: { Image(systemName: "plus") }
+                        .accessibilityLabel(Text("New exercise"))
+                }
+            }
+            .sheet(isPresented: $creating) {
+                CustomExerciseForm { id in path.append(id) }
+            }
         }
     }
 }

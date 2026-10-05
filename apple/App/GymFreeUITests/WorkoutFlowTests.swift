@@ -111,6 +111,24 @@ final class WorkoutFlowTests: XCTestCase {
         XCTAssertTrue(app.buttons["Print or save as PDF"].isEnabled)
     }
 
+    func testCreateACustomExercise() {
+        let app = launch(["-GFTab", "exercises"])
+        let plus = app.buttons["New exercise"]
+        XCTAssertTrue(plus.waitForExistence(timeout: 5))
+        plus.tap()
+        let name = app.textFields["custom.name"]
+        XCTAssertTrue(name.waitForExistence(timeout: 3))
+        name.tap(); name.typeText("Towel curl")
+        app.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Body part'")).firstMatch.tap()
+        app.buttons["Upper Arms"].firstMatch.tap()
+        app.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Equipment'")).firstMatch.tap()
+        app.buttons["Body Weight"].firstMatch.tap()
+        app.buttons["Biceps"].firstMatch.tap()
+        app.buttons["custom.save"].tap()
+        XCTAssertTrue(app.navigationBars["Towel Curl"].waitForExistence(timeout: 5) || app.staticTexts["Towel Curl"].waitForExistence(timeout: 2),
+                      "the new exercise opens")
+    }
+
     func testBuildARoutine() {
         let app = launch(["-GFTab", "plan"])
         app.buttons["New"].firstMatch.tap()

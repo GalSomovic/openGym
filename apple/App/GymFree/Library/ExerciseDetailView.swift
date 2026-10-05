@@ -8,6 +8,8 @@ struct ExerciseDetailView: View {
     @State private var detail: ExerciseDetail?
     @State private var note = ""
     @State private var addPresented = false
+    @State private var editingCustom = false
+    @Environment(\.dismiss) private var dismissDetail
 
     var body: some View {
         List {
@@ -58,6 +60,11 @@ struct ExerciseDetailView: View {
         .navigationTitle(detail?.displayName ?? catalog.name(exerciseId))
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
+            if exerciseId.hasPrefix("c"), store.query("custom", "get", [exerciseId], as: JSONValue?.self) != nil {
+                ToolbarItem(placement: .primaryAction) {
+                    Button("Edit") { editingCustom = true }
+                }
+            }
             if let detail {
                 ToolbarItem(placement: .primaryAction) {
                     Button {
@@ -71,6 +78,10 @@ struct ExerciseDetailView: View {
             }
         }
         .sheet(isPresented: $addPresented) { AddToRoutineSheet(exerciseId: exerciseId) }
+        .sheet(isPresented: $editingCustom, onDismiss: {
+            // Deleted: leave the page; edited: show the new details.
+            if catalog[exerciseId] == nil { dismissDetail() } else { detail = store.exerciseDetail(exerciseId) }
+        }) { CustomExerciseForm(editing: exerciseId) }
         .onAppear {
             detail = store.exerciseDetail(exerciseId)
             note = detail?.note ?? ""
