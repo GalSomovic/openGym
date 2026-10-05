@@ -42,5 +42,6 @@ export * as targets from './targets.js'
 export * as reminders from './reminders.js'
 export * as share from './share.js'
 export * as custom from './custom.js'
+export * as platesActions from './plates-actions.js'
 // History, Home's week and body weight (see history-actions.js).
 export * as historyActions from './history-actions.js'

@@ -10,6 +10,11 @@ struct EquipmentSettingsView: View {
 
     var body: some View {
         List {
+            Section {
+                NavigationLink { PlateInventoryView() } label: { Label("Plates", systemImage: "circle.circle") }
+            } footer: {
+                Text("The plates you own; the plate line under each set loads from them.")
+            }
             if let state {
                 Section {
                     Button("Select all", systemImage: "checkmark.circle") { set(state.all) }

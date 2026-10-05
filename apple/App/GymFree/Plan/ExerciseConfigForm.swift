@@ -154,6 +154,7 @@ struct ExerciseConfigForm: View {
         }
         if info.mode == "reps" { intensifier(info) }
         if !info.policies.isEmpty { progression(info) }
+        if info.mode == "reps" { PlateLoadingSection(exerciseId: exerciseId) }
     }
 
     @ViewBuilder

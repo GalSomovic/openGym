@@ -14,6 +14,7 @@ struct ExerciseBlockView: View {
     @State private var swapping = false
     @State private var progressionEditing = false
     @State private var historyShown = false
+    @State private var platesShown = false
     @State private var removeConfirm = false
     @State private var demoHidden = false
 
@@ -57,6 +58,7 @@ struct ExerciseBlockView: View {
         .sheet(isPresented: $swapping) { swapSheet(e) }
         .sheet(isPresented: $progressionEditing) { progressionSheet(e) }
         .sheet(isPresented: $historyShown) { ExerciseHistorySheet(exerciseId: e.id) }
+        .sheet(isPresented: $platesShown) { PlateLoadingSheet(exerciseId: e.id) }
         .confirmationDialog("Remove \(catalog.name(e.id))?", isPresented: $removeConfirm, titleVisibility: .visible) {
             Button("Remove", role: .destructive) {
                 session.exerciseRemoved(entry)
@@ -90,6 +92,9 @@ struct ExerciseBlockView: View {
         return Menu {
             Button(e.note?.isEmpty == false ? "Edit note" : "Add note", systemImage: "pencil") { noteEditing = true }
             Button("History", systemImage: "clock.arrow.circlepath") { historyShown = true }
+            if e.target?.mode != "time" {
+                Button("Plate loading", systemImage: "circle.circle") { platesShown = true }
+            }
             if !editing {
                 Button("Progression settings", systemImage: "chart.line.uptrend.xyaxis") { progressionEditing = true }
             }

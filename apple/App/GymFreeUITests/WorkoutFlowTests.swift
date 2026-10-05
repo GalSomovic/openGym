@@ -129,6 +129,20 @@ final class WorkoutFlowTests: XCTestCase {
                       "the new exercise opens")
     }
 
+    func testPlateInventoryChangesACount() {
+        let app = launch(["-GFTab", "settings"])
+        let equipment = app.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Equipment'")).firstMatch
+        XCTAssertTrue(equipment.waitForExistence(timeout: 5))
+        equipment.tap()
+        let plates = app.buttons["Plates"].firstMatch
+        XCTAssertTrue(plates.waitForExistence(timeout: 3))
+        plates.tap()
+        let decrement = app.buttons.matching(NSPredicate(format: "label CONTAINS 'Decrement'")).firstMatch
+        XCTAssertTrue(decrement.waitForExistence(timeout: 3))
+        decrement.tap()
+        XCTAssertTrue(app.buttons["Back to the standard set"].waitForExistence(timeout: 3), "the list becomes your own")
+    }
+
     func testBuildARoutine() {
         let app = launch(["-GFTab", "plan"])
         app.buttons["New"].firstMatch.tap()
