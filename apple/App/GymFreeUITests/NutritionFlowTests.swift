@@ -14,7 +14,7 @@ final class NutritionFlowTests: XCTestCase {
         app.launchArguments = ["-GFReset", "YES", "-GFStarter", "full-body", "-GFTab", "settings"]
         app.launch()
         let setup = app.buttons["nutrition.setup"]
-        if !setup.waitForExistence(timeout: 5) { app.swipeUp() }
+        for _ in 0..<5 where !setup.waitForExistence(timeout: 1.5) { app.swipeUp() }
         XCTAssertTrue(setup.waitForExistence(timeout: 5))
         setup.tap()
         let save = app.buttons["nutrition.save"]
