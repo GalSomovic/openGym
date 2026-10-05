@@ -146,6 +146,7 @@ struct WorkoutView: View {
             if guidedDefault && a.setsDone == 0 && !a.isBackfill && !a.isEditing && !a.entries.isEmpty { guided = true }
         }
         .keepsScreenAwake(store.pick("keepAwake", as: Bool.self) != false)
+        .modifier(TimerFlash(tick: session.flashTick, on: store.pick("timerFlash", as: Bool.self) == true))
     }
 
     /// The session note and the dialogs of a saved workout open in the editor.
@@ -420,5 +421,24 @@ struct ToastView: View {
                     withAnimation { session.toast = nil }
                 }
         }
+    }
+}
+
+/// openGym's timer flash for loud gyms: the screen flashes when a rest or a hold ends.
+private struct TimerFlash: ViewModifier {
+    let tick: Int
+    let on: Bool
+    @State private var opacity = 0.0
+
+    func body(content: Content) -> some View {
+        content
+            .overlay {
+                Color.accentColor.opacity(opacity).ignoresSafeArea().allowsHitTesting(false)
+            }
+            .onChange(of: tick) {
+                guard on else { return }
+                withAnimation(.easeOut(duration: 0.15)) { opacity = 0.55 }
+                withAnimation(.easeIn(duration: 0.6).delay(0.2)) { opacity = 0 }
+            }
     }
 }

@@ -40,6 +40,8 @@ final class WorkoutSession {
     var rest: Rest?
     var hold: Hold?
     var completePrompt = false
+    /// Bumped when a rest or a hold ends: the workout screen flashes on it (timer flash setting).
+    var flashTick = 0
     var toast: String?
 
     /// Guided mode is on screen: cues are spoken as well as chimed.
@@ -324,6 +326,7 @@ final class WorkoutSession {
             }
             if left <= 0, !h.alerted {
                 cues.restOver()
+                flashTick &+= 1
                 if haptics { UINotificationFeedbackGenerator().notificationOccurred(.success) }
                 // With overtime on, the target only chimes; Done logs what was really held.
                 if h.overtime { hold?.alerted = true } else { endHold(h, elapsed: h.plan, chimed: true) }
@@ -343,6 +346,7 @@ final class WorkoutSession {
                 r.ready = true
                 rest = r
                 cues.restOver()
+                flashTick &+= 1
                 if haptics { UINotificationFeedbackGenerator().notificationOccurred(.success) }
                 announceStep()
                 publish()

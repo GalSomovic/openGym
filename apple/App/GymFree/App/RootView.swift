@@ -7,6 +7,16 @@ enum AppTab: Hashable {
 
 struct RootView: View {
     @State private var tab: AppTab = DebugLaunch.tab ?? .today
+    @Environment(GymStore.self) private var store
+
+    /// Settings → Appearance; GymFree follows the system unless told otherwise.
+    private var scheme: ColorScheme? {
+        switch store.pick("gfTheme", as: String.self) {
+        case "dark": .dark
+        case "light": .light
+        default: nil
+        }
+    }
 
     var body: some View {
         TabView(selection: $tab) {
@@ -24,5 +34,6 @@ struct RootView: View {
             }
         }
         .tabViewStyle(.sidebarAdaptable)
+        .preferredColorScheme(scheme)
     }
 }

@@ -41,6 +41,23 @@ struct SettingsView: View {
                     Text("Cues play over your music: it ducks while GymFree speaks, then comes back up. The rest alarm rings through silent mode and Focus when a rest ends while your phone is locked.")
                 }
                 ReminderSettingsSection()
+                Section("Appearance") {
+                    Picker(selection: Binding(get: { store.pick("gfTheme", as: String.self) ?? "system" },
+                                              set: { store.patch(["gfTheme": $0]) })) {
+                        Text("System").tag("system")
+                        Text("Dark").tag("dark")
+                        Text("Light").tag("light")
+                    } label: { Label("Theme", systemImage: "circle.lefthalf.filled") }
+                    Picker(selection: Binding(get: { store.pick("body", as: String.self) == "female" ? "female" : "male" },
+                                              set: { store.patch(["body": $0]) })) {
+                        Text("Male").tag("male")
+                        Text("Female").tag("female")
+                    } label: { Label("Body diagram", systemImage: "figure.stand") }
+                    Toggle(isOn: Binding(get: { store.pick("timerFlash", as: Bool.self) == true },
+                                         set: { store.patch(["timerFlash": $0]) })) {
+                        Label("Flash the screen when a rest ends", systemImage: "light.max")
+                    }
+                }
                 Section {
                     NutritionSettingsRow()
                 } footer: {
