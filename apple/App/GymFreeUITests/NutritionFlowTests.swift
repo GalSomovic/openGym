@@ -17,6 +17,9 @@ final class NutritionFlowTests: XCTestCase {
         if !setup.waitForExistence(timeout: 5) { app.swipeUp() }
         XCTAssertTrue(setup.waitForExistence(timeout: 5))
         setup.tap()
+        let ok = app.buttons["healthNotice.ok"]
+        XCTAssertTrue(ok.waitForExistence(timeout: 5))
+        ok.tap()
         let save = app.buttons["nutrition.save"]
         XCTAssertTrue(save.waitForExistence(timeout: 5))
         shot(app, "setup-top")
