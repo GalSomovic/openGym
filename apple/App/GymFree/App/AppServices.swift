@@ -10,6 +10,8 @@ final class AppServices {
     let store: GymStore
     let catalog: ExerciseCatalog
     let session: WorkoutSession
+    let health: HealthSync
+    let tracker: ActivityTracker
 
     private init() {
         let storage: StateStorage = (try? FileStateStorage.standard())
@@ -20,6 +22,10 @@ final class AppServices {
         catalog = ExerciseCatalog(store: store)
         session = WorkoutSession(store: store, catalog: catalog)
         session.syncSettings()
+        health = HealthSync()
+        tracker = ActivityTracker(store: store, health: health)
+        // Routes of activities no longer in the history (deleted, or a backup restored).
+        RouteStore.standard.prune(keeping: Set(store.activityKeys()))
         GuidedBridge.handler = { [session] action in
             switch action {
             case .completeSet: session.completeCurrentSet()

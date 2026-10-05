@@ -8,6 +8,7 @@ struct WorkoutView: View {
     @Environment(GymStore.self) private var store
     @Environment(WorkoutSession.self) private var session
     @Environment(ExerciseCatalog.self) private var catalog
+    @Environment(HealthSync.self) private var health
     @State private var adding = false
     @State private var finishAsk: FinishCheck?
     @State private var summary: FinishSummary?
@@ -257,7 +258,10 @@ struct WorkoutView: View {
     }
 
     private func finish() {
+        // Logging a day again replaces a workout that may already be in Health: not saved twice.
+        let replacing = store.active?.backfill?.replaceId != nil
         if let s = store.finishWorkout() {
+            if !replacing { health.saveStrength(s.workout) }
             session.ended()
             session.cues.finished()
             guided = false

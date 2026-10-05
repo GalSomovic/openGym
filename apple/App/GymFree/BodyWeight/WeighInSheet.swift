@@ -70,6 +70,7 @@ struct WeighInSheet: View {
     @Environment(GymStore.self) private var store
     @Environment(TodayRouter.self) private var router
     @Environment(WorkoutSession.self) private var session
+    @Environment(HealthSync.self) private var health
     @Environment(\.dismiss) private var dismiss
     @State private var value: Double = 70
     @State private var loaded = false
@@ -128,7 +129,10 @@ struct WeighInSheet: View {
                 if routineIds == nil {
                     ToolbarItem(placement: .confirmationAction) {
                         Button("Save") {
-                            if store.logWeight(value) != nil { session.toast = String(localized: "Weight saved") }
+                            if let saved = store.logWeight(value) {
+                                session.toast = String(localized: "Weight saved")
+                                health.saveWeight(saved, unit: card?.unit ?? "kg")
+                            }
                             dismiss()
                         }
                         .fontWeight(.semibold)
@@ -149,6 +153,7 @@ struct WeighInSheet: View {
     private func begin(saving: Bool) {
         guard let ids = routineIds else { return }
         let bw = saving ? store.logWeight(value) : nil
+        if let bw { health.saveWeight(bw, unit: store.weightCard()?.unit ?? "kg") }
         router.sheet = nil
         store.beginWorkout(routineIds: ids, bodyWeight: bw, freestyleName: String(localized: "Freestyle"))
     }

@@ -6,6 +6,7 @@ import SwiftUI
 struct TodayView: View {
     @Binding var tab: AppTab
     @Environment(GymStore.self) private var store
+    @Environment(ActivityTracker.self) private var tracker
     /// Keeps the workout screen up after finishing, for its summary.
     @State private var finished = false
     @State private var router = TodayRouter()
@@ -26,8 +27,17 @@ struct TodayView: View {
         .sheet(item: $router.sheet) { sheet in
             TodaySheetView(sheet: sheet)
         }
+        .fullScreenCover(isPresented: $router.activityShown) { ActivityView() }
         .environment(router)
-        .onAppear { router.openTab = { tab = $0 } }
+        .onAppear {
+            router.openTab = { tab = $0 }
+            if let kind = DebugLaunch.activity, tracker.phase == .idle, tracker.finished == nil {
+                tracker.choose(kind)
+                UserDefaults.standard.set(kind.rawValue, forKey: "gf.activityKind")
+                if DebugLaunch.activityGo { tracker.start() }
+                router.activityShown = true
+            }
+        }
         // A session started from History (a past workout, an edit) takes the tab from the top.
         .onChange(of: store.active?.id) { _, id in if id != nil { router.path = [] } }
         // An edit saved or dropped goes back to the history it came from.
@@ -73,6 +83,7 @@ struct TodaySheetView: View {
 private struct StartChooser: View {
     @Environment(GymStore.self) private var store
     @Environment(TodayRouter.self) private var router
+    @Environment(ActivityTracker.self) private var tracker
     @State private var weekOffset = 0
 
     var body: some View {
@@ -84,6 +95,9 @@ private struct StartChooser: View {
         let todayName = today.map(\.name).joined(separator: " + ")
         let card = store.weightCard()
         List {
+            if tracker.isActive || tracker.recovered != nil {
+                Section { ActivityBanner { router.activityShown = true } }
+            }
             Section {
                 WeekStripView(offset: $weekOffset)
             }
@@ -177,6 +191,13 @@ private struct StartChooser: View {
             Section {
                 Button { start([]) } label: {
                     Label("Freestyle workout (pick as you go)", systemImage: "shuffle")
+                }
+                // GPS tracking, optional: out of the way of the strength workouts above.
+                if !tracker.isActive {
+                    Button { router.activityShown = true } label: {
+                        Label("Walk, run or ride (GPS)", systemImage: "figure.walk")
+                    }
+                    .accessibilityIdentifier("today.activity")
                 }
                 if store.routines.isEmpty {
                     Button { router.openTab(.plan) } label: { Label("Build a plan first", systemImage: "calendar") }

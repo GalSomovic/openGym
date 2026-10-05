@@ -18,10 +18,15 @@ struct GymFreeApp: App {
                 .environment(services.store)
                 .environment(services.catalog)
                 .environment(services.session)
+                .environment(services.health)
+                .environment(services.tracker)
         }
         // Debounced saves cover normal use; leaving the app writes at once.
         .onChange(of: scenePhase) { _, phase in
-            if phase != .active { services.store.saveNow() }
+            if phase != .active {
+                services.store.saveNow()
+                services.tracker.saveDraft(force: true)
+            }
             if phase == .active {
                 services.session.syncSettings()
                 Task { await Reminders.sync(store: services.store) }

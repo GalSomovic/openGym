@@ -16,6 +16,11 @@ import OpenGymCore
 ///   -GFBackupFile YES   Settings → Data exports to and imports from a file in the app's tmp
 ///                       folder instead of the system file sheets (UI tests cannot drive those)
 ///   GFImportText (environment): the text "Import from another app" reads instead of a file
+///   -GFFakeRoute YES    walks, runs and rides follow a scripted route instead of the GPS (no
+///                       location prompt), for UI tests and screenshots
+///   -GFNoHealth YES     never touch Apple Health, whatever Settings says (UI tests)
+///   -GFActivity walk    open the walk / run / cycle screen on Today
+///   -GFActivityGo YES   with -GFActivity, start tracking at once
 enum DebugLaunch {
     #if DEBUG
     private static var args: UserDefaults { .standard }
@@ -46,12 +51,17 @@ enum DebugLaunch {
         args.bool(forKey: "GFBackupFile") ? URL.temporaryDirectory.appending(path: "gymfree-uitest-backup.json") : nil
     }
     static var importText: String? { ProcessInfo.processInfo.environment["GFImportText"] }
+    static var fakeRoute: Bool { args.bool(forKey: "GFFakeRoute") }
+    static var noHealth: Bool { args.bool(forKey: "GFNoHealth") }
+    static var activity: ActivityKind? { args.string(forKey: "GFActivity").flatMap(ActivityKind.init(rawValue:)) }
+    static var activityGo: Bool { args.bool(forKey: "GFActivityGo") }
 
     @MainActor
     static func prepare(_ store: GymStore, storage: StateStorage) {
         if args.bool(forKey: "GFReset") {
             try? store.replaceProfile(json: "{}")
             UserDefaults.standard.removeObject(forKey: HealthNotice.seenKey)   // as on a fresh install
+            RouteStore.standard.deleteDraft()
         }
         if let eq = args.string(forKey: "GFEquipment") {
             store.setEquipment(eq == "none" ? [] : eq.components(separatedBy: ","), name: "My equipment")
@@ -106,6 +116,10 @@ enum DebugLaunch {
     static let ticks = 0
     static let backupFile: URL? = nil
     static let importText: String? = nil
+    static let fakeRoute = false
+    static let noHealth = false
+    static let activity: ActivityKind? = nil
+    static let activityGo = false
     @MainActor static func prepare(_ store: GymStore, storage: StateStorage) {}
     #endif
 }

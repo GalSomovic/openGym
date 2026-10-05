@@ -98,7 +98,7 @@ struct WorkoutRowView: View {
 
     var body: some View {
         HStack(spacing: 12) {
-            RoutineIcon(emoji: row.emoji)
+            RoutineIcon(emoji: row.emoji, symbol: row.activity.flatMap(ActivityKind.init(rawValue:))?.symbol)
             VStack(alignment: .leading, spacing: 2) {
                 Text(row.name).foregroundStyle(.primary)
                 Text(row.line).font(.subheadline).foregroundStyle(.secondary)

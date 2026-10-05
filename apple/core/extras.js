@@ -242,4 +242,24 @@ export const EXTRAS = [
       'Walk 10 to 20 steps, turn carefully and walk back.',
     ],
   },
+  // Outdoor cardio that GPS tracking logs (activity.js); also usable as plain cardio entries.
+  {
+    id: 'gf-walk', n: 'walking', bp: 'cardio', eq: 'body weight', tg: 'cardiovascular system', mg: 'calves',
+    sm: ['quads', 'hamstrings', 'glutes', 'calves'],
+    st: [
+      'Walk tall with your head up, shoulders relaxed and your arms swinging naturally.',
+      'Land on your heel and roll through to push off from your toes.',
+      'For a brisk walk, pick a pace where you can talk but not sing.',
+    ],
+  },
+  {
+    id: 'gf-cycling', n: 'cycling', bp: 'cardio', eq: 'bicycle', tg: 'cardiovascular system', mg: 'quads',
+    sm: ['quads', 'glutes', 'hamstrings', 'calves'],
+    st: [
+      'Set the saddle so your knee is only slightly bent at the bottom of each pedal stroke.',
+      'Keep a light grip on the bars, your elbows soft and your back long.',
+      'Pedal in smooth circles and shift gears to keep a steady cadence on hills.',
+      'Wear a helmet and follow the rules of the road.',
+    ],
+  },
 ]

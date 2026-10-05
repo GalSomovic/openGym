@@ -47,3 +47,5 @@ export * as platesActions from './plates-actions.js'
 export * as historyActions from './history-actions.js'
 // Stats, the heatmap, effort, the 1RM calculator, structural balance (see stats.js).
 export * as stats from './stats.js'
+// GPS walks, runs and rides, filed as cardio workouts (see activity.js).
+export * as activity from './activity.js'

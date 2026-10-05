@@ -32,6 +32,7 @@ struct WorkoutDetailView: View {
                     .listRowBackground(Color.clear)
                     .listRowInsets(EdgeInsets(top: 0, leading: 4, bottom: 0, trailing: 4))
             }
+            if let a = w.activity { ActivityDetailSection(key: key, activity: a) }
             ForEach(Array(w.sections.enumerated()), id: \.offset) { _, section in
                 Section {
                     ForEach(Array(section.units.enumerated()), id: \.offset) { _, unit in
@@ -62,17 +63,22 @@ struct WorkoutDetailView: View {
                     .accessibilityIdentifier("detail.note")
             }
             Section {
-                Button("Edit workout", systemImage: "pencil") {
-                    saveNote()
-                    store.editWorkout(key)
+                // A GPS activity is what was measured: its sets, length and pace are not edited.
+                if w.activity == nil {
+                    Button("Edit workout", systemImage: "pencil") {
+                        saveNote()
+                        store.editWorkout(key)
+                    }
+                    .disabled(w.busy)
                 }
-                .disabled(w.busy)
                 Button("Change date & time", systemImage: "calendar") { saveNote(); editingDate = true }
-                Button("Change duration", systemImage: "timer") { saveNote(); editingDuration = true }
-                Button("Save as routine", systemImage: "plus.square.on.square") { askSaveRoutine = true }
+                if w.activity == nil {
+                    Button("Change duration", systemImage: "timer") { saveNote(); editingDuration = true }
+                    Button("Save as routine", systemImage: "plus.square.on.square") { askSaveRoutine = true }
+                }
                 Button("Copy as text", systemImage: "doc.on.doc") { copy() }
             } footer: {
-                if w.busy { Text("Finish the current workout first.") }
+                if w.busy && w.activity == nil { Text("Finish the current workout first.") }
             }
             Section {
                 Button("Delete workout", systemImage: "trash", role: .destructive) { askDelete = true }
@@ -98,11 +104,12 @@ struct WorkoutDetailView: View {
             Button("Delete", role: .destructive) {
                 loadedNote = note   // nothing left to save
                 store.deleteWorkout(key)
+                RouteStore.standard.delete(key)
                 session.toast = String(localized: "Workout deleted")
                 dismiss()
             }
         } message: {
-            Text("This removes it from your history for good.")
+            Text(w.activity?.hk != nil ? "This removes it from your history for good. The copy in Apple Health stays; delete it there if you want." : "This removes it from your history for good.")
         }
     }
 
@@ -221,5 +228,34 @@ struct WorkoutDurationSheet: View {
             }
         }
         .presentationDetents([.medium])
+    }
+}
+
+/// A GPS walk, run or ride: the route and what was measured.
+private struct ActivityDetailSection: View {
+    let key: String
+    let activity: ActivitySummary
+
+    var body: some View {
+        Section {
+            if activity.route {
+                SavedRouteMap(key: key)
+                    .listRowInsets(EdgeInsets(top: 8, leading: 8, bottom: 8, trailing: 8))
+            }
+            LabeledContent("Distance", value: activity.distance)
+                .accessibilityIdentifier("detail.distance")
+            LabeledContent("Moving time", value: MotionFormat.clock(activity.movingSec))
+            if activity.activityKind == .cycle {
+                LabeledContent("Average speed", value: activity.speed)
+            } else if let pace = activity.pace {
+                LabeledContent("Average pace", value: pace)
+            }
+            if let up = activity.ascent, up >= 1 {
+                LabeledContent("Climb", value: "\(Int(up)) m")
+            }
+            if activity.hk != nil {
+                Label("Saved to Apple Health", systemImage: "heart.fill").font(.footnote).foregroundStyle(.secondary)
+            }
+        }
     }
 }

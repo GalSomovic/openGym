@@ -7,6 +7,7 @@ struct SettingsView: View {
     @AppStorage(WorkoutSession.Pref.guidedDefault) private var guidedDefault = false
     @Environment(WorkoutSession.self) private var session
     @Environment(GymStore.self) private var store
+    @Environment(HealthSync.self) private var health
     @State private var unitAsk: String?
 
     private var equipmentSummary: String {
@@ -62,6 +63,18 @@ struct SettingsView: View {
                     NutritionSettingsRow()
                 } footer: {
                     Text("A daily calorie and protein target and a simple food log, based on independent research. Off unless you turn it on.")
+                }
+                Section {
+                    NavigationLink { HealthSettingsView() } label: {
+                        LabeledContent {
+                            Text(health.enabled ? "On" : "Off")
+                        } label: {
+                            Label("Apple Health", systemImage: "heart")
+                        }
+                    }
+                    .accessibilityIdentifier("settings.health")
+                } footer: {
+                    Text("Save workouts, walks and weigh-ins to Apple Health, and read your weight and steps. Off unless you turn it on.")
                 }
                 Section {
                     NavigationLink { DataSettingsView() } label: {
