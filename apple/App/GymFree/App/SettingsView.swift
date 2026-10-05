@@ -72,6 +72,7 @@ struct SettingsView: View {
                 }
                 Section {
                     NavigationLink { AboutView() } label: { Label("About GymFree", systemImage: "info.circle") }
+                        .accessibilityIdentifier("settings.about")
                 }
             }
             .onChange(of: voice) { session.syncSettings() }
@@ -185,6 +186,20 @@ struct AboutView: View {
                     Text("Version \(version)").font(.footnote).foregroundStyle(.tertiary)
                 }
                 .padding(.vertical, 4)
+            }
+            Section {
+                NavigationLink { HealthSafetyView() } label: {
+                    Label("Health & safety", systemImage: "heart.text.square")
+                }
+                .accessibilityIdentifier("about.healthSafety")
+                NavigationLink { PrivacyPolicyView() } label: {
+                    Label("Privacy policy", systemImage: "hand.raised")
+                }
+                Link(destination: LegalLinks.support) {
+                    Label("Help and feedback", systemImage: "questionmark.bubble")
+                }
+            } footer: {
+                Text("General fitness information, not medical advice. Eating-disorder support and helplines are under Health & safety.")
             }
             Section {
                 Link(destination: URL(string: "https://github.com/DuarteSantos8/openGym")!) {

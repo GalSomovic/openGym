@@ -2,7 +2,7 @@ import Foundation
 import OpenGymCore
 
 /// Debug-only launch arguments that open a screen directly, for screenshots and UI checks:
-///   -GFReset YES        start from an empty profile
+///   -GFReset YES        start from an empty profile (and show the one-time health notice again)
 ///   -GFStarter ppl      load a starter plan into an empty profile
 ///   -GFEquipment none   bodyweight only (or a comma-separated list)
 ///   -GFTab exercises    today | plan | stats | exercises | settings
@@ -49,7 +49,10 @@ enum DebugLaunch {
 
     @MainActor
     static func prepare(_ store: GymStore, storage: StateStorage) {
-        if args.bool(forKey: "GFReset") { try? store.replaceProfile(json: "{}") }
+        if args.bool(forKey: "GFReset") {
+            try? store.replaceProfile(json: "{}")
+            UserDefaults.standard.removeObject(forKey: HealthNotice.seenKey)   // as on a fresh install
+        }
         if let eq = args.string(forKey: "GFEquipment") {
             store.setEquipment(eq == "none" ? [] : eq.components(separatedBy: ","), name: "My equipment")
         }

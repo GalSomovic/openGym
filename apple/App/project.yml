@@ -27,6 +27,9 @@ targets:
       - path: GymFree
         excludes: [Animations]
       - path: Shared
+      # The privacy policy, shown in Settings → About (also the App Store privacy-policy URL).
+      - path: ../PRIVACY.md
+        buildPhase: resources
       # GymFree's own exercise animations (apple/anim/build.py), committed.
       - path: GymFree/Animations
         type: folder

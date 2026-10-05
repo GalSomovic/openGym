@@ -141,7 +141,12 @@ struct PlanBuilderView: View {
                     Toggle("A heart, metabolic or kidney condition", isOn: $a.condition)
                     Toggle("Pregnant or recently gave birth", isOn: $a.pregnant)
                 } header: { Text("Health check") } footer: {
-                    Text("Answers stay on this phone. They only make the plan gentler and suggest when to check with a doctor; this is not medical advice.")
+                    VStack(alignment: .leading, spacing: 6) {
+                        Text("Answers stay on this phone. They only make the plan gentler and suggest when to check with a doctor; this is not medical advice.")
+                        NavigationLink("Health & safety") { HealthSafetyView() }
+                            .font(.footnote)
+                            .accessibilityIdentifier("planBuilder.healthSafety")
+                    }
                 }
             }
             .navigationTitle("Make me a plan")
@@ -162,6 +167,7 @@ struct PlanBuilderView: View {
                 a = PlanAnswers(equipment: store.equipment())
             }
         }
+        .healthNoticeOnce()
     }
 
     static let defaultDays: [Int: [Int]] = [2: [1, 4], 3: [1, 3, 5], 4: [1, 2, 4, 5], 5: [1, 2, 3, 5, 6], 6: [1, 2, 3, 4, 5, 6]]

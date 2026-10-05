@@ -86,6 +86,10 @@ final class WorkoutFlowTests: XCTestCase {
         XCTAssertTrue(more.waitForExistence(timeout: 5))
         more.tap()
         app.buttons["Make me a plan"].firstMatch.tap()
+        // A fresh install shows the health notice once, the first time the builder opens.
+        let ok = app.buttons["healthNotice.ok"]
+        XCTAssertTrue(ok.waitForExistence(timeout: 5))
+        ok.tap()
         let show = app.buttons["planBuilder.show"]
         XCTAssertTrue(show.waitForExistence(timeout: 5))
         show.tap()

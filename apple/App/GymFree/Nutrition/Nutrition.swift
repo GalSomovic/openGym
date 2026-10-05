@@ -144,7 +144,12 @@ struct NutritionSetupView: View {
                     Toggle("My doctor is happy for me to follow a calorie target", isOn: $clinicianOk)
                 }
             } header: { Text("Health check") } footer: {
-                Text("Answers stay on this phone. This is general information, not medical advice.")
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("Answers stay on this phone. This is general information, not medical advice.")
+                    NavigationLink("Health & safety, and support if food or eating feels hard") { HealthSafetyView() }
+                        .font(.footnote)
+                        .accessibilityIdentifier("nutrition.support")
+                }
             }
             Section("Your targets") { TargetsSummary(targets: preview) }
         }
@@ -161,6 +166,7 @@ struct NutritionSetupView: View {
             }
         }
         .onAppear(perform: load)
+        .healthNoticeOnce()
     }
 
     private func load() {
@@ -189,6 +195,12 @@ struct TargetsSummary: View {
         if let t = targets {
             if t.gate.level == "stop" {
                 Text(Self.stopText(t.gate.reason)).font(.subheadline)
+                if t.gate.reason == "ed" {
+                    NavigationLink { HealthSafetyView() } label: {
+                        Label("Support and helplines", systemImage: "heart.text.square")
+                    }
+                    .accessibilityIdentifier("nutrition.edSupport")
+                }
             } else if let kcal = t.kcal {
                 LabeledContent("Calories", value: "\(kcal.formatted()) kcal a day")
                 if let p = t.protein { LabeledContent("Protein", value: "\(p) g") }
@@ -213,7 +225,7 @@ struct TargetsSummary: View {
         switch reason {
         case "age": String(localized: "Calorie targets aren't designed for under-18s. Training, sleep and regular meals matter most at your age. A doctor can help if you're worried about your weight.")
         case "pregnant": String(localized: "During pregnancy, energy needs change in ways a calculator can't follow. Your midwife or doctor can advise you; training features stay available.")
-        case "ed": String(localized: "Calorie targets and food logging can make an eating disorder harder, so GymFree doesn't show them. If you'd like support, your doctor or a local eating-disorder helpline can help.")
+        case "ed": String(localized: "Calorie targets and food logging can make an eating disorder harder, so GymFree doesn't show them. If you'd like support, your doctor or an eating-disorder helpline can help; you'll find one for your country below.")
         case "underweight": String(localized: "Your weight is already in the underweight range, so GymFree won't set a weight-loss target. A doctor can help if you're unsure what's right for you.")
         default: String(localized: "No targets for these answers.")
         }
