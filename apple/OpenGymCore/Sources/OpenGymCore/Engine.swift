@@ -35,6 +35,9 @@ public final class Engine: @unchecked Sendable {
         context.evaluateScript("""
         var globalThis = this; var window = this; var self = this;
         var console = { log(){}, warn(){}, error(){}, info(){}, debug(){} };
+        if (typeof structuredClone === 'undefined') {
+          var structuredClone = function (v) { return v === undefined ? v : JSON.parse(JSON.stringify(v)); };
+        }
         """)
         if let url = Bundle.module.url(forResource: "engine", withExtension: "js"),
            let source = try? String(contentsOf: url, encoding: .utf8) {

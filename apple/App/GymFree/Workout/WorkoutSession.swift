@@ -110,7 +110,8 @@ final class WorkoutSession {
 
     /// Brings the Live Activity in line with the session.
     func publish() {
-        guard let a = store.active else { activity.end(); return }
+        // A past workout or an edit has no clock to show on the Lock Screen.
+        guard let a = store.active, !a.isBackfill, !a.isEditing else { activity.end(); return }
         let g = store.guide()
         let step = g?.step
         let name = step.map { catalog.name($0.exerciseId) } ?? (a.name ?? "")

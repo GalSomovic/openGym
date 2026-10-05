@@ -14,7 +14,7 @@ import {
   bestWeightFor, bestWeightForEntry, buildSets, freestyleConfig, defaultConfig, setsDoneActive,
   setUnitsTotal, supersetUnits, unitOf, modeOf, isPerSide, cascadeWeight, insertWarmupRow,
   removeRowAt, pairAdjacent, unpairSuperset, cleanupSg, applyIntensifierPlan, workoutVolume,
-  effectiveRoutineIds,
+  effectiveRoutineIds, NOTE_MAX,
 } from '../../frontend/src/lib/history.js'
 import { is1RMRecord } from '../../frontend/src/lib/onerm.js'
 import { exerciseMuscleSnapshot } from '../../frontend/src/lib/muscles.js'
@@ -330,9 +330,12 @@ export function renameWorkout(name) {
   return true
 }
 
+/** sheets.jsx SessionNote: trimmed and capped; an empty note is dropped. */
 export function setSessionNote(note) {
   const A = need().active
-  if (A) A.note = note || ''
+  if (!A) return true
+  const text = String(note || '').trim().slice(0, NOTE_MAX)
+  if (text) A.note = text; else delete A.note
   return true
 }
 

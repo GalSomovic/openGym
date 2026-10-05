@@ -38,3 +38,5 @@ export * as settings from './settings.js'
 export * as data from './data.js'
 export * as nutrition from './nutrition.js'
 export * as planner from './planner.js'
+// History, Home's week and body weight (see history-actions.js).
+export * as historyActions from './history-actions.js'

@@ -16,6 +16,9 @@ struct WorkoutView: View {
     @State private var newName = ""
     @State private var addingRoutine = false
     @State private var guided = false
+    @State private var noteEditing = false
+    @State private var editCloseAsk = false
+    @State private var editEmptyAsk = false
     @AppStorage(WorkoutSession.Pref.guidedDefault) private var guidedDefault = false
 
     var body: some View {
@@ -101,6 +104,7 @@ struct WorkoutView: View {
         .toolbar { toolbar(a) }
         .sheet(isPresented: $adding) { addSheet(a) }
         .sheet(isPresented: $addingRoutine) { AddRoutineToSessionSheet() }
+        .modifier(editDialogs)
         .alert("Rename workout", isPresented: $renaming) {
             TextField("Name", text: $newName)
             Button("Save") { store.renameWorkout(newName) }
@@ -139,9 +143,14 @@ struct WorkoutView: View {
         .onAppear {
             session.publish()
             if DebugLaunch.guided { guided = true }
-            if guidedDefault && a.setsDone == 0 && !a.isBackfill && !a.entries.isEmpty { guided = true }
+            if guidedDefault && a.setsDone == 0 && !a.isBackfill && !a.isEditing && !a.entries.isEmpty { guided = true }
         }
         .keepsScreenAwake(store.pick("keepAwake", as: Bool.self) != false)
+    }
+
+    /// The session note and the dialogs of a saved workout open in the editor.
+    private var editDialogs: EditDialogs {
+        EditDialogs(noteEditing: $noteEditing, closeAsk: $editCloseAsk, emptyAsk: $editEmptyAsk, save: saveEdit)
     }
 
     private var finishTitle: String {
@@ -151,7 +160,7 @@ struct WorkoutView: View {
 
     private func header(_ a: ActiveSession) -> some View {
         VStack(alignment: .leading, spacing: 8) {
-            if !a.entries.isEmpty && !a.isBackfill {
+            if !a.entries.isEmpty && !a.isBackfill && !a.isEditing {
                 Button { guided = true } label: {
                     Label("Guided mode", systemImage: "figure.strengthtraining.traditional")
                         .font(.headline)
@@ -162,7 +171,9 @@ struct WorkoutView: View {
                 .accessibilityHint(Text("One set at a time, with spoken cues over your music"))
             }
             HStack {
-                if a.isBackfill {
+                if a.isEditing {
+                    Label("Edit workout", systemImage: "pencil").font(.subheadline).foregroundStyle(.orange)
+                } else if a.isBackfill {
                     Label(a.d, systemImage: "calendar").font(.subheadline).foregroundStyle(.secondary)
                 } else {
                     TimelineView(.periodic(from: .now, by: 1)) { ctx in
@@ -175,6 +186,16 @@ struct WorkoutView: View {
             }
             ProgressView(value: Double(a.setsDone), total: Double(max(a.setsTotal, 1)))
                 .tint(.accentColor)
+            if let note = a.note, !note.isEmpty {
+                Button { noteEditing = true } label: {
+                    Label(note, systemImage: "note.text")
+                        .font(.subheadline).foregroundStyle(.secondary)
+                        .multilineTextAlignment(.leading)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .buttonStyle(.plain)
+                .accessibilityHint(Text("Edit the session note"))
+            }
         }
     }
 
@@ -186,8 +207,13 @@ struct WorkoutView: View {
     @ToolbarContentBuilder
     private func toolbar(_ a: ActiveSession) -> some ToolbarContent {
         ToolbarItem(placement: .cancellationAction) {
-            Button { discardAsk = true } label: { Image(systemName: "xmark") }
-                .accessibilityLabel(Text("Discard"))
+            Button {
+                if !a.isEditing { discardAsk = true }
+                // Nothing to save: closing an untouched edit just closes.
+                else if store.workoutEditUnchanged() { store.discardWorkoutEdit(); session.ended() }
+                else { editCloseAsk = true }
+            } label: { Image(systemName: "xmark") }
+                .accessibilityLabel(a.isEditing ? Text("Close") : Text("Discard"))
         }
         ToolbarItem(placement: .primaryAction) {
             Menu {
@@ -197,6 +223,7 @@ struct WorkoutView: View {
                         session.completePrompt = true
                     }
                 }
+                Button("Session note", systemImage: "note.text") { noteEditing = true }
                 Button("Rename workout", systemImage: "pencil") { newName = a.name ?? ""; renaming = true }
                 Button("Add routine", systemImage: "plus.square.on.square") { addingRoutine = true }
                 Button("Don’t count for progression", systemImage: "pause.circle") { store.toggleSessionNoProgression() }
@@ -212,11 +239,15 @@ struct WorkoutView: View {
             .accessibilityLabel(Text("More"))
         }
         ToolbarItem(placement: .confirmationAction) {
-            Button("Finish") {
-                guard let f = store.finishCheck() else { return }
-                if f.done == 0 || f.done < f.total { finishAsk = f } else { finish() }
+            if a.isEditing {
+                Button("Save") { saveEdit() }.fontWeight(.semibold)
+            } else {
+                Button("Finish") {
+                    guard let f = store.finishCheck() else { return }
+                    if f.done == 0 || f.done < f.total { finishAsk = f } else { finish() }
+                }
+                .fontWeight(.semibold)
             }
-            .fontWeight(.semibold)
         }
         ToolbarItemGroup(placement: .keyboard) {
             Spacer()
@@ -231,6 +262,14 @@ struct WorkoutView: View {
             guided = false
             summary = s
         }
+    }
+
+    /// sheets.jsx saveWorkoutEdits: an edit that left no set offers to delete the workout instead.
+    private func saveEdit() {
+        guard let outcome = store.saveWorkoutEdit() else { return }
+        if outcome.empty == true { editEmptyAsk = true; return }
+        session.ended()
+        session.toast = String(localized: "Workout updated")
     }
 
     private func addSheet(_ a: ActiveSession) -> some View {
@@ -297,6 +336,71 @@ struct AddRoutineToSessionSheet: View {
             .toolbar { ToolbarItem(placement: .cancellationAction) { Button("Cancel") { dismiss() } } }
         }
         .presentationDetents([.medium, .large])
+    }
+}
+
+private struct EditDialogs: ViewModifier {
+    @Binding var noteEditing: Bool
+    @Binding var closeAsk: Bool
+    @Binding var emptyAsk: Bool
+    let save: () -> Void
+    @Environment(GymStore.self) private var store
+    @Environment(WorkoutSession.self) private var session
+
+    func body(content: Content) -> some View {
+        content
+            .sheet(isPresented: $noteEditing) { SessionNoteSheet() }
+            .confirmationDialog("Save workout changes?", isPresented: $closeAsk, titleVisibility: .visible) {
+                Button("Save changes") { save() }
+                Button("Don’t save", role: .destructive) {
+                    store.discardWorkoutEdit()
+                    session.ended()
+                }
+                Button("Keep editing", role: .cancel) {}
+            } message: {
+                Text("Save your edits to this workout, or keep the original record.")
+            }
+            .confirmationDialog("Delete workout?", isPresented: $emptyAsk, titleVisibility: .visible) {
+                Button("Delete workout", role: .destructive) {
+                    store.deleteEditedWorkout()
+                    session.ended()
+                    session.toast = String(localized: "Workout deleted")
+                }
+                Button("Keep editing", role: .cancel) {}
+            } message: {
+                Text("No sets are left in this workout, so there is nothing to save. Delete it from your history?")
+            }
+    }
+}
+
+/// sheets.jsx SessionNote: written during the workout, kept with it in history.
+struct SessionNoteSheet: View {
+    @Environment(GymStore.self) private var store
+    @Environment(\.dismiss) private var dismiss
+    @State private var note = ""
+
+    var body: some View {
+        NavigationStack {
+            Form {
+                TextField("How the session went as a whole.", text: $note, axis: .vertical)
+                    .lineLimit(4...10)
+                    .accessibilityIdentifier("session.note")
+            }
+            .navigationTitle("Session note")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) { Button("Cancel") { dismiss() } }
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Save") {
+                        store.setSessionNote(note)
+                        dismiss()
+                    }
+                    .fontWeight(.semibold)
+                }
+            }
+            .onAppear { note = store.active?.note ?? "" }
+        }
+        .presentationDetents([.medium])
     }
 }
 
