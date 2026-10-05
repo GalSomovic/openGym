@@ -35,10 +35,14 @@ final class HistoryFlowTests: XCTestCase {
         XCTAssertTrue(tick.waitForExistence(timeout: 5))
         tick.tap()
         if app.buttons["Skip rest"].waitForExistence(timeout: 2) { app.buttons["Skip rest"].tap() }
-        app.buttons["Finish"].tap()
-        app.buttons["Finish workout"].tap()
-        XCTAssertTrue(app.staticTexts["Workout complete"].waitForExistence(timeout: 3))
-        app.buttons["Done"].tap()
+        let finish = app.buttons["Finish"]
+        XCTAssertTrue(finish.waitForExistence(timeout: 3))
+        finish.tap()
+        let confirm = app.buttons["Finish workout"]
+        XCTAssertTrue(confirm.waitForExistence(timeout: 3))
+        confirm.tap()
+        XCTAssertTrue(app.staticTexts["Workout complete"].waitForExistence(timeout: 6))
+        tapWhenReady(app.buttons["Done"])
 
         let history = app.buttons["today.history"]
         XCTAssertTrue(history.waitForExistence(timeout: 3))
@@ -63,26 +67,32 @@ final class HistoryFlowTests: XCTestCase {
         let history = app.buttons["today.history"]
         XCTAssertTrue(history.waitForExistence(timeout: 5))
         history.tap()
-        app.buttons["Log a past workout"].tap()
+        tapWhenReady(app.buttons["Log a past workout"])
         let routine = app.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Routine'")).firstMatch
         XCTAssertTrue(routine.waitForExistence(timeout: 3))
         routine.tap()
-        app.buttons["Full Body A"].firstMatch.tap()
-        app.navigationBars.buttons["Continue"].tap()
+        tapWhenReady(app.buttons["Full Body A"].firstMatch)
+        tapWhenReady(app.navigationBars.buttons["Continue"])
 
         let more = app.navigationBars.buttons["More"].firstMatch
         XCTAssertTrue(more.waitForExistence(timeout: 5), "the workout screen opens on the past day")
         XCTAssertFalse(app.buttons["Guided mode"].exists, "a past workout has no timers")
         more.tap()
-        app.buttons["Mark all sets done"].tap()
+        tapWhenReady(app.buttons["Mark all sets done"])
         let finish = app.alerts.buttons["Finish"]
         XCTAssertTrue(finish.waitForExistence(timeout: 3))
         finish.tap()
-        XCTAssertTrue(app.staticTexts["Workout complete"].waitForExistence(timeout: 3))
-        app.buttons["Done"].tap()
+        XCTAssertTrue(app.staticTexts["Workout complete"].waitForExistence(timeout: 6))
+        tapWhenReady(app.buttons["Done"])
 
-        XCTAssertTrue(history.waitForExistence(timeout: 3))
+        XCTAssertTrue(history.waitForExistence(timeout: 5))
         history.tap()
         XCTAssertTrue(app.staticTexts["Full Body A"].firstMatch.waitForExistence(timeout: 3), "it is filed in history")
+    }
+
+    /// Waits for a control after a screen change before tapping it, so slow transitions don't fail the run.
+    private func tapWhenReady(_ element: XCUIElement, file: StaticString = #filePath, line: UInt = #line) {
+        XCTAssertTrue(element.waitForExistence(timeout: 5), "\(element) appears", file: file, line: line)
+        element.tap()
     }
 }

@@ -175,6 +175,9 @@ private struct StartChooser: View {
             if let card, card.show {
                 Section { WeightCardView(card: card) }
             }
+            if store.nutritionTargets?.kcal != nil {
+                Section { FoodTodayCard() }
+            }
         }
         .navigationTitle("Start workout")
         .toolbar {

@@ -41,6 +41,11 @@ struct SettingsView: View {
                     Text("Cues play over your music: it ducks while GymFree speaks, then comes back up. The rest alarm rings through silent mode and Focus when a rest ends while your phone is locked.")
                 }
                 Section {
+                    NutritionSettingsRow()
+                } footer: {
+                    Text("A daily calorie and protein target and a simple food log, based on independent research. Off unless you turn it on.")
+                }
+                Section {
                     NavigationLink { DataSettingsView() } label: {
                         Label("Data", systemImage: "externaldrive")
                     }
