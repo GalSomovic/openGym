@@ -2,7 +2,7 @@ import OpenGymCore
 import SwiftUI
 
 enum AppTab: Hashable {
-    case today, plan, exercises, settings
+    case today, plan, stats, exercises, settings
 }
 
 struct RootView: View {
@@ -25,6 +25,9 @@ struct RootView: View {
             }
             Tab("Plan", systemImage: "calendar", value: .plan) {
                 PlanView()
+            }
+            Tab("Stats", systemImage: "chart.xyaxis.line", value: .stats) {
+                StatsView(tab: $tab)
             }
             Tab("Exercises", systemImage: "dumbbell", value: .exercises) {
                 LibraryView()

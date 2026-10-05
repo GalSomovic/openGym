@@ -54,7 +54,16 @@ struct ExerciseDetailView: View {
                 }
                 Section {
                     Button("Add to a routine", systemImage: "plus.circle.fill") { addPresented = true }
+                    // sheets.jsx ExerciseDetail's History: the curves and the sessions behind them.
+                    if hasHistory {
+                        NavigationLink { ExerciseProgressView(exerciseId: exerciseId) } label: {
+                            Label("Progress", systemImage: "chart.xyaxis.line")
+                        }
+                        .accessibilityIdentifier("detail.progress")
+                    }
                 }
+                // No one-rep max for cardio or an assistance machine (the engine says which).
+                OneRMSections(exerciseId: exerciseId)
             }
         }
         .navigationTitle(detail?.displayName ?? catalog.name(exerciseId))
@@ -88,6 +97,8 @@ struct ExerciseDetailView: View {
         }
         .onDisappear { if note != (detail?.note ?? "") { store.setStandingNote(exerciseId, note) } }
     }
+
+    private var hasHistory: Bool { (store.exerciseProgress(exerciseId)?.sessions ?? 0) > 0 }
 
     private func tags(_ d: ExerciseDetail) -> [String] {
         var out: [String] = []

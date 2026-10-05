@@ -12,6 +12,10 @@ final class TodayRouter {
         case workout(String)
         case weight
         case exercise(String)
+        /// Stats: an exercise's progress curves, the picker that leads to them, structural balance.
+        case progress(String)
+        case progressPicker
+        case balance
     }
 
     enum Sheet: Identifiable, Hashable {

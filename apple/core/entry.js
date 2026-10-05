@@ -45,3 +45,5 @@ export * as custom from './custom.js'
 export * as platesActions from './plates-actions.js'
 // History, Home's week and body weight (see history-actions.js).
 export * as historyActions from './history-actions.js'
+// Stats, the heatmap, effort, the 1RM calculator, structural balance (see stats.js).
+export * as stats from './stats.js'
