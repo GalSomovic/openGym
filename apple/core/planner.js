@@ -99,15 +99,18 @@ const SLOTS = {
 const LEVELS = ['novice', 'intermediate', 'advanced']
 const rank = l => Math.max(0, LEVELS.indexOf(l))
 
-/** Picks the best exercise for a slot: gym first, then dumbbells, bands, bodyweight. */
-export function pickExercise(slot, equipment, level = 'novice') {
+/**
+ * Picks the best exercise for a slot: gym first, then dumbbells, bands, bodyweight. `accept`
+ * (optional) can veto a candidate by id, e.g. one the Settings equipment profile rules out.
+ */
+export function pickExercise(slot, equipment, level = 'novice', accept = null) {
   const have = new Set(equipment || [])
   if (have.has('gym')) ['db', 'bench', 'band', 'bar', 'table'].forEach(k => have.add(k))
   const ok = c =>
     (c.needs || []).every(n => have.has(n)) &&
     (!c.min || rank(level) >= rank(c.min)) &&
     (!c.max || c.max === 'none' || rank(level) <= rank(c.max)) &&
-    !!EXIDX[c.id]
+    !!EXIDX[c.id] && (!accept || accept(c.id))
   const list = SLOTS[slot] || []
   // Prefer equipment in order; among bodyweight rungs, the last one the level allows.
   const equipped = list.filter(c => (c.needs || []).length && ok(c))
@@ -327,7 +330,7 @@ export function applyPlan(plan) {
     s.routines.push({ id, name: r.name, emoji: r.emoji, prog: r.prog, ex: r.ex.map(e => ({ ...e })) })
   }
   for (const { day, key } of plan.schedule) if (ids[key]) s.week[day] = [ids[key]]
-  s.gfPlan = { preset: plan.preset, at: Date.now(), cardio: plan.cardio }
+  s.gfPlan = { preset: plan.preset, at: Date.now(), cardio: plan.cardio, ...(plan.level ? { level: plan.level } : {}) }
   return Object.values(ids)
 }
 

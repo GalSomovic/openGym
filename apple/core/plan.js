@@ -14,6 +14,7 @@ import { policyFor, POLICIES_FOR, POLICY_NAME, POLICY_DESC, MAX_BW_SETS, default
 import { normalizeRepRange } from '../../frontend/src/lib/rep-range.js'
 import { speedUnitOf } from '../../frontend/src/lib/speed.js'
 import { loadOfRoutine, rankOf, levelsOf } from '../../frontend/src/lib/muscles.js'
+import { isStretch } from './stretches.js'
 
 const routineOf = id => {
   const r = need().routines.find(x => x.id === id)
@@ -83,9 +84,12 @@ export function routineLines(id) {
   return routineOf(id).ex.map(e => exLine(e, s.unit, speedUnitOf(s)))
 }
 
+// A cool-down stretch carries no training load (GymFree): leaving it out keeps the maps honest.
+const trainingOf = r => ({ ...r, ex: (r.ex || []).filter(e => !isStretch(e.id)) })
+
 /** The muscles a routine works, most first: the editor's "What this session hits". */
 export function routineMuscles(id) {
-  const load = loadOfRoutine(routineOf(id))
+  const load = loadOfRoutine(trainingOf(routineOf(id)))
   // `levels`: RoutineEdit's body map, shaded relative to the routine's most-worked muscle.
   return { load, worked: rankOf(load).worked, levels: levelsOf(load) }
 }
@@ -101,7 +105,7 @@ export function weekMuscles() {
     for (const rid of [].concat(ids || [])) {
       const r = s.routines.find(x => x.id === rid)
       if (!r) continue
-      for (const [m, v] of Object.entries(loadOfRoutine(r))) load[m] = (load[m] || 0) + v
+      for (const [m, v] of Object.entries(loadOfRoutine(trainingOf(r)))) load[m] = (load[m] || 0) + v
     }
   }
   return { load, worked: rankOf(load).worked, levels: levelsOf(load) }

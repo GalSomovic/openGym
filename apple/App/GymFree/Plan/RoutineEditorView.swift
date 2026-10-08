@@ -34,6 +34,7 @@ struct RoutineEditorView: View {
     private func content(_ r: Routine) -> some View {
         let lines = store.routineLines(routineId)
         let missing = Set(store.missingEquipment(routineId))
+        let insights = store.routineInsights(routineId)
         List {
             Section {
                 HStack(spacing: 12) {
@@ -54,12 +55,15 @@ struct RoutineEditorView: View {
                         RoutineIcon(emoji: r.emoji, size: 44)
                     }
                     .accessibilityLabel(Text("Pick an icon"))
-                    TextField("Routine name", text: $name)
-                        .font(.title3.weight(.semibold))
-                        .submitLabel(.done)
-                        .onChange(of: name) { _, new in
-                            store.renameRoutine(routineId, new, fallback: String(localized: "Routine"))
-                        }
+                    VStack(alignment: .leading, spacing: 2) {
+                        TextField("Routine name", text: $name)
+                            .font(.title3.weight(.semibold))
+                            .submitLabel(.done)
+                            .onChange(of: name) { _, new in
+                                store.renameRoutine(routineId, new, fallback: String(localized: "Routine"))
+                            }
+                        if let insights, !r.ex.isEmpty { RoutineStatsLine(insights: insights) }
+                    }
                 }
             }
             if !r.ex.isEmpty, let muscles = store.routineMuscles(routineId), !muscles.worked.isEmpty {
@@ -128,6 +132,7 @@ struct RoutineEditorView: View {
                     Text("Tap an exercise to change its sets and reps. Swipe right to superset it with the one above, left to remove it.")
                 }
             }
+            if let insights { RoutineSuggestionsSection(routineId: routineId, insights: insights) }
             Section {
                 Button("Copy routine", systemImage: "doc.on.doc") {
                     _ = store.copyRoutine(routineId, suffix: String(localized: "Copy"))
