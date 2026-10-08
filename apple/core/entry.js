@@ -38,6 +38,8 @@ export * as settings from './settings.js'
 export * as data from './data.js'
 export * as nutrition from './nutrition.js'
 export * as planner from './planner.js'
+// Routine time and difficulty, cool-downs and plan suggestions (see insights.js).
+export * as insights from './insights.js'
 export * as targets from './targets.js'
 export * as reminders from './reminders.js'
 export * as share from './share.js'

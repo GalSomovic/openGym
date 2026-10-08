@@ -11,6 +11,7 @@ struct PlanView: View {
     @State private var sharePresented = false
     @State private var deleting: Routine?
     @State private var reordering = false
+    @State private var improvePresented = false
 
     private var weekStart: Int { Int(store.pick("weekStart", as: Double.self) ?? 1) }
 
@@ -47,20 +48,27 @@ struct PlanView: View {
                         .padding(.vertical, 12)
                     }
                 }
-                Section("Week schedule") {
+                Section {
                     let week = store.week
                     ForEach(Fmt.weekOrder(start: weekStart), id: \.self) { day in
                         WeekdayRow(day: day, routineIds: week[String(day)] ?? [])
                     }
+                } header: { Text("Week schedule") } footer: {
+                    if let total = store.weekTotal(), total.sessions > 0 {
+                        Text("\(total.sessions) sessions · about \(Fmt.duration(total.min)) a week")
+                            .accessibilityIdentifier("week.total")
+                    }
                 }
                 Section {
+                    let summaries = store.routineSummaries()
                     ForEach(store.routines) { r in
                         NavigationLink(value: r.id) {
                             HStack(spacing: 12) {
                                 RoutineIcon(emoji: r.emoji)
                                 VStack(alignment: .leading, spacing: 2) {
                                     Text(r.name)
-                                    Text(Fmt.exercises(r.ex.count)).font(.subheadline).foregroundStyle(.secondary)
+                                    RoutineSubtitle(exercises: r.ex.count, summary: summaries[r.id])
+                                        .font(.subheadline).foregroundStyle(.secondary)
                                 }
                                 Spacer(minLength: 8)
                                 // What the routine trains, at a glance; the editor has the full map.
@@ -107,6 +115,10 @@ struct PlanView: View {
                             } icon: { Image(systemName: "exclamationmark.circle").foregroundStyle(.orange) }
                             .font(.footnote)
                         }
+                        Button { improvePresented = true } label: {
+                            Label("Improve my plan", systemImage: "wand.and.sparkles")
+                        }
+                        .accessibilityIdentifier("plan.improve")
                     } header: { Text("What your plan covers") } footer: {
                         Text("Every planned day added up; darker is more sets.")
                     }
@@ -137,6 +149,7 @@ struct PlanView: View {
             .sheet(isPresented: $starterPresented) { StarterPlanSheet() }
             .sheet(isPresented: $builderPresented) { PlanBuilderView() }
             .sheet(isPresented: $sharePresented) { PlanShareSheet() }
+            .sheet(isPresented: $improvePresented) { ImprovePlanSheet() }
             .confirmationDialog("Delete routine?", isPresented: Binding(
                 get: { deleting != nil }, set: { if !$0 { deleting = nil } }), presenting: deleting) { r in
                 Button("Delete", role: .destructive) { store.deleteRoutine(r.id) }
