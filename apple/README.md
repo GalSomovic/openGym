@@ -5,6 +5,11 @@ A native SwiftUI app for iPhone and iPad, built on openGym. It is a fork of
 openGym, under the **GNU AGPL v3.0 or later**, with openGym's app-store exception
 (see the root `NOTICE.md`). All source stays public in this repository.
 
+GymFree is a **modified version** of openGym (changes © 2026 Gal Somovic, made from 2026 on; the
+commit history dates each one). The app shows the AGPL notices, every licence and credit, and a link
+to this source under Settings → About (Legal: Licences & credits, Open-source licences, Terms &
+disclaimers, Source code); `research/COMPLIANCE.md` §9 lists each source's terms and how they are met.
+
 openGym's author deliberately does not publish openGym on app stores. This app is an
 independent fork, published under a different name, and credits openGym prominently.
 
@@ -69,8 +74,8 @@ or not applicable.
 ## Exercise media
 
 The demos are the 180×180 animated GIFs of the **free ExerciseDB V1 dataset by AscendAPI**
-([oss.exercisedb.dev](https://oss.exercisedb.dev)), whose terms allow non-commercial apps with
-credit to AscendAPI. This app is free, with no ads and no in-app purchases, and shows
+([oss.exercisedb.dev](https://oss.exercisedb.dev)), whose terms (the "Usage Restrictions" in
+[the V1 docs](https://oss.exercisedb.dev/docs)) allow non-commercial apps with credit to AscendAPI. This app is free, with no ads and no in-app purchases, and shows
 "Exercise animations © AscendAPI (ExerciseDB)" with every demo, in About and in the store
 listing. Every openGym exercise carries its ExerciseDB id (`0001-2gPfomN.jpg` → `2gPfomN`), so
 all 1,324 map to an official GIF.
