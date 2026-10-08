@@ -75,6 +75,11 @@ Re-answer this if GymFree ever adds any network feature: sync, a food database l
   - `UIBackgroundModes: location` only if tracking continues with the screen locked (show the blue indicator, stop updates when the walk ends);
   - no "Always" permission.
 - [ ] Re-verify every helpline in `Helplines.swift` against §6 (hours especially).
+- [ ] **Licences (§9):** tag the exact commit of every App Store build (e.g. `gymfree-1.0-1`) and push it, so the AGPL "corresponding source" of each release stays public at `github.com/GalSomovic/openGym`. Required by openGym's app-store permission ("provided the corresponding source code remains available under the AGPL at the project repository").
+- [ ] App Store description ends with: "Free software under the GNU AGPL v3; source: github.com/GalSomovic/openGym. Exercise animations © AscendAPI (ExerciseDB). Videos: DVIDS (U.S. Department of War), wger, Wikimedia Commons, Feeel, Pixabay. The appearance of U.S. Department of War (DoW) visual information does not imply or constitute DoW endorsement." No military footage, names or insignia in the screenshots or app icon (DVIDS: no implied endorsement; insignia are trademarks).
+- [ ] App Store Connect → License Agreement: keep Apple's **Standard EULA** (About → Terms & disclaimers links to it).
+- [ ] Resolve the open licence items in §9.3 (AFN Sasebo clips, ExerciseDB media) before the first public release.
+- [ ] After any `fetch_free.py` run: every new item in FreeMedia.json has `source`, `title`, `author`, `license` and `link`; CC BY-SA items show "modified" automatically; re-run the DVIDS per-item check (§9.3).
 - [ ] Review notes for App Review: "No account and no network. Health notice: Plan → Make me a plan, or Settings → Calories & food. Health & safety: Settings → About GymFree → Health & safety."
 
 ## 4. Age rating answers
@@ -164,3 +169,50 @@ Shown in the app by `Helpline.split(for: Locale.current.region)`: the phone's re
 - `apple/App/GymFree/PrivacyInfo.xcprivacy`: the privacy manifest.
 - Links from About (`SettingsView.swift`), calories & food (`Nutrition.swift`: stop screen for "ed", health-check footer) and the plan builder health-check footer (`PlanBuilder.swift`).
 - `apple/App/GymFreeUITests/HealthSafetyTests.swift`: covers region ordering (GB, then US), the privacy policy, the notice, and the support links from calories & food.
+- `apple/App/GymFree/Legal/Licences.swift`: About → Licences & credits (`ContentSource.all`), Open-source licences, Terms & disclaimers, the full-text viewer and every legal URL (`LegalLinks`).
+- `apple/App/GymFree/Legal/Licenses/*.txt`, plus the root `LICENSE` (AGPL) and `NOTICE.md` (bundled via project.yml): the licence texts shipped in the app.
+- `apple/App/GymFree/App/SettingsView.swift`: About (Legal section with the AGPL notice) and `MediaCreditsView` (per-item title, author, licence links, "modified").
+- `apple/App/GymFreeUITests/LicencesTests.swift`: Licences & credits shows DVIDS (with its disclaimer), wger "modified", ExerciseDB and the AGPL, and the full AGPL text opens.
+
+## 9. Licences, credits and legal notices (checked 2026-10-08)
+
+Every URL below was opened on 2026-10-08. Re-check before each release and when media is added.
+
+### 9.1 Content
+
+| Source | Used for | Licence / terms | What it requires | What GymFree does |
+|---|---|---|---|---|
+| **DVIDS** (U.S. Department of War, formerly DoD), 495 clips, 442 marked "PUBLIC DOMAIN" on their page | Most exercise videos | Public domain as U.S. government work ([17 U.S.C. §105](https://www.copyright.gov/title17/92chap1.html#105)), under the DoW conditions on [dvidshub.net/about/copyright](https://www.dvidshub.net/about/copyright) (each asset page: "must comply with the restrictions shown on" that page) | "DoW VI may not be used in a manner that could imply endorsement of an individual, for-profit business, nonprofit organization … product, or service". "All users of DoW VI must display this non-DoW endorsement disclaimer": *"The appearance of U.S. Department of War (DoW) visual information does not imply or constitute DoW endorsement."* "VI postings by the DoW do not waive any publicity or privacy rights of any individuals portrayed." Names, insignia, seals "may be protected as trademarks … and may not be used in commerce without prior written permission". Commercial use (= advertising, marketing, promotion, fundraising) must show the disclaimer and is asked to obscure military markings. Credit: "Use of appropriate byline/photo/image credits is requested" ([FAQ](https://www.dvidshub.net/about/faq)). | Credit line per clip (producer + DVIDS) and a link to its page; disclaimer verbatim in About, Licences & credits, the DVIDS credits list and Terms & disclaimers (put it in the App Store description too). No ads; clips not used in marketing. Clips are trimmed, cropped (on-screen text cut out), resized and muted. |
+| **Wikimedia Commons**, 13 items | Videos, one illustration | Per file, checked with the Commons API: 10 × [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) (Wensceslao), 3 × public domain (U.S. Army ACFT) | CC BY-SA 4.0 §3(a): name the creator, keep notices, give the licence URI, **indicate modifications**; §3(b): adaptations under the same licence. ([reuse guide](https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia)) | Credit "author · CC BY-SA 4.0 · modified" on the demo; credits list with title, original link and licence link; adapted files are offered under CC BY-SA 4.0 (they are produced by the public `fetch_free.py`). |
+| **wger**, 116 items | Videos and drawings | Per file from wger's API ([licences](https://wger.de/api/v2/license/)): CC BY-SA 3.0 / 4.0 ([3.0](https://creativecommons.org/licenses/by-sa/3.0/), [4.0](https://creativecommons.org/licenses/by-sa/4.0/)) | As above. 3.0 also asks for the work's title. | As above, with the title. |
+| **Feeel**, 25 items | Low-poly pictures | CC BY-SA 4.0 per picture ([Feeel's credits file](https://gitlab.com/enjoyingfoss/feeel/-/blob/master/assets/json_supplements/local_exercise_images.json)); Feeel's code is AGPL-3.0 and isn't used | As above; Feeel's credits name the source photo of each tracing | Feeel's full credit kept per picture + "modified" (dark background, resized). |
+| **Pixabay**, 2 videos | Videos | [Pixabay Content License](https://pixabay.com/service/license-summary/) ([full terms §5](https://pixabay.com/service/terms/)) | No credit needed. No standalone distribution; no misleading use; "If Content depicts any trademarks, logos or brands … you cannot use that Content"; not as a trademark. | Used only inside demos, credited anyway. **Check both clips show no logos or brands.** |
+| **ExerciseDB V1 (AscendAPI)** | "Classic" GIFs; exercise names/instructions (via openGym) | Free V1 terms, "Usage Restrictions" table in the V1 API docs ([oss.exercisedb.dev/docs](https://oss.exercisedb.dev/docs), served from `/swagger`) | "✅ Allowed: Personal projects, prototypes, educational tools, non-commercial apps, community-driven fitness platforms"; "❌ Not allowed: Commercial products, SaaS platforms, or any monetised use without a paid plan"; "Credit to AscendAPI is required when using this dataset in any project". Servers block: "Non-commercial use only • Attribution required". | Free, no ads/IAP; "Exercise animations © AscendAPI (ExerciseDB)" on every classic demo and the library; About links ascendapi.com. GIFs never committed. |
+| **exercises-dataset** (H. E. Yıldırım) | Exercise names and instructions in openGym's engine | MIT for code/text, with a media exception ([LICENSE](https://github.com/hasaneyldrm/exercises-dataset)) | Include the MIT notice | Full text bundled (Open-source licences). |
+| **USDA FoodData Central** | Food database | Public domain, [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) ([fdc.nal.usda.gov](https://fdc.nal.usda.gov/)) | None; "we request that users list FoodData Central as the source" | Named in the food search and About. |
+| **MuscleMap** (Melih Colpan) | Body-diagram outlines | MIT ([repo](https://github.com/melihcolpan/MuscleMap)) | Include copyright + licence | Full text bundled. |
+
+### 9.2 Code in the app
+
+`apple/core/engine.js` is built only from openGym's `frontend/src/lib` and `apple/core` (AGPL); rolldown bundles **no npm packages** (checked: no bare imports reach the bundle; `lean-qr` and `react` are imported only by modules the engine doesn't use). The Swift side links one package:
+
+| Component | Licence | Notice shipped |
+|---|---|---|
+| openGym (© 2026 Duarte Santos) + GymFree changes (© 2026 Gal Somovic) | [AGPL-3.0-or-later](https://www.gnu.org/licenses/agpl-3.0.html) + openGym's app-store permission ([NOTICE.md](https://github.com/DuarteSantos8/openGym/blob/main/NOTICE.md)) | Root `LICENSE` and `NOTICE.md`, bundled |
+| [Lottie for iOS](https://github.com/airbnb/lottie-ios) 4.6.x via lottie-spm (© 2018 Airbnb) | [Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0) (no NOTICE file) | `Apache-2.0.txt` |
+| inside Lottie: [ZIPFoundation](https://github.com/weichsel/ZIPFoundation) 0.9.20, [EpoxyCore](https://github.com/airbnb/epoxy-ios) 0.11.0, [LRUCache](https://github.com/nicklockwood/LRUCache) 1.0.4 | MIT, Apache-2.0, MIT | `MIT-ZIPFoundation.txt`, `Apache-2.0.txt`, `MIT-LRUCache.txt` |
+
+**AGPL-3.0 duties, and where they are met:**
+- §4/§5: keep copyright and licence notices → About footer, Open-source licences, bundled `LICENSE`/`NOTICE.md`.
+- §5(a) "prominent notices stating that you modified it, and giving a relevant date" → "GymFree is a modified version of openGym … changes made in 2026", with the dated commit history linked.
+- §5(d) Appropriate Legal Notices in the UI (copyright, no warranty, may be conveyed under the AGPL, how to view it) → About → Legal footer and Open-source licences.
+- §6 corresponding source → "Source code" row linking `github.com/GalSomovic/openGym/tree/native-apple`. The media files are not committed (they are data, fetched by the committed scripts); the source of each release must be tagged and pushed (checklist).
+- §15/16 no warranty → Terms & disclaimers ("This program comes with ABSOLUTELY NO WARRANTY").
+- App-store permission (openGym NOTICE.md, section 7): applies "provided the corresponding source code remains available under the AGPL at the project repository" → keep the fork public. GymFree's own additions are offered under the same terms.
+
+### 9.3 Open items (owner: the developer)
+
+1. **AFN Sasebo clips (53 DVIDS items, 50 exercises; for 33 they are the only free video).** Every clip by "Robert Price / AFN Sasebo, MWR Fitness" has, on its DVIDS page, "Asset contains copyrighted material. Portions of the asset are subject to restrictions under U.S. copyright law and are not licensed for distribution. Please contact us for details." The footage itself was shot by a Navy Mass Communication Specialist (public domain), so the restricted portion is most likely the soundtrack, which GymFree removes, but the page doesn't say. Ask DVIDS (the page's "contact us") which portion is restricted, or drop these clips (`FRESH=1` re-run without the Sasebo ids), before release. The other 442 DVIDS items are marked "PUBLIC DOMAIN" with no restriction.
+2. **ExerciseDB media ownership.** openGym's NOTICE.md records that Gym visual (gymvisual.com) also claims the animations, whose [terms](https://gymvisual.com/content/3-terms-and-conditions-of-use) forbid redistribution; AscendAPI said in [exercises-dataset#5](https://github.com/hasaneyldrm/exercises-dataset/issues/5) "We're fine with people building on the v1 dataset — it's free and public." AscendAPI's V1 terms allow non-commercial apps with credit but don't say explicitly that the GIF files may be shipped inside an app; its paid-API terms forbid storing media. Get a written OK from AscendAPI (support@ascendapi.com) for bundling the 180p GIFs in a free App Store app, or make DVIDS/GymFree animations the default and drop the GIFs.
+3. **Pixabay:** check the two clips for visible brands or logos (not allowed under §5 of the licence).
+4. **Copyright holder name:** "GymFree changes © 2026 Gal Somovic" is shown in the app; change it in `SettingsView.swift`/`Licences.swift` if another name should appear.

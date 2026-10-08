@@ -30,6 +30,12 @@ targets:
       # The privacy policy, shown in Settings → About (also the App Store privacy-policy URL).
       - path: ../PRIVACY.md
         buildPhase: resources
+      # The AGPL text and openGym's notices (copyright, app-store permission, MIT notices),
+      # shown in About → Open-source licences. The other licence texts are in GymFree/Legal/Licenses.
+      - path: ../../LICENSE
+        buildPhase: resources
+      - path: ../../NOTICE.md
+        buildPhase: resources
       # GymFree's own exercise animations (apple/anim/build.py), committed.
       - path: GymFree/Animations
         type: folder

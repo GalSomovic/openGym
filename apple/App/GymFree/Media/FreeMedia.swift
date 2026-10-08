@@ -31,9 +31,21 @@ enum MediaLibrary {
         let kind: String
         let files: [String]
         let source: String
+        let title: String?
         let license: String?
         let author: String?
         let link: String?
+
+        /// "Author · Licence", plus "modified" for Creative Commons items: every file was cut,
+        /// resized and re-encoded by fetch_free.py, and CC BY-SA asks for changes to be indicated.
+        /// A long credit (Feeel's name the photo each picture was traced from) goes last, so the
+        /// licence and "modified" still fit on the two-line credit under a demo.
+        var credit: String {
+            var terms = [license].compactMap { $0 }.filter { !$0.isEmpty }
+            if MediaLibrary.isCreativeCommons(license) { terms.append(String(localized: "modified")) }
+            guard let author, !author.isEmpty else { return terms.joined(separator: " · ") }
+            return (author.count > 48 ? terms + [author] : [author] + terms).joined(separator: " · ")
+        }
     }
 
     private static let index: [String: [Entry]] = {
@@ -54,7 +66,7 @@ enum MediaLibrary {
     static func options(for id: String) -> [MediaOption] {
         var videos: [MediaOption] = [], frames: [MediaOption] = []
         for e in index[id] ?? [] {
-            let credit = [e.author, e.license].compactMap { $0 }.filter { !$0.isEmpty }.joined(separator: " · ")
+            let credit = e.credit
             let link = e.link.flatMap(URL.init(string:))
             if e.kind == "video", let url = e.files.first.flatMap(file) {
                 videos.append(MediaOption(id: e.id, kind: .video(url), source: e.source, credit: credit, link: link))
@@ -86,19 +98,39 @@ enum MediaLibrary {
         let title: String
         let source: String
         let credit: String
+        let license: String
         let link: URL?
+
+        /// The licence deeds this item is used under (a few wger items carry two).
+        var licenseLinks: [(name: String, url: URL)] { MediaLibrary.licenseLinks(license) }
     }
 
-    /// Every free item with its author and licence, for the credits screen.
-    static var credits: [Credit] {
+    /// Every free item with its title, author and licence, for the credits screen.
+    static let credits: [Credit] = {
         var seen = Set<String>()
         var out: [Credit] = []
         for e in index.values.flatMap({ $0 }) where seen.insert(e.id).inserted {
-            out.append(Credit(id: e.id, title: e.id, source: e.source,
-                              credit: [e.author, e.license].compactMap { $0 }.joined(separator: " · "),
+            out.append(Credit(id: e.id, title: e.title.flatMap { $0.isEmpty ? nil : $0 } ?? e.id, source: e.source,
+                              credit: e.credit, license: e.license ?? "",
                               link: e.link.flatMap(URL.init(string:))))
         }
-        return out.sorted { ($0.source, $0.id) < ($1.source, $1.id) }
+        return out.sorted { ($0.source, $0.title, $0.id) < ($1.source, $1.title, $1.id) }
+    }()
+
+    /// How many free items come from a source ("DVIDS", "wger", …).
+    static func creditCount(_ source: String) -> Int { credits.filter { $0.source == source }.count }
+
+    static func isCreativeCommons(_ license: String?) -> Bool { license?.contains("CC BY") == true }
+
+    /// The authoritative text for each licence named in FreeMedia.json.
+    static func licenseLinks(_ license: String) -> [(name: String, url: URL)] {
+        var out: [(String, URL)] = []
+        if license.contains("CC BY-SA 3.0") { out.append(("CC BY-SA 3.0", LegalLinks.ccBySA3)) }
+        if license.contains("CC BY-SA 4.0") { out.append(("CC BY-SA 4.0", LegalLinks.ccBySA4)) }
+        if license.contains("US DoD") { out.append((String(localized: "DVIDS copyright and use"), LegalLinks.dvidsCopyright)) }
+        else if license == "Public domain" { out.append((String(localized: "Public domain"), LegalLinks.commonsPublicDomain)) }
+        if license.contains("Pixabay") { out.append(("Pixabay Content License", LegalLinks.pixabayLicense)) }
+        return out
     }
 
     private static let choiceKey = "gf.mediaChoice"

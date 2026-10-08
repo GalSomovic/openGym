@@ -182,7 +182,8 @@ struct SettingsView: View {
     }
 }
 
-/// Credits and licences: openGym (AGPL v3), the ExerciseDB animations, MuscleMap.
+/// About: version, health and privacy, the licences and credits, and the AGPL notices
+/// (section 5(d): copyright, no warranty, the licence and where the source is).
 struct AboutView: View {
     private var version: String {
         let info = Bundle.main.infoDictionary
@@ -215,34 +216,50 @@ struct AboutView: View {
                 Text("General fitness information, not medical advice. Eating-disorder support and helplines are under Health & safety.")
             }
             Section {
-                Link(destination: URL(string: "https://github.com/DuarteSantos8/openGym")!) {
-                    Label("openGym by Duarte Santos", systemImage: "heart")
+                NavigationLink { LicencesView() } label: {
+                    Label("Licences & credits", systemImage: "c.circle")
                 }
-                Link(destination: URL(string: "https://github.com/GalSomovic/openGym/tree/native-apple")!) {
-                    Label("GymFree source code", systemImage: "chevron.left.forwardslash.chevron.right")
+                .accessibilityIdentifier("about.licences")
+                NavigationLink { OpenSourceLicencesView() } label: {
+                    Label("Open-source licences", systemImage: "doc.plaintext")
                 }
+                .accessibilityIdentifier("about.openSource")
+                NavigationLink { LegalNoticesView() } label: {
+                    Label("Terms & disclaimers", systemImage: "doc.text")
+                }
+                .accessibilityIdentifier("about.legal")
+                Link(destination: LegalLinks.sourceCode) {
+                    Label("Source code", systemImage: "chevron.left.forwardslash.chevron.right")
+                }
+                .accessibilityIdentifier("about.sourceCode")
             } header: {
-                Text("Built on openGym")
+                Text("Legal")
             } footer: {
-                Text("GymFree is an independent native version of openGym and runs openGym’s own training engine. Both are free software under the GNU Affero General Public License v3.0; the full source is available at the link above.")
+                Text("openGym © 2026 Duarte Santos. GymFree changes © 2026 Gal Somovic. GymFree is a modified version of openGym and is free software under the GNU Affero General Public License v3.0 or later: you may share and change it under that licence, whose full text is under Open-source licences. It comes with ABSOLUTELY NO WARRANTY. The complete source code is at the Source code link.")
             }
             Section {
-                Link(destination: URL(string: "https://oss.exercisedb.dev")!) {
+                Link(destination: LegalLinks.openGym) {
+                    Label("openGym by Duarte Santos", systemImage: "heart")
+                }
+                Link(destination: LegalLinks.ascendAPI) {
                     Label("ExerciseDB by AscendAPI", systemImage: "figure.run")
                 }
-                Link(destination: URL(string: "https://github.com/melihcolpan/MuscleMap")!) {
+                Link(destination: LegalLinks.dvidsCopyright) {
+                    Label("DVIDS, U.S. Department of War", systemImage: "video")
+                }
+                Link(destination: LegalLinks.muscleMap) {
                     Label("MuscleMap by Melih Colpan (MIT)", systemImage: "figure.stand")
                 }
                 NavigationLink { MediaCreditsView() } label: {
                     Label("Exercise media credits", systemImage: "photo.on.rectangle")
                 }
-                Link(destination: URL(string: "https://fdc.nal.usda.gov/")!) {
+                Link(destination: LegalLinks.usda) {
                     Label("USDA FoodData Central", systemImage: "fork.knife")
                 }
             } header: {
                 Text("Thanks to")
             } footer: {
-                Text("Exercise animations © AscendAPI (ExerciseDB), used under its free non-commercial licence. Videos and illustrations from wger, Wikimedia Commons and Feeel are used under their open licences (mostly CC BY-SA 4.0; US Army clips are public domain). Food values: U.S. Department of Agriculture, Agricultural Research Service. FoodData Central (Foundation Foods and SR Legacy), public domain (CC0).")
+                Text("GymFree is an independent native version of openGym and runs openGym’s own training engine. Exercise animations © AscendAPI (ExerciseDB), used under its free non-commercial terms. Most videos are U.S. military fitness clips from DVIDS (public domain); others come from wger, Wikimedia Commons, Feeel and Pixabay under their own licences (mostly CC BY-SA, modified). Food values: U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, public domain (CC0). \(Disclaimers.dvids)")
             }
         }
         .navigationTitle("About")
@@ -251,24 +268,59 @@ struct AboutView: View {
 }
 
 
-/// Author and licence of every free video and illustration in the app (CC BY-SA requires it).
+/// Title, author and licence of every free video and illustration (CC BY-SA requires it),
+/// with links to the original and to the licence. Items under CC BY-SA say "modified":
+/// fetch_free.py trims, resizes and re-encodes every file.
 struct MediaCreditsView: View {
+    /// Only this source ("DVIDS", "wger", …), or every source.
+    var source: String? = nil
+
+    private var groups: [(key: String, value: [MediaLibrary.Credit])] {
+        let items = MediaLibrary.credits.filter { source == nil || $0.source == source }
+        return Dictionary(grouping: items, by: \.source).sorted { $0.key < $1.key }
+    }
+
     var body: some View {
         List {
-            ForEach(Dictionary(grouping: MediaLibrary.credits, by: \.source).sorted { $0.key < $1.key }, id: \.key) { source, items in
-                Section(source) {
+            ForEach(groups, id: \.key) { name, items in
+                Section {
                     ForEach(items) { c in
-                        VStack(alignment: .leading, spacing: 2) {
+                        VStack(alignment: .leading, spacing: 3) {
+                            Text(verbatim: "“\(c.title)”").font(.footnote.weight(.semibold))
                             Text(c.credit).font(.footnote)
-                            if let link = c.link {
-                                Link(link.absoluteString, destination: link).font(.caption2).lineLimit(1)
+                            HStack(spacing: 12) {
+                                if let link = c.link {
+                                    Link("Original", destination: link)
+                                }
+                                ForEach(c.licenseLinks, id: \.url) { l in
+                                    Link(l.name, destination: l.url)
+                                }
                             }
+                            .font(.caption)
+                            .buttonStyle(.borderless)
                         }
+                        .accessibilityElement(children: .contain)
                     }
+                } header: {
+                    Text(verbatim: name)
+                } footer: {
+                    footer(name)
                 }
             }
         }
-        .navigationTitle("Media credits")
+        .navigationTitle(source.map { Text(verbatim: $0) } ?? Text("Media credits"))
         .navigationBarTitleDisplayMode(.inline)
+    }
+
+    @ViewBuilder
+    private func footer(_ source: String) -> some View {
+        switch source {
+        case "DVIDS":
+            Text("Trimmed, resized, without sound. \(Disclaimers.dvids)")
+        case "Pixabay":
+            Text("Trimmed, cropped and resized. Credit isn't required by the Pixabay Content License but is given anyway.")
+        default:
+            Text("Modified for GymFree: trimmed, resized and re-encoded (pictures put on a dark background). Shared under the same licence as the original.")
+        }
     }
 }
