@@ -946,20 +946,6 @@
    "title": "Dumbbell Bench Press"
   }
  ],
- "0292": [
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-773835.mp4"
-   ],
-   "id": "sasebo-773835",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/773835",
-   "source": "DVIDS",
-   "title": "One-arm Bent Over Row"
-  }
- ],
  "0293": [
   {
    "author": "U.S. Marine Corps Training and Education Command / DVIDS",
@@ -972,18 +958,6 @@
    "link": "https://www.dvidshub.net/video/636921",
    "source": "DVIDS",
    "title": "Dumbbell Bent Over Rows"
-  },
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-768141.mp4"
-   ],
-   "id": "sasebo-768141",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/768141",
-   "source": "DVIDS",
-   "title": "Bent Over Row"
   }
  ],
  "0294": [
@@ -1023,18 +997,6 @@
    "link": "https://www.dvidshub.net/video/636923",
    "source": "DVIDS",
    "title": "Dumbbell Curl"
-  },
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-773842.mp4"
-   ],
-   "id": "sasebo-773842",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/773842",
-   "source": "DVIDS",
-   "title": "Biceps Curl"
   }
  ],
  "0308": [
@@ -1230,20 +1192,6 @@
    "link": "https://www.dvidshub.net/video/679653",
    "source": "DVIDS",
    "title": "Dumbbell Bicep Curl"
-  }
- ],
- "0380": [
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-774041.mp4"
-   ],
-   "id": "sasebo-774041",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/774041",
-   "source": "DVIDS",
-   "title": "Bent Over T"
   }
  ],
  "0381": [
@@ -2062,30 +2010,6 @@
    "link": "https://www.dvidshub.net/video/558585",
    "source": "DVIDS",
    "title": "Monster Walk"
-  },
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-771635.mp4"
-   ],
-   "id": "sasebo-771635",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/771635",
-   "source": "DVIDS",
-   "title": "Forward & Backward Monster Walks"
-  },
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-765285.mp4"
-   ],
-   "id": "sasebo-765285",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/765285",
-   "source": "DVIDS",
-   "title": "Sideways Monster Walk"
   }
  ],
  "0630": [
@@ -2814,32 +2738,6 @@
    "link": "https://www.dvidshub.net/video/636829",
    "source": "DVIDS",
    "title": "Band Front Raise"
-  },
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-774030.mp4"
-   ],
-   "id": "sasebo-774030",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/774030",
-   "source": "DVIDS",
-   "title": "Banded Forward Raise"
-  }
- ],
- "0979": [
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-774026.mp4"
-   ],
-   "id": "sasebo-774026",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/774026",
-   "source": "DVIDS",
-   "title": "Banded Palloff Press"
   }
  ],
  "0997": [
@@ -3381,18 +3279,6 @@
    "link": "https://www.dvidshub.net/video/550433",
    "source": "DVIDS",
    "title": "Butterfly"
-  },
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-774071.mp4"
-   ],
-   "id": "sasebo-774071",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/774071",
-   "source": "DVIDS",
-   "title": "Bound Angle Stretch"
   }
  ],
  "1585": [
@@ -3421,20 +3307,6 @@
    "link": "https://www.dvidshub.net/video/551861",
    "source": "DVIDS",
    "title": "Walking Lunge with Twist"
-  }
- ],
- "1713": [
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-774059.mp4"
-   ],
-   "id": "sasebo-774059",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/774059",
-   "source": "DVIDS",
-   "title": "Quadriceps Stretch"
   }
  ],
  "1757": [
@@ -3573,18 +3445,6 @@
    "link": "https://gitlab.com/enjoyingfoss/feeel",
    "source": "Feeel",
    "title": "Split squats"
-  },
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-768140.mp4"
-   ],
-   "id": "sasebo-768140",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/768140",
-   "source": "DVIDS",
-   "title": "Split Squat"
   }
  ],
  "2612": [
@@ -3637,20 +3497,6 @@
    "link": "https://www.dvidshub.net/video/517497",
    "source": "DVIDS",
    "title": "Barbell Split Squat"
-  }
- ],
- "3007": [
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-774052.mp4"
-   ],
-   "id": "sasebo-774052",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/774052",
-   "source": "DVIDS",
-   "title": "Banded Knee Extension"
   }
  ],
  "3144": [
@@ -3933,20 +3779,6 @@
    "title": "Combination Hip Stretch"
   }
  ],
- "gf-archer-stretch": [
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-764645.mp4"
-   ],
-   "id": "sasebo-764645",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/764645",
-   "source": "DVIDS",
-   "title": "Archer Stretch"
-  }
- ],
  "gf-arm-circles": [
   {
    "author": "U.S. Marine Corps Training and Education Command / DVIDS",
@@ -4123,46 +3955,6 @@
    "link": "https://www.dvidshub.net/video/636831",
    "source": "DVIDS",
    "title": "Band Side Lateral Raise"
-  },
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-774033.mp4"
-   ],
-   "id": "sasebo-774033",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/774033",
-   "source": "DVIDS",
-   "title": "Banded Lateral Raise"
-  }
- ],
- "gf-band-lying-leg-curl": [
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-774053.mp4"
-   ],
-   "id": "sasebo-774053",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/774053",
-   "source": "DVIDS",
-   "title": "Banded Knee Flexion"
-  }
- ],
- "gf-band-lying-pullover": [
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-774043.mp4"
-   ],
-   "id": "sasebo-774043",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/774043",
-   "source": "DVIDS",
-   "title": "Lying Pullover"
   }
  ],
  "gf-band-overhead-squat": [
@@ -4189,102 +3981,6 @@
    "link": "https://www.dvidshub.net/video/517469",
    "source": "DVIDS",
    "title": "Band Overhead Squat"
-  },
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-773830.mp4"
-   ],
-   "id": "sasebo-773830",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/773830",
-   "source": "DVIDS",
-   "title": "Banded Overhead Squat"
-  }
- ],
- "gf-band-overhead-triceps-extension": [
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-773936.mp4"
-   ],
-   "id": "sasebo-773936",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/773936",
-   "source": "DVIDS",
-   "title": "Banded Tricep Extension"
-  }
- ],
- "gf-band-push-up": [
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-774050.mp4"
-   ],
-   "id": "sasebo-774050",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/774050",
-   "source": "DVIDS",
-   "title": "Banded Push-ups"
-  }
- ],
- "gf-band-romanian-deadlift": [
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-774020.mp4"
-   ],
-   "id": "sasebo-774020",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/774020",
-   "source": "DVIDS",
-   "title": "Banded Romanian Deadlift"
-  }
- ],
- "gf-band-seated-calf-press": [
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-774036.mp4"
-   ],
-   "id": "sasebo-774036",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/774036",
-   "source": "DVIDS",
-   "title": "Banded Calf Raises"
-  }
- ],
- "gf-band-shoulder-external-rotation": [
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-764644.mp4"
-   ],
-   "id": "sasebo-764644",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/764644",
-   "source": "DVIDS",
-   "title": "External Shoulder Rotation"
-  }
- ],
- "gf-band-shoulder-internal-rotation": [
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-771043.mp4"
-   ],
-   "id": "sasebo-771043",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/771043",
-   "source": "DVIDS",
-   "title": "Internal Shoulder Rotation"
   }
  ],
  "gf-band-standing-chest-press": [
@@ -4299,32 +3995,6 @@
    "link": "https://www.dvidshub.net/video/639894",
    "source": "DVIDS",
    "title": "Band Standing Chest Press"
-  },
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-774046.mp4"
-   ],
-   "id": "sasebo-774046",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/774046",
-   "source": "DVIDS",
-   "title": "Banded Bench Press"
-  }
- ],
- "gf-band-standing-fly": [
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-774027.mp4"
-   ],
-   "id": "sasebo-774027",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/774027",
-   "source": "DVIDS",
-   "title": "Banded Fly"
   }
  ],
  "gf-band-standing-twist": [
@@ -4339,18 +4009,6 @@
    "link": "https://www.dvidshub.net/video/640969",
    "source": "DVIDS",
    "title": "Band Standing Twist"
-  },
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-774038.mp4"
-   ],
-   "id": "sasebo-774038",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/774038",
-   "source": "DVIDS",
-   "title": "Banded Twists for Abdomen"
   }
  ],
  "gf-band-triceps-kickback": [
@@ -4393,18 +4051,6 @@
    "link": "https://www.dvidshub.net/video/636841",
    "source": "DVIDS",
    "title": "Band Upright Row"
-  },
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-774048.mp4"
-   ],
-   "id": "sasebo-774048",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/774048",
-   "source": "DVIDS",
-   "title": "Banded Upright Row"
   }
  ],
  "gf-band-wood-chop-high-to-low": [
@@ -4744,20 +4390,6 @@
    "title": "Cat Camel"
   }
  ],
- "gf-chair-pistol-squat": [
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-770128.mp4"
-   ],
-   "id": "sasebo-770128",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/770128",
-   "source": "DVIDS",
-   "title": "Chair Pistol Squat"
-  }
- ],
  "gf-childs-pose": [
   {
    "author": "U.S. Marine Corps Training and Education Command / DVIDS",
@@ -4770,18 +4402,6 @@
    "link": "https://www.dvidshub.net/video/753717",
    "source": "DVIDS",
    "title": "Child Pose"
-  },
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-774070.mp4"
-   ],
-   "id": "sasebo-774070",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/774070",
-   "source": "DVIDS",
-   "title": "Childs Pose Stretch"
   }
  ],
  "gf-clap-to-chest-push-up": [
@@ -4946,34 +4566,6 @@
    "title": "PVC RDL Stretch"
   }
  ],
- "gf-downward-dog": [
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-774075.mp4"
-   ],
-   "id": "sasebo-774075",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/774075",
-   "source": "DVIDS",
-   "title": "Downward Facing Dog Stretch"
-  }
- ],
- "gf-dragon-stretch": [
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-774062.mp4"
-   ],
-   "id": "sasebo-774062",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/774062",
-   "source": "DVIDS",
-   "title": "Dragon Stretch"
-  }
- ],
  "gf-dumbbell-3-way-shoulder-raise": [
   {
    "author": "U.S. Marine Corps Training and Education Command / DVIDS",
@@ -4988,20 +4580,6 @@
    "title": "Dumbbell 3 Way Shoulder Raise"
   }
  ],
- "gf-dumbbell-bent-over-y-raise": [
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-773839.mp4"
-   ],
-   "id": "sasebo-773839",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/773839",
-   "source": "DVIDS",
-   "title": "Bent Over Y"
-  }
- ],
  "gf-dumbbell-curtsy-lunge": [
   {
    "author": "U.S. Marine Corps Training and Education Command / DVIDS",
@@ -5014,32 +4592,6 @@
    "link": "https://www.dvidshub.net/video/549289",
    "source": "DVIDS",
    "title": "Dumbbell Curtsy Lunge"
-  }
- ],
- "gf-dumbbell-half-kneeling-press": [
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-768147.mp4"
-   ],
-   "id": "sasebo-768147",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/768147",
-   "source": "DVIDS",
-   "title": "Kneeling Overhead Press"
-  },
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-768139.mp4"
-   ],
-   "id": "sasebo-768139",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/768139",
-   "source": "DVIDS",
-   "title": "Kneeling Overhead Press"
   }
  ],
  "gf-dumbbell-lateral-lunge": [
@@ -5094,20 +4646,6 @@
    "link": "https://www.dvidshub.net/video/549332",
    "source": "DVIDS",
    "title": "Dumbbell Lunge to Overhead Press"
-  }
- ],
- "gf-dumbbell-one-arm-romanian-deadlift": [
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-773832.mp4"
-   ],
-   "id": "sasebo-773832",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/773832",
-   "source": "DVIDS",
-   "title": "One Arm Romanian Deadlift"
   }
  ],
  "gf-dumbbell-push-up": [
@@ -5176,20 +4714,6 @@
    "title": "Dumbbell Rotational Lunge"
   }
  ],
- "gf-dumbbell-squat-to-press": [
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-769565.mp4"
-   ],
-   "id": "sasebo-769565",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/769565",
-   "source": "DVIDS",
-   "title": "Squat-to-overhead Press"
-  }
- ],
  "gf-dumbbell-step-down": [
   {
    "author": "U.S. Marine Corps Training and Education Command / DVIDS",
@@ -5214,18 +4738,6 @@
    "kind": "video",
    "license": "Public domain (US DoD)",
    "link": "https://www.dvidshub.net/video/754732",
-   "source": "DVIDS",
-   "title": "Figure 4 Stretch"
-  },
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-768664.mp4"
-   ],
-   "id": "sasebo-768664",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/768664",
    "source": "DVIDS",
    "title": "Figure 4 Stretch"
   }
@@ -5254,18 +4766,6 @@
    "link": "https://www.dvidshub.net/video/551375",
    "source": "DVIDS",
    "title": "Fire Hydrants"
-  },
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-774025.mp4"
-   ],
-   "id": "sasebo-774025",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/774025",
-   "source": "DVIDS",
-   "title": "Fire Hydrants"
   }
  ],
  "gf-frankenstein-walk": [
@@ -5280,20 +4780,6 @@
    "link": "https://www.dvidshub.net/video/551378",
    "source": "DVIDS",
    "title": "Frankenstein"
-  }
- ],
- "gf-frog-stretch": [
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-774066.mp4"
-   ],
-   "id": "sasebo-774066",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/774066",
-   "source": "DVIDS",
-   "title": "Frog Stretch"
   }
  ],
  "gf-front-leg-swing": [
@@ -5913,20 +5399,6 @@
    "title": "Lateral Step Squat"
   }
  ],
- "gf-lizard-stretch": [
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-774063.mp4"
-   ],
-   "id": "sasebo-774063",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/774063",
-   "source": "DVIDS",
-   "title": "Lizard Stretch"
-  }
- ],
  "gf-long-arm-chest-stretch": [
   {
    "author": "U.S. Marine Corps Training and Education Command / DVIDS",
@@ -6131,20 +5603,6 @@
    "title": "Med Ball Wood Chopper"
   }
  ],
- "gf-mini-band-squat": [
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-773838.mp4"
-   ],
-   "id": "sasebo-773838",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/773838",
-   "source": "DVIDS",
-   "title": "Mini-Band Squat"
-  }
- ],
  "gf-overhead-plate-lunge": [
   {
    "author": "U.S. Marine Corps Training and Education Command / DVIDS",
@@ -6197,18 +5655,6 @@
    "link": "https://www.dvidshub.net/video/551135",
    "source": "DVIDS",
    "title": "Passive Strap Stretch"
-  },
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-774056.mp4"
-   ],
-   "id": "sasebo-774056",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/774056",
-   "source": "DVIDS",
-   "title": "Hamstring Stretch with Towel"
   }
  ],
  "gf-pike-jump": [
@@ -6327,18 +5773,6 @@
    "link": "https://www.dvidshub.net/video/640233",
    "source": "DVIDS",
    "title": "Plank with Hand Raise"
-  },
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-774023.mp4"
-   ],
-   "id": "sasebo-774023",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/774023",
-   "source": "DVIDS",
-   "title": "Pillar Bridge with Arm Lift"
   }
  ],
  "gf-plank-leg-extension": [
@@ -6367,20 +5801,6 @@
    "link": "https://www.dvidshub.net/video/677372",
    "source": "DVIDS",
    "title": "Prone Leg Overs"
-  }
- ],
- "gf-prone-twisted-cross": [
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-774064.mp4"
-   ],
-   "id": "sasebo-774064",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/774064",
-   "source": "DVIDS",
-   "title": "Twisted Cross"
   }
  ],
  "gf-reverse-lunge": [
@@ -7107,34 +6527,6 @@
    "title": "Scorpion"
   }
  ],
- "gf-seal-stretch": [
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-774068.mp4"
-   ],
-   "id": "sasebo-774068",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/774068",
-   "source": "DVIDS",
-   "title": "Seal Pose Stretch"
-  }
- ],
- "gf-seated-hamstring-stretch": [
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-774065.mp4"
-   ],
-   "id": "sasebo-774065",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/774065",
-   "source": "DVIDS",
-   "title": "Seated Hamstring Stretch"
-  }
- ],
  "gf-seated-hip-cross-stretch": [
   {
    "author": "U.S. Marine Corps Training and Education Command / DVIDS",
@@ -7163,34 +6555,6 @@
    "title": "Leaning Back With Hip Internal Rotation"
   }
  ],
- "gf-seated-side-reach-stretch": [
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-774076.mp4"
-   ],
-   "id": "sasebo-774076",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/774076",
-   "source": "DVIDS",
-   "title": "QLT Stretch"
-  }
- ],
- "gf-seated-straddle-stretch": [
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-774072.mp4"
-   ],
-   "id": "sasebo-774072",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/774072",
-   "source": "DVIDS",
-   "title": "Seated Straddle Stretch"
-  }
- ],
  "gf-seated-tibialis-stretch": [
   {
    "author": "U.S. Marine Corps Training and Education Command / DVIDS",
@@ -7203,32 +6567,6 @@
    "link": "https://www.dvidshub.net/video/638234",
    "source": "DVIDS",
    "title": "Passive Tibialis Stretch"
-  }
- ],
- "gf-shoot-through": [
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-774055.mp4"
-   ],
-   "id": "sasebo-774055",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/774055",
-   "source": "DVIDS",
-   "title": "Shoot Throughs"
-  },
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-774054.mp4"
-   ],
-   "id": "sasebo-774054",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/774054",
-   "source": "DVIDS",
-   "title": "Shoot Throughs"
   }
  ],
  "gf-side-plank": [
@@ -7267,20 +6605,6 @@
    "link": "https://www.dvidshub.net/video/640254",
    "source": "DVIDS",
    "title": "Side Plank"
-  }
- ],
- "gf-side-plank-hip-dip": [
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-774017.mp4"
-   ],
-   "id": "sasebo-774017",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/774017",
-   "source": "DVIDS",
-   "title": "Dynamic Pillar Bridge"
   }
  ],
  "gf-side-sitting-forward-lean": [
@@ -7741,18 +7065,6 @@
    "link": "https://www.dvidshub.net/video/754454",
    "source": "DVIDS",
    "title": "Supine Knee Over"
-  },
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-774061.mp4"
-   ],
-   "id": "sasebo-774061",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/774061",
-   "source": "DVIDS",
-   "title": "Supine Twist Stretch"
   }
  ],
  "gf-supine-knee-to-chest": [
@@ -8727,20 +8039,6 @@
    "link": "https://www.dvidshub.net/video/753727",
    "source": "DVIDS",
    "title": "T-Spine Rib Grab"
-  }
- ],
- "gf-thread-the-needle": [
-  {
-   "author": "Robert Price / AFN Sasebo, MWR Fitness / DVIDS",
-   "files": [
-    "sasebo/sasebo-774074.mp4"
-   ],
-   "id": "sasebo-774074",
-   "kind": "video",
-   "license": "Public domain (US DoD)",
-   "link": "https://www.dvidshub.net/video/774074",
-   "source": "DVIDS",
-   "title": "Thread the Needle Stretch"
   }
  ],
  "gf-traveling-push-up": [

@@ -5,7 +5,7 @@ A native SwiftUI app for iPhone and iPad, built on openGym. It is a fork of
 openGym, under the **GNU AGPL v3.0 or later**, with openGym's app-store exception
 (see the root `NOTICE.md`). All source stays public in this repository.
 
-GymFree is a **modified version** of openGym (changes © 2026 Gal Somovic, made from 2026 on; the
+GymFree is a **modified version** of openGym (changes © 2026 the GymFree contributors, made from 2026 on; the
 commit history dates each one). The app shows the AGPL notices, every licence and credit, and a link
 to this source under Settings → About (Legal: Licences & credits, Open-source licences, Terms &
 disclaimers, Source code); `research/COMPLIANCE.md` §9 lists each source's terms and how they are met.

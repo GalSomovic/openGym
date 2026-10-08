@@ -1055,6 +1055,9 @@ def build():
             missing.append(e["id"])
     if missing:
         raise SystemExit("no steps for: " + ", ".join(missing))
+    # The AFN Sasebo series is flagged on DVIDS as containing copyrighted material "not licensed
+    # for distribution", so it is not used; exercises that only had a Sasebo demo are left out.
+    E[:] = [e for e in E if e["tecom"]]
     ids = [e["id"] for e in E]
     dupes = {i for i in ids if ids.count(i) > 1}
     assert not dupes, dupes
@@ -1078,6 +1081,11 @@ def tecom_targets():
 
 
 def sasebo_targets():
+    """Not used: see build(). Kept so the mapping is on record."""
+    return {}
+
+
+def _sasebo_targets_on_record():
     out = {t: list(ids) for t, ids in SASEBO_MORE.items()}
     for e in E:
         for t in e["sasebo"]:

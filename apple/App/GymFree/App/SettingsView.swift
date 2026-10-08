@@ -235,7 +235,7 @@ struct AboutView: View {
             } header: {
                 Text("Legal")
             } footer: {
-                Text("openGym © 2026 Duarte Santos. GymFree changes © 2026 Gal Somovic. GymFree is a modified version of openGym and is free software under the GNU Affero General Public License v3.0 or later: you may share and change it under that licence, whose full text is under Open-source licences. It comes with ABSOLUTELY NO WARRANTY. The complete source code is at the Source code link.")
+                Text("openGym © 2026 Duarte Santos. GymFree changes © 2026 the GymFree contributors. GymFree is a modified version of openGym and is free software under the GNU Affero General Public License v3.0 or later: you may share and change it under that licence, whose full text is under Open-source licences. It comes with ABSOLUTELY NO WARRANTY. The complete source code is at the Source code link.")
             }
             Section {
                 Link(destination: LegalLinks.openGym) {

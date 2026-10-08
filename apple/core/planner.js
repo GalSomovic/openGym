@@ -22,7 +22,7 @@ const SLOTS = {
   hinge: [
     { id: '0085', needs: ['gym'] }, { id: '0811', needs: ['gym'] },
     { id: '1459', needs: ['db'] },
-    { id: 'gf-band-romanian-deadlift', needs: ['band'] },
+    { id: '1009', needs: ['band'] },
     { id: '3013' },
   ],
   singleLeg: [
@@ -31,7 +31,6 @@ const SLOTS = {
   ],
   legCurl: [
     { id: '0586', needs: ['gym'] },
-    { id: 'gf-band-lying-leg-curl', needs: ['band'] },
     { id: '0696' },
   ],
   hPush: [

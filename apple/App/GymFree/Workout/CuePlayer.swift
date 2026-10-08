@@ -14,6 +14,9 @@ final class CuePlayer: NSObject, AVSpeechSynthesizerDelegate {
 
     private let engine = AVAudioEngine()
     private let node = AVAudioPlayerNode()
+    /// The engine is wired on the first chime, not at launch: touching the audio graph at launch
+    /// blocks on the system audio service, and a stuck service would take the whole app down.
+    private var wired = false
     private let speech = AVSpeechSynthesizer()
     private var pending = 0
     private var releaseTask: Task<Void, Never>?
@@ -21,6 +24,11 @@ final class CuePlayer: NSObject, AVSpeechSynthesizerDelegate {
     override init() {
         super.init()
         speech.delegate = self
+    }
+
+    private func wireIfNeeded() {
+        guard !wired else { return }
+        wired = true
         engine.attach(node)
         engine.connect(node, to: engine.mainMixerNode, format: Self.format)
     }
@@ -50,6 +58,7 @@ final class CuePlayer: NSObject, AVSpeechSynthesizerDelegate {
         guard enabled, acquire() else { return }
         let buffer = Self.render(notes, gap: gap)
         do {
+            wireIfNeeded()
             if !engine.isRunning { try engine.start() }
             pending += 1
             node.scheduleBuffer(buffer) { [weak self] in

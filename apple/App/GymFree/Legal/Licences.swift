@@ -282,7 +282,7 @@ struct OpenSourceLicencesView: View {
             Section {
                 VStack(alignment: .leading, spacing: 8) {
                     Text(verbatim: "openGym — Copyright (C) 2026 Duarte Santos").font(.subheadline.weight(.semibold))
-                    Text(verbatim: "GymFree changes — Copyright (C) 2026 Gal Somovic").font(.subheadline.weight(.semibold))
+                    Text(verbatim: "GymFree changes — Copyright (C) 2026 the GymFree contributors").font(.subheadline.weight(.semibold))
                     Text("GymFree is a modified version of openGym. It replaces openGym's web interface with a native iPhone and iPad app that runs openGym's own training engine, and adds guided workouts, exercise videos, walks with GPS, Apple Health, calories & food and more. The changes were made in 2026; the dated history of every change is public.")
                         .font(.footnote)
                     Text("This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.")

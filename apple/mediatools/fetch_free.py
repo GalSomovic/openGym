@@ -522,6 +522,12 @@ def tecom():
 
 
 def sasebo():
+    """Disabled: DVIDS marks every AFN Sasebo "Fitness Workout" video as containing copyrighted
+    material "not licensed for distribution" (see apple/research/COMPLIANCE.md)."""
+    raise SystemExit("sasebo: disabled, the series is not licensed for distribution")
+
+
+def _sasebo_disabled():
     """AFN Sasebo "Fitness Workout" series (US Navy, public domain): one continuous demo per video
     between a title card and an outro, so only the middle is searched for the busiest stretch."""
     CURRENT[0] = "sasebo-"

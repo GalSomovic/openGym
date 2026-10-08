@@ -198,7 +198,7 @@ Every URL below was opened on 2026-10-08. Re-check before each release and when 
 
 | Component | Licence | Notice shipped |
 |---|---|---|
-| openGym (© 2026 Duarte Santos) + GymFree changes (© 2026 Gal Somovic) | [AGPL-3.0-or-later](https://www.gnu.org/licenses/agpl-3.0.html) + openGym's app-store permission ([NOTICE.md](https://github.com/DuarteSantos8/openGym/blob/main/NOTICE.md)) | Root `LICENSE` and `NOTICE.md`, bundled |
+| openGym (© 2026 Duarte Santos) + GymFree changes (© 2026 the GymFree contributors) | [AGPL-3.0-or-later](https://www.gnu.org/licenses/agpl-3.0.html) + openGym's app-store permission ([NOTICE.md](https://github.com/DuarteSantos8/openGym/blob/main/NOTICE.md)) | Root `LICENSE` and `NOTICE.md`, bundled |
 | [Lottie for iOS](https://github.com/airbnb/lottie-ios) 4.6.x via lottie-spm (© 2018 Airbnb) | [Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0) (no NOTICE file) | `Apache-2.0.txt` |
 | inside Lottie: [ZIPFoundation](https://github.com/weichsel/ZIPFoundation) 0.9.20, [EpoxyCore](https://github.com/airbnb/epoxy-ios) 0.11.0, [LRUCache](https://github.com/nicklockwood/LRUCache) 1.0.4 | MIT, Apache-2.0, MIT | `MIT-ZIPFoundation.txt`, `Apache-2.0.txt`, `MIT-LRUCache.txt` |
 
@@ -215,4 +215,11 @@ Every URL below was opened on 2026-10-08. Re-check before each release and when 
 1. **AFN Sasebo clips (53 DVIDS items, 50 exercises; for 33 they are the only free video).** Every clip by "Robert Price / AFN Sasebo, MWR Fitness" has, on its DVIDS page, "Asset contains copyrighted material. Portions of the asset are subject to restrictions under U.S. copyright law and are not licensed for distribution. Please contact us for details." The footage itself was shot by a Navy Mass Communication Specialist (public domain), so the restricted portion is most likely the soundtrack, which GymFree removes, but the page doesn't say. Ask DVIDS (the page's "contact us") which portion is restricted, or drop these clips (`FRESH=1` re-run without the Sasebo ids), before release. The other 442 DVIDS items are marked "PUBLIC DOMAIN" with no restriction.
 2. **ExerciseDB media ownership.** openGym's NOTICE.md records that Gym visual (gymvisual.com) also claims the animations, whose [terms](https://gymvisual.com/content/3-terms-and-conditions-of-use) forbid redistribution; AscendAPI said in [exercises-dataset#5](https://github.com/hasaneyldrm/exercises-dataset/issues/5) "We're fine with people building on the v1 dataset — it's free and public." AscendAPI's V1 terms allow non-commercial apps with credit but don't say explicitly that the GIF files may be shipped inside an app; its paid-API terms forbid storing media. Get a written OK from AscendAPI (support@ascendapi.com) for bundling the 180p GIFs in a free App Store app, or make DVIDS/GymFree animations the default and drop the GIFs.
 3. **Pixabay:** check the two clips for visible brands or logos (not allowed under §5 of the licence).
-4. **Copyright holder name:** "GymFree changes © 2026 Gal Somovic" is shown in the app; change it in `SettingsView.swift`/`Licences.swift` if another name should appear.
+4. **Copyright holder name:** shown as "the GymFree contributors" (no personal name, by choice).
+
+
+## 10. Decisions taken (2026-10-08)
+- **AFN Sasebo "Fitness Workout" series (53 DVIDS items): removed.** Every page says "Asset contains copyrighted material ... not licensed for distribution". The source is disabled in `mediatools/fetch_free.py`, its clips are gone from the bundle and `FreeMedia.json`, and the 28 exercises that only had a Sasebo demo were dropped from `core/extras-dvids.js`. No email to DVIDS.
+- **ExerciseDB V1 GIFs: kept.** AscendAPI's published terms allow non-commercial apps and community fitness platforms with credit; GymFree is free with no ads, IAP or monetisation and credits AscendAPI on every demo and in About. No separate permission was requested (developer's choice). If AscendAPI ever objects, switch the default to DVIDS/GymFree animations.
+- **Pixabay (2 clips): checked by eye, no legible brand or logo.**
+- **Copyright line:** "the GymFree contributors" (no personal name).
