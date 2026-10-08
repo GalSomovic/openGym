@@ -146,6 +146,8 @@ struct RoutineEditorView: View {
         .safeAreaInset(edge: .bottom) {
             Text("Changes save automatically")
                 .font(.caption).foregroundStyle(.secondary)
+                .padding(.horizontal, 10).padding(.vertical, 3)
+                .background(.regularMaterial, in: .capsule)
                 .padding(.bottom, 4)
         }
         .onAppear {
