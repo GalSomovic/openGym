@@ -80,13 +80,11 @@ private struct StepPanel: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 14) {
-                ExerciseAnimation(exerciseId: step.exerciseId, toggle: true)
-                    .frame(maxWidth: 360, maxHeight: demoSize)
+                // The credit line under the demo names the right source for each version.
+                ExerciseAnimation(exerciseId: step.exerciseId, toggle: true, naturalShape: true)
+                    .frame(maxWidth: .infinity, maxHeight: demoSize)
                     .clipShape(.rect(cornerRadius: 22))
                     .padding(.top, 4)
-                    .overlay(alignment: .bottomTrailing) {
-                        Text("© AscendAPI").font(.system(size: 9)).foregroundStyle(.black.opacity(0.35)).padding(6)
-                    }
                 VStack(spacing: 6) {
                     Text(catalog.name(step.exerciseId))
                         .font(.title2.weight(.bold)).multilineTextAlignment(.center)

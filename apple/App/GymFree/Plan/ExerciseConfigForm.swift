@@ -39,6 +39,16 @@ struct ExerciseConfigForm: View {
                 }
         }
         .keyboardDoneButton()
+        // Save sits top right, where iOS puts it, instead of at the bottom of a long form.
+        .toolbar {
+            ToolbarItem(placement: .confirmationAction) {
+                Button(saveLabel) {
+                    if let cfg = store.configToSave(exerciseId, draft, routine: routineId) { onSave(cfg) }
+                }
+                .fontWeight(.semibold)
+                .disabled(info?.stepValid == false)
+            }
+        }
     }
 
     private var demoHeader: some View {
@@ -75,17 +85,6 @@ struct ExerciseConfigForm: View {
             Section {
                 TextField("Note (optional): loading cues, anything worth remembering", text: text("note"), axis: .vertical)
                     .lineLimit(2...5)
-            }
-            Section {
-                Button {
-                    if let cfg = store.configToSave(exerciseId, draft, routine: routineId) { onSave(cfg) }
-                } label: {
-                    Text(saveLabel).frame(maxWidth: .infinity).fontWeight(.semibold)
-                }
-                .buttonStyle(.borderedProminent)
-                .disabled(info?.stepValid == false)
-                .listRowInsets(EdgeInsets())
-                .listRowBackground(Color.clear)
             }
             if let extraActions { extraActions }
         }
@@ -216,6 +215,10 @@ struct ExerciseConfigForm: View {
         }
     }
 
+    private func climbsReps(_ info: ConfigInfo) -> Bool {
+        info.mode == "reps" && info.bw && (draft["weight"]?.number ?? 0) <= 0
+    }
+
     @ViewBuilder
     private func progression(_ info: ConfigInfo) -> some View {
         let rule = draft["prog"]?.string ?? ""
@@ -226,7 +229,14 @@ struct ExerciseConfigForm: View {
                 Text("Follow the routine (\(info.policyNames[info.inheritedPolicy] ?? info.inheritedPolicy))").tag("")
                 ForEach(info.policies, id: \.self) { p in Text(info.policyNames[p] ?? p).tag(p) }
             }
-            if info.policy != "off" {
+            // Bodyweight with nothing added grows in reps, then sets (progression.js climbsReps):
+            // a kg step or a 1RM deload means nothing there.
+            if info.policy != "off" && climbsReps(info) {
+                Label("Each clean session adds a rep. Set “Top of the range” above and, once you reach it, a set is added and the reps start over.",
+                      systemImage: "arrow.up.right")
+                    .font(.footnote).foregroundStyle(.secondary)
+            }
+            if info.policy != "off" && !climbsReps(info) {
                 NumberStepper(label: info.mode == "time" ? "Step (seconds)" : "Step (\(info.unit))",
                               value: Binding(get: { draft["inc"]?.number ?? info.step }, set: { draft["inc"] = .number($0) }),
                               step: info.mode == "time" ? 5 : 1.25, decimals: info.mode == "time" ? 0 : 2)
@@ -249,8 +259,8 @@ struct ExerciseConfigForm: View {
             Text("Progression")
         } footer: {
             VStack(alignment: .leading, spacing: 4) {
-                if let desc = info.policyDesc { Text(desc) }
-                if !info.stepValid {
+                if let desc = info.policyDesc, !climbsReps(info) { Text(desc) }
+                if !info.stepValid && !climbsReps(info) {
                     Text("Enter a positive step to use this progression rule.").foregroundStyle(.red)
                 }
             }

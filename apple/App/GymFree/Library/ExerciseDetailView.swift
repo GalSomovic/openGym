@@ -14,7 +14,7 @@ struct ExerciseDetailView: View {
     var body: some View {
         List {
             Section {
-                ExerciseAnimation(exerciseId: exerciseId, toggle: true)
+                ExerciseAnimation(exerciseId: exerciseId, toggle: true, naturalShape: true)
                     .frame(maxWidth: 420)
                     .frame(maxWidth: .infinity)
                     .clipShape(.rect(cornerRadius: 18))

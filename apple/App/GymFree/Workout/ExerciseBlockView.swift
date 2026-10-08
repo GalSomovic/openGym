@@ -28,8 +28,9 @@ struct ExerciseBlockView: View {
     private func content(_ a: ActiveSession, _ e: SessionEntry, _ view: EntryView) -> some View {
         VStack(alignment: .leading, spacing: 10) {
             if showDemo && !demoHidden {
-                ExerciseAnimation(exerciseId: e.id, toggle: true)
-                    .frame(maxWidth: compact ? 180 : 300, maxHeight: compact ? 180 : 260)
+                // Full width, in the clip's own shape: a wide video no longer shrinks into a square.
+                ExerciseAnimation(exerciseId: e.id, toggle: true, naturalShape: true)
+                    .frame(maxWidth: compact ? 260 : .infinity, maxHeight: compact ? 220 : 420)
                     .frame(maxWidth: .infinity)
                     .clipShape(.rect(cornerRadius: 16))
                     .overlay(alignment: .topTrailing) {

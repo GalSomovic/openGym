@@ -96,15 +96,20 @@ struct RoutineEditorView: View {
                 }
             }
             Section {
-                ForEach(Array(r.ex.enumerated()), id: \.offset) { i, e in
+                // Identified by exercise (and which copy of it), not by position: position-based ids
+                // made rows jump and leave gaps while dragging.
+                ForEach(Self.rowIds(r)) { row in
+                    let i = row.index, e = r.ex[row.index]
                     exerciseRow(r, i, e, line: i < lines.count ? lines[i] : "", missing: missing.contains(i))
                 }
                 .onMove { from, to in
                     guard let source = from.first else { return }
                     store.reorderRoutineExercise(routineId, from: source, toSlot: slot(r, source: source, destination: to))
                 }
-                Button { adding = true } label: {
-                    Label("Add exercise", systemImage: "plus.circle.fill").fontWeight(.semibold)
+                if !reordering {
+                    Button { adding = true } label: {
+                        Label("Add exercise", systemImage: "plus.circle.fill").fontWeight(.semibold)
+                    }
                 }
             } header: {
                 HStack {
@@ -234,6 +239,18 @@ struct RoutineEditorView: View {
     }
 
     /// SwiftUI's drop destination as openGym's unit slot: supersets move whole and are never split.
+    struct RowId: Identifiable { let id: String; let index: Int }
+
+    /// "exerciseId#n" for the n-th copy of an exercise in the routine: stable while reordering.
+    static func rowIds(_ r: Routine) -> [RowId] {
+        var seen: [String: Int] = [:]
+        return r.ex.enumerated().map { i, e in
+            let n = seen[e.id, default: 0]
+            seen[e.id] = n + 1
+            return RowId(id: "\(e.id)#\(n)", index: i)
+        }
+    }
+
     private func slot(_ r: Routine, source: Int, destination: Int) -> Int {
         let units = supersetUnits(r.ex)
         guard let sourceUnit = units.firstIndex(where: { $0.contains(source) }) else { return 0 }

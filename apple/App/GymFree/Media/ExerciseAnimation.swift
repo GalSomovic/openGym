@@ -100,10 +100,13 @@ struct ExerciseAnimation: View {
     var toggle = false
     /// Shown full screen: fills the space it is given instead of a square.
     var fullScreen = false
+    /// Take the clip's own shape (a wide video stays wide) instead of a square. Lists keep squares.
+    var naturalShape = false
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var still: UIImage?
     @State private var loop: UIImage?
     @State private var poster: UIImage?
+    @State private var videoAspect: CGFloat?
     @State private var playRequested = false
     @State private var options: [MediaOption] = []
     @State private var index = 0
@@ -123,7 +126,7 @@ struct ExerciseAnimation: View {
                         .foregroundStyle(.white, .black.opacity(0.55))
                 }
             }
-            .modifier(SquareUnlessFullScreen(fullScreen: fullScreen))
+            .modifier(SquareUnlessFullScreen(fullScreen: fullScreen, aspect: naturalShape ? shapeAspect : 1))
             .contentShape(Rectangle())
             .onTapGesture { if animated, reduceMotion { playRequested.toggle() } }
             if toggle, let current { switcher(current) }
@@ -228,7 +231,20 @@ struct ExerciseAnimation: View {
         Task { await prepare() }
     }
 
+    /// Width / height of the current version: a video's own frame, square for animations.
+    private var shapeAspect: CGFloat {
+        if case .video = current?.kind { return videoAspect ?? 16 / 9 }
+        return 1
+    }
+
     private func prepare() async {
+        if case .video(let url) = current?.kind, naturalShape {
+            let asset = AVURLAsset(url: url)
+            if let track = try? await asset.loadTracks(withMediaType: .video).first,
+               let size = try? await track.load(.naturalSize), size.height > 0 {
+                videoAspect = max(1, min(2.2, size.width / size.height))
+            }
+        }
         switch current?.kind {
         case .classic:
             still = await GIFStore.shared.still(exerciseId)
@@ -300,12 +316,13 @@ private final class LandscapeHost<Content: View>: UIHostingController<Content> {
 
 private struct SquareUnlessFullScreen: ViewModifier {
     let fullScreen: Bool
+    var aspect: CGFloat = 1
 
     func body(content: Content) -> some View {
         if fullScreen {
             content.frame(maxWidth: .infinity, maxHeight: .infinity)
         } else {
-            content.aspectRatio(1, contentMode: .fit)
+            content.aspectRatio(aspect, contentMode: .fit)
         }
     }
 }

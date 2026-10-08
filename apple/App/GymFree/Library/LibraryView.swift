@@ -70,16 +70,20 @@ struct ExerciseList<Destination: View, Trailing: View>: View {
     var body: some View {
         List {
             Section {
-                VStack(alignment: .leading, spacing: 10) {
+                VStack(alignment: .leading, spacing: 12) {
                     ChipRow(allLabel: "All", options: catalog.bodyParts, selection: $bodyPart)
                     if let result, result.equipment.count > 1 {
                         ChipRow(allLabel: "Any equipment", options: result.equipment, selection: $equipment)
                     }
                     if result?.profile != nil || showAll {
                         Toggle(isOn: $showAll) {
-                            Text("Include equipment I don’t have").font(.footnote)
+                            Label("Include equipment I don’t have", systemImage: "dumbbell")
+                                .font(.subheadline)
                         }
-                        .padding(.horizontal)
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 6)
+                        .background(.quaternary.opacity(0.5), in: .rect(cornerRadius: 12))
+                        .padding(.horizontal, 16)
                     }
                 }
                 .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
