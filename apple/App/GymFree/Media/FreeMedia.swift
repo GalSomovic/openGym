@@ -219,12 +219,13 @@ struct FrameSequence: View {
     var body: some View {
         TimelineView(.periodic(from: .now, by: 0.8)) { ctx in
             let i = images.isEmpty || !playing ? 0 : Int(ctx.date.timeIntervalSinceReferenceDate / 0.8) % images.count
+            // Every frame stays in the stack and only its opacity changes: swapping views made the
+            // old picture vanish before the new one faded in, flashing black between steps.
             ZStack {
                 Color.black
-                if let im = images[safe: i] {
+                ForEach(Array(images.enumerated()), id: \.offset) { k, im in
                     Image(uiImage: im).resizable().scaledToFit()
-                        .transition(.opacity)
-                        .id(i)
+                        .opacity(k == i ? 1 : 0)
                 }
             }
             .animation(.easeInOut(duration: 0.25), value: i)

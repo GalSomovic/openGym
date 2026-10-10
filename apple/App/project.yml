@@ -66,7 +66,7 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.gsomovic.gymfree
         PRODUCT_NAME: GymFree
         INFOPLIST_KEY_CFBundleDisplayName: GymFree
-        TARGETED_DEVICE_FAMILY: "1,2"
+        TARGETED_DEVICE_FAMILY: "1"   # iPhone only for 1.0; iPad layouts come later
         GENERATE_INFOPLIST_FILE: YES
         INFOPLIST_KEY_UILaunchScreen_Generation: YES
         INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
